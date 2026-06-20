@@ -15,7 +15,11 @@
     --glow: 0 0 20px var(--accent);
     --radius: 16px;
     --radius-sm: 8px;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* FIXED: Explicit properties instead of 'all' to stop performance leaks */
+    --transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                  opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                  border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                  background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Reset and base styles */
@@ -38,27 +42,56 @@ body {
 }
 
 /* =========================
-   Background Canvas Animation
+   FIXED: High-Performance GPU Canvas Animation
    ========================= */
 .bg-canvas {
     position: fixed;
     inset: 0;
-    background: 
-        radial-gradient(circle at 20% 20%, var(--accent) 0%, transparent 40%),
-        radial-gradient(circle at 80% 80%, var(--accent-blue) 0%, transparent 40%),
-        linear-gradient(135deg, var(--bg-primary) 0%, #121214 100%);
-    background-size: 200% 200%;
-    animation: gradientFlow 15s ease infinite;
+    background: #0d0d0f;
     z-index: -1;
-    opacity: 0.65;
+    overflow: hidden;
 }
-@keyframes gradientFlow {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+
+/* Moving the glow orbs to layer elements using transform avoids full viewport repaints */
+.bg-canvas::before,
+.bg-canvas::after {
+    content: '';
+    position: absolute;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.22;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.bg-canvas::before {
+    background: var(--accent);
+    top: -10%;
+    left: -10%;
+    animation: floatOrb1 20s infinite alternate ease-in-out;
+}
+
+.bg-canvas::after {
+    background: var(--accent-blue);
+    bottom: -10%;
+    right: -10%;
+    animation: floatOrb2 20s infinite alternate ease-in-out;
+}
+
+@keyframes floatOrb1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(15%, 10%) scale(1.1); }
+}
+
+@keyframes floatOrb2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-15%, -10%) scale(1.1); }
 }
 
 /* =========================
-   Layout Containers (Fixed Smooth Lift Transitions)
+   Layout Containers
    ========================= */
 .container {
     max-width: 1200px;
@@ -76,16 +109,12 @@ body {
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    overflow: visible; /* Allows the full outer radial glow to render seamlessly */
-    
-    /* Forces the browser to calculate the transform transition on its own composite layer */
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: visible;
+    transition: var(--transition);
     will-change: transform, box-shadow;
 }
 
-/* Perfected Lift Bump & Glow - Matches every other card perfectly without jumping */
+/* Perfected Lift Bump & Glow */
 .hero-card:hover {
     transform: translateY(-6px);
     border-color: var(--accent-blue);
@@ -174,14 +203,11 @@ body {
     justify-content: flex-start;
 }
 
-/* Premium Aesthetic Social Buttons */
 .social-btn {
     width: 42px;
     height: 42px;
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.06);
     display: flex;
     align-items: center;
@@ -190,14 +216,12 @@ body {
     position: relative;
     overflow: hidden;
     padding: 0;
-    
     transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
                 border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
                 box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
                 background 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Fluid Hover State for Social Elements */
 .social-btn:hover {
     transform: translateY(-4px) scale(1.05);
     background: rgba(255, 255, 255, 0.08);
@@ -252,9 +276,6 @@ body {
     border-color: rgba(255, 255, 255, 0.25);
 }
 
-/* =========================
-   Glassmorphic Theme Picker Panel Fixed Bounds
-   ========================= */
 .theme-panel {
     position: fixed;
     top: 85px;
@@ -270,22 +291,15 @@ body {
     z-index: 9998;
     box-shadow: var(--shadow);
     transform-origin: top right;
-    
-    /* Smooth scaling parameters */
     transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), visibility 0.3s;
-    
-    /* Ensure interactive states are fully open by default */
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
 }
 
-/* The ultimate hidden state layout override */
 .theme-panel.hidden {
     opacity: 0 !important;
     transform: scale(0.8) translateY(-20px) !important;
-    
-    /* THE HARD FIX: Blocks mouse interactions entirely and tells layout engine to ignore it */
     visibility: hidden !important;
     pointer-events: none !important;
 }
@@ -331,7 +345,6 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Preset Picker Options */
 .theme-presets-grid {
     display: flex;
     gap: 12px;
@@ -343,13 +356,12 @@ body {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    border: none; /* Removed the physical border that causes the clipping clipping */
+    border: none;
     cursor: pointer;
     position: relative;
     transition: var(--transition);
     background-origin: border-box;
     background-clip: padding-box;
-    /* Subtle inner shadow to give it depth without squaring the edges */
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15), 0 2px 5px rgba(0,0,0,0.2);
 }
 
@@ -360,11 +372,9 @@ body {
 
 .preset-btn.active {
     transform: scale(1.08);
-    /* Clean white outline using double box-shadow layer instead of an HTML border */
     box-shadow: 0 0 0 2px #ffffff, 0 0 15px rgba(255, 255, 255, 0.35);
 }
 
-/* Custom Color Picker Masking */
 .custom-color-picker-wrapper {
     display: flex;
     align-items: center;
@@ -400,7 +410,6 @@ body {
     user-select: none;
 }
 
-/* Totally mask the native box element */
 #color-picker {
     position: absolute;
     opacity: 0;
@@ -412,7 +421,7 @@ body {
 }
 
 /* =========================
-   Discord Card Styles
+   Discord & Standard Cards Optimization
    ========================= */
 .discord-loading {
     display: none;
@@ -436,10 +445,9 @@ body {
     pointer-events: none;
 }
 
-/* Card container styles */
+/* FIXED: Changed to an opaque dark background to eliminate backdrop-blur rendering lag on scroll grids */
 .card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
+    background: rgba(20, 20, 22, 0.85);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 2rem;
@@ -468,7 +476,6 @@ body {
     z-index: 1;
 }
 
-/* Discord status card layout */
 .status-card {
     display: flex;
     align-items: center;
@@ -514,7 +521,7 @@ body {
 }
 
 /* =========================
-   Section & Card Styles
+   Section Titles & Skills
    ========================= */
 .section {
     margin-bottom: 4rem;
@@ -536,9 +543,6 @@ body {
     font-size: 1.1rem;
 }
 
-/* =========================
-   Skills & Projects
-   ========================= */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -588,9 +592,10 @@ hr {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
 }
+
+/* FIXED: Opaque backdrop swap */
 .project-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
+    background: rgba(20, 20, 22, 0.85);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     overflow: hidden;
@@ -616,6 +621,98 @@ hr {
 }
 .project-links {
     margin-top: 1rem;
+}
+
+/* =========================
+   Expertise Grid & Hover Tooltips
+   ========================= */
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* FIXED: High performance backgrounds */
+.expertise-card {
+    background: rgba(20, 20, 22, 0.85);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    cursor: default;
+    transition: var(--transition);
+}
+
+.expertise-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-blue);
+    box-shadow: var(--shadow), 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 15px var(--accent);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.expertise-icon {
+    font-size: 2.8rem;
+    margin-bottom: 1.2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: var(--transition);
+}
+
+.expertise-card:hover .expertise-icon {
+    transform: scale(1.15) translateY(-5px);
+}
+
+.expertise-card h3 {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.expertise-tooltip {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    background: rgba(13, 13, 14, 0.95);
+    border: 1px solid var(--border);
+    border-bottom: 3px solid var(--accent);
+    padding: 1.2rem;
+    border-radius: var(--radius-sm);
+    width: 260px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    text-align: center;
+    box-shadow: var(--shadow), 0 10px 30px rgba(0,0,0,0.6);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 100;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.expertise-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: var(--accent) transparent transparent transparent;
+}
+
+.expertise-card:hover .expertise-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
 }
 
 /* =========================
@@ -679,12 +776,6 @@ hr {
    Responsive Design Layouts
    ========================= */
 @media (max-width: 900px) {
-    .header {
-        padding: 2rem 0 1rem 0;
-        min-height: unset;
-        margin-bottom: 1.2rem;
-        height: auto;
-    }
     .hero-main {
         flex-direction: column;
         align-items: center;
@@ -708,7 +799,7 @@ hr {
     .container {
         padding: 0 1rem;
     }
-    .skills-grid, .projects-grid {
+    .skills-grid, .projects-grid, .expertise-grid {
         grid-template-columns: 1fr;
     }
     .status-card {
@@ -804,8 +895,7 @@ hr {
 }
 
 .older-project-card {
-    background: rgba(255, 255, 255, 0.015);
-    backdrop-filter: blur(10px);
+    background: rgba(20, 20, 22, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.04);
     border-radius: var(--radius);
     overflow: hidden;
@@ -815,10 +905,10 @@ hr {
 
 .older-project-card:hover {
     opacity: 1;
-    transform: translateY(-5px);
-    border-color: var(--accent-blue);
-    background: rgba(255, 255, 255, 0.03);
-    box-shadow: var(--shadow), 0 0 15px rgba(255, 230, 0, 0.1);
+    transform: translateY(-5px) !important;
+    border-color: var(--accent-blue) !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    box-shadow: var(--shadow), 0 0 15px rgba(255, 230, 0, 0.1) !important;
 }
 
 .older-project-card .project-content h3 {
@@ -847,31 +937,28 @@ hr {
    ========================= */
 .project-card, 
 .older-project-card {
-    transition: var(--transition) !important; /* Forces your custom cubic-bezier timing curves */
+    transition: var(--transition) !important;
 }
 
-.project-card:hover, 
-.older-project-card:hover {
-    transform: translateY(-10px) scale(1.02) !important;
-    border-color: var(--accent-blue) !important; /* Uses the secondary accent (e.g., Neon Cyan/Yellow) for the border outline */
+.project-card:hover {
+    transform: translateY(-8px) !important;
+    border-color: var(--accent-blue) !important; 
     background: rgba(255, 255, 255, 0.05) !important;
-    /* Combines your core card shadow with a drop glow tinted by your main active theme accent color */
-    box-shadow: var(--shadow), 0 0 30px var(--accent) !important; 
+    box-shadow: var(--shadow), 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent) !important; 
+    opacity: 1 !important; 
 }
 
 /* =========================
    Content Protection & Anti-Selection Styles
    ========================= */
-/* Disable text selection across the entire website */
 body, html, * {
-    -webkit-user-select: none;  /* Safari */
-    -moz-user-select: none;     /* Firefox */
-    -ms-user-select: none;      /* IE10+/Edge */
-    user-select: none;          /* Standard */
-    -webkit-tap-highlight-color: transparent; /* Disable mobile tap blue flash */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* Allow text highlighting inside your inputs/textareas if needed (like the color picker label inputs) */
 input, textarea {
     -webkit-user-select: text;
     -moz-user-select: text;
@@ -879,23 +966,17 @@ input, textarea {
     user-select: text;
 }
 
-/* Make all portfolio imagery un-selectable and un-draggable */
 img {
     -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    user-drag: none;
-    pointer-events: none; /* Blocks clicks directly targeting the image element */
+    pointer-events: none;
 }
 
-/* Ensure your text links, project cards, buttons, and custom theme panel elements can still be clicked normally */
 a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picker-wrapper, #color-picker {
     pointer-events: auto !important;
 }
 
 /* =========================
-   Kinetic Planetary Gear System (Smooth Mechanical Physics)
+   FIXED: Kinetic Planetary Gear System (Optimized Mechanics)
    ========================= */
 .mechanical-gear-assembly {
     position: relative;
@@ -905,8 +986,10 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
     display: flex;
     align-items: center;
     justify-content: center;
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.05));
     cursor: pointer;
+    /* Transition the entire container instead of nesting conflicting keyframe rules */
+    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
 }
 
 .gear {
@@ -916,11 +999,9 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
     align-items: center;
     justify-content: center;
     line-height: 1;
-    /* transition rules handle the physics acceleration curve on hover */
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), text-shadow 0.4s ease, color 0.3s ease;
+    will-change: transform;
 }
 
-/* Base continuous rotation speeds */
 .gear-sun {
     font-size: 3.5rem;
     color: var(--accent) !important;
@@ -931,17 +1012,14 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
 .gear-planet {
     font-size: 2.2rem;
     color: var(--accent-blue) !important;
-    /* Inverse mechanical tooth mesh spin ratio */
     animation: spinCounterClockwise 6s linear infinite;
     transform-origin: center center;
 }
 
-/* Perfect spatial positioning for tooth pitch engagement profiles */
 .planet-1 { --offset-x: 42px;  --offset-y: 0px;   transform: translate(var(--offset-x), var(--offset-y)); }
 .planet-2 { --offset-x: -21px; --offset-y: 36px;  transform: translate(var(--offset-x), var(--offset-y)); }
 .planet-3 { --offset-x: -21px; --offset-y: -36px; transform: translate(var(--offset-x), var(--offset-y)); }
 
-/* Standard continuous drivetrain animations */
 @keyframes spinClockwise {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
@@ -952,34 +1030,13 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
     to { transform: rotate(-360deg); }
 }
 
-/* =========================
-   Smoothed Mechanical Torque Accelerations
-   ========================= */
-/* When hovering over the drivetrain, instead of changing animation duration,
-   we introduce an extra mechanical rotation twist to simulate torque acceleration smoothly */
-.mechanical-gear-assembly:hover .gear-sun {
-    text-shadow: 0 0 25px var(--accent);
-    /* Injects a smooth extra forward rotation over the base infinite loop */
-    transform: rotate(360deg);
-}
-
-.mechanical-gear-assembly:hover .planet-1 {
-    text-shadow: 0 0 25px var(--accent-blue);
-    transform: translate(var(--offset-x), var(--offset-y)) rotate(-720deg);
-}
-
-.mechanical-gear-assembly:hover .planet-2 {
-    text-shadow: 0 0 25px var(--accent-blue);
-    transform: translate(var(--offset-x), var(--offset-y)) rotate(-720deg);
-}
-
-.mechanical-gear-assembly:hover .planet-3 {
-    text-shadow: 0 0 25px var(--accent-blue);
-    transform: translate(var(--offset-x), var(--offset-y)) rotate(-720deg);
+/* FIXED: Applying extra mechanical torque twist to the assembly container safely */
+.mechanical-gear-assembly:hover {
+    transform: rotate(180deg);
 }
 
 /* =========================
-   Loading Spinner
+   Loading Screen & Dividers
    ========================= */
 .loading-screen {
     position: fixed;
@@ -996,3 +1053,214 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
     visibility: hidden;
     pointer-events: none;
 }
+
+.aesthetic-divider {
+    border: 0;
+    height: 1px;
+    width: 85%;
+    margin: 4rem auto;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), var(--accent), rgba(255, 255, 255, 0.05), transparent);
+    position: relative;
+    overflow: visible;
+    opacity: 0.8;
+}
+
+.aesthetic-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 3px;
+    background: var(--accent-blue);
+    box-shadow: 0 0 15px var(--accent-blue), 0 0 30px var(--accent);
+    border-radius: 10px;
+}
+
+/* =========================
+   Contact Form Integration
+   ========================= */
+.contact-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.contact-form-side .hacker-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.form-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.2rem;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    outline: none;
+    resize: vertical;
+}
+
+.form-input::placeholder {
+    color: var(--text-muted);
+}
+
+.form-input:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+    color: var(--bg-primary);
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent);
+    filter: brightness(1.1);
+}
+
+@media (max-width: 768px) {
+    .contact-split {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+/* =========================
+   Performance Hardware Optimizations
+   ========================= */
+.card, 
+.project-card, 
+.older-project-card, 
+.expertise-card, 
+.hero-card {
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* =========================
+   Aesthetic Discord Status Indicator
+   ========================= */
+.discord-status-aesthetic {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+/* Online State: Solid Green Circle */
+.discord-status-aesthetic.status-online {
+    width: 18px;
+    height: 18px;
+    background-color: #39a659;
+    border-radius: 50%;
+    box-shadow: 0 0 14px rgba(57, 166, 89, 0.35);
+}
+
+/* Idle State: Yellow Crescent Moon */
+.discord-status-aesthetic.status-idle {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: transparent;
+    /* Generates an elegant aesthetic crescent vector profile natively via shadow depth */
+    box-shadow: -5px 5px 0 0 #e8a639;
+    transform: rotate(-15deg) translate(3px, -3px);
+}
+
+/* Do Not Disturb State: Red Circle with White Dash */
+.discord-status-aesthetic.status-dnd {
+    width: 18px;
+    height: 18px;
+    background-color: #f23f43;
+    border-radius: 50%;
+    box-shadow: 0 0 14px rgba(242, 63, 67, 0.35);
+}
+.discord-status-aesthetic.status-dnd::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 2.5px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Offline State: Thinner Gray Outline Donut Circle */
+.discord-status-aesthetic.status-offline {
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #80848e;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+
+/* =========================
+   NEW: THEME-SYNCED IN PROGRESS BADGE
+   ========================= */
+.in-progress-badge {
+    position: absolute;
+    bottom: 1.5rem; /* Moved from top to bottom */
+    right: 1.5rem;  
+    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+    color: var(--bg-primary); 
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    animation: badge-pulse 2s infinite alternate ease-in-out;
+}
+
+@keyframes badge-pulse {
+    0% { 
+        box-shadow: 0 0 5px var(--accent); 
+        transform: scale(1); 
+    }
+    100% { 
+        box-shadow: 0 0 15px var(--accent-blue), 0 0 25px var(--accent); 
+        transform: scale(1.03); 
+    }
+}
+
