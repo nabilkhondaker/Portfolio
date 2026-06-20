@@ -9,6 +9,9 @@ fetch('projects.json')
       // Style differently if it's an older project for visual hierarchy
       card.className = p.older ? "older-project-card" : "project-card";
       card.style.cursor = "pointer";
+      
+      // Ensure positioning context for the absolute positioned badge
+      card.style.position = "relative";
 
       // Card click handling
       card.addEventListener("click", (e) => {
@@ -29,7 +32,13 @@ fetch('projects.json')
         repoLinks = `<a href="${p.repo}" class="highlight-link" target="_blank" rel="noopener noreferrer">repo</a>`;
       }
 
+      // Dynamically generate the badge if marked as inProgress in the JSON
+      const badgeHTML = p.inProgress 
+        ? `<div class="in-progress-badge"><i class="fa-solid fa-screwdriver-wrench"></i> in progress</div>` 
+        : '';
+
       card.innerHTML = `
+        ${badgeHTML}
         <div class="project-content">
           <h3>${p.title}</h3>
           ${p.tag ? `<div class="project-tag">${p.tag}</div>` : ""}
