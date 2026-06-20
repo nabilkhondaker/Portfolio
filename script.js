@@ -12,8 +12,9 @@ class Portfolio {
         this.setupEmailCopy();        // Setup clean click-to-copy email mechanics
         this.setupThemePicker();      // Setup premium glass theme picker mechanics
     }
+    
     setupLoading() {
-        window.addEventListener('load', () => {
+        const removeLoader = () => {
             const loading = document.getElementById('loading');
             if (loading) {
                 setTimeout(() => {
@@ -21,8 +22,15 @@ class Portfolio {
                     setTimeout(() => loading.remove(), 500);
                 }, 1000);
             }
-        });
+        };
+
+        if (document.readyState === 'complete') {
+            removeLoader();
+        } else {
+            window.addEventListener('load', removeLoader, { passive: true });
+        }
     }
+
     setupSocialLinks() {
         const socialBtns = document.querySelectorAll('.social-btn[data-link]');
         socialBtns.forEach(btn => {
@@ -32,10 +40,11 @@ class Portfolio {
             });
         });
     }
+
     setupScrollAnimations() {
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.05, // Lower threshold for earlier execution
+            rootMargin: '0px 0px -30px 0px'
         };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -49,23 +58,18 @@ class Portfolio {
             observer.observe(el);
         });
     }
+
     setupProjectCards() {
-        const projectCards = document.querySelectorAll('.project-card');
-        projectCards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
-            });
-        });
+        // Handled via high performance CSS hover modifiers
     }
+
     setupFooterYear() {
         const yearSpan = document.getElementById('current-year');
         if (yearSpan) {
             yearSpan.textContent = new Date().getFullYear();
         }
     }
+
     setupEmailCopy() {
         const copyBtn = document.getElementById('copy-email-btn');
         const emailText = document.getElementById('email-text');
@@ -98,7 +102,6 @@ class Portfolio {
         const presetButtons = document.querySelectorAll('.preset-btn');
         const root = document.documentElement;
 
-        // Predefined Theme Palette Base Setup Map
         const themes = {
             gold: { accent: '#913700', secondary: '#ffe600', bg: '#0a0a0b' },
             cyber: { accent: '#ff0055', secondary: '#00ffcc', bg: '#05000a' },
@@ -107,16 +110,24 @@ class Portfolio {
             crimson: { accent: '#910000', secondary: '#ff4d4d', bg: '#0a0000' }
         };
 
-        // UI Sync Function with Automatic Contrast Calculator Rules
-        const applyThemeStyles = (accentColor, secondaryColor, backgroundColor = '#0a0a0b') => {
+        // Flag to prevent event processing recursion loops
+        let isUpdating = false;
+
+        const applyThemeStyles = (accentColor, secondaryColor, backgroundColor = '#0a0a0b', skipInputUpdate = false) => {
+            if (isUpdating) return;
+            isUpdating = true;
+
             root.style.setProperty('--accent', accentColor);
             root.style.setProperty('--accent-blue', secondaryColor);
             root.style.setProperty('--bg-primary', backgroundColor);
             
             if (colorPreview) colorPreview.style.background = accentColor;
-            if (colorPicker) colorPicker.value = accentColor;
+            
+            // Only update DOM input control element if not triggered natively from the picker
+            if (colorPicker && !skipInputUpdate) {
+                colorPicker.value = accentColor;
+            }
 
-            // Extract channels to calculate human relative luminance contrast values
             const cleanHex = accentColor.replace('#', '');
             const r = parseInt(cleanHex.substring(0, 2), 16);
             const g = parseInt(cleanHex.substring(2, 4), 16);
@@ -124,21 +135,21 @@ class Portfolio {
             const brightness = (r * 299 + g * 587 + b * 114) / 1000;
 
             if (brightness > 165) {
-                // Background accent gets light: turn site text colors dark for visibility
                 root.style.setProperty('--text-primary', '#111112');
                 root.style.setProperty('--text-secondary', '#333336');
                 root.style.setProperty('--border', 'rgba(0, 0, 0, 0.15)');
             } else {
-                // Background accent is dark: fallback to standard crisp dark mode settings
                 root.style.setProperty('--text-primary', '#ffffff');
                 root.style.setProperty('--text-secondary', '#b3b3b3');
                 root.style.setProperty('--border', 'rgba(255, 255, 255, 0.08)');
             }
+            
+            isUpdating = false;
         };
 
-        // Open/Close toggle visibility controls
         if (themeBtn && themePanel) {
-            themeBtn.addEventListener('click', () => {
+            themeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
                 themePanel.classList.toggle('hidden');
             });
         }
@@ -149,14 +160,12 @@ class Portfolio {
             });
         }
 
-        // Close panel layout space if clicking out elsewhere
         document.addEventListener('click', (e) => {
             if (themePanel && themeBtn && !themePanel.contains(e.target) && !themeBtn.contains(e.target)) {
                 themePanel.classList.add('hidden');
             }
-        });
+        }, { passive: true });
 
-        // Loop over presets to capture events
         presetButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 presetButtons.forEach(b => b.classList.remove('active'));
@@ -166,36 +175,39 @@ class Portfolio {
                 const config = themes[targetName];
 
                 if (config) {
-                    applyThemeStyles(config.accent, config.secondary, config.bg);
+                    applyThemeStyles(config.accent, config.secondary, config.bg, false);
                     localStorage.setItem('site-theme-custom', JSON.stringify(config));
                 }
             });
         });
 
-        // Listener hook targeting the stylized custom masked color picker button
         if (colorPicker) {
+            // Debounce/throttle rendering utilizing RequestAnimationFrame 
+            let rafTimeout;
             colorPicker.addEventListener('input', (e) => {
                 presetButtons.forEach(b => b.classList.remove('active'));
                 
                 const customAccent = e.target.value;
-                const customSecondary = '#ffffff'; // Injected white background tint logic 
+                const customSecondary = '#ffffff';
 
-                applyThemeStyles(customAccent, customSecondary, '#0a0a0b');
+                if (rafTimeout) cancelAnimationFrame(rafTimeout);
 
-                localStorage.setItem('site-theme-custom', JSON.stringify({
-                    accent: customAccent,
-                    secondary: customSecondary,
-                    bg: '#0a0a0b'
-                }));
+                rafTimeout = requestAnimationFrame(() => {
+                    applyThemeStyles(customAccent, customSecondary, '#0a0a0b', true);
+                    localStorage.setItem('site-theme-custom', JSON.stringify({
+                        accent: customAccent,
+                        secondary: customSecondary,
+                        bg: '#0a0a0b'
+                    }));
+                });
             });
         }
 
-        // Hydrating states from storage safely across reload windows
         const savedCustomConfig = localStorage.getItem('site-theme-custom');
         if (savedCustomConfig) {
             try {
                 const parsed = JSON.parse(savedCustomConfig);
-                applyThemeStyles(parsed.accent, parsed.secondary, parsed.bg);
+                applyThemeStyles(parsed.accent, parsed.secondary, parsed.bg, false);
                 
                 presetButtons.forEach(b => {
                     if (themes[b.dataset.theme]?.accent === parsed.accent) {
@@ -208,17 +220,99 @@ class Portfolio {
                 console.error("Theme configuration mapping issue on startup:", e);
             }
         }
-        
     }
 }
 
-// Global initialization setup execution parameters
+async function updateDiscordCard() {
+    const statusCard = document.querySelector('.status-card');
+    const statusAvatar = document.querySelector('.status-avatar');
+    const statusDot = document.querySelector('.discord-status-dot');
+    const statusIndicator = document.getElementById('discord-status-indicator');
+    const statusName = document.querySelector('.status-info h3');
+    const statusText = document.querySelector('.status-info p');
+    
+    const userId = "1056634135961153576";
+    
+    if (statusCard) statusCard.classList.add('loading');
+    
+    try {
+        const response = await fetch(`https://api.lanyard.rest/v1/users/${userId}`);
+        if (!response.ok) throw new Error('Network status payload mismatch error');
+        
+        const data = await response.json();
+        
+        if (data.success && data.data) {
+            const presence = data.data;
+            const currentStatus = presence.discord_status || 'offline';
+            
+            if (statusAvatar && presence.discord_user.avatar) {
+                const targetSrc = `https://cdn.discordapp.com/avatars/${userId}/${presence.discord_user.avatar}.png?size=128`;
+                if (statusAvatar.src !== targetSrc) {
+                    statusAvatar.src = targetSrc;
+                    statusAvatar.alt = `${presence.discord_user.global_name || presence.discord_user.username}'s Profile`;
+                }
+            }
+            
+            if (statusName) {
+                const targetName = presence.discord_user.global_name || presence.discord_user.username;
+                if (statusName.textContent !== targetName) statusName.textContent = targetName;
+            }
+            
+            if (statusDot) {
+                let statusColor = '#80848e';
+                switch (currentStatus) {
+                    case 'online': statusColor = '#23a55a'; break;
+                    case 'idle':   statusColor = '#f0b232'; break;
+                    case 'dnd':    statusColor = '#f23f43'; break;
+                    default:       statusColor = '#80848e';
+                }
+                if (statusDot.style.backgroundColor !== statusColor) {
+                    statusDot.style.backgroundColor = statusColor;
+                }
+            }
+            
+            if (statusIndicator) {
+                const targetClass = `discord-status-aesthetic status-${currentStatus}`;
+                if (statusIndicator.className !== targetClass) {
+                    statusIndicator.className = targetClass;
+                }
+            }
+            
+            if (statusText) {
+                let newText = '';
+                if (presence.custom_status) {
+                    if (presence.custom_status.emoji && presence.custom_status.emoji.name) {
+                        newText += presence.custom_status.emoji.name + ' ';
+                    }
+                    newText += presence.custom_status.text || '';
+                    newText = newText.trim() || 'Active now';
+                } else if (presence.activities && presence.activities.length > 0) {
+                    const activeGame = presence.activities.find(act => act.type !== 4);
+                    newText = activeGame ? `Playing ${activeGame.name}` : currentStatus.toUpperCase();
+                } else {
+                    newText = currentStatus === 'offline' ? 'offline right now' : 'online / active';
+                }
+                if (statusText.textContent !== newText) statusText.textContent = newText;
+            }
+        }
+    } catch (err) {
+        console.error("Lanyard payload syncing optimization abort:", err);
+        if (statusText) statusText.textContent = "unable to sync live transmission";
+        if (statusIndicator) {
+            statusIndicator.className = 'discord-status-aesthetic status-offline';
+        }
+    } finally {
+        if (statusCard) statusCard.classList.remove('loading');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     new Portfolio();
-    updateDiscordCard();
+    if (typeof updateDiscordCard === 'function') {
+        updateDiscordCard();
+    }
 });
 
-// Smooth window scrolling anchors handler link tags
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -231,67 +325,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-// Fetch and update Discord profile details automatically using live Lanyard profiles
-async function updateDiscordCard() {
-    const card = document.querySelector('.status-card');
-    if (!card) return;
-    card.classList.add('loading');
-
-    try {
-        const userId = "1056634135961153576";
-        const res = await fetch(`https://api.lanyard.rest/v1/users/${userId}`);
-        if (!res.ok) throw new Error("Network response was not ok");
-        
-        const data = await res.json();
-        if (!data.success) throw new Error("API returned unsuccessful response");
-
-        const user = data.data.discord_user;
-        const status = data.data.discord_status;
-        
-        const avatarUrl = user.avatar
-            ? `https://cdn.discordapp.com/avatars/${userId}/${user.avatar}.png?size=512`
-            : "https://raw.githubusercontent.com/1200nabil/portfolio/refs/heads/main/favicon/web-app-manifest-512x512.png";
-            
-        const displayName = user.global_name || user.username;
-        const customStatus = data.data.activities.find(a => a.type === 4)?.state || "";
-
-        const statusTitle = document.querySelector('.status-info h3');
-        const statusText = document.querySelector('.status-info p');
-        const statusAvatarImg = document.querySelector('.status-avatar');
-        const heroAvatar = document.querySelector('.avatar');
-
-        if (statusTitle) statusTitle.textContent = displayName;
-        if (statusAvatarImg) statusAvatarImg.src = avatarUrl;
-        if (heroAvatar) heroAvatar.src = avatarUrl;
-        if (statusText) {
-            statusText.textContent = customStatus || (status.charAt(0).toUpperCase() + status.slice(1));
-        }
-
-        const icon = document.querySelector('.discord-icon');
-        let color = "#686868"; // Default color assignment (offline indicator style)
-        if (status === "online") color = "#23a55a";
-        else if (status === "idle") color = "#faa61a";
-        else if (status === "dnd") color = "#ed4245";
-        
-        if (icon) icon.style.color = color;
-
-        let dot = document.querySelector('.discord-status-dot');
-        const avatarWrapper = document.querySelector('.status-avatar-wrapper');
-        if (!dot && avatarWrapper) {
-            dot = document.createElement('span');
-            dot.className = 'discord-status-dot';
-            avatarWrapper.appendChild(dot);
-        }
-        if (dot) dot.style.background = color;
-
-    } catch (error) {
-        console.error("Discord card fetch error:", error);
-        const statusTitle = document.querySelector('.status-info h3');
-        const statusText = document.querySelector('.status-info p');
-        if (statusTitle) statusTitle.textContent = "Unavailable";
-        if (statusText) statusText.textContent = "Could not load Discord status.";
-    } finally {
-        card.classList.remove('loading');
-    }
-}
