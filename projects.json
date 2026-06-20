@@ -1,69 +1,83 @@
 [
-  {
-    "title": "2R planar robot paddle <i class=\"fab fa-python\"></i>",
-    "tag": "physical automated robotic arm using inverse kinematics",
-    "description": "mechatronics 2R planar arm playing a game similar to air hockey or Pong, programmed in native Python",
-    "repo": "https://github.com/nabilkhondaker/TabletopPlanarArm",
-    "link": "https://nabilkhondaker.github.io/TabletopPlanarArm/"
-  },
-  {
-    "title": "fea playground 2D <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
-    "tag": "hardware-accelerated 2D finite element analysis Solver",
-    "description": "an browser-native computational mechanics suite built to model, solve, and visualize 2D elastic truss and frame structures in real time",
-    "repo": "https://github.com/nabilkhondaker/FEAPlayground2D",
-    "link": "https://nabilkhondaker.github.io/FEAPlayground2D/"
-  },
-  {
-    "title": "kinematicsJS <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
-    "tag": "interactive kinematics & physics engine",
-    "description": "a fun, interactive engine to view kinematic and inverse kinematic data in real time",
-    "repo": "https://github.com/nabilkhondaker/KinematicsJS",
-    "link": "https://nabilkhondaker.github.io/KinematicsJS/"
-  },
-  {
-    "title": "nabilgames <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
-    "tag": "unblocked games website",
-    "description": "a complete, online games website with classic games with over 350 apps & games",
-    "repo": "https://github.com/nabilkhondaker/nabilkhondaker.github.io",
-    "link": "https://nabilkhondaker.github.io/",
-    "older": true
-  },
-  {
-    "title": "terror selfbot <i class=\"fab fa-python\"></i>",
-    "tag": "an automated discord selfbot",
-    "description": "turn your discord account into a selfbot that can go upon advanced actions with the correct permissions",
-    "repo": "https://github.com/nabilkhondaker/terror-selfbot",
-    "older": true
-  },
-  {
-    "title": "name scraper <i class=\"fab fa-python\"></i>",
-    "tag": "tool for rare usernames",
-    "description": "scrape words/names from an input list and see which are available for use on platforms",
-    "repo": "https://github.com/nabilkhondaker/NameScraper",
-    "older": true
-  },
-    {
-    "title": "roboSIM <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
-    "tag": "a kinematics robotic arm model",
-    "description": "view live data, telemetry, and angle information on a static robotic arm model",
-    "repo": "https://github.com/nabilkhondaker/RoboSIM",
-    "link": "https://nabilkhondaker.github.io/RoboSIM",
-        "older": true
-  },
-  {
-    "title": "nitro generator <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
-    "tag": "discord nitro generator",
-    "description": "generate infinite quantities of unchecked discord nitro code links, which can then be exported",
-    "repo": "https://github.com/nabilkhondaker/NitroGenerator",
-    "link": "https://nabilkhondaker.github.io/NitroGenerator",
-    "older": true
-  },
-  {
-    "title": "the distraction hub <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
-    "tag": "parody web app",
-    "description": "a totally real productivity site. not distracting at all. as productive as it gets.",
-    "repo": "https://github.com/nabilkhondaker/TheDistractionHub/",
-    "link": "https://nabilkhondaker.github.io/TheDistractionHub",
-    "older": true
-  }
+   {
+      "title":"cfd solver <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
+      "tag":"a computational fluid dynamics mini-solver made in js",
+      "description":"a high-performance Lattice Boltzmann Method (LBM) fluid dynamics solver built for the web, simulates real-time fluid structure",
+      "repo":"https://github.com/nabilkhondaker/CFDSolve",
+      "link":"https://nabilkhondaker.github.io/CFDSolve/",
+      "inProgress":true
+   },
+   {
+      "title":"fea generative cto engine <i class=\"fab fa-python\"></i>",
+      "tag":"custom physics engine that strips away material to find the ultimate structural shape",
+      "description":"built a 2D generative design engine from scratch to figure out how the math behind aerospace lightweighting actually works",
+      "repo":"https://github.com/nabilkhondaker/FEAGenerative"
+   },
+   {
+      "title":"fea playground 2D <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
+      "tag":"hardware-accelerated 2D finite element analysis Solver",
+      "description":"an browser-native computational mechanics suite built to model, solve, and visualize 2D elastic truss and frame structures in real time",
+      "repo":"https://github.com/nabilkhondaker/FEAPlayground2D",
+      "link":"https://nabilkhondaker.github.io/FEAPlayground2D/"
+   },
+   {
+      "title":"2R planar robot paddle <i class=\"fab fa-python\"></i>",
+      "tag":"physical automated robotic arm using inverse kinematics",
+      "description":"mechatronics 2R planar arm playing a game similar to air hockey or pong, programmed in native python",
+      "repo":"https://github.com/nabilkhondaker/TabletopPlanarArm",
+      "link":"https://nabilkhondaker.github.io/TabletopPlanarArm/"
+   },
+   {
+      "title":"kinematicsJS <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
+      "tag":"interactive kinematics & physics engine",
+      "description":"a fun, interactive engine to view kinematic and inverse kinematic data in real time",
+      "repo":"https://github.com/nabilkhondaker/KinematicsJS",
+      "link":"https://nabilkhondaker.github.io/KinematicsJS/"
+   },
+   {
+      "title":"nabilgames <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
+      "tag":"unblocked games website",
+      "description":"a complete, online games website with classic games with over 350 apps & games",
+      "repo":"https://github.com/nabilkhondaker/nabilkhondaker.github.io",
+      "link":"https://nabilkhondaker.github.io/",
+      "older":true
+   },
+   {
+      "title":"terror selfbot <i class=\"fab fa-python\"></i>",
+      "tag":"an automated discord selfbot",
+      "description":"turn your discord account into a selfbot that can go upon advanced actions with the correct permissions",
+      "repo":"https://github.com/nabilkhondaker/terror-selfbot",
+      "older":true
+   },
+   {
+      "title":"name scraper <i class=\"fab fa-python\"></i>",
+      "tag":"tool for rare usernames",
+      "description":"scrape words/names from an input list and see which are available for use on platforms",
+      "repo":"https://github.com/nabilkhondaker/NameScraper",
+      "older":true
+   },
+   {
+      "title":"roboSIM <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
+      "tag":"a kinematics robotic arm model",
+      "description":"view live data, telemetry, and angle information on a static robotic arm model",
+      "repo":"https://github.com/nabilkhondaker/RoboSIM",
+      "link":"https://nabilkhondaker.github.io/RoboSIM",
+      "older":true
+   },
+   {
+      "title":"nitro generator <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
+      "tag":"discord nitro generator",
+      "description":"generate infinite quantities of unchecked discord nitro code links, which can then be exported",
+      "repo":"https://github.com/nabilkhondaker/NitroGenerator",
+      "link":"https://nabilkhondaker.github.io/NitroGenerator",
+      "older":true
+   },
+   {
+      "title":"the distraction hub <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
+      "tag":"parody web app",
+      "description":"a totally real productivity site. not distracting at all. as productive as it gets.",
+      "repo":"https://github.com/nabilkhondaker/TheDistractionHub/",
+      "link":"https://nabilkhondaker.github.io/TheDistractionHub",
+      "older":true
+   }
 ]
