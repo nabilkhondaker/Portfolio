@@ -38,6 +38,44 @@ A fun, interactive engine to view kinematic and inverse kinematic data in real t
 Built a 2D generative design engine from scratch to explore lightweight structural optimization.  
 [Repo](https://github.com/nabilkhondaker/FEAGenerative)
 
+## Skills & Expertise
+
+<details>
+<summary><strong>Computational Mechanics & Simulation</strong></summary>
+
+I leverage python and c++ to automate complex FEA and CFD workflows, building custom scripts to validate structural integrity faster than relying on out-of-the-box software.
+</details>
+
+<details>
+<summary><strong>Generative Design & Topology Optimization</strong></summary>
+
+Fusing advanced CAD with algorithmic thinking to drive material efficiency; I use programmatic logic to rapidly iterate through design spaces for peak structural performance.
+</details>
+
+<details>
+<summary><strong>Robotics & Kinematic Modeling</strong></summary>
+
+Bridging the software-hardware divide. Developing robust kinematic models and real-time control systems using C++ and Lua for precise, responsive manipulation.
+</details>
+
+<details>
+<summary><strong>Software Development for Engineering</strong></summary>
+
+I build custom tools and data pipelines to eliminate bottlenecks; fluent in Python, C++, and full web stacks (HTML/CSS/JS) to streamline testing and automate daily analysis.
+</details>
+
+<details>
+<summary><strong>Cyber-Physical Security</strong></summary>
+
+Applying white-hat hacking methodologies to secure industrial control systems, I ensure that smart hardware and mechanical systems remain impenetrable against digital vulnerabilities
+</details>
+
+<details>
+<summary><strong>Prototyping & Hands-on Engineering</strong></summary>
+
+By translating complex code and digital CAD models into physical reality, I combine rapid software iteration with hands-on fabrication to rigorously test and validate engineering concepts
+</details>
+
 ## Older Archive
 
 - **NabilGames** — Unblocked games website with 350+ classic titles. [Demo](https://nabilkhondaker.github.io/)
@@ -45,15 +83,6 @@ Built a 2D generative design engine from scratch to explore lightweight structur
 - **Name Scraper** — Tool for hunting rare usernames across platforms. [Repo](https://github.com/nabilkhondaker/NameScraper)
 - **RoboSIM** — Live kinematics robotic arm model. [Demo](https://nabilkhondaker.github.io/RoboSIM)
 - And more...
-
-## Skills & Expertise
-
-- **Computational Mechanics & Simulation** (Python, C++)
-- **Generative Design & Topology Optimization**
-- **Robotics & Kinematic Modeling**
-- **Software Development for Engineering**
-- **Cyber-Physical Security**
-- **Prototyping & Hands-on Fabrication**
 
 ## Contact
 
