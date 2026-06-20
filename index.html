@@ -8,10 +8,10 @@
     <meta name="author" content="nabil khondaker">
     <title>nabil khondaker</title>
 
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/1200nabil/portfolio/refs/heads/main/favicon/favicon.ico" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/1200nabil/portfolio/refs/heads/main/favicon/favicon.ico" />
-    <link rel="shortcut icon" href="https://raw.githubusercontent.com/1200nabil/portfolio/refs/heads/main/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/1200nabil/portfolio/refs/heads/main/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="favicon/nabilkhondaker.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon/nabilkhondaker.png" />
+    <link rel="shortcut icon" href="favicon/nabilkhondaker.png" />
+    <link rel="apple-touch-icon" href="favicon/nabilkhondaker.png" />
     <meta name="apple-mobile-web-app-title" content="nabil" />
     <link rel="manifest" href="https://raw.githubusercontent.com/1200nabil/portfolio/refs/heads/main/favicon/site.webmanifest" />
 
@@ -60,12 +60,12 @@
 
     <div class="container main-content">
         <!-- FIXED HEADER WRAPPERS -->
-<header class="section fade-in" style="margin-top: 2rem; margin-bottom: 2rem;">
+        <header class="section fade-in" style="margin-top: 2rem; margin-bottom: 2rem;">
             <div class="hero-card">
                 <div class="hero">
                     <div class="hero-main">
                         <div class="avatar-container">
-                            <img src="https://raw.githubusercontent.com/1200nabil/portfolio/refs/heads/main/favicon/web-app-manifest-512x512.png" alt="Nabil Khondaker's Avatar" class="avatar" loading="eager">
+                            <img src="favicon/nabilkhondaker_fullsize.jpg" alt="Nabil Khondaker's Avatar" class="avatar" loading="eager">
                         </div>
                         <div class="hero-info">
                             <h1 class="hero-title text-gradient">nabil khondaker</h1>
@@ -81,25 +81,28 @@
                 </div>
             </div>
         </header>
-
-        <!-- FIXED DISCORD CONTAINER WITH CARD CLASS -->
-        <section id="discord" class="section fade-in">
-            <div class="card status-card">
-                <div class="card-content status-content" style="display: flex; align-items: center; gap: 1rem; width: 100%;">
-                    <div class="status-avatar-wrapper">
-                        <img src="" alt="Discord Avatar" class="status-avatar">
-                    </div>
-                    <div class="status-info">
-                        <h3>Loading...</h3>
-                        <p>Fetching user activity</p>
-                    </div>
-                    <div class="discord-loading"></div>
-                    <div class="discord-icon-wrapper" style="margin-left: auto;">
-                        <i class="fa-brands fa-discord discord-icon"></i>
-                    </div>
+<!-- FIXED DISCORD CONTAINER WITH CARD CLASS -->
+<section id="status" class="section fade-in">
+    <div class="card status-card" style="cursor: default;">
+        <div class="card-content" style="display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; width: 100%;">
+            
+            <div class="status-left" style="display: flex; align-items: center; gap: 1.5rem;">
+                <div class="status-avatar-wrapper">
+                    <img src="" alt="Nabil" class="status-avatar">
+                </div>
+                <div class="status-info">
+                    <h3>nabil khondaker</h3>
+                    <p>building historys first homemade nuclear weapon...</p>
                 </div>
             </div>
-        </section>
+
+            <div class="discord-status-aesthetic" id="discord-status-indicator"></div>
+            
+        </div>
+    </div>
+</section>
+
+        <hr class="aesthetic-divider fade-in">
 
         <div class="mechanical-gear-assembly" id="gear-system">
             <div class="gear gear-sun"><i class="fa-solid fa-gear"></i></div>
@@ -107,6 +110,62 @@
             <div class="gear gear-planet planet-2"><i class="fa-solid fa-gear"></i></div>
             <div class="gear gear-planet planet-3"><i class="fa-solid fa-gear"></i></div>
         </div>
+
+        <!-- NEW SKILLS & EXPERTISE SECTION -->
+        <section id="expertise" class="section fade-in">
+            <h2 class="section-title">skills & expertise</h2>
+            <div class="expertise-grid">
+                
+                <div class="expertise-card">
+                    <div class="expertise-icon"><i class="fa-solid fa-square-root-variable"></i></div>
+                    <h3>computational mechanics & simulation</h3>
+                    <div class="expertise-tooltip">
+                        i leverage python and c++ to automate complex FEA and CFD workflows, building custom scripts to validate structural integrity faster than relying on out-of-the-box software
+                    </div>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="expertise-icon"><i class="fa-solid fa-bezier-curve"></i></div>
+                    <h3>generative design & topology optimization</h3>
+                    <div class="expertise-tooltip">
+                        fusing advanced CAD with algorithmic thinking to drive material efficiency; i use programmatic logic to rapidly iterate through design spaces for peak structural performance
+                    </div>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="expertise-icon"><i class="fa-solid fa-robot"></i></div>
+                    <h3>robotics & kinematic modeling</h3>
+                    <div class="expertise-tooltip">
+                        bridging the software-hardware divide. eveloping robust kinematic models and real-time control systems using c++ and lua for precise, responsive manipulation
+                    </div>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="expertise-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3>software development for engineering</h3>
+                    <div class="expertise-tooltip">
+                        i build custom tools and data pipelines to eliminate bottlenecks; fluent in python, c++, and full web stacks (html/css/js) to streamline testing and automate daily analysis
+                    </div>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="expertise-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>cyber-physical security</h3>
+                    <div class="expertise-tooltip">
+                        applying white-hat hacking methodologies to secure industrial control systems, i ensure that smart hardware and mechanical systems remain impenetrable against digital vulnerabilities
+                    </div>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="expertise-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                    <h3>prototyping & hands-on engineering</h3>
+                    <div class="expertise-tooltip">
+                        by translating complex code and digital CAD models into physical reality, i combine rapid software iteration with hands-on fabrication to rigorously test and validate engineering concepts
+                    </div>
+                </div>
+
+            </div>
+        </section>
 
         <section id="about" class="section fade-in">
             <h2 class="section-title">about me</h2>
@@ -118,6 +177,8 @@
                 </div>
             </div>
         </section>
+
+        <hr class="aesthetic-divider fade-in">
 
         <section id="projects" class="section fade-in">
             <h2 class="section-title">featured projects</h2>
@@ -131,10 +192,17 @@
             <div class="older-projects-grid" id="older-projects-container"></div>
         </section>
 
+        <hr class="aesthetic-divider fade-in">
+
         <section id="contact" class="section fade-in">
-            <h2 class="section-title">contact me</h2>
-            <div class="card">
-                <div class="card-content">
+    <h2 class="section-title">contact me</h2>
+    <div class="card">
+        <div class="card-content">
+            <div class="contact-split">
+                
+                <!-- Left Side: Your Existing Contact Info -->
+                <div class="contact-info-side">
+                    <h3 style="margin-bottom: 1rem; color: var(--text-primary); font-size: 1.3rem;">find me online!</h3>
                     <div class="about-text contact-info">
                         <p>
                             <strong><i class="fa-solid fa-envelope"></i> </strong> 
@@ -143,12 +211,43 @@
                                 <i class="fa-regular fa-copy"></i>
                             </button>
                         </p>
-                        <p><strong><i class="fa-brands fa-instagram"></i> </strong> <a href="https://www.instagram.com/ind7kuh/" class="highlight-link" target="_blank" rel="noopener noreferrer">@ind7kuh</a></p>
+                        <p><strong><i class="fa-brands fa-instagram"></i> </strong> <a href="https://www.instagram.com/ind7kuh/" class="highlight-link" target="_blank" rel="noopener noreferrer">@tripledeuce_</a></p>
+                        <p><strong><i class="fa-brands fa-github"></i> </strong> <a href="https://github.com/nabilkhondaker" class="highlight-link" target="_blank" rel="noopener noreferrer">@nabilkhondaker</a></p>
                         <p><strong><i class="fa-brands fa-discord"></i> </strong> <a href="https://discord.com/users/1056634135961153576" class="highlight-link" target="_blank" rel="noopener noreferrer">@ind7kuh</a></p>
                     </div>
                 </div>
+
+                <!-- Right Side: The Form -->
+                <div class="contact-form-side">
+                    <!-- Don't forget to put your free Web3Forms access key in the value below -->
+                    <form action="https://api.web3forms.com/submit" method="POST" class="hacker-form">
+                        <input type="hidden" name="access_key" value="739f3965-68c0-4216-8e25-f94bfc393286">
+                        
+                        <div class="input-wrapper">
+                            <input type="text" name="name" required placeholder="your name" class="form-input">
+                        </div>
+<div class="input-wrapper">
+                                    <!-- FIXED: Added pattern regex requirement and clear validation title error message -->
+                                    <input type="email" name="email" required placeholder="your email" class="form-input" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address ending with a proper extension (e.g., user@gmail.com or name@domain.co)">
+                                </div>
+                        <div class="input-wrapper">
+                            <textarea name="message" rows="4" required placeholder="your message" class="form-input"></textarea>
+                        </div>
+                        
+                        <!-- Redirects the user back to your portfolio after submitting -->
+                        <input type="hidden" name="redirect" value="https://nabilkd.com">
+                        
+                        <button type="submit" class="submit-btn">
+    <span>send to big bro</span>
+    <i class="fa-solid fa-paper-plane"></i>
+</button>
+                    </form>
+                </div>
+
             </div>
-        </section>
+        </div>
+    </div>
+</section>
     </div>
 
     <footer class="footer">
