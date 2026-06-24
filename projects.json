@@ -28,6 +28,12 @@
       "link":"https://nabilkhondaker.github.io/TabletopPlanarArm/"
    },
    {
+      "title":"renewable energy sim <i class=\"fab fa-python\"></i>",
+      "tag":"enterprise python renewable energy microgrid simulator",
+      "description":"enterprise-grade python sim and interactive web dashboard for renewable energy microgrids using real-world weather data",
+      "repo":"https://github.com/nabilkhondaker/RenewableEnergySim"
+   },
+   {
       "title":"kinematicsJS <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
       "tag":"interactive kinematics & physics engine",
       "description":"a fun, interactive engine to view kinematic and inverse kinematic data in real time",
