@@ -16,8 +16,11 @@
     <link rel="manifest" href="https://raw.githubusercontent.com/1200nabil/portfolio/refs/heads/main/favicon/site.webmanifest" />
 
     <link rel="stylesheet" href="style.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://jsdelivr.net" />
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -60,7 +63,6 @@
     <div class="bg-canvas"></div>
 
     <div class="container main-content">
-        <!-- FIXED HEADER WRAPPERS -->
         <header class="section fade-in" style="margin-top: 2rem; margin-bottom: 2rem;">
             <div class="hero-card">
                 <div class="hero">
@@ -73,6 +75,7 @@
                             <p class="hero-subtitle">developer, tech enthusiast, and an aspiring engineer</p>
                             <div class="social-grid">
                                 <button class="social-btn" data-link="https://github.com/nabilkhondaker" title="GitHub"><i class="fa-brands fa-github"></i></button>
+                                <button class="social-btn" data-link="https://codeberg.org/nabilkd" title="Codeberg"><i class="fa-codeberg-custom"></i></button>
                                 <button class="social-btn" data-link="https://discord.com/users/1056634135961153576" title="Discord"><i class="fa-brands fa-discord"></i></button>
                             </div>
                         </div>
@@ -80,26 +83,26 @@
                 </div>
             </div>
         </header>
-<!-- FIXED DISCORD CONTAINER WITH CARD CLASS -->
-<section id="status" class="section fade-in">
-    <div class="card status-card" style="cursor: default;">
-        <div class="card-content" style="display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; width: 100%;">
-            
-            <div class="status-left" style="display: flex; align-items: center; gap: 1.5rem;">
-                <div class="status-avatar-wrapper">
-                    <img src="favicon/nabilkhondaker_fullsize.jpg" alt="Nabil" class="status-avatar">
-                </div>
-                <div class="status-info">
-                    <h3>nabil khondaker</h3>
-                    <p>building historys first homemade nuclear weapon...</p>
+
+        <section id="status" class="section fade-in">
+            <div class="card status-card" style="cursor: default;">
+                <div class="card-content" style="display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; width: 100%;">
+                    
+                    <div class="status-left" style="display: flex; align-items: center; gap: 1.5rem;">
+                        <div class="status-avatar-wrapper">
+                            <img src="favicon/nabilkhondaker_fullsize.jpg" alt="Nabil" class="status-avatar">
+                        </div>
+                        <div class="status-info">
+                            <h3>nabil khondaker</h3>
+                            <p>building historys first homemade nuclear weapon...</p>
+                        </div>
+                    </div>
+
+                    <div class="discord-status-aesthetic" id="discord-status-indicator"></div>
+                    
                 </div>
             </div>
-
-            <div class="discord-status-aesthetic" id="discord-status-indicator"></div>
-            
-        </div>
-    </div>
-</section>
+        </section>
 
         <hr class="aesthetic-divider fade-in">
 
@@ -110,7 +113,6 @@
             <div class="gear gear-planet planet-3"><i class="fa-solid fa-gear"></i></div>
         </div>
 
-        <!-- NEW SKILLS & EXPERTISE SECTION -->
         <section id="expertise" class="section fade-in">
             <h2 class="section-title">skills & expertise</h2>
             <div class="expertise-grid">
@@ -194,58 +196,54 @@
         <hr class="aesthetic-divider fade-in">
 
         <section id="contact" class="section fade-in">
-    <h2 class="section-title">contact me</h2>
-    <div class="card">
-        <div class="card-content">
-            <div class="contact-split">
-                
-                <!-- Left Side: Your Existing Contact Info -->
-                <div class="contact-info-side">
-                    <h3 style="margin-bottom: 1rem; color: var(--text-primary); font-size: 1.3rem;">find me online!</h3>
-                    <div class="about-text contact-info">
-                        <p>
-                            <strong><i class="fa-solid fa-envelope"></i> </strong> 
-                            <span id="email-text">nabilkd@nabilkd.com</span>
-                            <button id="copy-email-btn" title="Copy to clipboard" class="copy-btn">
-                                <i class="fa-regular fa-copy"></i>
-                            </button>
-                        </p>
-                        <p><strong><i class="fa-brands fa-github"></i> </strong> <a href="https://github.com/nabilkhondaker" class="highlight-link" target="_blank" rel="noopener noreferrer">@nabilkhondaker</a></p>
-                        <p><strong><i class="fa-brands fa-discord"></i> </strong> <a href="https://discord.com/users/1056634135961153576" class="highlight-link" target="_blank" rel="noopener noreferrer">@ind7kuh</a></p>
-                    </div>
-                </div>
-
-                <!-- Right Side: The Form -->
-                <div class="contact-form-side">
-                    <!-- Don't forget to put your free Web3Forms access key in the value below -->
-                    <form action="https://api.web3forms.com/submit" method="POST" class="hacker-form">
-                        <input type="hidden" name="access_key" value="739f3965-68c0-4216-8e25-f94bfc393286">
+            <h2 class="section-title">contact me</h2>
+            <div class="card">
+                <div class="card-content">
+                    <div class="contact-split">
                         
-                        <div class="input-wrapper">
-                            <input type="text" name="name" required placeholder="your name" class="form-input">
+                        <div class="contact-info-side">
+                            <h3 style="margin-bottom: 1rem; color: var(--text-primary); font-size: 1.3rem;">find me online!</h3>
+                            <div class="about-text contact-info">
+                                <p>
+                                    <strong><i class="fa-solid fa-envelope"></i> </strong> 
+                                    <span id="email-text">nabilkd@nabilkd.com</span>
+                                    <button id="copy-email-btn" title="Copy to clipboard" class="copy-btn">
+                                        <i class="fa-regular fa-copy"></i>
+                                    </button>
+                                </p>
+                                <p><strong><i class="fa-brands fa-github"></i> </strong> <a href="https://github.com/nabilkhondaker" class="highlight-link" target="_blank" rel="noopener noreferrer">@nabilkhondaker</a></p>
+                                <p><strong><i class="fa-codeberg-custom"></i> </strong> <a href="https://codeberg.org/nabilkd" class="highlight-link" target="_blank" rel="noopener noreferrer">@nabilkd</a></p>
+                                <p><strong><i class="fa-brands fa-discord"></i> </strong> <a href="https://discord.com/users/1056634135961153576" class="highlight-link" target="_blank" rel="noopener noreferrer">@ind7kuh</a></p>
+                            </div>
                         </div>
-<div class="input-wrapper">
-                                    <!-- FIXED: Added pattern regex requirement and clear validation title error message -->
+
+                        <div class="contact-form-side">
+                            <form action="https://api.web3forms.com/submit" method="POST" class="hacker-form">
+                                <input type="hidden" name="access_key" value="739f3965-68c0-4216-8e25-f94bfc393286">
+                                
+                                <div class="input-wrapper">
+                                    <input type="text" name="name" required placeholder="your name" class="form-input">
+                                </div>
+                                <div class="input-wrapper">
                                     <input type="email" name="email" required placeholder="your email" class="form-input" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address ending with a proper extension (e.g., user@gmail.com or name@domain.co)">
                                 </div>
-                        <div class="input-wrapper">
-                            <textarea name="message" rows="4" required placeholder="your message" class="form-input"></textarea>
+                                <div class="input-wrapper">
+                                    <textarea name="message" rows="4" required placeholder="your message" class="form-input"></textarea>
+                                </div>
+                                
+                                <input type="hidden" name="redirect" value="https://nabilkd.com">
+                                
+                                <button type="submit" class="submit-btn">
+                                    <span>send to big bro</span>
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </form>
                         </div>
-                        
-                        <!-- Redirects the user back to your portfolio after submitting -->
-                        <input type="hidden" name="redirect" value="https://nabilkd.com">
-                        
-                        <button type="submit" class="submit-btn">
-    <span>send to big bro</span>
-    <i class="fa-solid fa-paper-plane"></i>
-</button>
-                    </form>
-                </div>
 
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
     </div>
 
     <footer class="footer">
