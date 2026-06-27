@@ -56,7 +56,7 @@ Interactive PID controller simulator for robotic and motor control systems with 
 [Repo](https://github.com/nabilkhondaker/PIDControlSim)
 
 ### Microgrid Simulator
-**Power Electronics & MPPT Microgrid Simulator made in C++**  
+**Power Electronics & MPPT Microgrid Simulator made in C++**<br>  
 **📚 Stack:** C++ `100%`<br>
 High-fidelity C++ microgrid simulator featuring PV I-V curve modeling, adaptive MPPT control, DC-DC converter dynamics, and energy storage dispatch logic.<br>
 [Repo](https://github.com/nabilkhondaker/MicrogridSim)
