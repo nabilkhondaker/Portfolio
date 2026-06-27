@@ -10,7 +10,7 @@
 Hey! I'm **Nabil Khondaker**, a teenage developer and programmer from Bangladesh (currently based in Riverside, CA). Passionate about coding, technology, electronics, and engineering. I graduated high school at 16 (Class of 2026) and spend most of my time building tools, simulations, and hardware-software integrations.
 
 - **Focus Areas**: Computational Fluid Dynamics (CFD), Finite Element Analysis (FEA), Robotics & Kinematics, Generative Design, and full-stack web development.
-- **Tech Stack**: Python, C++, JavaScript, HTML/CSS, and various engineering simulation tools.
+- **Tech Stack**: Python, C++, JavaScript, HTML/CSS, C++, and various engineering simulation tools.
 
 ## Featured Projects
 
