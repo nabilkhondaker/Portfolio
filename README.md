@@ -14,6 +14,20 @@ Hey! I'm **Nabil Khondaker**, a teenage developer and programmer from Bangladesh
 
 ## Featured Projects
 
+<details>
+<summary><b>Go To Project 🚀</b></summary>
+
+- [2R Planar Robot Paddle](#2r-planar-robot-paddle)
+- [FEA Playground 2D](#fea-playground-2d)
+- [KinematicsJS](#kinematicsjs)
+- [CFD Solver](#️#cfd-solver-in-progress)
+- [FEA Generative CTO Engine](#️fea-generative-cto-engine)
+- [Renewable Energy Simulator](#renewable-energy-simulator)
+- [PID Control Simulator](#pid-control-simulator)
+- [Microgrid Simulator](#microgrid-simulator)
+
+</details>
+
 ### 2R Planar Robot Paddle
 **Physical automated robotic arm using inverse kinematics**<br>
 **📚 Stack:** Python `~90%` | HTML/JS/CSS `~10%`<br>
@@ -27,7 +41,7 @@ A browser-native computational mechanics suite to model, solve, and visualize 2D
 [Repo](https://github.com/nabilkhondaker/FEAPlayground2D) | [Demo](https://nabilkhondaker.github.io/FEAPlayground2D/)
 
 ### KinematicsJS
-**Interactive kinematics & physics engine**
+**Interactive kinematics & physics engine**<br>
 **📚 Stack:** Javascript `43.2%` | CSS `36.0%` | HTML `20.8%`<br>
 A fun, interactive engine to view kinematic and inverse kinematic data in real time.<br>  
 [Repo](https://github.com/nabilkhondaker/KinematicsJS) | [Demo](https://nabilkhondaker.github.io/KinematicsJS/)
