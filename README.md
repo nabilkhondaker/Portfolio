@@ -82,13 +82,13 @@ By translating complex code and digital CAD models into physical reality, I comb
 - **Terror Selfbot** — Advanced Discord selfbot. [Repo](https://github.com/nabilkhondaker/terror-selfbot)
 - **Name Scraper** — Tool for hunting rare usernames across platforms. [Repo](https://github.com/nabilkhondaker/NameScraper)
 - **RoboSIM** — Live kinematics robotic arm model. [Demo](https://nabilkhondaker.github.io/RoboSIM)
-- And more...
+- And more trashy crap...
 
 ## Contact
 
-- **Email**: nabilwrld69@gmail.com
+- **Email**: nabilkd@nabilkd.com
+- **Codeberg**: [@nabilkd](https://codeberg.org/nabilkd)
 - **GitHub**: [@nabilkhondaker](https://github.com/nabilkhondaker)
-- **Instagram**: [@ind7kuh](https://www.instagram.com/tripledeuce_/)
 - **Discord**: [@ind7kuh](https://discord.com/users/1056634135961153576)
 - **YouTube**: [@ind7kuh](https://youtube.com/@ind7kuh)
 
