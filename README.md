@@ -15,42 +15,50 @@ Hey! I'm **Nabil Khondaker**, a teenage developer and programmer from Bangladesh
 ## Featured Projects
 
 ### 2R Planar Robot Paddle
-**Physical automated robotic arm using inverse kinematics**  
+**Physical automated robotic arm using inverse kinematics**
+**📚 Stack:** Python `~90%` | HTML/JS/CSS `~10%`
 Mechatronics 2R planar arm that plays a game similar to air hockey or Pong. Programmed in native Python.  
 [Repo](https://github.com/nabilkhondaker/TabletopPlanarArm) | [Demo](https://nabilkhondaker.github.io/TabletopPlanarArm/)
 
 ### FEA Playground 2D
-**Hardware-accelerated 2D Finite Element Analysis Solver**  
+**Hardware-accelerated 2D Finite Element Analysis Solver**
+**📚 Stack:** Javascript `~65-75%` | HTML/CSS `~25-35%`
 A browser-native computational mechanics suite to model, solve, and visualize 2D elastic truss and frame structures in real time.  
 [Repo](https://github.com/nabilkhondaker/FEAPlayground2D) | [Demo](https://nabilkhondaker.github.io/FEAPlayground2D/)
 
 ### KinematicsJS
 **Interactive kinematics & physics engine**  
+**📚 Stack:** Javascript `43.2%` | CSS `36.0%` | HTML `20.8%`
 A fun, interactive engine to view kinematic and inverse kinematic data in real time.  
 [Repo](https://github.com/nabilkhondaker/KinematicsJS) | [Demo](https://nabilkhondaker.github.io/KinematicsJS/)
 
-### CFD Solver
+### CFD Solver [IN PROGRESS]
 **Lattice Boltzmann Method (LBM) fluid dynamics solver** built for the web. Simulates real-time fluid structure interaction.  
+**📚 Stack:** Javascript `66.3%` | CSS `20.1%` | HTML `11.7%` | GLSL `1.9%`
 [Repo](https://github.com/nabilkhondaker/CFDSolve) | [Demo](https://nabilkhondaker.github.io/CFDSolve/)
 
 ### FEA Generative CTO Engine
 **Custom physics engine for topology optimization**  
+**📚 Stack:** Python `100%`
 Built a 2D generative design engine from scratch to explore lightweight structural optimization.  
 [Repo](https://github.com/nabilkhondaker/FEAGenerative)
 
 ### Renewable Energy Simulator
 **Enterprise python renewable energy microgrid simulator**  
-Enterprise-grade python sim and interactive web dashboard for renewable energy microgrids using real-world weather data.
+**📚 Stack:** Python `100%`
+Enterprise-grade python sim and interactive web dashboard for renewable energy microgrids using real-world weather data.<br>
 [Repo](https://github.com/nabilkhondaker/RenewableEnergySim)
 
 ### PID Control Simulator
 **Electrical engineering related interactive sim**  
-Interactive PID controller simulator for robotic and motor control systems with real-time response visualization engineered in C++.
+**📚 Stack:** C++ `~75%` | Python `~25%`
+Interactive PID controller simulator for robotic and motor control systems with real-time response visualization engineered in C++.<br>
 [Repo](https://github.com/nabilkhondaker/PIDControlSim)
 
 ### Microgrid Simulator
 **Power Electronics & MPPT Microgrid Simulator made in C++**  
-High-fidelity C++ microgrid simulator featuring PV I-V curve modeling, adaptive MPPT control, DC-DC converter dynamics, and energy storage dispatch logic.
+**📚 Stack:** C++ `100%`
+High-fidelity C++ microgrid simulator featuring PV I-V curve modeling, adaptive MPPT control, DC-DC converter dynamics, and energy storage dispatch logic.<br>
 [Repo](https://github.com/nabilkhondaker/MicrogridSim)
 
 ## Skills & Expertise
