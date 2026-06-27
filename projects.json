@@ -35,7 +35,7 @@
   },
   {
     "title": "microgrid sim <i class='devicon-cplusplus-plain'></i>",
-    "tag": "electrical engineering related interactive sim",
+    "tag": "power electronics & MPPT microgrid simulator made in c++",
     "description": "high-fidelity C++ microgrid simulator featuring PV I-V curve modeling, adaptive MPPT control, DC-DC converter dynamics, and energy storage dispatch logic",
     "repo": "https://github.com/nabilkhondaker/MicrogridSim"
   },
