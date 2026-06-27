@@ -15,49 +15,49 @@ Hey! I'm **Nabil Khondaker**, a teenage developer and programmer from Bangladesh
 ## Featured Projects
 
 ### 2R Planar Robot Paddle
-**Physical automated robotic arm using inverse kinematics**
-**📚 Stack:** Python `~90%` | HTML/JS/CSS `~10%`
-Mechatronics 2R planar arm that plays a game similar to air hockey or Pong. Programmed in native Python.  
+**Physical automated robotic arm using inverse kinematics**<br>
+**📚 Stack:** Python `~90%` | HTML/JS/CSS `~10%`<br>
+Mechatronics 2R planar arm that plays a game similar to air hockey or Pong. Programmed in native Python.<br>  
 [Repo](https://github.com/nabilkhondaker/TabletopPlanarArm) | [Demo](https://nabilkhondaker.github.io/TabletopPlanarArm/)
 
 ### FEA Playground 2D
-**Hardware-accelerated 2D Finite Element Analysis Solver**
-**📚 Stack:** Javascript `~65-75%` | HTML/CSS `~25-35%`
-A browser-native computational mechanics suite to model, solve, and visualize 2D elastic truss and frame structures in real time.  
+**Hardware-accelerated 2D Finite Element Analysis Solver**<br>
+**📚 Stack:** Javascript `~65-75%` | HTML/CSS `~25-35%`<br>
+A browser-native computational mechanics suite to model, solve, and visualize 2D elastic truss and frame structures in real time.<br>  
 [Repo](https://github.com/nabilkhondaker/FEAPlayground2D) | [Demo](https://nabilkhondaker.github.io/FEAPlayground2D/)
 
 ### KinematicsJS
 **Interactive kinematics & physics engine**  
-**📚 Stack:** Javascript `43.2%` | CSS `36.0%` | HTML `20.8%`
-A fun, interactive engine to view kinematic and inverse kinematic data in real time.  
+**📚 Stack:** Javascript `43.2%` | CSS `36.0%` | HTML `20.8%`<br>
+A fun, interactive engine to view kinematic and inverse kinematic data in real time.<br>  
 [Repo](https://github.com/nabilkhondaker/KinematicsJS) | [Demo](https://nabilkhondaker.github.io/KinematicsJS/)
 
-### CFD Solver [IN PROGRESS]
-**Lattice Boltzmann Method (LBM) fluid dynamics solver** built for the web. Simulates real-time fluid structure interaction.  
-**📚 Stack:** Javascript `66.3%` | CSS `20.1%` | HTML `11.7%` | GLSL `1.9%`
-[Repo](https://github.com/nabilkhondaker/CFDSolve) | [Demo](https://nabilkhondaker.github.io/CFDSolve/)
+### CFD Solver [IN PROGRESS]<br>
+**Lattice Boltzmann Method (LBM) fluid dynamics solver** built for the web. Simulates real-time fluid structure interaction.<br>  
+**📚 Stack:** Javascript `66.3%` | CSS `20.1%` | HTML `11.7%` | GLSL `1.9%`<br>
+[Repo](https://github.com/nabilkhondaker/CFDSolve) | [Demo](https://nabilkhondaker.github.io/CFDSolve/)<br>
 
 ### FEA Generative CTO Engine
-**Custom physics engine for topology optimization**  
-**📚 Stack:** Python `100%`
-Built a 2D generative design engine from scratch to explore lightweight structural optimization.  
+**Custom physics engine for topology optimization**<br>
+**📚 Stack:** Python `100%`<br>
+Built a 2D generative design engine from scratch to explore lightweight structural optimization.<br>
 [Repo](https://github.com/nabilkhondaker/FEAGenerative)
 
 ### Renewable Energy Simulator
-**Enterprise python renewable energy microgrid simulator**  
-**📚 Stack:** Python `100%`
+**Enterprise python renewable energy microgrid simulator**<br> 
+**📚 Stack:** Python `100%`<br>
 Enterprise-grade python sim and interactive web dashboard for renewable energy microgrids using real-world weather data.<br>
 [Repo](https://github.com/nabilkhondaker/RenewableEnergySim)
 
 ### PID Control Simulator
 **Electrical engineering related interactive sim**  
-**📚 Stack:** C++ `~75%` | Python `~25%`
+**📚 Stack:** C++ `~75%` | Python `~25%`<br>
 Interactive PID controller simulator for robotic and motor control systems with real-time response visualization engineered in C++.<br>
 [Repo](https://github.com/nabilkhondaker/PIDControlSim)
 
 ### Microgrid Simulator
 **Power Electronics & MPPT Microgrid Simulator made in C++**  
-**📚 Stack:** C++ `100%`
+**📚 Stack:** C++ `100%`<br>
 High-fidelity C++ microgrid simulator featuring PV I-V curve modeling, adaptive MPPT control, DC-DC converter dynamics, and energy storage dispatch logic.<br>
 [Repo](https://github.com/nabilkhondaker/MicrogridSim)
 
