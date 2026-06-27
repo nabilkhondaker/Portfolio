@@ -38,6 +38,21 @@ A fun, interactive engine to view kinematic and inverse kinematic data in real t
 Built a 2D generative design engine from scratch to explore lightweight structural optimization.  
 [Repo](https://github.com/nabilkhondaker/FEAGenerative)
 
+### Renewable Energy Simulator
+**Enterprise python renewable energy microgrid simulator**  
+Enterprise-grade python sim and interactive web dashboard for renewable energy microgrids using real-world weather data.
+[Repo](https://github.com/nabilkhondaker/RenewableEnergySim)
+
+### PID Control Simulator
+**Electrical engineering related interactive sim**  
+Interactive PID controller simulator for robotic and motor control systems with real-time response visualization engineered in C++.
+[Repo](https://github.com/nabilkhondaker/PIDControlSim)
+
+### Microgrid Simulator
+**Power Electronics & MPPT Microgrid Simulator made in C++**  
+High-fidelity C++ microgrid simulator featuring PV I-V curve modeling, adaptive MPPT control, DC-DC converter dynamics, and energy storage dispatch logic.
+[Repo](https://github.com/nabilkhondaker/MicrogridSim)
+
 ## Skills & Expertise
 
 <details>
