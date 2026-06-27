@@ -15,7 +15,7 @@
     --glow: 0 0 20px var(--accent);
     --radius: 16px;
     --radius-sm: 8px;
-    /* FIXED: Explicit properties instead of 'all' to stop performance leaks */
+    /* Explicit properties instead of 'all' to stop performance leaks */
     --transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
                   opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
                   border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
@@ -42,7 +42,7 @@ body {
 }
 
 /* =========================
-   FIXED: High-Performance GPU Canvas Animation
+   High-Performance GPU Canvas Animation
    ========================= */
 .bg-canvas {
     position: fixed;
@@ -239,6 +239,17 @@ body {
 .social-btn:hover i {
     color: #ffffff;
     transform: scale(1.05);
+}
+
+/* Custom CSS-masked icon class to perfectly mimic FontAwesome behavior */
+.fa-codeberg-custom {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    -webkit-mask: url('https://cdn.jsdelivr.net/npm/simple-icons/icons/codeberg.svg') no-repeat center / contain;
+    mask: url('https://cdn.jsdelivr.net/npm/simple-icons/icons/codeberg.svg') no-repeat center / contain;
+    vertical-align: -0.125em; 
 }
 
 /* =========================
@@ -445,7 +456,6 @@ body {
     pointer-events: none;
 }
 
-/* FIXED: Changed to an opaque dark background to eliminate backdrop-blur rendering lag on scroll grids */
 .card {
     background: rgba(20, 20, 22, 0.85);
     border: 1px solid var(--border);
@@ -593,7 +603,6 @@ hr {
     gap: 2rem;
 }
 
-/* FIXED: Opaque backdrop swap */
 .project-card {
     background: rgba(20, 20, 22, 0.85);
     border: 1px solid var(--border);
@@ -633,7 +642,6 @@ hr {
     margin-bottom: 2rem;
 }
 
-/* FIXED: High performance backgrounds */
 .expertise-card {
     background: rgba(20, 20, 22, 0.85);
     border: 1px solid var(--border);
@@ -976,7 +984,7 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
 }
 
 /* =========================
-   FIXED: Kinetic Planetary Gear System (Optimized Mechanics)
+   Kinetic Planetary Gear System
    ========================= */
 .mechanical-gear-assembly {
     position: relative;
@@ -987,7 +995,6 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    /* Transition the entire container instead of nesting conflicting keyframe rules */
     transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform;
 }
@@ -1030,7 +1037,6 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
     to { transform: rotate(-360deg); }
 }
 
-/* FIXED: Applying extra mechanical torque twist to the assembly container safely */
 .mechanical-gear-assembly:hover {
     transform: rotate(180deg);
 }
@@ -1196,7 +1202,6 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
     height: 18px;
     border-radius: 50%;
     background-color: transparent;
-    /* Generates an elegant aesthetic crescent vector profile natively via shadow depth */
     box-shadow: -5px 5px 0 0 #e8a639;
     transform: rotate(-15deg) translate(3px, -3px);
 }
@@ -1232,11 +1237,11 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
 }
 
 /* =========================
-   NEW: THEME-SYNCED IN PROGRESS BADGE
+   THEME-SYNCED IN PROGRESS BADGE
    ========================= */
 .in-progress-badge {
     position: absolute;
-    bottom: 1.5rem; /* Moved from top to bottom */
+    bottom: 1.5rem; 
     right: 1.5rem;  
     background: linear-gradient(135deg, var(--accent), var(--accent-blue));
     color: var(--bg-primary); 
@@ -1263,4 +1268,3 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
         transform: scale(1.03); 
     }
 }
-
