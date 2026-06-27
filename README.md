@@ -27,7 +27,7 @@ A browser-native computational mechanics suite to model, solve, and visualize 2D
 [Repo](https://github.com/nabilkhondaker/FEAPlayground2D) | [Demo](https://nabilkhondaker.github.io/FEAPlayground2D/)
 
 ### KinematicsJS
-**Interactive kinematics & physics engine**  
+**Interactive kinematics & physics engine**<br>  
 **📚 Stack:** Javascript `43.2%` | CSS `36.0%` | HTML `20.8%`<br>
 A fun, interactive engine to view kinematic and inverse kinematic data in real time.<br>  
 [Repo](https://github.com/nabilkhondaker/KinematicsJS) | [Demo](https://nabilkhondaker.github.io/KinematicsJS/)
@@ -50,7 +50,7 @@ Enterprise-grade python sim and interactive web dashboard for renewable energy m
 [Repo](https://github.com/nabilkhondaker/RenewableEnergySim)
 
 ### PID Control Simulator
-**Electrical engineering related interactive sim**  
+**Electrical engineering related interactive sim**<br>
 **📚 Stack:** C++ `~75%` | Python `~25%`<br>
 Interactive PID controller simulator for robotic and motor control systems with real-time response visualization engineered in C++.<br>
 [Repo](https://github.com/nabilkhondaker/PIDControlSim)
