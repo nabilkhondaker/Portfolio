@@ -30,13 +30,13 @@
   {
     "title": "PID control sim <i class='devicon-cplusplus-plain'></i> <i class=\"fab fa-python\"></i>",
     "tag": "electrical engineering related interactive sim",
-    "description": "interactive PID controller simulator for robotic and motor control systems with real-time response visualization",
+    "description": "interactive PID controller simulator for robotic and motor control systems with real-time response visualization engineered in c++",
     "repo": "https://github.com/nabilkhondaker/PIDControlSim"
   },
   {
     "title": "microgrid sim <i class='devicon-cplusplus-plain'></i>",
     "tag": "power electronics & MPPT microgrid simulator made in c++",
-    "description": "high-fidelity C++ microgrid simulator featuring PV I-V curve modeling, adaptive MPPT control, DC-DC converter dynamics, and energy storage dispatch logic",
+    "description": "high-fidelity c++ microgrid simulator featuring PV I-V curve modeling, adaptive MPPT control, DC-DC converter dynamics, and energy storage dispatch logic",
     "repo": "https://github.com/nabilkhondaker/MicrogridSim"
   },
   {
