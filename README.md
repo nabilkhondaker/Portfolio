@@ -46,7 +46,7 @@ A browser-native computational mechanics suite to model, solve, and visualize 2D
 A fun, interactive engine to view kinematic and inverse kinematic data in real time.<br>  
 [Repo](https://github.com/nabilkhondaker/KinematicsJS) | [Demo](https://nabilkhondaker.github.io/KinematicsJS/)
 
-### CFD Solver [IN PROGRESS]<br>
+### CFD Solver *[IN PROGRESS]*<br>
 **Lattice Boltzmann Method (LBM) fluid dynamics solver** built for the web. Simulates real-time fluid structure interaction.<br>  
 **📚 Stack:** Javascript `66.3%` | CSS `20.1%` | HTML `11.7%` | GLSL `1.9%`<br>
 [Repo](https://github.com/nabilkhondaker/CFDSolve) | [Demo](https://nabilkhondaker.github.io/CFDSolve/)<br>
