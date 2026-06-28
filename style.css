@@ -1312,25 +1312,33 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
 }
 
 /* =========================
-   THEME-SYNCED IN PROGRESS BADGE
+   Refined Glass-Effect In-Progress Badge
    ========================= */
 .in-progress-badge {
     position: absolute;
-    bottom: 1.5rem; 
-    right: 1.5rem;  
-    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
-    color: var(--bg-primary); 
-    font-size: 0.75rem;
-    font-weight: 800;
-    padding: 0.35rem 0.85rem;
-    border-radius: 20px;
+    top: 1.25rem;   /* Moved to top right for better visibility */
+    right: 1.25rem;
+    background: rgba(255, 255, 255, 0.05); /* Semi-transparent base */
+    backdrop-filter: blur(10px) saturate(180%); /* Liquid glass effect */
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary); 
+    font-size: 0.65rem; /* Smaller, cleaner text */
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     z-index: 10;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-    animation: badge-pulse 2s infinite alternate ease-in-out;
+    gap: 0.3rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.in-progress-badge i {
+    font-size: 0.7rem;
+    color: var(--accent-blue);
 }
 
 @keyframes badge-pulse {
@@ -1342,4 +1350,109 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
         box-shadow: 0 0 15px var(--accent-blue), 0 0 25px var(--accent); 
         transform: scale(1.03); 
     }
+}
+
+/* =========================
+   Project Tech Specs Overlay (NEW)
+   ========================= */
+
+/* Ensure the card contains the overlay and establishes a stacking context */
+.project-card, .older-project-card {
+    position: relative;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+/* Adjust the main content box so links sit at the bottom */
+.project-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.project-links {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.project-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.default-links {
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+/* Glassmorphism Slide-up Panel */
+.project-tech-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(13, 13, 14, 0.96);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--accent-blue);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    /* Start hidden below the card */
+    transform: translateY(101%);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    z-index: 5;
+}
+
+/* Hover Mechanics */
+.project-card:hover .project-tech-overlay,
+.older-project-card:hover .project-tech-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Push back and dim the main content slightly when hovered */
+.project-card:hover .project-content,
+.older-project-card:hover .project-content {
+    transform: scale(0.95);
+    opacity: 0.15;
+}
+
+/* Text Styling within Overlay */
+.tech-specs-content h4 {
+    color: var(--text-primary);
+    font-size: 1.15rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+}
+
+.tech-specs-content h4 i {
+    color: var(--accent-blue);
+}
+
+.tech-specs-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.overlay-links {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
+.overlay-links p {
+     margin: 0;
 }
