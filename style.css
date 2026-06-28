@@ -105,6 +105,21 @@ body {
     transform: translateX(-50%) scaleX(1);
 }
 
+.nav-load-in {
+    animation: dropIn 0.8s ease cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes dropIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px); /* Drops in from the top instead of bottom */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* =========================
    High-Performance GPU Canvas Animation
    ========================= */
