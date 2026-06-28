@@ -15,23 +15,25 @@
     --glow: 0 0 20px var(--accent);
     --radius: 16px;
     --radius-sm: 8px;
-    /* Explicit properties instead of 'all' to stop performance leaks */
     --transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
                   opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
                   border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
                   background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    /* REQUIRED: This prevents smooth scrolls from stopping underneath the fixed navbar */
+    scroll-padding-top: 100px; 
 }
+
 body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background: var(--bg-primary);
@@ -39,6 +41,68 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     transition: background 0.5s ease, color 0.3s ease;
+    /* REQUIRED: Pushes the main page content down slightly so it's not hidden on launch */
+    padding-top: 70px; 
+}
+
+/* =========================
+   NEW: Apple Liquid Glass Top Panel
+   ========================= */
+.glass-top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(10, 10, 11, 0.45); /* Dark highly transparent base */
+    backdrop-filter: blur(35px) saturate(200%);
+    -webkit-backdrop-filter: blur(35px) saturate(200%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    z-index: 9995; /* Stays slightly behind the theme-toggle button to avoid click clashes */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Theme-synced accent line that smoothly grows on hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-blue));
+    border-radius: 2px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px var(--accent-blue);
+}
+
+.nav-links a:hover::after {
+    transform: translateX(-50%) scaleX(1);
 }
 
 /* =========================
@@ -52,7 +116,6 @@ body {
     overflow: hidden;
 }
 
-/* Moving the glow orbs to layer elements using transform avoids full viewport repaints */
 .bg-canvas::before,
 .bg-canvas::after {
     content: '';
@@ -100,7 +163,6 @@ body {
     border-radius: var(--radius);
 }
 
-/* Dedicated interactive card class entirely isolated from scroll modifiers */
 .hero-card {
     position: relative;
     padding: 2.5rem;
@@ -114,7 +176,6 @@ body {
     will-change: transform, box-shadow;
 }
 
-/* Perfected Lift Bump & Glow */
 .hero-card:hover {
     transform: translateY(-6px);
     border-color: var(--accent-blue);
@@ -241,7 +302,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Custom CSS-masked icon class to perfectly mimic FontAwesome behavior */
 .fa-codeberg-custom {
     display: inline-block;
     width: 1em;
@@ -261,7 +321,8 @@ body {
 
 .theme-toggle {
     position: fixed;
-    top: 25px;
+    /* FIXED: Adjusted top value to vertically center within the new 70px glass nav bar */
+    top: 11px; 
     right: 25px;
     width: 48px;
     height: 48px;
@@ -289,7 +350,8 @@ body {
 
 .theme-panel {
     position: fixed;
-    top: 85px;
+    /* FIXED: Shifted down slightly to clear the new glass nav bar */
+    top: 80px; 
     right: 25px;
     width: 260px;
     padding: 1.5rem;
@@ -817,6 +879,23 @@ hr {
     .discord-icon {
         margin: 0;
     }
+    
+    /* MOBILE NAVIGATION ADJUSTMENTS */
+    .nav-links {
+        gap: 1.25rem;
+    }
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+    
+    /* KEEPING THEME TOGGLE ACCESSIBLE ON MOBILE */
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        top: 15px; 
+        right: 15px;
+        font-size: 1rem;
+    }
 }
 @media (max-width: 500px) {
     .avatar {
@@ -1187,7 +1266,6 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
     flex-shrink: 0;
 }
 
-/* Online State: Solid Green Circle */
 .discord-status-aesthetic.status-online {
     width: 18px;
     height: 18px;
@@ -1196,7 +1274,6 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
     box-shadow: 0 0 14px rgba(57, 166, 89, 0.35);
 }
 
-/* Idle State: Yellow Crescent Moon */
 .discord-status-aesthetic.status-idle {
     width: 18px;
     height: 18px;
@@ -1206,7 +1283,6 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
     transform: rotate(-15deg) translate(3px, -3px);
 }
 
-/* Do Not Disturb State: Red Circle with White Dash */
 .discord-status-aesthetic.status-dnd {
     width: 18px;
     height: 18px;
@@ -1226,7 +1302,6 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
     transform: translate(-50%, -50%);
 }
 
-/* Offline State: Thinner Gray Outline Donut Circle */
 .discord-status-aesthetic.status-offline {
     width: 16px;
     height: 16px;
