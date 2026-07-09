@@ -32,6 +32,13 @@
     "link": "https://nabilkhondaker.github.io/TabletopPlanarArm/"
   },
   {
+    "title": "vehicle dynamics sim <i class='devicon-cplusplus-plain'></i>",
+    "tag": "high-performance 14-DOF vehicle dynamics simulator",
+    "description": "real-time multi-body vehicle simulator with nonlinear tire physics, active controllers, and genetic algorithm suspension optimization",
+    "techSpecs": "built a 14-DOF C++ vehicle dynamics engine with real-time RK4 integration, Pacejka Magic Formula tires, OpenMP parallelization, ABS/ESC systems, and GA-based suspension tuning.",
+    "repo": "https://github.com/nabilkhondaker/VehicleDynamicSim",
+  },
+  {
     "title": "PID control sim <i class='devicon-cplusplus-plain'></i> <i class=\"fab fa-python\"></i>",
     "tag": "electrical engineering related interactive sim",
     "description": "interactive PID controller simulator for robotic and motor control systems with real-time response visualization engineered in c++",
