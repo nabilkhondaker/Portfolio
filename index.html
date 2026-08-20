@@ -67,6 +67,11 @@
         </div>
     </div>
 
+    <!-- WIKI BUTTON ADDED HERE -->
+    <button class="wiki-toggle" id="wiki-btn" title="Random Wikimedia Image">
+        <i class="fa-brands fa-wikipedia-w"></i>
+    </button>
+
     <div class="bg-canvas"></div>
 
     <div class="container main-content">
@@ -120,6 +125,17 @@
             <div class="gear gear-planet planet-3"><i class="fa-solid fa-gear"></i></div>
         </div>
 
+                <section id="about" class="section fade-in">
+            <h2 class="section-title">about me</h2>
+            <div class="card">
+                <div class="card-content">
+                    <p class="about-text">
+                        hey! i am <span class="text-gradient font-bold">nabil khondaker</span>, a teenage developer and programmer from bangladesh. i'm really passionate about coding, technology, and electronics/engineering. i spent most of my time coding random things or tweaking hardware setups.<br><br>i just graduated highschool at 16 from avhs here in riverside, ca. <br><br>class of 2026.<br>welcome to my portfolio.
+                    </p>
+                </div>
+            </div>
+        </section>
+
         <section id="expertise" class="section fade-in">
             <h2 class="section-title">skills & expertise</h2>
             <div class="expertise-grid">
@@ -172,17 +188,6 @@
                     </div>
                 </div>
 
-            </div>
-        </section>
-
-        <section id="about" class="section fade-in">
-            <h2 class="section-title">about me</h2>
-            <div class="card">
-                <div class="card-content">
-                    <p class="about-text">
-                        hey! i am <span class="text-gradient font-bold">nabil khondaker</span>, a teenage developer and programmer from bangladesh. i'm really passionate about coding, technology, and electronics/engineering. i spent most of my time coding random things or tweaking hardware setups.<br><br>i just graduated highschool at 16 from avhs here in riverside, ca. <br><br>class of 2026.<br>welcome to my portfolio.
-                    </p>
-                </div>
             </div>
         </section>
 
@@ -251,6 +256,19 @@
                 </div>
             </div>
         </section>
+    </div>
+
+<!-- WIKI MODAL OVERLAY -->
+    <div id="wiki-modal" class="wiki-modal-overlay hidden">
+        <div class="wiki-modal-content">
+            <button class="wiki-close-btn" id="wiki-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="wiki-image-container">
+                <img id="wiki-image" src="" alt="Wiki Image">
+            </div>
+            <button class="wiki-refresh-btn" id="wiki-refresh-btn">
+                <i class="fa-solid fa-rotate-right"></i> refresh
+            </button>
+        </div>
     </div>
 
     <footer class="footer">
