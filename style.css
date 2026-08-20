@@ -1471,3 +1471,201 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
 .overlay-links p {
      margin: 0;
 }
+
+/* =========================
+   WIKI WIDGET ADDITIONS 
+   ========================= */
+
+/* Wiki Toggle Button - Positioned to the left of the theme toggle */
+.wiki-toggle {
+    position: fixed;
+    top: 11px; 
+    right: 85px; 
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.wiki-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: rotate(-10deg) scale(1.05);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Wiki Modal Overlay Background */
+.wiki-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.wiki-modal-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Transparent, glowing glass card - Shrink-wrapped to content */
+.wiki-modal-content {
+    background: rgba(20, 20, 22, 0.4); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius);
+    
+    /* These three lines let the card wrap tight around the image */
+    width: max-content; 
+    max-width: 95vw; 
+    align-items: center;
+    
+    padding: 1.5rem;
+    position: relative;
+    transform: translateY(0) scale(1);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Modal pop-in animation states */
+.wiki-modal-overlay.hidden .wiki-modal-content {
+    transform: translateY(30px) scale(0.95);
+}
+
+/* Close Button */
+.wiki-close-btn {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.wiki-close-btn:hover {
+    color: var(--text-primary);
+    background: var(--accent);
+    border-color: var(--accent-blue);
+    transform: scale(1.1);
+}
+
+/* Image Container Frame */
+.wiki-image-container {
+    width: auto;
+    height: auto; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+}
+
+.wiki-image-container img {
+    max-width: 100%;
+    max-height: 70vh; /* Limits height so extreme vertical images don't go offscreen */
+    width: auto;
+    height: auto;
+    object-fit: contain; 
+    border-radius: var(--radius-sm);
+    display: block;
+}
+
+/* Glassy Dynamic Theme Refresh Button */
+.wiki-refresh-btn {
+    align-self: center;
+    background: rgba(20, 20, 22, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    
+    border: 1px solid var(--accent); 
+    color: var(--accent); 
+    /* Dynamically mixes your theme color with transparency */
+    box-shadow: 0 0 15px color-mix(in srgb, var(--accent) 30%, transparent); 
+    
+    padding: 0.75rem 1.75rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    outline: none;
+    white-space: nowrap; /* Keeps button text on one line if the image is really thin */
+}
+
+/* Hover state: increases glow and lifts up */
+.wiki-refresh-btn:hover {
+    transform: translateY(-3px);
+    background: color-mix(in srgb, var(--accent) 15%, transparent);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 25px color-mix(in srgb, var(--accent) 45%, transparent);
+    border-color: var(--accent);
+}
+
+/* Active state: immensely satisfying physical squish when clicked */
+.wiki-refresh-btn:active {
+    transform: scale(0.92) translateY(2px);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 60%, transparent), inset 0 0 15px color-mix(in srgb, var(--accent) 25%, transparent);
+    background: color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+/* Mobile Media Query for the Wiki Elements */
+@media (max-width: 768px) {
+    .wiki-toggle {
+        width: 40px;
+        height: 40px;
+        top: 15px;
+        right: 65px; 
+        font-size: 1rem;
+    }
+    
+    .wiki-modal-content {
+        padding: 1.25rem;
+        gap: 1rem;
+    }
+    
+    .wiki-image-container img {
+        max-height: 60vh; 
+    }
+    
+    .wiki-close-btn {
+        top: -8px;
+        right: -8px;
+        width: 32px;
+        height: 32px;
+    }
+}
