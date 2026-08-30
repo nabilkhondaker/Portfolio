@@ -1,4 +1,3 @@
-// Portfolio class handles page setup and UI effects
 class Portfolio {
     constructor() {
         this.init();
@@ -12,6 +11,7 @@ class Portfolio {
         this.setupEmailCopy();        // Setup clean click-to-copy email mechanics
         this.setupThemePicker();      // Setup premium glass theme picker mechanics
         this.setupWikiViewer();       // Setup the new Wiki Image Viewer
+        this.setupSimulations();      // Setup the dynamics simulations grid
     }
     
     setupLoading() {
@@ -39,7 +39,7 @@ class Portfolio {
                 e.preventDefault();
                 window.open(btn.dataset.link, '_blank', 'noopener,noreferrer');
             });
-        });
+        }); 
     }
 
     setupScrollAnimations() {
@@ -220,7 +220,6 @@ class Portfolio {
         }
     }
 
-    // NEW WIKI VIEWER METHOD (Captionless with Spin Anim)
     setupWikiViewer() {
         const wikiBtn = document.getElementById('wiki-btn');
         const wikiModal = document.getElementById('wiki-modal');
@@ -424,7 +423,6 @@ class Portfolio {
             const randomIndex = Math.floor(Math.random() * wikiData.length);
             const imagePath = wikiData[randomIndex];
             
-            // Fade out, swap source, fade back in
             wikiImage.style.opacity = '0';
             setTimeout(() => {
                 wikiImage.src = imagePath;
@@ -432,45 +430,225 @@ class Portfolio {
                 wikiImage.onload = () => {
                     wikiImage.style.opacity = '1';
                 };
-            }, 200); // 200ms matches the CSS transition time
+            }, 200); 
         };
 
-        // Smooth transition applied to the image element
         wikiImage.style.transition = 'opacity 0.2s ease';
 
         if (wikiBtn && wikiModal) {
-            // Open Modal & get random image
             wikiBtn.addEventListener('click', () => {
                 getRandomImage();
                 wikiModal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Prevents background scrolling
+                document.body.style.overflow = 'hidden'; 
             });
 
             const closeModal = () => {
                 wikiModal.classList.add('hidden');
-                document.body.style.overflow = 'auto'; // Restores background scrolling
+                document.body.style.overflow = 'auto'; 
             };
 
-            // Close mechanics
             wikiCloseBtn.addEventListener('click', closeModal);
             wikiModal.addEventListener('click', (e) => {
                 if (e.target === wikiModal) closeModal();
             });
 
-            // Refresh mechanic with satisfying continuous icon spin
             wikiRefreshBtn.addEventListener('click', () => {
                 const icon = wikiRefreshBtn.querySelector('i');
                 
-                // Set smooth spring-like rotation transition
                 icon.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-                
-                // Add 360 degrees to whatever the current rotation is
                 icon.style.transform = `rotate(${(wikiRefreshBtn.clicks || 1) * 360}deg)`;
                 wikiRefreshBtn.clicks = (wikiRefreshBtn.clicks || 1) + 1;
                 
                 getRandomImage();
             });
         }
+    }
+
+    setupSimulations() {
+        // Placeholder data array — update videoSrc and posterSrc when ready
+const simulationsData = [
+    {
+        id: 1,
+        title: "Placeholder 1",
+        desc: "two disks bouncing on flat plate spring-coupled between opposed pin supports",
+        videoSrc: "simulations/ds1.mp4",
+        posterSrc: ""
+    },
+    {
+        id: 2,
+        title: "Placeholder 2",
+        desc: "formation of blocks coupled by rods and springs",
+        videoSrc: "simulations/ds2.mp4",
+        posterSrc: ""
+    },
+    {
+        id: 3,
+        title: "Placeholder 3",
+        desc: "swinging block with harmonic driving force spring-coupled to masses with pendulums",
+        videoSrc: "simulations/ds3.mp4",
+        posterSrc: ""
+    },
+    {
+        id: 4,
+        title: "Placeholder 4",
+        desc: "pulley system with spring-coupled blocks and oscillating disk",
+        videoSrc: "simulations/ds4.mp4",
+        posterSrc: ""
+    },
+    {
+        id: 5,
+        title: "Placeholder 5",
+        desc: "triple pendulum with spring coupling fixed mount to second mass",
+        videoSrc: "simulations/ds5.mp4",
+        posterSrc: ""
+    },
+    {
+        id: 6,
+        title: "Placeholder 6",
+        desc: "rigid swinging frame with two spring-pendulum assemblies",
+        videoSrc: "simulations/ds6.mp4",
+        posterSrc: ""
+    },
+    {
+        id: 7,
+        title: "Placeholder 7",
+        desc: "dDisk with offset pendulum rolling without slipping on horizontally oscillating mass",
+        videoSrc: "simulations/ds7.mp4",
+        posterSrc: ""
+    },
+    {
+        id: 8,
+        title: "Placeholder 8",
+        desc: "two disks coupled by parallel rods with pendulum",
+        videoSrc: "simulations/ds8.mp4",
+        posterSrc: ""
+    },
+    {
+        id: 9,
+        title: "Placeholder 9",
+        desc: "a free slider and a spring-bound slider carrying a pendulum",
+        videoSrc: "simulations/ds9.mp4",
+        posterSrc: ""
+    },
+    {
+        id: 10,
+        title: "Placeholder 10",
+        desc: "rocking frame with suspended interior block and pendulum",
+        videoSrc: "simulations/ds10.mp4",
+        posterSrc: ""
+    },
+    {
+        id: 11,
+        title: "Placeholder 11",
+        desc: "two disks coupled by springs rolling horizontally on parallel surfaces.",
+        videoSrc: "simulations/ds11.mp4",
+        posterSrc: ""
+    },
+    {
+        id: 12,
+        title: "Placeholder 12",
+        desc: "three inverted pendulums sharing common pivot coupled by springs",
+        videoSrc: "simulations/ds12.mp4",
+        posterSrc: ""
+    }
+];
+
+        const grid = document.getElementById('simulations-grid');
+        const showMoreBtn = document.getElementById('show-more-sims-btn');
+        const modal = document.getElementById('sim-modal');
+        const modalVideo = document.getElementById('sim-modal-video');
+        const modalTitle = document.getElementById('sim-modal-title');
+        const modalDesc = document.getElementById('sim-modal-desc');
+        const closeBtn = document.getElementById('sim-close-btn');
+
+        if (!grid) return;
+
+        let visibleCount = 6;
+        let isExpanded = false;
+
+        const renderSims = () => {
+            grid.innerHTML = '';
+            simulationsData.forEach((sim, index) => {
+                const card = document.createElement('div');
+                card.className = 'sim-card';
+                card.style.display = index < visibleCount ? 'flex' : 'none';
+                
+                card.innerHTML = `
+                    <div class="sim-video-wrapper">
+                        <video muted loop playsinline poster="${sim.posterSrc}">
+                            <source src="${sim.videoSrc}" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="sim-info">
+                        <h4>${sim.title}</h4>
+                    </div>
+                `;
+
+                const video = card.querySelector('video');
+                card.addEventListener('mouseenter', () => {
+                    if (video.readyState >= 2) { 
+                        video.play().catch(() => {});
+                    }
+                });
+                card.addEventListener('mouseleave', () => {
+                    video.pause();
+                });
+
+                card.addEventListener('click', () => {
+                    modalVideo.src = sim.videoSrc;
+                    modalTitle.textContent = sim.title;
+                    modalDesc.textContent = sim.desc;
+                    modal.classList.remove('hidden');
+                    modalVideo.play().catch(() => {});
+                });
+
+                grid.appendChild(card);
+            });
+        };
+
+        renderSims();
+
+        if (showMoreBtn) {
+            showMoreBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                isExpanded = !isExpanded;
+                visibleCount = isExpanded ? simulationsData.length : 6;
+                
+                renderSims();
+                
+                const btnSpan = showMoreBtn.querySelector('span');
+                const btnIcon = showMoreBtn.querySelector('i');
+                
+                btnSpan.textContent = isExpanded ? 'show less' : 'view all simulations';
+                btnIcon.className = isExpanded ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down';
+                
+                if (!isExpanded) {
+                    document.getElementById('simulations').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        }
+
+        const closeModal = () => {
+            modal.classList.add('hidden');
+            modalVideo.pause();
+            setTimeout(() => {
+                modalVideo.src = '';
+            }, 300);
+        };
+
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+        }
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
     }
 }
 
