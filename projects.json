@@ -66,57 +66,5 @@
       "techSpecs":"built an interactive engine for link dynamics. it uses a recursive matrix-based approach to compute forward and inverse kinematics at every frame for accurate positional visualization.",
       "repo":"https://github.com/nabilkhondaker/KinematicsJS",
       "link":"https://nabilkhondaker.github.io/KinematicsJS/"
-   },
-   {
-      "title":"nabilgames <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
-      "tag":"unblocked games website",
-      "description":"a complete, online games website with classic games with over 350 apps & games",
-      "techSpecs":"created a modular game portal managing 350+ apps with optimized asset loading.",
-      "repo":"https://github.com/nabilkhondaker/nabilkhondaker.github.io",
-      "link":"https://nabilkhondaker.github.io/",
-      "older":true
-   },
-   {
-      "title":"terror selfbot <i class=\"fab fa-python\"></i>",
-      "tag":"an automated discord selfbot",
-      "description":"turn your discord account into a selfbot that can go upon advanced actions with the correct permissions",
-      "techSpecs":"used an async python event loop to automate discord tasks within client-side restrictions.",
-      "repo":"https://github.com/nabilkhondaker/terror-selfbot",
-      "older":true
-   },
-   {
-      "title":"name scraper <i class=\"fab fa-python\"></i>",
-      "tag":"tool for rare usernames",
-      "description":"scrape words/names from an input list and see which are available for use on platforms",
-      "techSpecs":"built a script for filtering large lists to identify available usernames through basic request handling.",
-      "repo":"https://github.com/nabilkhondaker/NameScraper",
-      "older":true
-   },
-   {
-      "title":"roboSIM <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
-      "tag":"a kinematics robotic arm model",
-      "description":"view live data, telemetry, and angle information on a static robotic arm model",
-      "techSpecs":"implemented basic forward kinematics to visualize 2d arm telemetry data.",
-      "repo":"https://github.com/nabilkhondaker/RoboSIM",
-      "link":"https://nabilkhondaker.github.io/RoboSIM",
-      "older":true
-   },
-   {
-      "title":"nitro generator <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
-      "tag":"discord nitro generator",
-      "description":"generate infinite quantities of unchecked discord nitro code links, which can then be exported",
-      "techSpecs":"programmed a batch generation script for randomized sequences with simple export functionality.",
-      "repo":"https://github.com/nabilkhondaker/NitroGenerator",
-      "link":"https://nabilkhondaker.github.io/NitroGenerator",
-      "older":true
-   },
-   {
-      "title":"the distraction hub <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
-      "tag":"parody web app",
-      "description":"a totally real productivity site. not distracting at all. as productive as it gets.",
-      "techSpecs":"designed a parody dashboard using dom manipulation to mock productivity software.",
-      "repo":"https://github.com/nabilkhondaker/TheDistractionHub/",
-      "link":"https://nabilkhondaker.github.io/TheDistractionHub",
-      "older":true
    }
 ]
