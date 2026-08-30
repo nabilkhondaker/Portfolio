@@ -1669,3 +1669,186 @@ a, button, .project-card, .older-project-card, .theme-panel, .custom-color-picke
         height: 32px;
     }
 }
+
+/* =========================
+   Dynamics Simulations
+   ========================= */
+.section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin-inline: auto;
+    line-height: 1.6;
+}
+
+.simulations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 2rem;
+}
+
+/* Simulation Cards */
+.sim-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.sim-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+    background: var(--bg-tertiary);
+}
+
+.sim-video-wrapper {
+    width: 100%;
+    aspect-ratio: 3/2;
+    background: #000;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+}
+
+.sim-video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.sim-info {
+    padding: 1.2rem;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.sim-info h4 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* =========================
+   Show More Button Animations 
+   ========================= */
+.show-more-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+#show-more-sims-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.8rem 2rem;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    /* Cubic-bezier makes the hover feel organic and premium */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+#show-more-sims-btn i {
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Satisfying Hover State */
+#show-more-sims-btn:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background: var(--bg-tertiary);
+}
+
+/* Directional Icon Bounce on Hover */
+#show-more-sims-btn:hover i.fa-chevron-down {
+    transform: translateY(4px);
+}
+#show-more-sims-btn:hover i.fa-chevron-up {
+    transform: translateY(-4px);
+}
+
+/* Snappy Click/Active State */
+#show-more-sims-btn:active {
+    transform: translateY(1px) scale(0.97);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Faster transition on the actual click so it feels instantly responsive */
+    transition: all 0.1s ease;
+}
+
+/* =========================
+   Lightbox Modal 
+   ========================= */
+.sim-modal-content {
+    max-width: 900px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.sim-video-container {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: #000;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.sim-video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.sim-caption {
+    text-align: left;
+}
+
+.sim-caption h3 {
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+}
+
+.sim-caption p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .simulations-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 16px;
+    }
+    .sim-modal-content {
+        padding: 1.5rem;
+    }
+    .sim-caption h3 {
+        font-size: 1.2rem;
+    }
+}
