@@ -28,9 +28,11 @@
 
     <nav class="glass-top-bar nav-load-in">
             <div class="nav-links">
-            <a href="#expertise">skills</a>
             <a href="#about">about me</a>
             <a href="#projects">projects</a>
+            <a href="#simulations">simulations</a>
+            <a href="#expertise">skills</a>
+            <a href="#mentoring">mentorship</a>
             <a href="#contact">contact</a>
         </div>
     </nav>
@@ -130,14 +132,51 @@
             <div class="card">
                 <div class="card-content">
                     <p class="about-text">
-                        hey! i am <span class="text-gradient font-bold">nabil khondaker</span>, a teenage developer and programmer from bangladesh. i'm really passionate about coding, technology, and electronics/engineering. i spent most of my time coding random things or tweaking hardware setups.<br><br>i just graduated highschool at 16 as a valedictorian speaker from avihs here in riverside, ca. <br><br>class of 2026.<br>welcome to my portfolio.
+                        hey! i am <span class="text-gradient font-bold">nabil khondaker</span>, a teenage developer and programmer from bangladesh. i'm really passionate about coding, technology, and electronics/engineering. i spent most of my time coding random things or tweaking hardware setups.<br><br>i just graduated highschool at 16 from avhs here in riverside, ca. <br><br>class of 2026.<br>welcome to my portfolio.
                     </p>
                 </div>
             </div>
         </section>
 
-        <section id="expertise" class="section fade-in">
-            <h2 class="section-title">skills & expertise</h2>
+
+        <hr class="aesthetic-divider fade-in">
+
+        <section id="projects" class="section fade-in">
+            <h2 class="section-title">core projects</h2>
+            <div class="projects-grid" id="projects-container"></div>
+        </section>
+
+        <section id="simulations" class="section">
+    <div class="container">
+        <h2 class="section-title">dynamics simulations</h2>
+        
+        <div class="simulations-grid" id="simulations-grid">
+            </div>
+        
+        <div class="show-more-container">
+            <button id="show-more-sims-btn" class="submit-btn" style="margin: 0 auto; display: flex;">
+                <span>view all</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+<div id="sim-modal" class="wiki-modal-overlay hidden">
+    <div class="wiki-modal-content sim-modal-content">
+        <button class="wiki-close-btn" id="sim-close-btn"><i class="fa-solid fa-xmark"></i></button>
+        <div class="sim-video-container">
+            <video id="sim-modal-video" autoplay loop muted playsinline></video>
+        </div>
+        <div class="sim-caption">
+            <h3 id="sim-modal-title"></h3>
+            <p id="sim-modal-desc"></p>
+        </div>
+    </div>
+</div>
+
+                <section id="expertise" class="section fade-in">
+            <h2 class="section-title">core skills</h2>
             <div class="expertise-grid">
                 
                 <div class="expertise-card">
@@ -191,21 +230,21 @@
             </div>
         </section>
 
-        <hr class="aesthetic-divider fade-in">
-
-        <section id="projects" class="section fade-in">
-            <h2 class="section-title">featured projects</h2>
-            <div class="projects-grid" id="projects-container"></div>
-        </section>
-
-        <section id="older-projects" class="section fade-in">
-            <div class="internal-archive-header">
-                <h2 class="internal-archive-title section-title">older archive</h2>
-            </div>
-            <div class="older-projects-grid" id="older-projects-container"></div>
-        </section>
 
         <hr class="aesthetic-divider fade-in">
+
+                        <section id="mentoring" class="section fade-in">
+            <h2 class="section-title">academic mentorship</h2>
+<div class="card">
+        <div class="card-content">
+            <p class="about-text">
+                hey! i run my own solo mentorship and tutoring program — completely <b>free</b>. i teach and help with computational mechanics & simulation, generative design & topology optimization, robotics & kinematic modeling, software development for engineering, cyber-physical security, and prototyping & hands-on engineering.<br><br>
+                i also specialize in daytrading, swingtrading, and investing in stocks & futures; i've been paper trading & daytrading for about 8 months now on a funded account, and yes i pass all evals.<br><br>
+                if you want help with any of that or just want to learn, contact me anytime below to schedule.
+            </p>
+        </div>
+    </div>
+        </section>
 
         <section id="contact" class="section fade-in">
             <h2 class="section-title">contact me</h2>
@@ -258,7 +297,6 @@
         </section>
     </div>
 
-<!-- WIKI MODAL OVERLAY -->
     <div id="wiki-modal" class="wiki-modal-overlay hidden">
         <div class="wiki-modal-content">
             <button class="wiki-close-btn" id="wiki-close-btn"><i class="fa-solid fa-xmark"></i></button>
