@@ -469,85 +469,85 @@ class Portfolio {
 const simulationsData = [
     {
         id: 1,
-        title: "Placeholder 1",
-        desc: "two disks bouncing on flat plate spring-coupled between opposed pin supports",
+        title: "two disks bouncing on flat plate spring-coupled between opposed pin supports",
+        desc: "two disks bounce on a frictionless flat plate that is spring-supported at both ends between opposed pin supports, with perfectly elastic collisions (e = 1)",
         videoSrc: "simulations/ds1.mp4",
         posterSrc: ""
     },
     {
         id: 2,
-        title: "Placeholder 2",
-        desc: "formation of blocks coupled by rods and springs",
+        title: "formation of blocks coupled by rods and springs ",
+        desc: "a multi-body system of rigid blocks linked by rods and springs, subjected to harmonic base excitation at angular frequencies around 3–5 rad/s",
         videoSrc: "simulations/ds2.mp4",
         posterSrc: ""
     },
     {
         id: 3,
-        title: "Placeholder 3",
-        desc: "swinging block with harmonic driving force spring-coupled to masses with pendulums",
+        title: "swinging block with harmonic driving force spring-coupled to masses with pendulums",
+        desc: "a central swinging block driven by a harmonic force and spring-coupled on either side to masses that each carry a pendulum",
         videoSrc: "simulations/ds3.mp4",
         posterSrc: ""
     },
     {
         id: 4,
-        title: "Placeholder 4",
-        desc: "pulley system with spring-coupled blocks and oscillating disk",
+        title: "pulley system with spring-coupled blocks and oscillating disk",
+        desc: "a cable-and-pulley arrangement featuring two spring-coupled sliding blocks on a horizontal track together with a vertically oscillating disk.",
         videoSrc: "simulations/ds4.mp4",
         posterSrc: ""
     },
     {
         id: 5,
-        title: "Placeholder 5",
-        desc: "triple pendulum with spring coupling fixed mount to second mass",
+        title: "triple pendulum with spring coupling fixed mount to second mass",
+        desc: "a triple-pendulum system consisting of two disks and a tip mass, with an additional spring that couples the fixed mount to the second mass",
         videoSrc: "simulations/ds5.mp4",
         posterSrc: ""
     },
     {
         id: 6,
-        title: "Placeholder 6",
-        desc: "rigid swinging frame with two spring-pendulum assemblies",
+        title: "rigid swinging frame with two spring-pendulum assemblies",
+        desc: "a rigid swinging frame that contains two independent spring-supported pendulum assemblies, one on each side",
         videoSrc: "simulations/ds6.mp4",
         posterSrc: ""
     },
     {
         id: 7,
-        title: "Placeholder 7",
-        desc: "dDisk with offset pendulum rolling without slipping on horizontally oscillating mass",
+        title: "disk with offset pendulum rolling without slipping on horizontally oscillating mass",
+        desc: "a disk carrying an offset pendulum that rolls without slipping atop a horizontally oscillating, spring-supported cart",
         videoSrc: "simulations/ds7.mp4",
         posterSrc: ""
     },
     {
         id: 8,
-        title: "Placeholder 8",
-        desc: "two disks coupled by parallel rods with pendulum",
+        title: "two disks coupled by parallel rods with pendulum",
+        desc: "two disks connected by parallel rods and fitted with a pendulum, constrained to move along a parabolic surface",
         videoSrc: "simulations/ds8.mp4",
         posterSrc: ""
     },
     {
         id: 9,
-        title: "Placeholder 9",
-        desc: "a free slider and a spring-bound slider carrying a pendulum",
+        title: "a free slider and a spring-bound slider carrying a pendulum",
+        desc: "a free sliding mass and a spring-restrained sliding mass that carries a pendulum, both free to move on a frictionless horizontal track",
         videoSrc: "simulations/ds9.mp4",
         posterSrc: ""
     },
     {
         id: 10,
-        title: "Placeholder 10",
-        desc: "rocking frame with suspended interior block and pendulum",
+        title: "rocking frame with suspended interior block and pendulum",
+        desc: "a rocking rectangular frame that contains an interior block suspended by a spring and also carries a pendulum at its base",
         videoSrc: "simulations/ds10.mp4",
         posterSrc: ""
     },
     {
         id: 11,
-        title: "Placeholder 11",
-        desc: "two disks coupled by springs rolling horizontally on parallel surfaces.",
+        title: "two disks coupled by springs rolling horizontally on parallel surfaces",
+        desc: "two disks linked by springs that roll horizontally on a pair of parallel upper and lower surfaces",
         videoSrc: "simulations/ds11.mp4",
         posterSrc: ""
     },
     {
         id: 12,
-        title: "Placeholder 12",
-        desc: "three inverted pendulums sharing common pivot coupled by springs",
+        title: "three inverted pendulums sharing common pivot coupled by springs",
+        desc: "three inverted pendulums that share a common pivot point and are mutually coupled to one another by springs",
         videoSrc: "simulations/ds12.mp4",
         posterSrc: ""
     }
