@@ -551,7 +551,7 @@ const simulationsData = [
         videoSrc: "simulations/ds12.mp4",
         posterSrc: ""
     }
-];
+]; 
 
         const grid = document.getElementById('simulations-grid');
         const showMoreBtn = document.getElementById('show-more-sims-btn');
