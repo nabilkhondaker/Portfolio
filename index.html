@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="nabil khondaker | a teenage developer and programmer from bangladesh. passionate about coding, tech, and engineering.">
@@ -17,353 +17,350 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+  </head>
+  <body>
     <div id="loading" class="loading-screen">
-        <div class="spinner"></div>
+      <div class="spinner"></div>
     </div>
     <!-- Updated Nav Bar -->
     <nav class="glass-top-bar nav-load-in">
-        <div class="nav-links">
-            <a href="#about">about me</a>
-            <a href="#featured">featured work</a>
-            <a href="#expertise">interests</a>
-            <a href="#mentoring">mentorship</a>
-            <a href="#contact">contact</a>
-        </div>
+      <div class="nav-links">
+        <a href="#about">about me</a>
+        <a href="#featured">featured work</a>
+        <a href="#expertise">interests</a>
+        <a href="#mentoring">mentorship</a>
+        <a href="#contact">contact</a>
+      </div>
     </nav>
     <div class="theme-picker-wrapper">
-        <button class="theme-toggle" id="theme-btn" title="Open theme panel">
-            <i class="fa-solid fa-palette"></i>
-        </button>
-        <div class="theme-panel hidden" id="theme-panel">
-            <div class="theme-panel-header">
-                <h3>theme options</h3>
-                <button class="theme-close-btn" id="theme-panel-close">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="theme-section">
-                <h4>color presets</h4>
-                <div class="theme-presets-grid">
-                    <button class="preset-btn active" data-theme="gold" style="background: linear-gradient(135deg, #913700 0%, #ffe600 100%);" title="Engineered Gold"></button>
-                    <button class="preset-btn" data-theme="cyber" style="background: linear-gradient(135deg, #ff0055 0%, #00ffcc 100%);" title="Cyberpunk Pink"></button>
-                    <button class="preset-btn" data-theme="toxic" style="background: linear-gradient(135deg, #0d5f00 0%, #00ff66 100%);" title="Toxic Green"></button>
-                    <button class="preset-btn" data-theme="cosmic" style="background: linear-gradient(135deg, #4d0099 0%, #00ffff 100%);" title="Cosmic Purple"></button>
-                    <button class="preset-btn" data-theme="crimson" style="background: linear-gradient(135deg, #910000 0%, #ff4d4d 100%);" title="Crimson Red"></button>
-                </div>
-            </div>
-            <div class="theme-section">
-                <h4>custom accent</h4>
-                <label for="color-picker" class="custom-color-picker-wrapper">
-                    <span class="color-preview-circle"></span>
-                    <span class="color-picker-label">
-                        <i>color picker</i>
-                    </span>
-                    <input type="color" id="color-picker" value="#913700">
-                </label>
-            </div>
+      <button class="theme-toggle" id="theme-btn" title="Open theme panel">
+        <i class="fa-solid fa-palette"></i>
+      </button>
+      <div class="theme-panel hidden" id="theme-panel">
+        <div class="theme-panel-header">
+          <h3>theme options</h3>
+          <button class="theme-close-btn" id="theme-panel-close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         </div>
+        <div class="theme-section">
+          <h4>color presets</h4>
+          <div class="theme-presets-grid">
+            <button class="preset-btn active" data-theme="gold" style="background: linear-gradient(135deg, #913700 0%, #ffe600 100%);" title="Engineered Gold"></button>
+            <button class="preset-btn" data-theme="cyber" style="background: linear-gradient(135deg, #ff0055 0%, #00ffcc 100%);" title="Cyberpunk Pink"></button>
+            <button class="preset-btn" data-theme="toxic" style="background: linear-gradient(135deg, #0d5f00 0%, #00ff66 100%);" title="Toxic Green"></button>
+            <button class="preset-btn" data-theme="cosmic" style="background: linear-gradient(135deg, #4d0099 0%, #00ffff 100%);" title="Cosmic Purple"></button>
+            <button class="preset-btn" data-theme="crimson" style="background: linear-gradient(135deg, #910000 0%, #ff4d4d 100%);" title="Crimson Red"></button>
+          </div>
+        </div>
+        <div class="theme-section">
+          <h4>custom accent</h4>
+          <label for="color-picker" class="custom-color-picker-wrapper">
+            <span class="color-preview-circle"></span>
+            <span class="color-picker-label">
+              <i>color picker</i>
+            </span>
+            <input type="color" id="color-picker" value="#913700">
+          </label>
+        </div>
+      </div>
     </div>
     <!-- Wiki Random Button -->
     <button class="wiki-toggle" id="wiki-btn" title="Random Wikimedia Image">
-        <i class="fa-brands fa-wikipedia-w"></i>
+      <i class="fa-brands fa-wikipedia-w"></i>
     </button>
     <div class="bg-canvas"></div>
     <div class="container main-content">
-        <header class="section fade-in" style="margin-top: 2rem; margin-bottom: 2rem;">
-            <div class="hero-card">
-                <div class="hero">
-                    <div class="hero-main">
-                        <div class="avatar-container">
-                            <img src="favicon/nabilkhondaker_fullsize.png" alt="Nabil Khondaker's Avatar" class="avatar" loading="eager">
-                        </div>
-                        <div class="hero-info">
-                            <h1 class="hero-title text-gradient">nabil khondaker</h1>
-                            <p class="hero-subtitle">developer, tech enthusiast, and an aspiring engineer</p>
-                            <div class="social-grid">
-                                <button class="social-btn" data-link="https://github.com/nabilkhondaker" title="GitHub">
-                                    <i class="fa-brands fa-github"></i>
-                                </button>
-                                <button class="social-btn" data-link="https://codeberg.org/nabilkd" title="Codeberg">
-                                    <i class="fa-codeberg-custom"></i>
-                                </button>
-                                <button class="social-btn" data-link="mailto:nabilkd@nabilkd.com" title="Email">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+      <header class="section fade-in" style="margin-top: 2rem; margin-bottom: 2rem;">
+        <div class="hero-card">
+          <div class="hero">
+            <div class="hero-main">
+              <div class="avatar-container">
+                <img src="favicon/nabilkhondaker_fullsize.png" alt="Nabil Khondaker's Avatar" class="avatar" loading="eager">
+              </div>
+              <div class="hero-info">
+                <h1 class="hero-title text-gradient">nabil khondaker</h1>
+                <p class="hero-subtitle">developer, tech enthusiast, and an aspiring engineer</p>
+                <div class="social-grid">
+                  <button class="social-btn" data-link="https://github.com/nabilkhondaker" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                  </button>
+                  <button class="social-btn" data-link="https://codeberg.org/nabilkd" title="Codeberg">
+                    <i class="fa-codeberg-custom"></i>
+                  </button>
+                  <button class="social-btn" data-link="mailto:nabilkd@nabilkd.com" title="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                  </button>
                 </div>
+              </div>
             </div>
-        </header>
-        <section id="status" class="section fade-in">
-            <div class="card status-card" style="cursor: default;">
-                <div class="card-content" style="display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; width: 100%;">
-                    <div class="status-left" style="display: flex; align-items: center; gap: 1.5rem;">
-                        <div class="status-avatar-wrapper">
-                            <img src="favicon/nabilkhondaker_fullsize.png" alt="Nabil" class="status-avatar">
-                        </div>
-                        <div class="status-info">
-                            <h3>nabil khondaker</h3>
-                            <p>building historys first homemade nuclear weapon...</p>
-                        </div>
-                    </div>
-                    <div class="discord-status-aesthetic" id="discord-status-indicator"></div>
-                </div>
-            </div>
-        </section>
-        <hr class="aesthetic-divider fade-in">
-        <div class="mechanical-gear-assembly" id="gear-system">
-            <div class="gear gear-sun">
-                <i class="fa-solid fa-gear"></i>
-            </div>
-            <div class="gear gear-planet planet-1">
-                <i class="fa-solid fa-gear"></i>
-            </div>
-            <div class="gear gear-planet planet-2">
-                <i class="fa-solid fa-gear"></i>
-            </div>
-            <div class="gear gear-planet planet-3">
-                <i class="fa-solid fa-gear"></i>
-            </div>
+          </div>
         </div>
-        <section id="about" class="section fade-in">
-            <h2 class="section-title">about me</h2>
-            <div class="card">
-                <div class="card-content">
-                    <p class="about-text"> hey! i am <span class="text-gradient font-bold">nabil khondaker</span>, a 16-year-old developer, programmer, and incoming <br>mechanical engineering student based in riverside, ca. <br>
-                        <br>fresh out of high school as part of the class of 2026, i spend most of my time bridging the gap between digital software and physical systems. my work spans everything from web development and software engineering to hands-on hardware tinkering. i am especially proud of building complex systems like my finite element analysis (fea) generative cto engine and custom 2r planar robot projects, which let me combine core math and physics with real-world mechanical applications. <br>
-                        <br>outside of the terminal and the workbench, my life is driven by a mix of physical outlets, continuous learning, and deep personal grounding. you'll frequently find me out riding my skateboard, sketching, playing basketball, or exploring diverse music. just as important to who i am is my dedication to reading, studying the quran, and drawing relentless discipline, purpose, and inspiration from figures like malcolm x. <br>
-                        <br>whether i'm optimizing a hardware setup, engineering a structural tool, or refining a creative project, i'm always building. <br>
-                        <br>welcome to my portfolio.
-                    </p>
-                </div>
+      </header>
+      <section id="status" class="section fade-in">
+        <div class="card status-card" style="cursor: default;">
+          <div class="card-content" style="display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; width: 100%;">
+            <div class="status-left" style="display: flex; align-items: center; gap: 1.5rem;">
+              <div class="status-avatar-wrapper">
+                <img src="favicon/nabilkhondaker_fullsize.png" alt="Nabil" class="status-avatar">
+              </div>
+              <div class="status-info">
+                <h3>nabil khondaker</h3>
+                <p>building historys first homemade nuclear weapon...</p>
+              </div>
             </div>
-        </section>
-        <!-- Featured Section combining Projects & Sims -->
-        <section id="featured" class="section fade-in">
-            <h2 class="section-title">featured work</h2>
-            <div id="featured-projects-grid" class="projects-grid"></div>
-            <br>
-            <br>
-            <div id="featured-sims-grid" class="simulations-grid"></div>
-            <!-- View More Button linking to Internal Overlay Route -->
-            <div class="show-more-container" style="margin-top: 4rem;">
-                <button id="open-full-portfolio-btn" class="submit-btn" style="padding: 1.2rem 2.5rem; font-size: 1.1rem; border-radius: 30px;">
-                    <span>view all work</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
+            <div class="discord-status-aesthetic" id="discord-status-indicator"></div>
+          </div>
+        </div>
+      </section>
+      <hr class="aesthetic-divider fade-in">
+      <div class="mechanical-gear-assembly" id="gear-system">
+        <div class="gear gear-sun">
+          <i class="fa-solid fa-gear"></i>
+        </div>
+        <div class="gear gear-planet planet-1">
+          <i class="fa-solid fa-gear"></i>
+        </div>
+        <div class="gear gear-planet planet-2">
+          <i class="fa-solid fa-gear"></i>
+        </div>
+        <div class="gear gear-planet planet-3">
+          <i class="fa-solid fa-gear"></i>
+        </div>
+      </div>
+      <section id="about" class="section fade-in">
+        <h2 class="section-title">about me</h2>
+        <div class="card">
+          <div class="card-content">
+            <p class="about-text"> hey! i am <span class="text-gradient font-bold">nabil khondaker</span>, a 16-year-old developer, programmer, and incoming <br>mechanical engineering student based in riverside, ca. <br>
+              <br>fresh out of high school as part of the class of 2026, i spend most of my time bridging the gap between digital software and physical systems. my work spans everything from web development and software engineering to hands-on hardware tinkering. i am especially proud of building complex systems like my finite element analysis (fea) generative cto engine and custom 2r planar robot projects, which let me combine core math and physics with real-world mechanical applications. <br>
+              <br>outside of the terminal and the workbench, my life is driven by a mix of physical outlets, continuous learning, and deep personal grounding. you'll frequently find me out riding my skateboard, sketching, playing basketball, or exploring diverse music. just as important to who i am is my dedication to reading, studying the quran, and drawing relentless discipline, purpose, and inspiration from figures like malcolm x. <br>
+              <br>whether i'm optimizing a hardware setup, engineering a structural tool, or refining a creative project, i'm always building. <br>
+              <br>welcome to my portfolio.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Featured Section combining Projects & Sims -->
+      <section id="featured" class="section fade-in">
+        <h2 class="section-title">featured work</h2>
+        <div id="featured-projects-grid" class="projects-grid"></div>
+        <br>
+        <br>
+        <div id="featured-sims-grid" class="simulations-grid"></div>
+        <!-- View More Button linking to Internal Overlay Route -->
+        <div class="show-more-container" style="margin-top: 4rem;">
+          <button id="open-full-portfolio-btn" class="submit-btn" style="padding: 1.2rem 2.5rem; font-size: 1.1rem; border-radius: 30px;">
+            <span>view all work</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </section>
+      <section id="expertise" class="section fade-in">
+        <h2 class="section-title">areas of interest</h2>
+        <div class="expertise-grid">
+          <div class="expertise-card">
+            <div class="expertise-icon">
+              <i class="fa-solid fa-square-root-variable"></i>
             </div>
-        </section>
-        <section id="expertise" class="section fade-in">
-            <h2 class="section-title">areas of interest</h2>
-            <div class="expertise-grid">
-                <div class="expertise-card">
-                    <div class="expertise-icon">
-                        <i class="fa-solid fa-square-root-variable"></i>
-                    </div>
-                    <h3>computational mechanics & simulation</h3>
-                    <div class="expertise-tooltip"> i leverage python and c++ to automate complex FEA and CFD workflows, building custom scripts to validate structural integrity faster than relying on out-of-the-box software </div>
-                </div>
-                <div class="expertise-card">
-                    <div class="expertise-icon">
-                        <i class="fa-solid fa-bezier-curve"></i>
-                    </div>
-                    <h3>generative design & topology optimization</h3>
-                    <div class="expertise-tooltip"> fusing advanced CAD with algorithmic thinking to drive material efficiency; i use programmatic logic to rapidly iterate through design spaces for peak structural performance </div>
-                </div>
-                <div class="expertise-card">
-                    <div class="expertise-icon">
-                        <i class="fa-solid fa-robot"></i>
-                    </div>
-                    <h3>robotics & kinematic modeling</h3>
-                    <div class="expertise-tooltip"> bridging the software-hardware divide. developing robust kinematic models and real-time control systems using c++ and lua for precise, responsive manipulation </div>
-                </div>
-                <div class="expertise-card">
-                    <div class="expertise-icon">
-                        <i class="fa-solid fa-laptop-code"></i>
-                    </div>
-                    <h3>software development for engineering</h3>
-                    <div class="expertise-tooltip"> i build custom tools and data pipelines to eliminate bottlenecks; fluent in python, c++, and full web stacks (html/css/js) to streamline testing and automate daily analysis </div>
-                </div>
-                <div class="expertise-card">
-                    <div class="expertise-icon">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-                    <h3>cyber-physical security</h3>
-                    <div class="expertise-tooltip"> applying white-hat hacking methodologies to secure industrial control systems, i ensure that smart hardware and mechanical systems remain impenetrable against digital vulnerabilities </div>
-                </div>
-                <div class="expertise-card">
-                    <div class="expertise-icon">
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-                    </div>
-                    <h3>prototyping & hands-on engineering</h3>
-                    <div class="expertise-tooltip"> by translating complex code and digital CAD models into physical reality, i combine rapid software iteration with hands-on fabrication to rigorously test and validate engineering concepts </div>
-                </div>
+            <h3>computational mechanics & simulation</h3>
+            <div class="expertise-tooltip"> i leverage python and c++ to automate complex FEA and CFD workflows, building custom scripts to validate structural integrity faster than relying on out-of-the-box software </div>
+          </div>
+          <div class="expertise-card">
+            <div class="expertise-icon">
+              <i class="fa-solid fa-bezier-curve"></i>
             </div>
-        </section>
-        <hr class="aesthetic-divider fade-in">
-        <section id="mentoring" class="section fade-in">
-            <h2 class="section-title">academic mentorship</h2>
-            <div class="card">
-                <div class="card-content">
-                    <p class="about-text"> hey! i run a completely free solo mentorship & tutoring program for people who want to get serious about engineering. <br>
-                        <br> i work one-on-one with students, early-career engineers, and self-learners who want deeper understanding and practical skill in areas like computational mechanics & simulation, generative design & topology optimization, robotics & kinematic modeling, software development for engineering applications, cyber-physical security, and hands-on prototyping. <br>
-                        <br>whether you’re stuck on a project, trying to build stronger fundamentals, or want structured guidance to move faster, i help you work through real problems, understand the underlying principles, and develop solid engineering habits. <br>
-                        <br>sessions are flexible and focused on what you actually need — no fluff, no sales pitch, just clear technical help. if any of this sounds useful, feel free to reach out anytime to schedule a session. happy to help.
-                    </p>
-                </div>
+            <h3>generative design & topology optimization</h3>
+            <div class="expertise-tooltip"> fusing advanced CAD with algorithmic thinking to drive material efficiency; i use programmatic logic to rapidly iterate through design spaces for peak structural performance </div>
+          </div>
+          <div class="expertise-card">
+            <div class="expertise-icon">
+              <i class="fa-solid fa-robot"></i>
             </div>
-        </section>
-        <section id="contact" class="section fade-in">
-            <h2 class="section-title">contact me</h2>
-            <div class="card">
-                <div class="card-content">
-                    <div class="contact-split">
-                        <div class="contact-info-side">
-                            <h3 style="margin-bottom: 1rem; color: var(--text-primary); font-size: 1.3rem;">find me online!</h3>
-                            <div class="about-text contact-info">
-                                <p>
-                                    <strong>
-                                        <i class="fa-solid fa-envelope"></i>
-                                    </strong>
-                                    <span id="email-text">
-                                        <a href="mailto:nabilkd@nabilkd.com" class="text-gradient font-bold" style="font-weight: 700;">nabilkd@nabilkd.com</a>
-                                    </span>
-                                    <button id="copy-email-btn" title="Copy to clipboard" class="copy-btn">
-                                        <i class="fa-regular fa-copy"></i>
-                                    </button>
-                                </p>
-                                <p>
-                                    <strong>
-                                        <i class="fa-brands fa-github"></i>
-                                    </strong>
-                                    <a href="https://github.com/nabilkhondaker" class="highlight-link" target="_blank" rel="noopener noreferrer">@nabilkhondaker</a>
-                                </p>
-                                <p>
-                                    <strong>
-                                        <i class="fa-codeberg-custom"></i>
-                                    </strong>
-                                    <a href="https://codeberg.org/nabilkd" class="highlight-link" target="_blank" rel="noopener noreferrer">@nabilkd</a>
-                                </p>
-                                <p>
-                                    <strong>
-                                        <i class="fa-brands fa-discord"></i>
-                                    </strong>
-                                    <a href="https://discord.com/users/1056634135961153576" class="highlight-link" target="_blank" rel="noopener noreferrer">@ind7kuh</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contact-form-side">
-                            <form action="https://api.web3forms.com/submit" method="POST" class="hacker-form">
-                                <input type="hidden" name="access_key" value="739f3965-68c0-4216-8e25-f94bfc393286">
-                                <div class="input-wrapper">
-                                    <input type="text" name="name" required placeholder="your name" class="form-input">
-                                </div>
-                                <div class="input-wrapper">
-                                    <input type="email" name="email" required placeholder="your email" class="form-input" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address ending with a proper extension (e.g., user@gmail.com or name@domain.co)">
-                                </div>
-                                <div class="input-wrapper">
-                                    <textarea name="message" rows="4" required placeholder="your message" class="form-input"></textarea>
-                                </div>
-                                <input type="hidden" name="redirect" value="https://nabilkd.com">
-                                <button type="submit" class="submit-btn">
-                                    <span>send to big bro</span>
-                                    <i class="fa-solid fa-paper-plane"></i>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+            <h3>robotics & kinematic modeling</h3>
+            <div class="expertise-tooltip"> bridging the software-hardware divide. developing robust kinematic models and real-time control systems using c++ and lua for precise, responsive manipulation </div>
+          </div>
+          <div class="expertise-card">
+            <div class="expertise-icon">
+              <i class="fa-solid fa-laptop-code"></i>
             </div>
-        </section>
-        <!-- Dummy Footer for spatial flow -->
-        <footer class="footer">
-            <p>&copy; <span id="current-year"></span> nabil khondaker. all rights reserved. </p>
-        </footer>
+            <h3>software development for engineering</h3>
+            <div class="expertise-tooltip"> i build custom tools and data pipelines to eliminate bottlenecks; fluent in python, c++, and full web stacks (html/css/js) to streamline testing and automate daily analysis </div>
+          </div>
+          <div class="expertise-card">
+            <div class="expertise-icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3>cyber-physical security</h3>
+            <div class="expertise-tooltip"> applying white-hat hacking methodologies to secure industrial control systems, i ensure that smart hardware and mechanical systems remain impenetrable against digital vulnerabilities </div>
+          </div>
+          <div class="expertise-card">
+            <div class="expertise-icon">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+            <h3>prototyping & hands-on engineering</h3>
+            <div class="expertise-tooltip"> by translating complex code and digital CAD models into physical reality, i combine rapid software iteration with hands-on fabrication to rigorously test and validate engineering concepts </div>
+          </div>
+        </div>
+      </section>
+      <hr class="aesthetic-divider fade-in">
+      <section id="mentoring" class="section fade-in">
+        <h2 class="section-title">academic mentorship</h2>
+        <div class="card">
+          <div class="card-content">
+            <p class="about-text"> hey! i run a completely free solo mentorship & tutoring program for people who want to get serious about engineering. <br>
+              <br> i work one-on-one with students, early-career engineers, and self-learners who want deeper understanding and practical skill in areas like computational mechanics & simulation, generative design & topology optimization, robotics & kinematic modeling, software development for engineering applications, cyber-physical security, and hands-on prototyping. <br>
+              <br>whether you’re stuck on a project, trying to build stronger fundamentals, or want structured guidance to move faster, i help you work through real problems, understand the underlying principles, and develop solid engineering habits. <br>
+              <br>sessions are flexible and focused on what you actually need — no fluff, no sales pitch, just clear technical help. if any of this sounds useful, feel free to reach out anytime to schedule a session. happy to help.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="section fade-in">
+        <h2 class="section-title">contact me</h2>
+        <div class="card">
+          <div class="card-content">
+            <div class="contact-split">
+              <div class="contact-info-side">
+                <h3 style="margin-bottom: 1rem; color: var(--text-primary); font-size: 1.3rem;">find me online!</h3>
+                <div class="about-text contact-info">
+                  <p>
+                    <strong>
+                      <i class="fa-solid fa-envelope"></i>
+                    </strong>
+                    <span id="email-text">
+                      <a href="mailto:nabilkd@nabilkd.com" class="text-gradient font-bold" style="font-weight: 700;">nabilkd@nabilkd.com</a>
+                    </span>
+                    <button id="copy-email-btn" title="Copy to clipboard" class="copy-btn">
+                      <i class="fa-regular fa-copy"></i>
+                    </button>
+                  </p>
+                  <p>
+                    <strong>
+                      <i class="fa-brands fa-github"></i>
+                    </strong>
+                    <a href="https://github.com/nabilkhondaker" class="highlight-link" target="_blank" rel="noopener noreferrer">@nabilkhondaker</a>
+                  </p>
+                  <p>
+                    <strong>
+                      <i class="fa-codeberg-custom"></i>
+                    </strong>
+                    <a href="https://codeberg.org/nabilkd" class="highlight-link" target="_blank" rel="noopener noreferrer">@nabilkd</a>
+                  </p>
+                  <p>
+                    <strong>
+                      <i class="fa-brands fa-discord"></i>
+                    </strong>
+                    <a href="https://discord.com/users/1056634135961153576" class="highlight-link" target="_blank" rel="noopener noreferrer">@ind7kuh</a>
+                  </p>
+                </div>
+              </div>
+              <div class="contact-form-side">
+                <form action="https://api.web3forms.com/submit" method="POST" class="hacker-form">
+                  <input type="hidden" name="access_key" value="739f3965-68c0-4216-8e25-f94bfc393286">
+                  <div class="input-wrapper">
+                    <input type="text" name="name" required placeholder="your name" class="form-input">
+                  </div>
+                  <div class="input-wrapper">
+                    <input type="email" name="email" required placeholder="your email" class="form-input" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address ending with a proper extension (e.g., user@gmail.com or name@domain.co)">
+                  </div>
+                  <div class="input-wrapper">
+                    <textarea name="message" rows="4" required placeholder="your message" class="form-input"></textarea>
+                  </div>
+                  <input type="hidden" name="redirect" value="https://nabilkd.com">
+                  <button type="submit" class="submit-btn">
+                    <span>send to big bro</span>
+                    <i class="fa-solid fa-paper-plane"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Dummy Footer for spatial flow -->
+      <footer class="footer">
+        <p>&copy; <span id="current-year"></span> nabil khondaker. all rights reserved. </p>
+      </footer>
     </div>
     <!-- The Internal Overlay Page that slides in -->
     <div id="full-portfolio-page" class="full-page-overlay">
-        <div class="overlay-header">
-            <button id="close-portfolio-btn" class="overlay-nav-btn">
-                <i class="fa-solid fa-arrow-left"></i> back </button>
-        </div>
-        <div class="overlay-content">
-            <h3 class="overlay-section-title">core projects</h3>
-            <div id="all-projects-grid" class="projects-grid"></div>
-            <br>
-            <hr>
-            <br>
-<h3 class="overlay-section-title" id="dynamics-sims-section">dynamics simulations</h3>
-            <div id="all-sims-grid" class="simulations-grid"></div>
-        </div>
-
-        <!-- Scroll to Simulations button -->
-<button id="scroll-to-sims-btn" class="scroll-to-bottom-btn" title="Jump to Dynamics Simulations">
-    <i class="fa-solid fa-arrow-down"></i>
-</button>
+      <div class="overlay-header">
+        <button id="close-portfolio-btn" class="overlay-nav-btn">
+          <i class="fa-solid fa-arrow-left"></i> back </button>
+      </div>
+      <div class="overlay-content">
+        <h3 class="overlay-section-title">core projects</h3>
+        <div id="all-projects-grid" class="projects-grid"></div>
+        <br>
+        <hr>
+        <br>
+        <h3 class="overlay-section-title" id="dynamics-sims-section">dynamics simulations</h3>
+        <div id="all-sims-grid" class="simulations-grid"></div>
+      </div>
+      <!-- Scroll to Simulations button -->
+      <button id="scroll-to-sims-btn" class="scroll-to-bottom-btn" title="Jump to Dynamics Simulations">
+        <i class="fa-solid fa-arrow-down"></i>
+      </button>
     </div>
     <!-- Wiki Modal -->
     <div id="wiki-modal" class="wiki-modal-overlay hidden">
-        <div class="wiki-modal-content">
-            <button class="wiki-close-btn" id="wiki-close-btn">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="wiki-image-container">
-                <img id="wiki-image" src="" alt="Random Wikipedia Media">
-            </div>
-            <button class="wiki-refresh-btn" id="wiki-refresh-btn">
-                <i class="fa-solid fa-rotate-right"></i> refresh </button>
+      <div class="wiki-modal-content">
+        <button class="wiki-close-btn" id="wiki-close-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="wiki-image-container">
+          <img id="wiki-image" src="" alt="Random Wikipedia Media">
         </div>
+        <button class="wiki-refresh-btn" id="wiki-refresh-btn">
+          <i class="fa-solid fa-rotate-right"></i> refresh </button>
+      </div>
     </div>
     <!-- Sim Modal - FORCED GIF BEHAVIOR -->
     <div id="sim-modal" class="wiki-modal-overlay hidden">
-        <div class="wiki-modal-content sim-modal-content">
-            <button class="wiki-close-btn" id="sim-close-btn">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="sim-video-container">
-                <video id="sim-modal-video" muted loop playsinline style="pointer-events: none;"></video>
-            </div>
-            <div class="sim-caption">
-                <h3 id="sim-modal-title"></h3>
-                <p id="sim-modal-desc"></p>
-            </div>
+      <div class="wiki-modal-content sim-modal-content">
+        <button class="wiki-close-btn" id="sim-close-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="sim-video-container">
+          <video id="sim-modal-video" muted loop playsinline style="pointer-events: none;"></video>
         </div>
+        <div class="sim-caption">
+          <h3 id="sim-modal-title"></h3>
+          <p id="sim-modal-desc"></p>
+        </div>
+      </div>
     </div>
-    
     <!-- New Overview Modal -->
     <div id="overview-modal" class="wiki-modal-overlay hidden">
-        <div class="wiki-modal-content overview-modal-content">
-            <button class="wiki-close-btn" id="overview-close-btn">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="overview-header">
-                <h3 id="overview-title"></h3>
-            </div>
-            <div class="overview-body">
-                <div>
-                    <h4>initial summary</h4>
-                    <p id="overview-summary"></p>
-                </div>
-                <div>
-                    <h4>motivation</h4>
-                    <p id="overview-why"></p>
-                </div>
-                <div>
-                    <h4>takeaways</h4>
-                    <p id="overview-learned"></p>
-                </div>
-                <div>
-                    <h4>obstacles</h4>
-                    <p id="overview-challenges"></p>
-                </div>
-            </div>
+      <div class="wiki-modal-content overview-modal-content">
+        <button class="wiki-close-btn" id="overview-close-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="overview-header">
+          <h3 id="overview-title"></h3>
         </div>
+        <div class="overview-body">
+          <div>
+            <h4>initial summary</h4>
+            <p id="overview-summary"></p>
+          </div>
+          <div>
+            <h4>motivation</h4>
+            <p id="overview-why"></p>
+          </div>
+          <div>
+            <h4>takeaways</h4>
+            <p id="overview-learned"></p>
+          </div>
+          <div>
+            <h4>obstacles</h4>
+            <p id="overview-challenges"></p>
+          </div>
+        </div>
+      </div>
     </div>
-
     <script src="projects.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
