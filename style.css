@@ -1837,3 +1837,86 @@ a, button, .project-card, .sim-card, .theme-panel, .custom-color-picker-wrapper,
     background: rgba(255, 255, 255, 0.15) !important;
     border-color: var(--accent-blue) !important;
 }
+
+/* =========================
+   Scroll-to-Simulations Button (chat-style)
+   ========================= */
+.scroll-to-bottom-btn {
+    position: fixed;
+    bottom: 2.2rem;
+    right: 2.2rem;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(20, 20, 22, 0.75);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--accent-blue);
+    font-size: 1.25rem;
+    cursor: pointer;
+    z-index: 100010;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.85);
+    transition: 
+        opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 0.35s,
+        transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        color 0.25s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Only show when the full portfolio overlay is open */
+.full-page-overlay.active .scroll-to-bottom-btn {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.scroll-to-bottom-btn:hover {
+    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+    color: #0a0a0b;
+    border-color: transparent;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        0 0 25px color-mix(in srgb, var(--accent) 40%, transparent);
+    transform: translateY(-4px) scale(1.08);
+}
+
+.scroll-to-bottom-btn:active {
+    transform: translateY(0) scale(0.95);
+}
+
+.scroll-to-bottom-btn i {
+    transition: transform 0.3s ease;
+}
+
+.scroll-to-bottom-btn:hover i {
+    transform: translateY(2px);
+}
+
+/* Mobile tweak */
+@media (max-width: 768px) {
+    .scroll-to-bottom-btn {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 48px;
+        height: 48px;
+        font-size: 1.15rem;
+    }
+}
+
+/* Hidden state for the scroll button */
+.scroll-to-bottom-btn.hidden-btn {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(20px) scale(0.85) !important;
+    pointer-events: none !important;
+}
