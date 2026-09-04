@@ -619,7 +619,7 @@ class Portfolio {
                 // FIXED: removed broken poster="${sim.posterSrc}" and added preload="metadata"
                 card.innerHTML = `
     <div class="sim-video-wrapper">
-        <video muted loop playsinline preload="metadata" style="pointer-events: none;">
+        <video muted loop playsinline preload="auto" style="pointer-events: none;">
             <source src="${sim.videoSrc}" type="video/mp4">
         </video>
     </div>
@@ -636,29 +636,23 @@ class Portfolio {
     </div>
 `;
 
-                const video = card.querySelector('video');
+const video = card.querySelector('video');
 
-                // Force first frame to paint as thumbnail
-                video.addEventListener('loadedmetadata', function onMeta() {
-                    if (this.duration > 0.1) {
-                        this.currentTime = 0.05;
-                    }
-                    this.removeEventListener('loadedmetadata', onMeta);
-                }, {
-                    once: true
-                });
+// More reliable way to force the first real frame
+const forceThumbnail = () => {
+    if (video.readyState >= 2) {          // HAVE_CURRENT_DATA or higher
+        video.currentTime = 0.1;          // jump a tiny bit past any black intro
+        video.pause();
+    }
+};
 
-                // Force first frame to paint reliably as thumbnail
-                video.addEventListener('loadedmetadata', function onMeta() {
-                    // Seek a tiny amount so the browser paints a frame
-                    if (this.duration > 0.1) {
-                        this.currentTime = 0.05;
-                    }
-                    this.removeEventListener('loadedmetadata', onMeta);
-                }, {
-                    once: true
-                });
+video.addEventListener('loadeddata', forceThumbnail, { once: true });
+video.addEventListener('loadedmetadata', forceThumbnail, { once: true });
 
+// Fallback in case the events already fired
+if (video.readyState >= 2) {
+    forceThumbnail();
+}
                 card.addEventListener('mouseenter', () => {
                     video.play().catch(() => {});
                 });
