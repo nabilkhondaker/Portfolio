@@ -724,28 +724,71 @@ video.addEventListener('loadedmetadata', function onMeta() {
     }
 
     setupPortfolioOverlay() {
-        const openBtn = document.getElementById('open-full-portfolio-btn');
-        const closeBtn = document.getElementById('close-portfolio-btn');
-        const closeBtnFront = document.getElementById('close-portfolio-btn-front');
-        const overlay = document.getElementById('full-portfolio-page');
-        
-        if (openBtn && (closeBtn || closeBtnFront) && overlay) {
-            openBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                overlay.classList.add('active');
-                document.body.style.overflow = 'hidden'; 
-                overlay.scrollTo(0, 0); 
-            });
+    const openBtn = document.getElementById('open-full-portfolio-btn');
+    const closeBtn = document.getElementById('close-portfolio-btn');
+    const closeBtnFront = document.getElementById('close-portfolio-btn-front');
+    const overlay = document.getElementById('full-portfolio-page');
+    const scrollToSimsBtn = document.getElementById('scroll-to-sims-btn');
+    
+    if (openBtn && (closeBtn || closeBtnFront) && overlay) {
+        openBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+            overlay.scrollTo(0, 0);
             
-            const triggerClose = () => {
-                overlay.classList.remove('active');
-                document.body.style.overflow = 'auto'; 
-            };
+            // Reset button state when opening
+            if (scrollToSimsBtn) {
+                scrollToSimsBtn.classList.remove('hidden-btn');
+            }
+        });
+        
+        const triggerClose = () => {
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto'; 
+        };
 
-            if (closeBtn) closeBtn.addEventListener('click', triggerClose);
-            if (closeBtnFront) closeBtnFront.addEventListener('click', triggerClose);
-        }
+        if (closeBtn) closeBtn.addEventListener('click', triggerClose);
+        if (closeBtnFront) closeBtnFront.addEventListener('click', triggerClose);
     }
+
+    // Smart show/hide + click behavior
+    if (scrollToSimsBtn && overlay) {
+        const target = document.getElementById('dynamics-sims-section');
+
+        const updateButtonVisibility = () => {
+            if (!target) return;
+
+            const overlayRect = overlay.getBoundingClientRect();
+            const targetRect = target.getBoundingClientRect();
+
+            // Show button only when the Dynamics section is still below the visible area
+            const isSectionBelow = targetRect.top > overlayRect.bottom - 120;
+
+            if (isSectionBelow) {
+                scrollToSimsBtn.classList.remove('hidden-btn');
+            } else {
+                scrollToSimsBtn.classList.add('hidden-btn');
+            }
+        };
+
+        // Listen to scroll inside the overlay
+        overlay.addEventListener('scroll', updateButtonVisibility, { passive: true });
+
+        // Also check on open / resize
+        window.addEventListener('resize', updateButtonVisibility);
+
+        // Click → smooth scroll to simulations
+        scrollToSimsBtn.addEventListener('click', () => {
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+}
 
     setupOverviewModal() {
         const overviewModal = document.getElementById('overview-modal');
