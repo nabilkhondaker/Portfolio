@@ -15,10 +15,10 @@
     --glow: 0 0 20px var(--accent);
     --radius: 16px;
     --radius-sm: 8px;
-    --transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-        border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-        background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                  opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                  border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                  background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -30,7 +30,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
-    scroll-padding-top: 100px;
+    scroll-padding-top: 100px; 
 }
 
 body {
@@ -40,7 +40,7 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     transition: background 0.5s ease, color 0.3s ease;
-    padding-top: 70px;
+    padding-top: 70px; 
 }
 
 /* =========================
@@ -57,7 +57,7 @@ body {
     -webkit-backdrop-filter: blur(35px) saturate(200%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    z-index: 9995;
+    z-index: 9995; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,7 +111,6 @@ body {
         opacity: 0;
         transform: translateY(-30px);
     }
-
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -157,23 +156,13 @@ body {
 }
 
 @keyframes floatOrb1 {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    100% {
-        transform: translate(15%, 10%) scale(1.1);
-    }
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(15%, 10%) scale(1.1); }
 }
 
 @keyframes floatOrb2 {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    100% {
-        transform: translate(-15%, -10%) scale(1.1);
-    }
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-15%, -10%) scale(1.1); }
 }
 
 /* =========================
@@ -301,9 +290,9 @@ body {
     overflow: hidden;
     padding: 0;
     transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-        border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-        background 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+                border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                background 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-btn:hover {
@@ -332,7 +321,7 @@ body {
     background-color: currentColor;
     -webkit-mask: url('https://cdn.jsdelivr.net/npm/simple-icons/icons/codeberg.svg') no-repeat center / contain;
     mask: url('https://cdn.jsdelivr.net/npm/simple-icons/icons/codeberg.svg') no-repeat center / contain;
-    vertical-align: -0.125em;
+    vertical-align: -0.125em; 
 }
 
 /* =========================
@@ -344,7 +333,7 @@ body {
 
 .theme-toggle {
     position: fixed;
-    top: 11px;
+    top: 11px; 
     right: 25px;
     width: 48px;
     height: 48px;
@@ -372,7 +361,7 @@ body {
 
 .theme-panel {
     position: fixed;
-    top: 80px;
+    top: 80px; 
     right: 25px;
     width: 260px;
     padding: 1.5rem;
@@ -456,12 +445,12 @@ body {
     transition: var(--transition);
     background-origin: border-box;
     background-clip: padding-box;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15), 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15), 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .preset-btn:hover {
     transform: scale(1.12);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4), 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4), 0 4px 8px rgba(0,0,0,0.3);
 }
 
 .preset-btn.active {
@@ -528,11 +517,9 @@ body {
     animation: spin 1s linear infinite;
     align-self: center;
 }
-
 .status-card.loading .discord-loading {
     display: inline-block;
 }
-
 .status-card.loading .status-info,
 .status-card.loading .discord-icon,
 .status-card.loading .status-avatar {
@@ -550,7 +537,6 @@ body {
     position: relative;
     overflow: hidden;
 }
-
 .card::before {
     content: '';
     position: absolute;
@@ -559,17 +545,14 @@ body {
     opacity: 0;
     transition: var(--transition);
 }
-
 .card:hover::before {
     opacity: 0.03;
 }
-
 .card:hover {
     transform: translateY(-5px);
     border-color: var(--accent-blue);
     box-shadow: var(--shadow), var(--glow);
 }
-
 .card-content {
     position: relative;
     z-index: 1;
@@ -581,12 +564,10 @@ body {
     gap: 1rem;
     margin-bottom: 3rem;
 }
-
 .status-avatar-wrapper {
     position: relative;
     display: inline-block;
 }
-
 .status-avatar {
     display: block;
     width: 48px;
@@ -598,26 +579,23 @@ body {
 .discord-status-dot {
     position: absolute;
     bottom: 0px;
-    right: -4px;
+    right: -4px;   
     width: 16px;
     height: 16px;
     border-radius: 50%;
     border: 3px solid var(--bg-primary);
     z-index: 2;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 6px rgba(0,0,0,0.3);
     transition: background 0.3s;
 }
-
 .status-info h3 {
     font-weight: 600;
     margin-bottom: 0.25rem;
 }
-
 .status-info p {
     color: var(--text-secondary);
     font-size: 0.9rem;
 }
-
 .discord-icon {
     margin-left: auto;
     color: #5865f2;
@@ -630,7 +608,6 @@ body {
 .section {
     margin-bottom: 4rem;
 }
-
 .section-title {
     font-size: 2.5rem;
     font-weight: 700;
@@ -641,7 +618,6 @@ body {
     margin-bottom: 2rem;
     text-align: center;
 }
-
 .section-subtitle {
     color: var(--text-secondary);
     margin-bottom: 3rem;
@@ -653,20 +629,17 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
-
 .skill-category h3 {
     color: var(--text-primary);
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
 }
-
 .skill-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
 }
-
 .skill-tag {
     background: rgba(255, 255, 255, 0.06);
     padding: 0.5rem 1rem;
@@ -680,33 +653,28 @@ body {
     gap: 0.5rem;
     color: var(--text-primary);
 }
-
 .skill-tag:hover {
     background: var(--accent);
     color: #ffffff;
     border-color: var(--accent-blue);
     transform: translateY(-2px);
 }
-
 hr {
     width: 73%;
     margin: 0 auto;
     border: 0;
     border-top: 1px solid var(--border);
 }
-
 .skill-tag i {
     color: var(--accent-blue);
 }
-
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
 }
 
-.project-card,
-.sim-card {
+.project-card, .sim-card {
     background: rgba(20, 20, 22, 0.85);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -736,13 +704,11 @@ hr {
     margin-bottom: 0.5rem;
     font-weight: 600;
 }
-
 .project-tag {
     color: var(--text-muted);
     font-size: 0.85rem;
     margin-bottom: 1rem;
 }
-
 .project-content p {
     color: var(--text-secondary);
     line-height: 1.6;
@@ -777,7 +743,7 @@ hr {
    ========================= */
 .glass-bubble {
     position: absolute;
-    inset: 15px;
+    inset: 15px; 
     background: rgba(10, 10, 11, 0.88);
     backdrop-filter: blur(25px) saturate(200%);
     -webkit-backdrop-filter: blur(25px) saturate(200%);
@@ -789,14 +755,14 @@ hr {
     justify-content: flex-start;
     align-items: center;
     text-align: center;
-
+    
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px) scale(0.92);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 10;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.03);
-    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5), inset 0 0 30px rgba(255, 255, 255, 0.03);
+    overflow-y: auto; 
 }
 
 .glass-bubble-inner {
@@ -812,7 +778,7 @@ hr {
     opacity: 1;
     visibility: visible;
     transform: translateY(0) scale(1);
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.7), inset 0 0 25px var(--accent);
+    box-shadow: 0 10px 50px rgba(0,0,0,0.7), inset 0 0 25px var(--accent);
 }
 
 .glass-bubble h4 {
@@ -820,7 +786,7 @@ hr {
     font-size: 1.2rem;
     margin-bottom: 0.8rem;
     text-transform: lowercase;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    text-shadow: 0 0 10px rgba(255,255,255,0.2);
 }
 
 .glass-bubble p {
@@ -833,16 +799,13 @@ hr {
 .glass-bubble::-webkit-scrollbar {
     width: 6px;
 }
-
 .glass-bubble::-webkit-scrollbar-track {
     background: transparent;
 }
-
 .glass-bubble::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.15);
     border-radius: 10px;
 }
-
 .glass-bubble::-webkit-scrollbar-thumb:hover {
     background: var(--accent-blue);
 }
@@ -913,7 +876,7 @@ hr {
     color: var(--text-secondary);
     font-size: 0.95rem;
     text-align: center;
-    box-shadow: var(--shadow), 0 10px 30px rgba(0, 0, 0, 0.6);
+    box-shadow: var(--shadow), 0 10px 30px rgba(0,0,0,0.6);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -947,25 +910,21 @@ hr {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
-
 .highlight-link {
     color: var(--accent-blue);
     text-decoration: none;
     font-weight: 500;
     transition: var(--transition);
 }
-
 .highlight-link:hover {
     color: var(--text-primary);
     text-decoration: underline;
 }
-
 .contact-info p {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
-
 .copy-btn {
     background: transparent;
     border: none;
@@ -976,29 +935,24 @@ hr {
     transition: var(--transition);
     border-radius: 4px;
 }
-
 .copy-btn:hover {
     color: var(--accent-blue);
     background: rgba(255, 255, 255, 0.05);
 }
-
 .about-text {
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--text-secondary);
 }
-
 .about-text p {
     margin-bottom: 0.3rem;
 }
-
 .footer {
     text-align: center;
     padding: 3rem 0;
     border-top: 1px solid var(--border);
     margin-top: 4rem;
 }
-
 .footer p {
     color: var(--text-muted);
     margin-bottom: 0.5rem;
@@ -1014,70 +968,55 @@ hr {
         gap: 1.5rem;
         padding-left: 0;
     }
-
     .avatar {
         width: 90px;
         height: 90px;
     }
-
     .hero-info {
         align-items: center;
         text-align: center;
         width: 100%;
     }
-
     .social-grid {
         justify-content: center;
     }
 }
-
 @media (max-width: 768px) {
     .container {
         padding: 0 1rem;
     }
-
-    .skills-grid,
-    .projects-grid,
-    .expertise-grid {
+    .skills-grid, .projects-grid, .expertise-grid {
         grid-template-columns: 1fr;
     }
-
     .status-card {
         flex-direction: column;
         text-align: center;
     }
-
     .discord-icon {
         margin: 0;
     }
-
     .nav-links {
         gap: 1.25rem;
     }
-
     .nav-links a {
         font-size: 0.85rem;
     }
-
     .theme-toggle {
         width: 40px;
         height: 40px;
-        top: 15px;
+        top: 15px; 
         right: 15px;
         font-size: 1rem;
     }
 }
-
 @media (max-width: 500px) {
     .avatar {
         width: 70px;
         height: 70px;
     }
-
     .hero-info h1 {
         font-size: 2rem;
     }
-
     .social-btn {
         width: 38px;
         height: 38px;
@@ -1092,7 +1031,6 @@ hr {
     transform: translateY(30px);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
-
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
@@ -1104,16 +1042,13 @@ hr {
 ::-webkit-scrollbar {
     width: 8px;
 }
-
 ::-webkit-scrollbar-track {
     background: var(--bg-secondary);
 }
-
 ::-webkit-scrollbar-thumb {
     background: var(--accent);
     border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
     background: var(--accent-blue);
 }
@@ -1131,12 +1066,10 @@ hr {
     z-index: 1000;
     transition: opacity 0.5s ease;
 }
-
 .loading.hidden {
     opacity: 0;
     pointer-events: none;
 }
-
 .spinner {
     width: 40px;
     height: 40px;
@@ -1145,35 +1078,26 @@ hr {
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
-
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* =========================
    Project Cards Hover Glow & Lift
    ========================= */
-.project-card:hover,
-.sim-card:hover {
+.project-card:hover, .sim-card:hover {
     transform: translateY(-8px) !important;
-    border-color: var(--accent-blue) !important;
+    border-color: var(--accent-blue) !important; 
     background: rgba(255, 255, 255, 0.05) !important;
-    box-shadow: var(--shadow), 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent) !important;
-    opacity: 1 !important;
+    box-shadow: var(--shadow), 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent) !important; 
+    opacity: 1 !important; 
 }
 
 /* =========================
    Content Protection
    ========================= */
-body,
-html,
-* {
+body, html, * {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -1181,8 +1105,7 @@ html,
     -webkit-tap-highlight-color: transparent;
 }
 
-input,
-textarea {
+input, textarea {
     -webkit-user-select: text;
     -moz-user-select: text;
     -ms-user-select: text;
@@ -1194,13 +1117,7 @@ img {
     pointer-events: none;
 }
 
-a,
-button,
-.project-card,
-.sim-card,
-.theme-panel,
-.custom-color-picker-wrapper,
-#color-picker {
+a, button, .project-card, .sim-card, .theme-panel, .custom-color-picker-wrapper, #color-picker {
     pointer-events: auto !important;
 }
 
@@ -1244,42 +1161,18 @@ button,
     transform-origin: center center;
 }
 
-.planet-1 {
-    --offset-x: 42px;
-    --offset-y: 0px;
-    transform: translate(var(--offset-x), var(--offset-y));
-}
-
-.planet-2 {
-    --offset-x: -21px;
-    --offset-y: 36px;
-    transform: translate(var(--offset-x), var(--offset-y));
-}
-
-.planet-3 {
-    --offset-x: -21px;
-    --offset-y: -36px;
-    transform: translate(var(--offset-x), var(--offset-y));
-}
+.planet-1 { --offset-x: 42px;  --offset-y: 0px;   transform: translate(var(--offset-x), var(--offset-y)); }
+.planet-2 { --offset-x: -21px; --offset-y: 36px;  transform: translate(var(--offset-x), var(--offset-y)); }
+.planet-3 { --offset-x: -21px; --offset-y: -36px; transform: translate(var(--offset-x), var(--offset-y)); }
 
 @keyframes spinClockwise {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 @keyframes spinCounterClockwise {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(-360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
 }
 
 .mechanical-gear-assembly:hover {
@@ -1296,7 +1189,6 @@ button,
     z-index: 1000;
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
-
 .loading-screen.hidden {
     opacity: 0;
     visibility: hidden;
@@ -1426,7 +1318,6 @@ button,
     border-radius: 50%;
     box-shadow: 0 0 14px rgba(242, 63, 67, 0.35);
 }
-
 .discord-status-aesthetic.status-dnd::after {
     content: '';
     position: absolute;
@@ -1450,14 +1341,14 @@ button,
 
 .in-progress-badge {
     position: absolute;
-    top: 1.25rem;
+    top: 1.25rem;   
     right: 1.25rem;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px) saturate(180%);
+    background: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(10px) saturate(180%); 
     -webkit-backdrop-filter: blur(10px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--text-primary);
-    font-size: 0.65rem;
+    color: var(--text-primary); 
+    font-size: 0.65rem; 
     font-weight: 700;
     padding: 0.25rem 0.6rem;
     border-radius: 12px;
@@ -1480,8 +1371,8 @@ button,
    ========================= */
 .wiki-toggle {
     position: fixed;
-    top: 11px;
-    right: 85px;
+    top: 11px; 
+    right: 85px; 
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -1529,14 +1420,14 @@ button,
 }
 
 .wiki-modal-content {
-    background: rgba(20, 20, 22, 0.4);
+    background: rgba(20, 20, 22, 0.4); 
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.02);
     border-radius: var(--radius);
-    width: max-content;
-    max-width: 95vw;
+    width: max-content; 
+    max-width: 95vw; 
     align-items: center;
     padding: 1.5rem;
     position: relative;
@@ -1601,7 +1492,7 @@ button,
     justify-content: center;
     transition: var(--transition);
     z-index: 2;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .wiki-close-btn:hover {
@@ -1613,7 +1504,7 @@ button,
 
 .wiki-image-container {
     width: auto;
-    height: auto;
+    height: auto; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1622,10 +1513,10 @@ button,
 
 .wiki-image-container img {
     max-width: 100%;
-    max-height: 70vh;
+    max-height: 70vh; 
     width: auto;
     height: auto;
-    object-fit: contain;
+    object-fit: contain; 
     border-radius: var(--radius-sm);
     display: block;
 }
@@ -1635,9 +1526,9 @@ button,
     background: rgba(20, 20, 22, 0.4);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    box-shadow: 0 0 15px color-mix(in srgb, var(--accent) 30%, transparent);
+    border: 1px solid var(--accent); 
+    color: var(--accent); 
+    box-shadow: 0 0 15px color-mix(in srgb, var(--accent) 30%, transparent); 
     padding: 0.75rem 1.75rem;
     border-radius: 25px;
     font-weight: 700;
@@ -1648,7 +1539,7 @@ button,
     gap: 0.6rem;
     transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     outline: none;
-    white-space: nowrap;
+    white-space: nowrap; 
 }
 
 .wiki-refresh-btn:hover {
@@ -1723,7 +1614,7 @@ button,
     overflow: hidden;
     background: #000;
     border: 1px solid var(--border);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .sim-video-container video {
@@ -1759,7 +1650,7 @@ button,
     overflow-y: auto;
     transform: translateX(100%);
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 0;
+    padding: 0; 
 }
 
 .full-page-overlay.active {
@@ -1850,7 +1741,7 @@ button,
 
 .form-input {
     width: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.4); 
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     padding: 1rem 1.2rem;
@@ -1883,13 +1774,11 @@ button,
    Mobile Optimization for Hover Modals & Bubbles
    ========================= */
 @media (max-width: 768px) {
-
-    .project-card,
-    .sim-card {
+    .project-card, .sim-card {
         display: flex;
         flex-direction: column;
     }
-
+    
     .glass-bubble {
         position: relative;
         inset: auto;
@@ -1902,16 +1791,16 @@ button,
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
         border-radius: var(--radius-sm);
     }
-
+    
     .project-card:hover .project-content,
     .sim-card:hover .sim-video-wrapper,
     .sim-card:hover .sim-info {
         transform: none !important;
         opacity: 1 !important;
     }
-
+    
     .project-links.default-links {
-        display: none !important;
+        display: none !important; 
     }
 }
 
@@ -1921,7 +1810,7 @@ button,
 
 /* Style the button inside the glass bubble hover state */
 .glass-bubble-inner .overview-btn {
-    margin-top: 15px;
+    margin-top: 15px; 
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -1973,7 +1862,7 @@ button,
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px) scale(0.85);
-    transition:
+    transition: 
         opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
         visibility 0.35s,
         transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
@@ -1995,7 +1884,7 @@ button,
     background: linear-gradient(135deg, var(--accent), var(--accent-blue));
     color: #0a0a0b;
     border-color: transparent;
-    box-shadow:
+    box-shadow: 
         0 10px 30px rgba(0, 0, 0, 0.5),
         0 0 25px color-mix(in srgb, var(--accent) 40%, transparent);
     transform: translateY(-4px) scale(1.08);
@@ -2030,4 +1919,49 @@ button,
     visibility: hidden !important;
     transform: translateY(20px) scale(0.85) !important;
     pointer-events: none !important;
+}
+
+/* =========================
+   Live Local Clock (Desktop only)
+   ========================= */
+.nav-clock {
+    position: absolute;
+    left: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 14px;
+    padding: 0.42rem 0.95rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    color: var(--text-primary);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 10;
+    user-select: none;
+}
+
+.nav-clock i {
+    font-size: 0.95rem;
+    color: var(--accent-blue);
+    opacity: 0.9;
+}
+
+.nav-clock:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 4px 22px rgba(0, 0, 0, 0.35), 0 0 12px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+/* Hide on mobile / tablet */
+@media (max-width: 900px) {
+    .nav-clock {
+        display: none !important;
+    }
 }
