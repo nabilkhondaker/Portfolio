@@ -106,8 +106,8 @@
   },
   {
     "title": "kinematicsJS <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
-    "tag": "interactive kinematics & physics engine",
-    "description": "a fun, interactive engine to view kinematic and inverse kinematic data in real time - may 9, 2025",
+    "tag": "interactive kinematics & physics engine - may 9, 2025",
+    "description": "a fun, interactive engine to view kinematic and inverse kinematic data in real time",
     "techSpecs": "built an interactive engine for link dynamics. it uses a recursive matrix-based approach to compute forward and inverse kinematics at every frame for accurate positional visualization.",
     "repo": "https://github.com/nabilkhondaker/KinematicsJS",
     "link": "https://nabilkhondaker.github.io/KinematicsJS/",
