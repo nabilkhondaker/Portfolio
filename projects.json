@@ -1,7 +1,7 @@
 [
   {
     "title": "cfd solver <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
-    "tag": "a computational fluid dynamics mini-solver made in js",
+    "tag": "a computational fluid dynamics mini-solver made in js - june 25, 2026",
     "description": "a high-performance Lattice Boltzmann Method (LBM) fluid dynamics solver built for the web, simulates real-time fluid structure",
     "techSpecs": "engineered a custom lattice boltzmann method (lbm) solver. i utilized float32array typed arrays to bypass javascript performance bottlenecks, enabling stable 60fps fluid simulation within the html5 canvas.",
     "repo": "https://github.com/nabilkhondaker/CFDSolve",
@@ -13,7 +13,7 @@
   },
   {
     "title": "fea generative cto engine <i class=\"fab fa-python\"></i>",
-    "tag": "custom physics engine that strips away material to find the ultimate structural shape",
+    "tag": "custom physics engine that strips away material to find the ultimate structural shape - february 4, 2026",
     "description": "built a 2D generative design engine from scratch to figure out how the math behind aerospace lightweighting actually works",
     "techSpecs": "architected a generative solver for structural lightweighting. i optimized the global stiffness matrix assembly using scipy sparse matrices to efficiently handle topologies.",
     "repo": "https://github.com/nabilkhondaker/FEAGenerative",
@@ -23,7 +23,7 @@
   },
   {
     "title": "fea playground 2D <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
-    "tag": "hardware-accelerated 2D finite element analysis Solver",
+    "tag": "hardware-accelerated 2D finite element analysis solver - december 11, 2025",
     "description": "an browser-native computational mechanics suite built to model, solve, and visualize 2D elastic truss and frame structures in real time",
     "techSpecs": "developed a computational mechanics suite for truss and frame analysis. i refactored the event loop and decoupled solvers from the rendering pipeline to eliminate lag.",
     "repo": "https://github.com/nabilkhondaker/FEAPlayground2D",
@@ -35,7 +35,7 @@
   {
     "title": "2R planar robot paddle <i class=\"fab fa-python\"></i>",
     "tag": "physical automated robotic arm using inverse kinematics",
-    "description": "mechatronics 2R planar arm playing a game similar to air hockey or pong, programmed in native python",
+    "description": "mechatronics 2R planar arm playing a game similar to air hockey or pong, programmed in native python - september 3, 2025",
     "techSpecs": "created a mechatronics model using a trigonometric inverse kinematics (ik) solver. this maps 2d coordinates to joint angles in real-time with minimal latency",
     "repo": "https://github.com/nabilkhondaker/TabletopPlanarArm",
     "link": "https://nabilkhondaker.github.io/TabletopPlanarArm/",
@@ -45,7 +45,7 @@
   },
   {
     "title": "mechgenpro engine <i class=\"fas fa-cogs\"></i>",
-    "tag": "procedural kinematics engine that generates, simulates, and optimizes linkages",
+    "tag": "procedural kinematics engine that generates, simulates, and optimizes linkages - july 7, 2026",
     "description": "built a real-time procedural kinematics engine from scratch in lua + löve2d to figure out how planar mechanism synthesis and grashof classification actually work",
     "techSpecs": "architected a modular four-bar solver with forward kinematics, velocity/acceleration analysis, and a genetic optimizer for path matching. implemented custom vector math, newton-raphson solvers, and interactive trajectory tracing.",
     "repo": "https://github.com/nabilkhondaker/MechGenPro",
@@ -55,7 +55,7 @@
   },
   {
     "title": "vehicle dynamics sim <i class='devicon-cplusplus-plain'></i>",
-    "tag": "high-performance 14-DOF vehicle dynamics simulator",
+    "tag": "high-performance 14-DOF vehicle dynamics simulator - july 15, 2026",
     "description": "real-time multi-body vehicle simulator with nonlinear tire physics, active controllers, and genetic algorithm suspension optimization",
     "techSpecs": "built a 14-DOF C++ vehicle dynamics engine with real-time RK4 integration, Pacejka Magic Formula tires, OpenMP parallelization, ABS/ESC systems, and GA-based suspension tuning.",
     "repo": "https://github.com/nabilkhondaker/VehicleDynamicSim",
@@ -65,7 +65,7 @@
   },
   {
     "title": "PID control sim <i class='devicon-cplusplus-plain'></i> <i class=\"fab fa-python\"></i>",
-    "tag": "electrical engineering related interactive sim",
+    "tag": "electrical engineering related interactive sim - april 14, 2026",
     "description": "interactive PID controller simulator for robotic and motor control systems with real-time response visualization engineered in c++",
     "techSpecs": "implemented a discrete-time pid algorithm for motor response modeling. the engine allows for live tuning of proportional, integral, and derivative parameters to visualize system damping.",
     "repo": "https://github.com/nabilkhondaker/PIDControlSim",
@@ -75,7 +75,7 @@
   },
   {
     "title": "microgrid sim <i class='devicon-cplusplus-plain'></i>",
-    "tag": "power electronics & MPPT microgrid simulator made in c++",
+    "tag": "power electronics & MPPT microgrid simulator made in c++ - may 19, 2026",
     "description": "high-fidelity c++ microgrid simulator featuring PV I-V curve modeling, adaptive MPPT control, DC-DC converter dynamics, and energy storage dispatch logic",
     "techSpecs": "built a high-fidelity pv simulator. it models i-v curves and uses an adaptive maximum power point tracking (mppt) algorithm to simulate converter responses to variable weather telemetry.",
     "repo": "https://github.com/nabilkhondaker/MicrogridSim",
@@ -85,7 +85,7 @@
   },
   {
     "title": "renewable energy sim <i class=\"fab fa-python\"></i>",
-    "tag": "enterprise python renewable energy microgrid simulator",
+    "tag": "enterprise python renewable energy microgrid simulator - march 2, 2026",
     "description": "enterprise-grade python sim and interactive web dashboard for renewable energy microgrids using real-world weather data",
     "techSpecs": "designed an enterprise energy management simulator. it uses a modular dispatch algorithm to balance demand against storage, enabling sensitivity analysis on grid stability.",
     "repo": "https://github.com/nabilkhondaker/RenewableEnergySim",
@@ -95,7 +95,7 @@
   },
   {
     "title": "robosim 3d arm simulator <i class=\"fas fa-robot\"></i>",
-    "tag": "real-time inverse kinematics robotic arm simulation built with three.js",
+    "tag": "real-time inverse kinematics robotic arm simulation built with three.js - march 17, 2025",
     "description": "built a hardware-accelerated 3d robotic arm simulator from scratch in vanilla js + three.js to figure out how real-time inverse kinematics and multi-joint matrix transforms actually work",
     "techSpecs": "implemented a real-time ik solver that maps 3d target coordinates to joint angles, plus path caching, velocity telemetry, and hierarchical gripper transforms.",
     "repo": "https://github.com/nabilkhondaker/RoboSIM",
@@ -107,7 +107,7 @@
   {
     "title": "kinematicsJS <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
     "tag": "interactive kinematics & physics engine",
-    "description": "a fun, interactive engine to view kinematic and inverse kinematic data in real time",
+    "description": "a fun, interactive engine to view kinematic and inverse kinematic data in real time - may 9, 2025",
     "techSpecs": "built an interactive engine for link dynamics. it uses a recursive matrix-based approach to compute forward and inverse kinematics at every frame for accurate positional visualization.",
     "repo": "https://github.com/nabilkhondaker/KinematicsJS",
     "link": "https://nabilkhondaker.github.io/KinematicsJS/",
