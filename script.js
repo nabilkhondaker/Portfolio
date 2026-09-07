@@ -16,6 +16,7 @@ class Portfolio {
         this.setupOverviewModal();
         this.setupSidebarAndRightPages();
         this.setupAchievementsGallery();
+        this.setupJournalFilters();
     }
 
     setupLoading() {
@@ -965,6 +966,33 @@ class Portfolio {
 
         if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
         if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
+    }
+
+    setupJournalFilters() {
+        const filters = document.getElementById('journal-filters');
+        const feed = document.getElementById('journal-feed');
+        if (!filters || !feed) return;
+
+        const buttons = filters.querySelectorAll('.journal-filter');
+        const entries = feed.querySelectorAll('.journal-entry');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                entries.forEach(entry => {
+                    const tags = (entry.dataset.tags || '').trim().split(/\s+/).filter(Boolean);
+                    if (filter === 'all' || tags.includes(filter)) {
+                        entry.classList.remove('journal-hidden');
+                    } else {
+                        entry.classList.add('journal-hidden');
+                    }
+                });
+            });
+        });
     }
 }
 
