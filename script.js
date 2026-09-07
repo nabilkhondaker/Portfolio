@@ -14,6 +14,8 @@ class Portfolio {
         this.setupSimulations();
         this.setupPortfolioOverlay();
         this.setupOverviewModal();
+        this.setupSidebarAndRightPages();
+        this.setupAchievementsGallery();
     }
 
     setupLoading() {
@@ -72,22 +74,22 @@ class Portfolio {
     }
 
     setupClock() {
-    const clockEl = document.getElementById('clock-time');
-    if (!clockEl) return;
+        const clockEl = document.getElementById('clock-time');
+        if (!clockEl) return;
 
-    const update = () => {
-        const now = new Date();
-        clockEl.textContent = now.toLocaleTimeString([], {
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: true
-        });
-    };
+        const update = () => {
+            const now = new Date();
+            clockEl.textContent = now.toLocaleTimeString([], {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            });
+        };
 
-    update();
-    setInterval(update, 1000);
-}
+        update();
+        setInterval(update, 1000);
+    }
 
     setupEmailCopy() {
         const copyBtn = document.getElementById('copy-email-btn');
@@ -558,11 +560,7 @@ class Portfolio {
                 videoSrc: "simulations/ds6.mp4",
                 whyText: "i liked the idea of a rigid body that itself can swing, carrying two internal vibrating systems. it creates a clear primary motion (the frame) and secondary motions (the spring-pendulums) that interact through the moving support points.",
                 learnedText: "how the acceleration of the frame appears as a kinematic excitation for the internal pendulums, and how the reaction forces from those pendulums feed back into the equation of motion of the frame. it’s a nice illustration of two-way coupling between a rigid-body degree of freedom and elastic-pendulum degrees of freedom.",
-                challengesText: "writing the position of each pendulum mass in an inertial frame (so the kinetic energy is correct) while the frame is rotating required careful use of rotation matrices or complex geometry. making sure the spring forces and gravity were projected onto the right generalized coordinates was the main source of bugs."
-            },
-            {
-                id: 7,
-                title: "disk with offset pendulum rolling without slipping on horizontally oscillating mass",
+                challengesText: "writing the position of each pendulum mass in an inertial frame (so the kinetic energy is correct) while the frame is rotating required careful use of rotation matrices or complex geometry. making sure the spring forces ...(truncated 238 characters)...ally oscillating mass",
                 desc: "a disk carrying an offset pendulum that rolls without slipping atop a horizontally oscillating, spring-supported cart",
                 videoSrc: "simulations/ds7.mp4",
                 whyText: "rolling-without-slipping is a classic non-holonomic (or holonomic in this planar case) constraint, and attaching an offset pendulum adds an interesting unbalanced rotor effect. the whole thing sitting on a spring-supported cart that can move horizontally makes the base itself dynamic.",
@@ -635,7 +633,6 @@ class Portfolio {
                 const card = document.createElement('div');
                 card.className = 'sim-card';
 
-                // FIXED: removed broken poster="${sim.posterSrc}" and added preload="metadata"
                 card.innerHTML = `
     <div class="sim-video-wrapper">
         <video muted loop playsinline preload="auto" style="pointer-events: none;">
@@ -655,23 +652,21 @@ class Portfolio {
     </div>
 `;
 
-const video = card.querySelector('video');
+                const video = card.querySelector('video');
 
-// More reliable way to force the first real frame
-const forceThumbnail = () => {
-    if (video.readyState >= 2) {          // HAVE_CURRENT_DATA or higher
-        video.currentTime = 0.1;          // jump a tiny bit past any black intro
-        video.pause();
-    }
-};
+                const forceThumbnail = () => {
+                    if (video.readyState >= 2) {
+                        video.currentTime = 0.1;
+                        video.pause();
+                    }
+                };
 
-video.addEventListener('loadeddata', forceThumbnail, { once: true });
-video.addEventListener('loadedmetadata', forceThumbnail, { once: true });
+                video.addEventListener('loadeddata', forceThumbnail, { once: true });
+                video.addEventListener('loadedmetadata', forceThumbnail, { once: true });
 
-// Fallback in case the events already fired
-if (video.readyState >= 2) {
-    forceThumbnail();
-}
+                if (video.readyState >= 2) {
+                    forceThumbnail();
+                }
                 card.addEventListener('mouseenter', () => {
                     video.play().catch(() => {});
                 });
@@ -684,12 +679,11 @@ if (video.readyState >= 2) {
                     modalTitle.textContent = sim.title;
                     modalDesc.textContent = sim.desc;
 
-                    // --- Inject modal overview button inside the video player ---
                     const videoContainer = modalVideo.parentElement;
                     let modalOverviewBtn = videoContainer.querySelector('.sim-modal-overview-btn');
 
                     if (!modalOverviewBtn) {
-                        videoContainer.style.position = 'relative'; // Ensure absolute positioning is relative to this wrapper
+                        videoContainer.style.position = 'relative';
                         modalOverviewBtn = document.createElement('button');
                         modalOverviewBtn.className = 'mini-btn overview-btn sim-modal-overview-btn';
                         modalOverviewBtn.innerHTML = '<i class="fa-solid fa-circle-info"></i> overview';
@@ -697,7 +691,7 @@ if (video.readyState >= 2) {
                     }
 
                     modalOverviewBtn.onclick = (e) => {
-                        e.stopPropagation(); // Prevent the sim-modal from closing
+                        e.stopPropagation();
                         if (window.openOverviewModal) {
                             window.openOverviewModal(
                                 sim.title,
@@ -708,17 +702,15 @@ if (video.readyState >= 2) {
                             );
                         }
                     };
-                    // ------------------------------------------------------------
 
                     modal.classList.remove('hidden');
                     modalVideo.play().catch(() => {});
                 });
 
-                // Attach overview modal hook for the main grid card
                 const overviewBtn = card.querySelector('.overview-btn');
                 if (overviewBtn) {
                     overviewBtn.addEventListener('click', (e) => {
-                        e.stopPropagation(); // prevent sim-modal from opening
+                        e.stopPropagation();
                         if (window.openOverviewModal) {
                             window.openOverviewModal(
                                 sim.title,
@@ -777,7 +769,6 @@ if (video.readyState >= 2) {
                 document.body.style.overflow = 'hidden';
                 overlay.scrollTo(0, 0);
 
-                // Reset button state when opening
                 if (scrollToSimsBtn) {
                     scrollToSimsBtn.classList.remove('hidden-btn');
                 }
@@ -792,7 +783,6 @@ if (video.readyState >= 2) {
             if (closeBtnFront) closeBtnFront.addEventListener('click', triggerClose);
         }
 
-        // Smart show/hide + click behavior
         if (scrollToSimsBtn && overlay) {
             const target = document.getElementById('dynamics-sims-section');
 
@@ -802,7 +792,6 @@ if (video.readyState >= 2) {
                 const overlayRect = overlay.getBoundingClientRect();
                 const targetRect = target.getBoundingClientRect();
 
-                // Show button only when the Dynamics section is still below the visible area
                 const isSectionBelow = targetRect.top > overlayRect.bottom - 120;
 
                 if (isSectionBelow) {
@@ -812,15 +801,12 @@ if (video.readyState >= 2) {
                 }
             };
 
-            // Listen to scroll inside the overlay
             overlay.addEventListener('scroll', updateButtonVisibility, {
                 passive: true
             });
 
-            // Also check on open / resize
             window.addEventListener('resize', updateButtonVisibility);
 
-            // Click → smooth scroll to simulations
             scrollToSimsBtn.addEventListener('click', () => {
                 if (target) {
                     target.scrollIntoView({
@@ -850,6 +836,135 @@ if (video.readyState >= 2) {
                 }
             });
         }
+    }
+
+    /* ========== NEW: VS Code Sidebar + Right-slide pages ========== */
+    setupSidebarAndRightPages() {
+        const trigger = document.getElementById('sidebar-trigger');
+        const sidebar = document.getElementById('vs-sidebar');
+        const backdrop = document.getElementById('vs-sidebar-backdrop');
+        const closeBtn = document.getElementById('vs-sidebar-close');
+        const items = document.querySelectorAll('.vs-sidebar-item');
+        const closeRightBtns = document.querySelectorAll('.close-right-page');
+        const mentoringContactBtn = document.getElementById('mentoring-contact-btn');
+
+        const openSidebar = () => {
+            sidebar.classList.add('open');
+            backdrop.classList.add('visible');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeSidebar = () => {
+            sidebar.classList.remove('open');
+            backdrop.classList.remove('visible');
+            // only restore scroll if no right page is open
+            if (!document.querySelector('.page-overlay-right.active')) {
+                document.body.style.overflow = 'auto';
+            }
+        };
+
+        if (trigger) trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (sidebar.classList.contains('open')) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
+        });
+
+        if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+        if (backdrop) backdrop.addEventListener('click', closeSidebar);
+
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                const pageId = item.dataset.page;
+                const page = document.getElementById(`page-${pageId}`);
+                if (page) {
+                    closeSidebar();
+                    // close any other right pages first
+                    document.querySelectorAll('.page-overlay-right').forEach(p => p.classList.remove('active'));
+                    page.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    page.scrollTo(0, 0);
+                }
+            });
+        });
+
+        closeRightBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const page = btn.closest('.page-overlay-right');
+                if (page) {
+                    page.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Mentoring → Contact redirect
+        if (mentoringContactBtn) {
+            mentoringContactBtn.addEventListener('click', () => {
+                const mentoringPage = document.getElementById('page-mentoring');
+                if (mentoringPage) {
+                    mentoringPage.classList.remove('active');
+                }
+                document.body.style.overflow = 'auto';
+
+                // small delay so the overlay finishes closing before scroll
+                setTimeout(() => {
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                        contactSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }, 350);
+            });
+        }
+
+        // Escape closes right page or sidebar
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const activeRight = document.querySelector('.page-overlay-right.active');
+                if (activeRight) {
+                    activeRight.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                } else if (sidebar.classList.contains('open')) {
+                    closeSidebar();
+                }
+            }
+        });
+    }
+
+    setupAchievementsGallery() {
+        const track = document.getElementById('gallery-track');
+        const prevBtn = document.getElementById('gallery-prev');
+        const nextBtn = document.getElementById('gallery-next');
+        const dotsContainer = document.getElementById('gallery-dots');
+
+        if (!track) return;
+
+        const slides = track.querySelectorAll('.gallery-slide');
+        let current = 0;
+
+        // build dots
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll('.gallery-dot');
+
+        const goTo = (index) => {
+            current = (index + slides.length) % slides.length;
+            track.style.transform = `translateX(-${current * 100}%)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        };
+
+        if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+        if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
     }
 }
 
