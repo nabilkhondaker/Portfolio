@@ -61,6 +61,14 @@
           <i class="fa-solid fa-chalkboard-user"></i>
           <span>mentoring</span>
         </button>
+        <button class="vs-sidebar-item" data-page="workflow">
+          <i class="fa-solid fa-diagram-project"></i>
+          <span>workflow</span>
+        </button>
+        <button class="vs-sidebar-item" data-page="journal">
+  <i class="fa-solid fa-book"></i>
+  <span>journal</span>
+</button>
       </div>
     </aside>
     <div id="vs-sidebar-backdrop" class="vs-sidebar-backdrop"></div>
@@ -342,7 +350,7 @@
 
     <!-- ========== NEW RIGHT-SLIDE OVERLAY PAGES ========== -->
 
-    <!-- Accomplishments (blank placeholder) -->
+    <!-- Accomplishments (will finish soon) -->
     <div id="page-accomplishments" class="page-overlay-right">
       <div class="overlay-header">
         <button class="overlay-nav-btn close-right-page">
@@ -354,7 +362,7 @@
         <div class="card">
           <div class="card-content">
             <p class="about-text" style="opacity: 0.55;">
-              <!-- PLACEHOLDER – leave blank / fill later -->
+              <!-- PLACEHOLDER – will finish soon -->
               content coming soon.
             </p>
           </div>
@@ -450,27 +458,27 @@
               <tr>
                 <td>fobana 40th annual scholarship</td>
                 <td>2026</td>
-                <td>recieved in-person in september 2026 at the universal hilton hotel in los angeles, ca.</td>
+                <td>received in-person in september 2026 at the universal hilton hotel in los angeles, ca via a highly competitive essay competition.</td>
               </tr>
               <tr>
                 <td>lifelong learning scholarship</td>
                 <td>2026</td>
-                <td>recieved in-person in may 2026 at the graduation ceremony at the grove church in riverside, ca.</td>
+                <td>received in-person in may 2026 at the graduation ceremony at the grove church in riverside, ca via valedictorian status.</td>
               </tr>
               <tr>
                 <td>linda simi memorial scholarship</td>
                 <td>2026</td>
-                <td>recieved in-person in january 2026 on campus of my highschool in riverside, ca.</td>
+                <td>received in-person in january 2026 on campus of my highschool in riverside, ca via top class rank award.</td>
               </tr>
               <tr>
                 <td>aabea scholarship</td>
                 <td>2025</td>
-                <td>recieved in-person in september 2025 in silicon valley, ca from the american association of bangladeshi engineers and architects.</td>
+                <td>received in-person in september 2025 in silicon valley, ca from the american association of bangladeshi engineers and architects after completion of python summer course.</td>
               </tr>
               <tr>
                 <td>california fafsa scholarship</td>
                 <td>2025</td>
-                <td>recieved online in august 2025 issued from the government of the state of california.</td>
+                <td>received online in august 2025 issued from the government of the state of california.</td>
               </tr>
             </tbody>
           </table>
@@ -615,6 +623,390 @@
             <span>get in touch</span>
             <i class="fa-solid fa-paper-plane"></i>
           </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Workflow Page -->
+    <div id="page-workflow" class="page-overlay-right">
+      <div class="overlay-header">
+        <button class="overlay-nav-btn close-right-page">
+          <i class="fa-solid fa-arrow-right"></i> back
+        </button>
+      </div>
+      <div class="overlay-content">
+        <h3 class="overlay-section-title">engineering workflow</h3>
+
+        <div class="card" style="margin-bottom: 2.5rem;">
+          <div class="card-content">
+            <p class="about-text">
+              this is the repeatable process i follow on almost every project — from pure simulation tools to hardware builds.
+              it keeps the work grounded, forces me to question assumptions early, and makes the final result easier to explain and iterate on.
+            </p>
+          </div>
+        </div>
+
+        <div class="workflow-timeline">
+
+          <!-- Step 1 -->
+          <div class="workflow-step">
+            <div class="workflow-step-marker">
+              <span class="workflow-step-number">01</span>
+            </div>
+            <div class="workflow-step-content">
+              <h4>problem definition &amp; scoping</h4>
+              <p class="workflow-intro">i start by writing down exactly what i want the system to do and what constraints matter.</p>
+              <ul class="workflow-list">
+                <li>clear goal statement (what success looks like)</li>
+                <li>performance targets (speed, accuracy, mass, stiffness, power, etc.)</li>
+                <li>hard constraints (budget, tools i have access to, time, available materials)</li>
+                <li>assumptions i’m making so i can challenge them later</li>
+              </ul>
+              <p class="workflow-note">i keep this short and concrete. if i can’t explain the goal in a few sentences, the project is still too fuzzy, and i really don't have something to build on.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="workflow-step">
+            <div class="workflow-step-marker">
+              <span class="workflow-step-number">02</span>
+            </div>
+            <div class="workflow-step-content">
+              <h4>research &amp; reference gathering</h4>
+              <p class="workflow-intro">i look at existing solutions, papers, open-source code, datasheets, and prior art.</p>
+              <ul class="workflow-list">
+                <li>kinematics equations, material properties, control theory, or mesh methods depending on the project</li>
+                <li>note what works, what fails, and what people usually overcomplicate</li>
+                <li>collect equations, boundary conditions, and typical ranges so i’m not reinventing basic physics</li>
+              </ul>
+              <p class="workflow-note">i also sketch a few rough concepts on paper or in a notes app before opening any CAD or code editor.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="workflow-step">
+            <div class="workflow-step-marker">
+              <span class="workflow-step-number">03</span>
+            </div>
+            <div class="workflow-step-content">
+              <h4>conceptual design &amp; architecture</h4>
+              <p class="workflow-intro">i decide the overall approach:</p>
+              <ul class="workflow-list">
+                <li>pure simulation (FEA / CFD / kinematics)</li>
+                <li>hardware + software (robotics, mechatronics)</li>
+                <li>hybrid (simulate first, then build)</li>
+              </ul>
+              <p class="workflow-note">i break the system into modules: mechanical structure, sensors/actuators, control loop, data pipeline, visualization. early decisions here (degrees of freedom, solver type, control strategy) save a lot of pain later.</p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="workflow-step">
+            <div class="workflow-step-marker">
+              <span class="workflow-step-number">04</span>
+            </div>
+            <div class="workflow-step-content">
+              <h4>digital modeling (CAD + math model)</h4>
+              <ul class="workflow-list">
+                <li>create the geometry in CAD (Fusion, Onshape, or whatever is fastest for the job)</li>
+                <li>define the mathematical model at the same time: equations of motion, stiffness matrix, fluid equations, inverse kinematics, etc.</li>
+                <li>keep units consistent from day one</li>
+                <li>export clean meshes or parameter sets that the solver can use</li>
+              </ul>
+              <p class="workflow-note">this stage is where i decide what will be simulated versus what will be built physically.</p>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="workflow-step">
+            <div class="workflow-step-marker">
+              <span class="workflow-step-number">05</span>
+            </div>
+            <div class="workflow-step-content">
+              <h4>simulation &amp; analysis</h4>
+              <p class="workflow-intro">this is usually the heaviest technical part.</p>
+              <ul class="workflow-list">
+                <li>FEA for structural integrity, stress, deflection, topology optimization</li>
+                <li>CFD for flow, pressure, heat</li>
+                <li>multibody dynamics or custom kinematics solvers for mechanisms</li>
+                <li>control simulations (PID, state-space, etc.)</li>
+              </ul>
+              <p class="workflow-note">i run parametric studies, check mesh convergence, and watch for numerical issues. i always ask: does the result make physical sense? if not, i dig into boundary conditions, material models, or solver settings before trusting the numbers.</p>
+            </div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="workflow-step">
+            <div class="workflow-step-marker">
+              <span class="workflow-step-number">06</span>
+            </div>
+            <div class="workflow-step-content">
+              <h4>software development &amp; tooling</h4>
+              <p class="workflow-intro">i write the supporting code in parallel or right after the first solid simulation.</p>
+              <ul class="workflow-list">
+                <li>python or C++ for solvers, data processing, optimization loops</li>
+                <li>javascript / web stack when i want interactive demos or real-time visualization</li>
+                <li>custom scripts to automate meshing, batch runs, or result export</li>
+              </ul>
+              <p class="workflow-note">the goal is a clean, repeatable pipeline so i can change a parameter and get new results without manual work every time.</p>
+            </div>
+          </div>
+
+          <!-- Step 7 -->
+          <div class="workflow-step">
+            <div class="workflow-step-marker">
+              <span class="workflow-step-number">07</span>
+            </div>
+            <div class="workflow-step-content">
+              <h4>prototyping &amp; fabrication <span class="workflow-tag">when hardware is involved</span></h4>
+              <p class="workflow-intro">once the simulation looks solid:</p>
+              <ul class="workflow-list">
+                <li>refine the CAD for manufacturability (tolerances, fasteners, print orientation)</li>
+                <li>3D print, laser cut, or machine the parts</li>
+                <li>assemble, wire sensors and actuators, and get the electronics talking</li>
+                <li>implement the control code on the actual hardware (often starting with a simplified version of the simulated controller)</li>
+              </ul>
+              <p class="journal-note">i expect the first physical build to expose things the simulation missed (friction, backlash, sensor noise, compliance).</p>
+            </div>
+          </div>
+
+          <!-- Step 8 -->
+          <div class="workflow-step">
+            <div class="workflow-step-marker">
+              <span class="workflow-step-number">08</span>
+            </div>
+            <div class="workflow-step-content">
+              <h4>testing, validation &amp; iteration</h4>
+              <p class="workflow-intro">this is the longest loop.</p>
+              <ul class="workflow-list">
+                <li>compare physical measurements to simulation predictions</li>
+                <li>log data, plot errors, tune gains or redesign weak points</li>
+                <li>stress-test edge cases</li>
+                <li>document every major change and why it was made</li>
+              </ul>
+              <p class="workflow-note">i cycle between sim → code → hardware → measurement until the system meets the original targets or i understand exactly why it can’t.</p>
+            </div>
+          </div>
+
+          <!-- Step 9 -->
+          <div class="workflow-step">
+            <div class="workflow-step-marker">
+              <span class="workflow-step-number">09</span>
+            </div>
+            <div class="workflow-step-content">
+              <h4>refinement, documentation &amp; packaging</h4>
+              <ul class="workflow-list">
+                <li>clean up the code, add comments and a basic README</li>
+                <li>finalize CAD models and drawings</li>
+                <li>create clear result plots, animations, or interactive demos</li>
+                <li>write a short project summary: goal, approach, key results, limitations, next steps</li>
+              </ul>
+              <p class="workflow-note">if it’s going on the website, i also make sure the demo is stable and the story is easy to follow.</p>
+            </div>
+          </div>
+
+          <!-- Step 10 -->
+          <div class="workflow-step">
+            <div class="workflow-step-marker">
+              <span class="workflow-step-number">10</span>
+            </div>
+            <div class="workflow-step-content">
+              <h4>reflection &amp; next cycle</h4>
+              <p class="workflow-intro">i look back at what slowed me down, what assumptions were wrong, and what i would do differently.</p>
+              <p class="workflow-note">then i either extend the project or start the next one with those lessons already applied.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Journal / Lab Notebook Page -->
+    <div id="page-journal" class="page-overlay-right">
+      <div class="overlay-header">
+        <button class="overlay-nav-btn close-right-page">
+          <i class="fa-solid fa-arrow-right"></i> back
+        </button>
+      </div>
+      <div class="overlay-content">
+        <div class="journal-header-row">
+  <h3 class="overlay-section-title" style="margin-bottom: 0;">lab journal</h3>
+  <div class="journal-filters" id="journal-filters">
+    <button class="journal-filter active" data-filter="all">all</button>
+    <button class="journal-filter" data-filter="experiment">
+      <span class="filter-swatch swatch-experiment"></span> experiment
+    </button>
+    <button class="journal-filter" data-filter="debug">
+      <span class="filter-swatch swatch-debug"></span> debug
+    </button>
+    <button class="journal-filter" data-filter="question">
+      <span class="filter-swatch swatch-question"></span> question
+    </button>
+    <button class="journal-filter" data-filter="broke">
+      <span class="filter-swatch swatch-broke"></span> broke
+    </button>
+  </div>
+</div>
+
+        <div class="card" style="margin-bottom: 2.25rem; margin-top: 1.5rem;">
+          <div class="card-content">
+            <p class="about-text">
+              working notes from experiments, failed runs, debugging sessions, and open questions.
+              nothing polished — just the raw record of what was tried, what broke, and what still needs answering.
+            </p>
+          </div>
+        </div>
+
+        <div class="journal-feed" id="journal-feed">
+
+          <article class="journal-entry" data-tags="experiment">
+            <div class="journal-meta">
+              <time datetime="2026-08-14">2026-08-14</time>
+              <span class="journal-tag tag-experiment">experiment</span>
+            </div>
+            <h4>topology optimization — volume fraction sweep on cantilever</h4>
+            <p>ran a series of SIMP compliance minimizations on a 2D cantilever (80×40 mesh) with volume fractions from 0.2 to 0.55. filter radius fixed at 1.5 elements. objective improved roughly linearly until ~0.4, then diminishing returns. gray-scale intermediate densities still present at r_min = 1.5; next run will push projection β higher to force 0/1.</p>
+            <p>sensitivity field was computed with the adjoint method; each volume step took 42–48 oc iterations to reach a relative change below 1e-4. the 0.35 volume design produced the cleanest load path (two primary struts meeting at ~38° from the wall), while 0.55 started filling secondary members that contributed less than 4 % to the final stiffness gain.</p>
+            <p class="journal-note">related: fea generative cto engine</p>
+          </article>
+
+          <article class="journal-entry" data-tags="broke">
+            <div class="journal-meta">
+              <time datetime="2026-08-09">2026-08-09</time>
+              <span class="journal-tag tag-broke">broke</span>
+            </div>
+            <h4>mesh convergence study aborted — memory spike</h4>
+            <p>tried refining the 2R planar robot link meshes to ~0.4 mm element size for stress concentration checks near the shoulder joint. python process climbed past 6.2 GB and the kernel killed it. need to switch to out-of-core assembly or coarsen the far-field and only refine the fillet regions.</p>
+            <p>the global stiffness matrix for the refined shoulder alone was already ~1.8e6 dofs with a nnz of about 2.4e7 in csr. assembly in pure numpy allocated three dense temporary buffers before the sparse conversion; that was the real leak. rewriting the local-to-global scatter to write directly into a pre-allocated coo triplet cut peak rss by roughly half on a smaller test mesh.</p>
+            <p class="journal-note">related: 2R planar robot paddle</p>
+          </article>
+
+          <article class="journal-entry" data-tags="debug">
+            <div class="journal-meta">
+              <time datetime="2026-07-28">2026-07-28</time>
+              <span class="journal-tag tag-debug">debug</span>
+            </div>
+            <h4>inverse kinematics singularity near workspace boundary</h4>
+            <p>the analytical 2R ik solution flips the elbow configuration when the target approaches the outer reach circle. numerical solver was oscillating between the two configurations because the jacobian determinant passed through zero. added a soft barrier on the configuration variable and a small hysteresis term; still need a proper damped least-squares fallback.</p>
+            <p>det(J) dropped below 1e-4 inside a 3 mm band of the reachable limit. the hysteresis keeps the last valid elbow choice until the target moves back more than 5 mm inside the workspace. damped least-squares with λ = 0.02 still produces a continuous joint trajectory across that band; the residual cartesian error stays under 0.4 mm in the current test set.</p>
+          </article>
+
+          <article class="journal-entry" data-tags="question">
+            <div class="journal-meta">
+              <time datetime="2026-07-21">2026-07-21</time>
+              <span class="journal-tag tag-question">question</span>
+            </div>
+            <h4>does the current density filter preserve volume exactly after projection?</h4>
+            <p>after applying the heaviside projection the actual material volume drifts by 1–3 % relative to the prescribed fraction. literature suggests a volume-preserving projection or a simple post-correction step. not sure yet which approach will stay stable when the design domain has non-design solid regions.</p>
+            <p>the drift is largest on coarse meshes (h ≈ 1.5 r_min) and shrinks as the mesh is refined, which points to the discrete filter kernel rather than the continuous projection formula. a binary search on the projection threshold that re-enforces the volume constraint after each continuation step on β looks promising; still need to check whether that search interacts badly with the oc update rule.</p>
+          </article>
+
+          <article class="journal-entry" data-tags="experiment">
+            <div class="journal-meta">
+              <time datetime="2026-07-12">2026-07-12</time>
+              <span class="journal-tag tag-experiment">experiment</span>
+            </div>
+            <h4>pid gains on the physical 2R arm vs simulation</h4>
+            <p>transferred the simulated pid gains to the real hardware. position tracking was acceptable at low speed, but the shoulder joint overshot under a 150 g tip load. increased derivative term on joint 1 by ~30 % and added a simple coulomb friction feed-forward. still seeing a small steady-state error that looks like gravity compensation residual.</p>
+            <p>step response on joint 1 (0 → 45°) settled in 0.38 s with 9 % overshoot after the retune. the residual offset is approximately 0.7° and scales with the cosine of the shoulder angle, which matches the expected gravity torque profile. a static gravity term using the measured link masses removed most of it; the leftover is probably cable stretch and gearbox compliance.</p>
+            <p class="journal-note">related: 2R planar robot paddle</p>
+          </article>
+
+          <article class="journal-entry" data-tags="broke">
+            <div class="journal-meta">
+              <time datetime="2026-06-30">2026-06-30</time>
+              <span class="journal-tag tag-broke">broke</span>
+            </div>
+            <h4>fea playground — browser tab crashed on 12k element mesh</h4>
+            <p>the pure js assembler + conjugate-gradient solver in the browser ran out of heap when the mesh exceeded roughly 12 000 linear triangles. switched the heavy path to a web-worker and streamed the stiffness matrix in blocks. still slower than the python version, but at least it no longer freezes the ui.</p>
+            <p>chrome’s v8 heap limit was the hard stop; the cg residual vector alone was fine, but the element-wise assembly loop created thousands of temporary typed arrays that never got collected fast enough. moving the entire assembly + solve into one worker and transferring the result buffer with postMessage({…}, [buffer]) kept the main thread responsive even at 18k elements.</p>
+            <p class="journal-note">related: fea playground 2D</p>
+          </article>
+
+          <article class="journal-entry" data-tags="debug">
+            <div class="journal-meta">
+              <time datetime="2026-06-18">2026-06-18</time>
+              <span class="journal-tag tag-debug">debug</span>
+            </div>
+            <h4>spring-coupled disk simulation — energy drift</h4>
+            <p>in the two-disk bouncing plate run the total mechanical energy was climbing ~0.4 % per 10 seconds of simulated time. traced it to the contact impulse resolution using a fixed restitution coefficient without a proper energy-consistent formulation. replaced with a velocity-level constraint that enforces the restitution map and the drift dropped below 0.05 %.</p>
+            <p>the original code applied the impulse after a position-level penetration correction, which injected a small amount of kinetic energy each impact. switching to a velocity-level non-penetration constraint with the same e = 1 map removed the artificial source. energy now oscillates within ±0.03 % over a 30 s window at dt = 1/240.</p>
+            <p class="journal-note">related: dynamics simulations (ds1)</p>
+          </article>
+
+          <article class="journal-entry" data-tags="experiment">
+            <div class="journal-meta">
+              <time datetime="2026-06-05">2026-06-05</time>
+              <span class="journal-tag tag-experiment">experiment</span>
+            </div>
+            <h4>topology opt with manufacturing constraint — minimum member size</h4>
+            <p>added a simple length-scale control via the density filter radius and a morphological closing operation. the resulting designs look more printable, but compliance increased ~8 % compared with the unconstrained run at the same volume fraction. acceptable trade-off for the current hardware constraints.</p>
+            <p>closing radius was set to 1.2× the intended minimum member width. on the cantilever benchmark the thin secondary struts disappeared and the primary members thickened by roughly one filter radius. the compliance penalty is consistent with the loss of those secondary paths; for the physical prints the thicker members are worth the stiffness cost.</p>
+          </article>
+
+          <article class="journal-entry" data-tags="question">
+            <div class="journal-meta">
+              <time datetime="2026-05-22">2026-05-22</time>
+              <span class="journal-tag tag-question">question</span>
+            </div>
+            <h4>best way to export a topology-optimized density field into a clean cad solid?</h4>
+            <p>marching cubes on the 0.5 isosurface produces a noisy mesh that needs heavy remeshing. looking at openvdb level-set methods and at simply thresholding then running a constrained laplacian smooth. still open — current pipeline is functional but ugly.</p>
+            <p>the noise is worst where the density gradient is shallow (gray regions that the projection never fully eliminated). a short diffusion of the density field before the isosurface extract reduces the high-frequency roughness, but it also erodes thin members. a constrained smooth that freezes vertices already near 0 or 1 might be the better route.</p>
+          </article>
+
+          <article class="journal-entry" data-tags="broke">
+            <div class="journal-meta">
+              <time datetime="2026-05-09">2026-05-09</time>
+              <span class="journal-tag tag-broke">broke</span>
+            </div>
+            <h4>3d-printed link failed under expected load</h4>
+            <p>first pla print of the 2R forearm link cracked at the root fillet after ~40 cycles of a 0.8× design load. fea had predicted a safety factor of 2.1. post-mortem showed layer adhesion was the weak plane; reprinting with 100 % infill and rotated orientation fixed it, but the analytical model still needs a knockdown factor for fdm anisotropy.</p>
+            <p>the crack initiated at the layer interface roughly 0.6 mm above the fillet radius. tensile coupon tests on the same filament and print settings gave an interlayer strength of only ~18 MPa versus ~48 MPa in the filament direction. applying a 0.4 knockdown to the allowable stress brings the predicted and observed failure loads into agreement.</p>
+            <p class="journal-note">related: 2R planar robot paddle</p>
+          </article>
+
+          <article class="journal-entry" data-tags="debug">
+            <div class="journal-meta">
+              <time datetime="2026-04-27">2026-04-27</time>
+              <span class="journal-tag tag-debug">debug</span>
+            </div>
+            <h4>stiffness matrix assembly — indexing off-by-one in sparse format</h4>
+            <p>the custom c++ coo → csr converter was writing the last column index one past the end on meshes whose node count was not a multiple of the block size. valgrind caught it only under a specific mesh. fixed and added a unit test that checks Σ K_ij against the dense reference for a 3-element patch.</p>
+            <p>the bug lived in the exclusive-scan that builds the row pointer array: when n % block != 0 the final partial block wrote past indptr[n]. the unit test now builds a 3-element patch, converts, and asserts that the frobenius norm of (K_sparse − K_dense) is below 1e-12. caught two similar edge cases after the first fix.</p>
+          </article>
+
+          <article class="journal-entry" data-tags="experiment">
+            <div class="journal-meta">
+              <time datetime="2026-04-11">2026-04-11</time>
+              <span class="journal-tag tag-experiment">experiment</span>
+            </div>
+            <h4>control simulation — state-space vs classical pid on the inverted triple pendulum</h4>
+            <p>linearized the three-spring-coupled inverted pendulums about the upright equilibrium and compared an lqr controller against three independent pids. lqr kept the system upright from larger initial angles; the decoupled pids started fighting each other once the coupling springs became active. expected, but useful confirmation before moving to hardware.</p>
+            <p>the open-loop eigenvalues of the linearized system sit at approximately +2.1, +0.8, −1.4 (1/s). lqr with Q = diag(10,10,10,1,1,1) and R = I moved all poles into the left half-plane with a minimum real part of −1.7. the independent pids could stabilize the first mode but left a lightly damped oscillation on the relative angles between the outer pendulums.</p>
+            <p class="journal-note">related: dynamics simulations (ds12)</p>
+          </article>
+
+          <article class="journal-entry" data-tags="question">
+            <div class="journal-meta">
+              <time datetime="2026-03-29">2026-03-29</time>
+              <span class="journal-tag tag-question">question</span>
+            </div>
+            <h4>how much mesh distortion is acceptable before the topology result becomes unreliable?</h4>
+            <p>some of the intermediate density fields produce highly skewed elements near the solid-void boundary. the compliance still converges, but the stress recovery looks suspicious. need a clearer criterion (jacobian quality? condition number of local K?) before trusting the stress plots on optimized geometries.</p>
+            <p>elements with min(jacobian) / max(jacobian) below ~0.15 start showing stress peaks that move when the mesh is refined, which is a classic sign of discretization error rather than a real stress concentration. a simple quality filter that flags those elements and excludes them from the stress plot is a temporary fix; a better long-term approach is to remesh the 0.5 isosurface before the final stress pass.</p>
+          </article>
+
+          <article class="journal-entry" data-tags="broke">
+            <div class="journal-meta">
+              <time datetime="2026-03-14">2026-03-14</time>
+              <span class="journal-tag tag-broke">broke</span>
+            </div>
+            <h4>webgl shader for live density visualization — precision loss</h4>
+            <p>the fragment shader that color-maps the density field was using mediump floats. on mobile the isosurface looked stepped and the optimizer appeared to stall. forced highp and the visual stabilized; the underlying floating-point densities were fine the whole time.</p>
+            <p>mediump on the tested mali gpu effectively gave about 10 bits of mantissa. density values that differed by less than ~0.002 collapsed to the same color band, which made the continuation on β look frozen even though the cpu-side densities were still changing. highp restored smooth gradients; the performance hit was negligible for a full-screen quad.</p>
+            <p class="journal-note">related: fea playground 2D</p>
+          </article>
+
         </div>
       </div>
     </div>
