@@ -22,20 +22,49 @@
     <div id="loading" class="loading-screen">
       <div class="spinner"></div>
     </div>
+
     <!-- Updated Nav Bar -->
     <nav class="glass-top-bar nav-load-in">
-  <div class="nav-clock" id="nav-clock">
-    <i class="fa-regular fa-clock"></i>
-    <span id="clock-time">--:--:--</span>
-  </div>
-  <div class="nav-links">
-    <a href="#about">about me</a>
-    <a href="#featured">featured work</a>
-    <a href="#expertise">interests</a>
-    <a href="#mentoring">mentorship</a>
-    <a href="#contact">contact</a>
-  </div>
-</nav>
+      <!-- VS Code style sidebar trigger (left of clock) -->
+      <button class="sidebar-trigger" id="sidebar-trigger" title="Open panel">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+      <div class="nav-clock" id="nav-clock">
+        <i class="fa-regular fa-clock"></i>
+        <span id="clock-time">--:--:--</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="#about">about me</a>
+        <a href="#featured">featured work</a>
+        <a href="#expertise">interests</a>
+        <a href="#contact">contact</a>
+      </div>
+    </nav>
+
+    <!-- VS Code style Sidebar -->
+    <aside id="vs-sidebar" class="vs-sidebar">
+      <div class="vs-sidebar-header">
+        <span class="vs-sidebar-title">explorer</span>
+        <button class="vs-sidebar-close" id="vs-sidebar-close" title="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="vs-sidebar-section">
+        <div class="vs-sidebar-label">PAGES</div>
+        <button class="vs-sidebar-item" data-page="achievements">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>education</span>
+        </button>
+        <button class="vs-sidebar-item" data-page="mentoring">
+          <i class="fa-solid fa-chalkboard-user"></i>
+          <span>mentoring</span>
+        </button>
+      </div>
+    </aside>
+    <div id="vs-sidebar-backdrop" class="vs-sidebar-backdrop"></div>
+
     <div class="theme-picker-wrapper">
       <button class="theme-toggle" id="theme-btn" title="Open theme panel">
         <i class="fa-solid fa-palette"></i>
@@ -69,11 +98,14 @@
         </div>
       </div>
     </div>
+
     <!-- Wiki Random Button -->
     <button class="wiki-toggle" id="wiki-btn" title="Random Wikimedia Image">
       <i class="fa-brands fa-wikipedia-w"></i>
     </button>
+
     <div class="bg-canvas"></div>
+
     <div class="container main-content">
       <header class="section fade-in" style="margin-top: 2rem; margin-bottom: 2rem;">
         <div class="hero-card">
@@ -101,6 +133,7 @@
           </div>
         </div>
       </header>
+
       <section id="status" class="section fade-in">
         <div class="card status-card" style="cursor: default;">
           <div class="card-content" style="display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; width: 100%;">
@@ -117,7 +150,9 @@
           </div>
         </div>
       </section>
+
       <hr class="aesthetic-divider fade-in">
+
       <div class="mechanical-gear-assembly" id="gear-system">
         <div class="gear gear-sun">
           <i class="fa-solid fa-gear"></i>
@@ -132,6 +167,7 @@
           <i class="fa-solid fa-gear"></i>
         </div>
       </div>
+
       <section id="about" class="section fade-in">
         <h2 class="section-title">about me</h2>
         <div class="card">
@@ -145,6 +181,7 @@
           </div>
         </div>
       </section>
+
       <!-- Featured Section combining Projects & Sims -->
       <section id="featured" class="section fade-in">
         <h2 class="section-title">featured work</h2>
@@ -160,6 +197,7 @@
           </button>
         </div>
       </section>
+
       <section id="expertise" class="section fade-in">
         <h2 class="section-title">areas of interest</h2>
         <div class="expertise-grid">
@@ -207,19 +245,11 @@
           </div>
         </div>
       </section>
+
       <hr class="aesthetic-divider fade-in">
-      <section id="mentoring" class="section fade-in">
-        <h2 class="section-title">academic mentorship</h2>
-        <div class="card">
-          <div class="card-content">
-            <p class="about-text"> hey! i run a completely free solo mentorship & tutoring program for people who want to get serious about engineering.<br>i managed to uphold a 4.0 gpa while taking majority ap classes, including ap physics, ap calculus, ap chemistry, and ap computer science, all with a passing A+. i may not have legal credibility but i feel as though i understand the material well enough to help others who need the help!<br>
-              <br> i work one-on-one with students, early-career engineers, and self-learners who want deeper understanding and practical skill in areas like computational mechanics & simulation, generative design & topology optimization, robotics & kinematic modeling, software development for engineering applications, cyber-physical security, and hands-on prototyping. <br>
-              <br>whether you’re stuck on a project, trying to build stronger fundamentals, or want structured guidance to move faster, i help you work through real problems, understand the underlying principles, and develop solid engineering habits. <br>
-              <br>sessions are flexible and focused on what you actually need — no fluff, no sales pitch, just clear technical help. if any of this sounds useful, feel free to reach out anytime to schedule a session. happy to help.
-            </p>
-          </div>
-        </div>
-      </section>
+
+      <!-- Mentoring section REMOVED from main page – now lives in sidebar overlay -->
+
       <section id="contact" class="section fade-in">
         <h2 class="section-title">contact me</h2>
         <div class="card">
@@ -282,12 +312,14 @@
           </div>
         </div>
       </section>
+
       <!-- Dummy Footer for spatial flow -->
       <footer class="footer">
         <p>&copy; <span id="current-year"></span> nabil khondaker. all rights reserved. </p>
       </footer>
     </div>
-    <!-- The Internal Overlay Page that slides in -->
+
+    <!-- The Internal Overlay Page that slides in (projects – from LEFT, unchanged) -->
     <div id="full-portfolio-page" class="full-page-overlay">
       <div class="overlay-header">
         <button id="close-portfolio-btn" class="overlay-nav-btn">
@@ -307,6 +339,286 @@
         <i class="fa-solid fa-arrow-down"></i>
       </button>
     </div>
+
+    <!-- ========== NEW RIGHT-SLIDE OVERLAY PAGES ========== -->
+
+    <!-- Accomplishments (blank placeholder) -->
+    <div id="page-accomplishments" class="page-overlay-right">
+      <div class="overlay-header">
+        <button class="overlay-nav-btn close-right-page">
+          <i class="fa-solid fa-arrow-right"></i> back
+        </button>
+      </div>
+      <div class="overlay-content">
+        <h3 class="overlay-section-title">accomplishments</h3>
+        <div class="card">
+          <div class="card-content">
+            <p class="about-text" style="opacity: 0.55;">
+              <!-- PLACEHOLDER – leave blank / fill later -->
+              content coming soon.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Future Goals (blank placeholder) -->
+    <div id="page-future-goals" class="page-overlay-right">
+      <div class="overlay-header">
+        <button class="overlay-nav-btn close-right-page">
+          <i class="fa-solid fa-arrow-right"></i> back
+        </button>
+      </div>
+      <div class="overlay-content">
+        <h3 class="overlay-section-title">future goals</h3>
+        <div class="card">
+          <div class="card-content">
+            <p class="about-text" style="opacity: 0.55;">
+              <!-- PLACEHOLDER – leave blank / fill later -->
+              content coming soon.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Achievements / Education -->
+<div id="page-achievements" class="page-overlay-right">
+  <div class="overlay-header">
+    <button class="overlay-nav-btn close-right-page">
+      <i class="fa-solid fa-arrow-right"></i> back
+    </button>
+  </div>
+
+  <div class="overlay-content">
+    <h3 class="overlay-section-title">education</h3>
+
+<!-- Photo Gallery + Certificate -->
+<div class="achievements-gallery-wrap">
+  <div class="gallery-and-cert">
+
+    <!-- LEFT SIDE -->
+    <div class="left-side">
+      <div class="achievements-gallery" id="achievements-gallery">
+        <div class="gallery-track" id="gallery-track">
+          <div class="gallery-slide">
+            <img src="img/education/pic2.jpeg" alt="Photo 1" class="gallery-img">
+          </div>
+          <div class="gallery-slide">
+            <img src="img/education/pic1.jpeg" alt="Photo 2" class="gallery-img">
+          </div>
+          <div class="gallery-slide">
+            <img src="img/education/pic3.jpeg" alt="Photo 3" class="gallery-img">
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls under the left card -->
+      <div class="gallery-controls">
+        <button class="gallery-btn" id="gallery-prev" title="Previous">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <div class="gallery-dots" id="gallery-dots"></div>
+        <button class="gallery-btn" id="gallery-next" title="Next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="certificate-slot">
+      <img src="img/certificate.jpeg" alt="Certificate" class="certificate-img">
+    </div>
+
+  </div>
+</div>
+
+    <!-- Scholarships Section -->
+    <h4 class="sub-section-title">scholarships</h4>
+    <div class="card table-card">
+      <div class="card-content">
+        <div class="aesthetic-table-wrap">
+          <table class="aesthetic-table">
+            <thead>
+              <tr>
+                <th>scholarship</th>
+                <th>year</th>
+                <th>notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>fobana 40th annual scholarship</td>
+                <td>2026</td>
+                <td>recieved in-person in september 2026 at the universal hilton hotel in los angeles, ca.</td>
+              </tr>
+              <tr>
+                <td>lifelong learning scholarship</td>
+                <td>2026</td>
+                <td>recieved in-person in may 2026 at the graduation ceremony at the grove church in riverside, ca.</td>
+              </tr>
+              <tr>
+                <td>linda simi memorial scholarship</td>
+                <td>2026</td>
+                <td>recieved in-person in january 2026 on campus of my highschool in riverside, ca.</td>
+              </tr>
+              <tr>
+                <td>aabea scholarship</td>
+                <td>2025</td>
+                <td>recieved in-person in september 2025 in silicon valley, ca from the american association of bangladeshi engineers and architects.</td>
+              </tr>
+              <tr>
+                <td>california fafsa scholarship</td>
+                <td>2025</td>
+                <td>recieved online in august 2025 issued from the government of the state of california.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- APs Taken -->
+    <h4 class="sub-section-title" style="margin-top: 3rem;">ap courses taken</h4>
+    <div class="ap-grid">
+      <div class="ap-card">
+        <div class="ap-icon"><i class="fa-solid fa-atom"></i></div>
+        <h5>AP physics</h5>
+      </div>
+      <div class="ap-card">
+        <div class="ap-icon"><i class="fa-solid fa-square-root-variable"></i></div>
+        <h5>AP calculus</h5>
+      </div>
+      <div class="ap-card">
+        <div class="ap-icon"><i class="fa-solid fa-flask"></i></div>
+        <h5>AP chemistry</h5>
+      </div>
+      <div class="ap-card">
+        <div class="ap-icon"><i class="fa-solid fa-laptop-code"></i></div>
+        <h5>AP computer science</h5>
+      </div>
+      <div class="ap-card">
+        <div class="ap-icon"><i class="fa-solid fa-microchip"></i></div>
+        <h5>AP applied computer science</h5>
+      </div>
+    </div>
+
+    <!-- Education Section -->
+    <h4 class="sub-section-title" style="margin-top: 3rem;">education</h4>
+    <div class="card">
+      <div class="card-content">
+        <div class="edu-entry">
+          <div class="edu-header">
+            <h5>riverside city college enrollment</h5>
+            <span class="edu-year">fall 2026</span>
+          </div>
+          <p class="edu-detail">studying intended major of introduction to engineering, taking various classes with the<br>intent of transferring to a high-level 4-year university next.</p>
+        </div>
+        <div class="edu-entry" style="margin-top: 1.5rem;">
+          <div class="edu-header">
+            <h5>alta vista innovation high school</h5>
+            <span class="edu-year">class of 2026</span>
+          </div>
+          <p class="edu-detail">valedictorian senior speaker alumni of the learn4life academic system. campus located in<br>eastside riverside, CA, graduated with a range of AP classes taken.</p>
+        </div>
+        <div class="edu-entry" style="margin-top: 1.5rem;">
+          <div class="edu-header">
+            <h5>chaffey college dual-enrollment</h5>
+            <span class="edu-year">late fall 2024 - spring 2026</span>
+          </div>
+          <p class="edu-detail">obtained the <b>associates degree in engineering</b> through a 1 ½ year dual-enrollment<br>program at chaffey college located in rancho cucamonga while also maintaining 11th grade coursework.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    <!-- Mentoring Page -->
+    <div id="page-mentoring" class="page-overlay-right">
+      <div class="overlay-header">
+        <button class="overlay-nav-btn close-right-page">
+          <i class="fa-solid fa-arrow-right"></i> back
+        </button>
+      </div>
+      <div class="overlay-content">
+        <h3 class="overlay-section-title">academic mentorship</h3>
+
+        <div class="card">
+          <div class="card-content">
+            <p class="about-text">
+              hey! i run a completely free solo mentorship & tutoring program for people who want to get serious about engineering.
+              i managed to uphold a 4.0 gpa while taking majority ap classes, including ap physics, ap calculus, ap chemistry, and ap computer science, all with a passing A+. 
+              i truly feel as though i understand the material well enough to help others who need the help!
+            </p>
+          </div>
+        </div>
+
+        <div class="mentoring-grid">
+          <div class="card mentoring-card">
+            <div class="card-content">
+              <div class="mentoring-icon"><i class="fa-solid fa-book-open"></i></div>
+              <h4>subjects</h4>
+              <ul class="mentoring-list">
+                <li>computational mechanics & simulation</li>
+                <li>generative design & topology optimization</li>
+                <li>robotics & kinematic modeling</li>
+                <li>software development for engineering applications</li>
+                <li>cyber-physical security</li>
+                <li>hands-on prototyping</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card mentoring-card">
+            <div class="card-content">
+              <div class="mentoring-icon"><i class="fa-solid fa-users"></i></div>
+              <h4>target audience</h4>
+              <ul class="mentoring-list">
+                <li>high-school & early college students</li>
+                <li>self-learners building fundamentals</li>
+                <li>early-career engineers wanting practical depth</li>
+                <li>anyone stuck on a project or concept</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card mentoring-card">
+            <div class="card-content">
+              <div class="mentoring-icon"><i class="fa-solid fa-lightbulb"></i></div>
+              <h4>example topics</h4>
+              <ul class="mentoring-list">
+                <li>stiffness matrix assembly & FEA basics</li>
+                <li>inverse kinematics for planar arms</li>
+                <li>PID tuning & control intuition</li>
+                <li>lattice boltzmann / simple CFD</li>
+                <li>topology optimization pipelines</li>
+                <li>project structure & engineering habits</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 2rem;">
+          <div class="card-content">
+            <p class="about-text">
+              sessions are flexible and focused on what you actually need — no fluff, no sales pitch, just clear technical help. 
+              if any of this sounds useful, feel free to reach out anytime via the contact form or email to schedule a session. happy to help.
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact redirect CTA -->
+        <div class="mentoring-contact-cta">
+          <p>ready to start a session?</p>
+          <button class="submit-btn" id="mentoring-contact-btn">
+            <span>get in touch</span>
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Wiki Modal -->
     <div id="wiki-modal" class="wiki-modal-overlay hidden">
       <div class="wiki-modal-content">
@@ -320,6 +632,7 @@
           <i class="fa-solid fa-rotate-right"></i> refresh </button>
       </div>
     </div>
+
     <!-- Sim Modal - FORCED GIF BEHAVIOR -->
     <div id="sim-modal" class="wiki-modal-overlay hidden">
       <div class="wiki-modal-content sim-modal-content">
@@ -335,6 +648,7 @@
         </div>
       </div>
     </div>
+
     <!-- New Overview Modal -->
     <div id="overview-modal" class="wiki-modal-overlay hidden">
       <div class="wiki-modal-content overview-modal-content">
@@ -364,6 +678,7 @@
         </div>
       </div>
     </div>
+
     <script src="projects.js"></script>
     <script src="script.js"></script>
   </body>
