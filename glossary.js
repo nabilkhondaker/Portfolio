@@ -3591,7 +3591,7 @@ class GlossaryController {
       <div class="detail-header">
         <h2 class="detail-title">${t.term}</h2>
         <div class="detail-meta">
-          <span class="status-badge status-${t.status}">${t.status} in nabil's work</span>
+          <span class="status-badge status-${t.status}">${t.status} in my work</span>
           <span class="level-badge level-${t.level}">${t.level}</span>
         </div>
         <div class="detail-cats">${catHtml}</div>
@@ -3626,7 +3626,7 @@ class GlossaryController {
       </section>
 
       <section class="detail-section">
-        <h3>in nabil's work</h3>
+        <h3>in my work</h3>
         <p>${t.inWork || "not yet applied in a finished project."}</p>
       </section>
 
