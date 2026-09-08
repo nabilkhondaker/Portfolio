@@ -887,6 +887,11 @@ class Portfolio {
                     page.classList.add('active');
                     document.body.style.overflow = 'hidden';
                     page.scrollTo(0, 0);
+
+                    // bootstrap glossary the first time it is opened
+                    if (pageId === 'glossary' && typeof window.initGlossary === 'function') {
+                        window.initGlossary();
+                    }
                 }
             });
         });
