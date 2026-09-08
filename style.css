@@ -3428,6 +3428,8 @@ border-radius: 12px;          /* soft rounded edges */
   max-width: 960px;
   margin: 0 auto;
   padding-bottom: 4rem;
+  position: relative;
+  min-height: 40vh;
 }
 
 .glossary-top-bar {
@@ -3737,10 +3739,42 @@ border-radius: 12px;          /* soft rounded edges */
   font-size: 0.95rem;
 }
 
-/* detail view */
-#glossary-detail-view.hidden,
-#glossary-list-view.hidden {
-  display: none !important;
+/* detail / list view – smooth fade instead of hard cut */
+#glossary-list-view,
+#glossary-detail-view {
+  transition: opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: translateY(0);
+  will-change: opacity, transform;
+}
+
+#glossary-list-view.hidden,
+#glossary-detail-view.hidden {
+  opacity: 0 !important;
+  transform: translateY(10px);
+  pointer-events: none !important;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+#glossary-list-view.is-fading-out,
+#glossary-detail-view.is-fading-out {
+  opacity: 0 !important;
+  transform: translateY(-8px);
+  pointer-events: none !important;
+}
+
+#glossary-list-view.is-fading-in,
+#glossary-detail-view.is-fading-in {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
 }
 
 .glossary-back-list-btn {
