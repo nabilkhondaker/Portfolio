@@ -73,6 +73,10 @@
           <i class="fa-solid fa-book-open"></i>
           <span>glossary</span>
         </button>
+        <button class="vs-sidebar-item" data-page="trivia">
+          <i class="fa-solid fa-brain"></i>
+          <span>trivia</span>
+        </button>
       </div>
     </aside>
     <div id="vs-sidebar-backdrop" class="vs-sidebar-backdrop"></div>
@@ -1070,6 +1074,129 @@
             <i class="fa-solid fa-arrow-left"></i> back to list
           </button>
           <div id="glossary-detail-content"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========== TRIVIA PAGE ========== -->
+    <div id="page-trivia" class="page-overlay-right">
+      <div class="overlay-header">
+        <button class="overlay-nav-btn close-right-page">
+          <i class="fa-solid fa-arrow-right"></i> back
+        </button>
+      </div>
+
+      <div class="overlay-content trivia-overlay-content">
+
+        <!-- SETUP SCREEN -->
+        <div id="trivia-setup" class="trivia-screen">
+          <h3 class="overlay-section-title">engineering trivia</h3>
+          <p class="trivia-intro">a quick quiz on mechanical engineering, numerics, robotics, and the code that ties it together. pick a level and how many questions you want.</p>
+
+          <div class="trivia-setup-card">
+            <div class="trivia-setup-section">
+              <h4>difficulty</h4>
+              <div class="trivia-level-row" id="trivia-level-row">
+                <button class="trivia-level-btn active" data-level="foundational">
+                  <span class="level-icon">◇</span>
+                  <span class="level-name">foundational</span>
+                  <span class="level-desc">core concepts</span>
+                </button>
+                <button class="trivia-level-btn" data-level="intermediate">
+                  <span class="level-icon">◆</span>
+                  <span class="level-name">intermediate</span>
+                  <span class="level-desc">applied theory</span>
+                </button>
+                <button class="trivia-level-btn" data-level="advanced">
+                  <span class="level-icon">◈</span>
+                  <span class="level-name">advanced</span>
+                  <span class="level-desc">deep cuts</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="trivia-setup-section">
+              <h4>number of questions</h4>
+              <div class="trivia-count-wrap">
+                <input type="range" id="trivia-count-slider" min="5" max="20" value="10" step="1">
+                <div class="trivia-count-display">
+                  <span id="trivia-count-value">10</span>
+                  <span class="trivia-count-label">questions</span>
+                </div>
+              </div>
+              <div class="trivia-count-ticks">
+                <span>5</span><span>10</span><span>15</span><span>20</span>
+              </div>
+            </div>
+
+            <button id="trivia-start-btn" class="trivia-start-btn">
+              <span>start quiz</span>
+              <i class="fa-solid fa-play"></i>
+            </button>
+          </div>
+
+          <!-- past scores (only visible when history exists) -->
+          <div class="trivia-past-wrap" id="trivia-past-wrap" style="display:none;">
+            <div class="trivia-past-header">
+              <h4>past scores</h4>
+              <button type="button" class="trivia-past-details-btn" id="trivia-past-open-btn">details</button>
+            </div>
+            <div class="trivia-past-list" id="trivia-past-list"></div>
+          </div>
+        </div>
+
+        <!-- QUIZ SCREEN -->
+        <div id="trivia-quiz" class="trivia-screen hidden">
+          <div class="trivia-progress-bar">
+            <div class="trivia-progress-fill" id="trivia-progress-fill"></div>
+          </div>
+          <div class="trivia-meta-row">
+            <span id="trivia-q-counter">question 1 / 10</span>
+            <span id="trivia-score-live">score: 0</span>
+          </div>
+
+          <div class="trivia-question-card">
+            <p class="trivia-question-text" id="trivia-question-text"></p>
+            <div class="trivia-options" id="trivia-options"></div>
+          </div>
+
+          <div class="trivia-feedback hidden" id="trivia-feedback">
+            <p id="trivia-feedback-text"></p>
+            <button id="trivia-next-btn" class="trivia-next-btn">next <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- RESULTS SCREEN -->
+        <div id="trivia-results" class="trivia-screen hidden">
+          <div class="trivia-results-card">
+            <div class="trivia-results-icon" id="trivia-results-icon">✓</div>
+            <h3 class="trivia-results-title" id="trivia-results-title">quiz complete</h3>
+            <p class="trivia-results-score" id="trivia-results-score">0 / 10</p>
+            <p class="trivia-results-pct" id="trivia-results-pct">0%</p>
+            <p class="trivia-results-msg" id="trivia-results-msg"></p>
+            <div class="trivia-results-actions">
+              <button id="trivia-retry-btn" class="trivia-action-btn">
+                <i class="fa-solid fa-rotate-right"></i> try again
+              </button>
+              <button id="trivia-home-btn" class="trivia-action-btn secondary">
+                <i class="fa-solid fa-sliders"></i> change settings
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- past scores popup -->
+        <div class="trivia-scores-popup-overlay" id="trivia-scores-popup">
+          <div class="trivia-scores-popup" role="dialog" aria-modal="true">
+            <div class="trivia-scores-popup-header">
+              <h3>past scores</h3>
+              <button type="button" class="trivia-scores-popup-close" id="trivia-scores-popup-close" title="close">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <div class="trivia-scores-popup-body" id="trivia-scores-popup-body"></div>
+          </div>
         </div>
 
       </div>
