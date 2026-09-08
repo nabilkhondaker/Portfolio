@@ -66,9 +66,13 @@
           <span>workflow</span>
         </button>
         <button class="vs-sidebar-item" data-page="journal">
-  <i class="fa-solid fa-book"></i>
-  <span>journal</span>
-</button>
+          <i class="fa-solid fa-book"></i>
+          <span>journal</span>
+        </button>
+        <button class="vs-sidebar-item" data-page="glossary">
+          <i class="fa-solid fa-book-open"></i>
+          <span>glossary</span>
+        </button>
       </div>
     </aside>
     <div id="vs-sidebar-backdrop" class="vs-sidebar-backdrop"></div>
@@ -1011,6 +1015,66 @@
       </div>
     </div>
 
+    <!-- ========== TECHNICAL GLOSSARY PAGE ========== -->
+    <div id="page-glossary" class="page-overlay-right">
+      <div class="overlay-header">
+        <button class="overlay-nav-btn close-right-page">
+          <i class="fa-solid fa-arrow-right"></i> back
+        </button>
+      </div>
+
+      <div class="overlay-content glossary-overlay-content">
+
+        <!-- LIST VIEW -->
+        <div id="glossary-list-view">
+          <div class="glossary-top-bar">
+            <h3 class="overlay-section-title" style="margin-bottom:0;">technical glossary</h3>
+            <div class="glossary-search-wrap">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="glossary-search" placeholder="search concepts…" autocomplete="off" spellcheck="false">
+            </div>
+          </div>
+
+          <!-- status + level filters -->
+          <div class="glossary-filter-row">
+            <div class="glossary-filter-group" id="glossary-status-filters">
+              <button class="glossary-filter-btn active" data-status="all">all</button>
+              <button class="glossary-filter-btn" data-status="used"><span class="status-dot used"></span> used</button>
+              <button class="glossary-filter-btn" data-status="studied"><span class="status-dot studied"></span> studied</button>
+              <button class="glossary-filter-btn" data-status="learning"><span class="status-dot learning"></span> learning</button>
+            </div>
+            <div class="glossary-filter-group" id="glossary-level-filters">
+              <button class="glossary-filter-btn active" data-level="all">all levels</button>
+              <button class="glossary-filter-btn" data-level="foundational">foundational</button>
+              <button class="glossary-filter-btn" data-level="intermediate">intermediate</button>
+              <button class="glossary-filter-btn" data-level="advanced">advanced</button>
+            </div>
+          </div>
+
+          <!-- alphabet -->
+          <div class="glossary-alphabet" id="glossary-alphabet"></div>
+
+          <!-- category pills -->
+          <div class="glossary-category-pills" id="glossary-category-pills"></div>
+
+          <div class="glossary-result-meta">
+            <span id="glossary-result-count">0 terms</span>
+          </div>
+
+          <div class="glossary-term-list" id="glossary-term-list"></div>
+        </div>
+
+        <!-- DETAIL VIEW -->
+        <div id="glossary-detail-view" class="hidden">
+          <button id="glossary-back-to-list" class="glossary-back-list-btn">
+            <i class="fa-solid fa-arrow-left"></i> back to list
+          </button>
+          <div id="glossary-detail-content"></div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- Wiki Modal -->
     <div id="wiki-modal" class="wiki-modal-overlay hidden">
       <div class="wiki-modal-content">
@@ -1072,6 +1136,7 @@
     </div>
 
     <script src="projects.js"></script>
+    <script src="glossary.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
