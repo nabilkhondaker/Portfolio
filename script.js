@@ -892,6 +892,10 @@ class Portfolio {
                     if (pageId === 'glossary' && typeof window.initGlossary === 'function') {
                         window.initGlossary();
                     }
+                    // bootstrap trivia the first time it is opened
+                    if (pageId === 'trivia' && typeof window.initTrivia === 'function') {
+                        window.initTrivia();
+                    }
                 }
             });
         });
@@ -1123,3 +1127,399 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+/* =========================================================
+   ENGINEERING TRIVIA
+   ========================================================= */
+
+const TRIVIA_QUESTIONS = {
+  foundational: [
+    { q: "what does fem stand for in structural analysis?", options: ["finite element method", "force energy model", "flexible elastic material", "frequency excitation mode"], answer: 0 },
+    { q: "in a linear spring, force is proportional to:", options: ["velocity", "acceleration", "displacement", "jerk"], answer: 2 },
+    { q: "young's modulus has units of:", options: ["force", "stress (pressure)", "energy", "dimensionless"], answer: 1 },
+    { q: "a sparse matrix is one where:", options: ["most entries are zero", "all entries are equal", "the matrix is singular", "rows sum to one"], answer: 0 },
+    { q: "degrees of freedom in a planar 2r robot arm:", options: ["1", "2", "3", "6"], answer: 1 },
+    { q: "hooke's law relates force to:", options: ["mass × acceleration", "spring stiffness × extension", "pressure × area", "torque × angle"], answer: 1 },
+    { q: "which boundary condition fixes a displacement value?", options: ["neumann", "dirichlet", "robin", "mixed"], answer: 1 },
+    { q: "the jacobian matrix in robotics maps:", options: ["forces to torques only", "joint velocities to end-effector velocities", "masses to accelerations", "pixels to coordinates"], answer: 1 },
+    { q: "a pid controller has three terms. the 'i' stands for:", options: ["inertia", "integral", "impulse", "isotropic"], answer: 1 },
+    { q: "mesh refinement generally aims to reduce:", options: ["material cost", "discretization error", "young's modulus", "poisson's ratio"], answer: 1 },
+    { q: "in javascript, an arraybuffer is primarily used for:", options: ["storing strings", "raw binary data", "css styles", "dom nodes"], answer: 1 },
+    { q: "compliance in structural optimization is a measure of:", options: ["mass", "flexibility (work done by loads)", "volume fraction", "mesh quality"], answer: 1 },
+    { q: "the reynolds number is a ratio of:", options: ["inertial to viscous forces", "stress to strain", "kinetic to potential energy", "length to diameter"], answer: 0 },
+    { q: "a web worker runs code:", options: ["on the main ui thread only", "in a separate background thread", "only on the gpu", "only during page load"], answer: 1 },
+    { q: "poisson's ratio describes:", options: ["density change with temperature", "lateral contraction vs axial extension", "fatigue life", "thermal conductivity"], answer: 1 },
+    { q: "csr format is commonly used for:", options: ["image compression", "sparse matrix storage", "audio encoding", "json parsing"], answer: 1 },
+    { q: "an end effector is:", options: ["the base of the robot", "the tool or gripper at the distal end", "a type of joint", "a control gain"], answer: 1 },
+    { q: "natural frequency is the frequency at which a system:", options: ["fails", "oscillates freely after disturbance", "reaches steady state under force", "dissipates all energy"], answer: 1 },
+    { q: "a unit test typically checks:", options: ["the whole application end-to-end", "one small piece of code in isolation", "network latency", "ui color contrast"], answer: 1 },
+    { q: "safety factor is roughly:", options: ["strength / applied stress", "stress / strain", "mass / volume", "force / area only"], answer: 0 }
+  ],
+  intermediate: [
+    { q: "in simp topology optimization, the penalization exponent p is typically:", options: ["less than 1", "equal to 1", "around 3 or higher", "exactly 0"], answer: 2 },
+    { q: "a singularity in a robot jacobian means:", options: ["the arm is at maximum speed", "the matrix loses rank and some tip motions become impossible", "all joints are locked", "the controller has zero error"], answer: 1 },
+    { q: "damped least squares is used near singularities to:", options: ["increase joint speeds", "trade some accuracy for smoother joint motion", "remove all damping", "compute forward kinematics only"], answer: 1 },
+    { q: "the adjoint method in topology optimization is valued because it:", options: ["avoids assembling the stiffness matrix", "gives all design sensitivities at roughly the cost of one extra solve", "eliminates the need for a filter", "works only for nonlinear materials"], answer: 1 },
+    { q: "checkerboarding in topology optimization is primarily controlled by:", options: ["raising the volume fraction", "density or sensitivity filtering", "using denser matrices", "switching to explicit dynamics"], answer: 1 },
+    { q: "a homogeneous transformation matrix is typically:", options: ["2×2", "3×3", "4×4", "n×n for n dofs"], answer: 2 },
+    { q: "settling time in a step response is the time to:", options: ["reach the first peak", "enter and stay within a band around the final value", "leave the initial condition", "zero the derivative gain"], answer: 1 },
+    { q: "energy drift in a dynamics simulation often signals:", options: ["perfect conservation", "a numerical issue in integration or contact treatment", "too large a safety factor", "incorrect young's modulus"], answer: 1 },
+    { q: "csr (compressed sparse row) stores:", options: ["only the diagonal", "values, column indices, and row pointers", "a full dense copy", "only upper triangular entries"], answer: 1 },
+    { q: "a patch test in finite elements checks whether an element can:", options: ["handle large deformation", "represent constant stress/strain states exactly", "run in real time", "export to stl"], answer: 1 },
+    { q: "integral windup occurs when:", options: ["the proportional gain is too low", "the integral term keeps accumulating while the actuator is saturated", "derivative action is zero", "the sampling rate is infinite"], answer: 1 },
+    { q: "volume fraction in topology optimization is:", options: ["always 1.0", "the allowed solid volume divided by design domain volume", "the same as density filter radius", "a free parameter with no constraint"], answer: 1 },
+    { q: "the condition number of a matrix roughly measures:", options: ["its sparsity", "sensitivity of the solution to perturbations", "the number of nonzeros", "its rank only"], answer: 1 },
+    { q: "in a base-excitation problem the input is typically:", options: ["an applied force on the mass", "a prescribed motion of the support", "a temperature field", "a random material property"], answer: 1 },
+    { q: "heaviside projection in topology optimization is used to:", options: ["increase mesh density", "push intermediate densities toward 0 or 1", "compute the jacobian", "assemble the force vector"], answer: 1 },
+    { q: "a transferable object in the browser (e.g. arraybuffer) allows:", options: ["copying data twice", "moving ownership between threads without copying", "only string messages", "gpu texture upload only"], answer: 1 },
+    { q: "lagrange multipliers appear when:", options: ["you minimize an unconstrained objective", "you enforce constraints in optimization or dynamics", "you compute a simple average", "you render a shader"], answer: 1 },
+    { q: "mesh dependency in topology optimization means:", options: ["the design stays the same under refinement", "the optimized layout changes unwantedly when the mesh is refined", "the mesh cannot be generated", "only triangular elements are allowed"], answer: 1 },
+    { q: "the frobenius norm of a matrix is:", options: ["the largest singular value only", "sqrt of the sum of squared entries", "the determinant", "the trace"], answer: 1 },
+    { q: "forward kinematics computes:", options: ["joint angles from tip pose", "tip pose from joint angles", "torques from forces", "gains from error"], answer: 1 }
+  ],
+  advanced: [
+    { q: "the moore-penrose pseudoinverse satisfies how many penrose conditions?", options: ["1", "2", "4", "6"], answer: 2 },
+    { q: "in the oc (optimality criteria) update for compliance minimization, the lagrange multiplier primarily enforces:", options: ["mesh quality", "the volume constraint", "time-step stability", "shader precision"], answer: 1 },
+    { q: "a krylov subspace is generated by:", options: ["random sampling only", "repeated matrix-vector products with a starting vector", "svd of the full matrix", "finite-difference stencils"], answer: 1 },
+    { q: "velocity-level contact constraints are preferred over pure position-level corrections because they:", options: ["are easier to code and always add energy", "better respect impact maps and energy consistency", "remove the need for a coefficient of restitution", "only work for soft bodies"], answer: 1 },
+    { q: "continuation (homotopy) in topology optimization is used to:", options: ["skip the volume constraint", "gradually tighten difficult parameters (e.g. β or p) while tracking solutions", "replace the density field with a level set only", "run the solver on the gpu exclusively"], answer: 1 },
+    { q: "the discrete system that results from finite-element spatial discretization of linear elasticity is typically:", options: ["a dense unconstrained ode", "a large sparse linear system Ku = f", "a pure eigenvalue problem with no loads", "a set of independent scalar equations"], answer: 1 },
+    { q: "anisotropic fdm strength means:", options: ["properties are identical in every direction", "interlayer strength is often much lower than filament-direction strength", "poisson's ratio is always 0.5", "young's modulus is infinite"], answer: 1 },
+    { q: "in lqr the cost function balances:", options: ["only control effort", "state error and control effort via weighting matrices q and r", "mesh size and time step", "shader precision and frame rate"], answer: 1 },
+    { q: "morphological closing (dilation then erosion) in density fields is mainly used to:", options: ["increase compliance artificially", "enforce a minimum length scale / fill small holes", "compute the adjoint", "replace the stiffness matrix"], answer: 1 },
+    { q: "the nyquist rate for a band-limited signal of bandwidth b is:", options: ["b samples/s", "2b samples/s", "b/2 samples/s", "4b samples/s"], answer: 1 },
+    { q: "ill-conditioning of the stiffness matrix can be worsened by:", options: ["good element aspect ratios", "near-incompressibility or highly distorted elements", "using sparse storage", "applying dirichlet conditions"], answer: 1 },
+    { q: "a level-set representation of a boundary stores the interface as:", options: ["an explicit triangle mesh only", "the zero contour of a higher-dimensional scalar function", "a list of spring constants", "a dense pixel buffer without gradients"], answer: 1 },
+    { q: "in damped least squares the damping factor λ primarily:", options: ["increases cartesian accuracy at all costs", "limits joint velocity when the jacobian is nearly singular", "removes the need for a pseudoinverse", "sets the volume fraction"], answer: 1 },
+    { q: "preconditioning an iterative solver aims to:", options: ["increase the condition number", "cluster eigenvalues so the solver converges in fewer iterations", "make the matrix dense", "eliminate the residual entirely in one step always"], answer: 1 },
+    { q: "the open-loop eigenvalues of an inverted pendulum linearized about upright typically include:", options: ["only stable left-half-plane poles", "at least one unstable (positive real part) pole", "only pure imaginary poles", "no eigenvalues"], answer: 1 },
+    { q: "a transferable arraybuffer sent via postmessage:", options: ["is copied and remains usable on both sides", "is neutered on the sending side and owned by the receiver", "can only contain integers", "requires webgl"], answer: 1 },
+    { q: "in a constrained optimization problem the stationarity condition involving ∇f = λ∇g is associated with:", options: ["unconstrained gradient descent", "lagrange multipliers", "pure random search", "mesh smoothing only"], answer: 1 },
+    { q: "resonance occurs when a driving frequency approaches:", options: ["zero", "a natural frequency of the system", "the nyquist frequency only", "machine precision"], answer: 1 },
+    { q: "the main computational bottleneck of a large 3-d linear elastic solve is often:", options: ["drawing the mesh", "assembling and solving the sparse system Ku = f", "writing the input deck by hand", "choosing the color map"], answer: 1 },
+    { q: "a pareto-optimal design is one where:", options: ["all objectives are simultaneously at their individual unconstrained optima", "no objective can be improved without worsening at least one other", "the volume fraction is exactly 0.5", "the mesh is uniform"], answer: 1 }
+  ]
+};
+
+class TriviaController {
+  constructor() {
+    this.level = "foundational";
+    this.count = 10;
+    this.queue = [];
+    this.index = 0;
+    this.score = 0;
+    this.answered = false;
+    this.historyKey = "nabil-trivia-scores";
+    this.popupShowAll = false;
+    this.cacheDom();
+    this.bindEvents();
+    this.showSetup();
+  }
+
+  cacheDom() {
+    this.setupEl = document.getElementById("trivia-setup");
+    this.quizEl = document.getElementById("trivia-quiz");
+    this.resultsEl = document.getElementById("trivia-results");
+    this.levelRow = document.getElementById("trivia-level-row");
+    this.slider = document.getElementById("trivia-count-slider");
+    this.countValue = document.getElementById("trivia-count-value");
+    this.startBtn = document.getElementById("trivia-start-btn");
+    this.progressFill = document.getElementById("trivia-progress-fill");
+    this.qCounter = document.getElementById("trivia-q-counter");
+    this.scoreLive = document.getElementById("trivia-score-live");
+    this.questionText = document.getElementById("trivia-question-text");
+    this.optionsEl = document.getElementById("trivia-options");
+    this.feedbackEl = document.getElementById("trivia-feedback");
+    this.feedbackText = document.getElementById("trivia-feedback-text");
+    this.nextBtn = document.getElementById("trivia-next-btn");
+    this.resultsIcon = document.getElementById("trivia-results-icon");
+    this.resultsTitle = document.getElementById("trivia-results-title");
+    this.resultsScore = document.getElementById("trivia-results-score");
+    this.resultsPct = document.getElementById("trivia-results-pct");
+    this.resultsMsg = document.getElementById("trivia-results-msg");
+    this.retryBtn = document.getElementById("trivia-retry-btn");
+    this.homeBtn = document.getElementById("trivia-home-btn");
+    this.pastWrap = document.getElementById("trivia-past-wrap");
+    this.pastList = document.getElementById("trivia-past-list");
+    this.pastOpenBtn = document.getElementById("trivia-past-open-btn");
+    this.popup = document.getElementById("trivia-scores-popup");
+    this.popupBody = document.getElementById("trivia-scores-popup-body");
+    this.popupClose = document.getElementById("trivia-scores-popup-close");
+  }
+
+  bindEvents() {
+    if (this.levelRow) {
+      this.levelRow.querySelectorAll(".trivia-level-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          this.levelRow.querySelectorAll(".trivia-level-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          this.level = btn.dataset.level;
+        });
+      });
+    }
+
+    if (this.slider) {
+      this.slider.addEventListener("input", () => {
+        this.count = parseInt(this.slider.value, 10);
+        if (this.countValue) this.countValue.textContent = this.count;
+      });
+    }
+
+    if (this.startBtn) this.startBtn.addEventListener("click", () => this.startQuiz());
+    if (this.nextBtn) this.nextBtn.addEventListener("click", () => this.nextQuestion());
+    if (this.retryBtn) this.retryBtn.addEventListener("click", () => this.startQuiz());
+    if (this.homeBtn) this.homeBtn.addEventListener("click", () => this.showSetup());
+
+    if (this.pastOpenBtn) {
+      this.pastOpenBtn.addEventListener("click", () => this.openScoresPopup(false));
+    }
+    if (this.popupClose) {
+      this.popupClose.addEventListener("click", () => this.closeScoresPopup());
+    }
+    if (this.popup) {
+      this.popup.addEventListener("click", (e) => {
+        if (e.target === this.popup) this.closeScoresPopup();
+      });
+    }
+  }
+
+  showScreen(name) {
+    if (this.setupEl) this.setupEl.classList.toggle("hidden", name !== "setup");
+    if (this.quizEl) this.quizEl.classList.toggle("hidden", name !== "quiz");
+    if (this.resultsEl) this.resultsEl.classList.toggle("hidden", name !== "results");
+  }
+
+  showSetup() {
+    this.queue = [];
+    this.index = 0;
+    this.score = 0;
+    this.answered = false;
+    if (this.feedbackEl) this.feedbackEl.classList.add("hidden");
+    if (this.progressFill) this.progressFill.style.width = "0%";
+    this.showScreen("setup");
+    this.renderPastPreview();
+  }
+
+  getHistory() {
+    try {
+      const raw = localStorage.getItem(this.historyKey);
+      const parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  }
+
+  saveHistory(entry) {
+    const list = this.getHistory();
+    list.unshift(entry);
+    // keep a reasonable amount
+    const trimmed = list.slice(0, 50);
+    try {
+      localStorage.setItem(this.historyKey, JSON.stringify(trimmed));
+    } catch (e) {
+      console.warn("could not save trivia score", e);
+    }
+  }
+
+  formatWhen(iso) {
+    try {
+      const d = new Date(iso);
+      const date = d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+      const time = d.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" });
+      return { date, time };
+    } catch {
+      return { date: "—", time: "" };
+    }
+  }
+
+  renderPastPreview() {
+    const history = this.getHistory();
+    if (!this.pastWrap || !this.pastList) return;
+
+    if (!history.length) {
+      this.pastWrap.style.display = "none";
+      this.pastList.innerHTML = "";
+      return;
+    }
+
+    this.pastWrap.style.display = "";
+    const preview = history.slice(0, 3);
+    this.pastList.innerHTML = preview.map(h => {
+      const { date, time } = this.formatWhen(h.at);
+      return `
+        <div class="trivia-past-row">
+          <div class="trivia-past-main">
+            <span class="trivia-past-score">${h.score} / ${h.total} · ${h.pct}%</span>
+            <span class="trivia-past-meta">${h.level} · ${date} ${time}</span>
+          </div>
+        </div>`;
+    }).join("");
+  }
+
+  openScoresPopup(showAll) {
+    this.popupShowAll = !!showAll;
+    if (!this.popup || !this.popupBody) return;
+    const history = this.getHistory();
+
+    if (!history.length) {
+      this.popupBody.innerHTML = `<div class="trivia-scores-popup-empty">no quizzes taken yet</div>`;
+    } else {
+      const limit = this.popupShowAll ? history.length : Math.min(4, history.length);
+      const slice = history.slice(0, limit);
+      let html = slice.map(h => {
+        const { date, time } = this.formatWhen(h.at);
+        return `
+          <div class="trivia-score-entry">
+            <div class="trivia-score-entry-top">
+              <span class="trivia-score-entry-score">${h.score} / ${h.total}</span>
+              <span class="trivia-score-entry-pct">${h.pct}%</span>
+            </div>
+            <div class="trivia-score-entry-meta">${h.level} · ${h.count} questions<br>${date} · ${time}</div>
+          </div>`;
+      }).join("");
+
+      if (!this.popupShowAll && history.length > 4) {
+        html += `<button type="button" class="trivia-scores-view-all" id="trivia-scores-view-all">view all (${history.length})</button>`;
+      }
+      this.popupBody.innerHTML = html;
+
+      const viewAll = document.getElementById("trivia-scores-view-all");
+      if (viewAll) {
+        viewAll.addEventListener("click", () => this.openScoresPopup(true));
+      }
+    }
+
+    this.popup.classList.add("open");
+  }
+
+  closeScoresPopup() {
+    if (this.popup) this.popup.classList.remove("open");
+    this.popupShowAll = false;
+  }
+
+  shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  startQuiz() {
+    const pool = TRIVIA_QUESTIONS[this.level] || TRIVIA_QUESTIONS.foundational;
+    const n = Math.min(this.count, pool.length);
+    this.queue = this.shuffle(pool).slice(0, n);
+    this.index = 0;
+    this.score = 0;
+    this.answered = false;
+    this.closeScoresPopup();
+    this.showScreen("quiz");
+    this.renderQuestion();
+  }
+
+  renderQuestion() {
+    const item = this.queue[this.index];
+    if (!item) return this.finishQuiz();
+
+    this.answered = false;
+    if (this.feedbackEl) this.feedbackEl.classList.add("hidden");
+    if (this.questionText) this.questionText.textContent = item.q;
+    if (this.qCounter) this.qCounter.textContent = `question ${this.index + 1} / ${this.queue.length}`;
+    if (this.scoreLive) this.scoreLive.textContent = `score: ${this.score}`;
+    if (this.progressFill) {
+      this.progressFill.style.width = `${(this.index / this.queue.length) * 100}%`;
+    }
+
+    if (this.optionsEl) {
+      this.optionsEl.innerHTML = "";
+      item.options.forEach((opt, i) => {
+        const btn = document.createElement("button");
+        btn.className = "trivia-option-btn";
+        btn.textContent = opt;
+        btn.addEventListener("click", () => this.selectAnswer(i));
+        this.optionsEl.appendChild(btn);
+      });
+    }
+  }
+
+  selectAnswer(choice) {
+    if (this.answered) return;
+    this.answered = true;
+    const item = this.queue[this.index];
+    const correct = choice === item.answer;
+
+    const buttons = this.optionsEl.querySelectorAll(".trivia-option-btn");
+    buttons.forEach((b, i) => {
+      b.disabled = true;
+      if (i === item.answer) b.classList.add("correct");
+      else if (i === choice && !correct) b.classList.add("wrong");
+    });
+
+    if (correct) this.score += 1;
+
+    if (this.feedbackText) {
+      this.feedbackText.textContent = correct
+        ? "correct — nice."
+        : `not quite. the answer is “${item.options[item.answer]}”.`;
+      this.feedbackText.className = correct ? "feedback-correct" : "feedback-wrong";
+    }
+    if (this.scoreLive) this.scoreLive.textContent = `score: ${this.score}`;
+    if (this.feedbackEl) this.feedbackEl.classList.remove("hidden");
+
+    if (this.nextBtn) {
+      this.nextBtn.innerHTML = this.index + 1 >= this.queue.length
+        ? `see results <i class="fa-solid fa-flag-checkered"></i>`
+        : `next <i class="fa-solid fa-arrow-right"></i>`;
+    }
+  }
+
+  nextQuestion() {
+    this.index += 1;
+    if (this.index >= this.queue.length) this.finishQuiz();
+    else this.renderQuestion();
+  }
+
+  finishQuiz() {
+    const total = this.queue.length || 1;
+    const pct = Math.round((this.score / total) * 100);
+
+    this.saveHistory({
+      at: new Date().toISOString(),
+      level: this.level,
+      count: total,
+      score: this.score,
+      total,
+      pct
+    });
+
+    this.showResults(pct, total);
+  }
+
+  showResults(pct, total) {
+    this.showScreen("results");
+    if (this.progressFill) this.progressFill.style.width = "100%";
+    if (this.resultsScore) this.resultsScore.textContent = `${this.score} / ${total}`;
+    if (this.resultsPct) this.resultsPct.textContent = `${pct}%`;
+
+    let msg = "";
+    let icon = "✓";
+    if (pct >= 90) { msg = "excellent — you really know this material."; icon = "◈"; }
+    else if (pct >= 70) { msg = "solid work. a few edges still to sharpen."; icon = "◆"; }
+    else if (pct >= 50) { msg = "decent foundation. review the misses and try again."; icon = "◇"; }
+    else { msg = "rough pass. dig into the glossary and come back."; icon = "○"; }
+
+    if (this.resultsIcon) this.resultsIcon.textContent = icon;
+    if (this.resultsMsg) this.resultsMsg.textContent = msg;
+    if (this.resultsTitle) this.resultsTitle.textContent = "quiz complete";
+  }
+}
+
+window.initTrivia = function () {
+  if (!window._triviaController) {
+    window._triviaController = new TriviaController();
+  } else {
+    // always reset to setup when the page is opened again
+    window._triviaController.showSetup();
+  }
+};
