@@ -3059,6 +3059,272 @@ const GLOSSARY_DATA = [
     inWork: "the entire 2r singularity and hysteresis story is driven by targets that approach the outer workspace boundary.",
     related: ["workspace", "reachable-workspace", "singularity", "jacobian"]
   }
+,
+
+  {
+    id: "control-input",
+    term: "control input",
+    categories: ["robot-ctrl"],
+    status: "used",
+    level: "foundational",
+    short: "the signal sent to an actuator by a controller — torque, voltage, duty cycle, or position command.",
+    definition: "the control input is the quantity the feedback law produces. in a pid loop it is typically a commanded torque or motor voltage; in state-space form it is the vector u in ẋ = Ax + Bu.",
+    intuition: "whatever the controller decides the motor should do — that command is the control input.",
+    why: "without a clear definition of the input, actuator limits, saturation, and feed-forward terms cannot be designed correctly.",
+    inWork: "the 2r pid loops produce joint-level control inputs that are sent to the motors; gravity compensation is added as a feed-forward contribution to those inputs.",
+    related: ["actuator", "pid-controller", "feed-forward"]
+  },
+  {
+    id: "feed-forward",
+    term: "feed forward",
+    categories: ["robot-ctrl"],
+    status: "used",
+    level: "intermediate",
+    short: "an open-loop command computed from a model and added to the feedback signal, rather than waiting for error to appear.",
+    definition: "feed-forward uses a model (gravity, friction, desired trajectory) to produce a nominal control effort. feedback then only corrects residual model error.",
+    intuition: "instead of waiting for the arm to droop and then reacting, you already push up against gravity before the error shows up.",
+    why: "it reduces steady-state error and the burden on integral action, especially for predictable disturbances like gravity.",
+    inWork: "gravity compensation on the 2r arm is a static feed-forward term; coulomb friction compensation was also added as feed-forward on the hardware.",
+    related: ["gravity-compensation", "control-input", "pid-controller", "steady-state-error"]
+  },
+  {
+    id: "damping-coefficient",
+    term: "damping coefficient",
+    categories: ["dynamics", "robot-ctrl"],
+    status: "used",
+    level: "foundational",
+    short: "the constant c in a viscous damping force F = –c v; energy dissipation per unit velocity.",
+    definition: "the damping coefficient multiplies velocity to produce a resisting force. critical damping for a mass-spring system is c_c = 2√(km); the damping ratio is ζ = c / c_c.",
+    intuition: "how thick the fluid is that the mass is dragging through — higher c means stronger resistance to motion.",
+    why: "it sets how quickly oscillations die and how much overshoot a second-order system produces.",
+    inWork: "pid derivative action acts like artificial viscous damping on the 2r joints; physical friction also contributes a damping-like term.",
+    related: ["damping", "damping-ratio", "overshoot"]
+  },
+  {
+    id: "residual",
+    term: "residual",
+    categories: ["num-methods", "comp-mech"],
+    status: "used",
+    level: "intermediate",
+    short: "the amount by which an approximate solution fails to satisfy the governing equation; r = b – Ax for a linear system.",
+    definition: "in iterative linear solvers the residual measures how far the current iterate is from solving Ax = b. convergence is declared when ‖r‖ falls below a tolerance.",
+    intuition: "the leftover imbalance — how much force is still unexplained by the current displacement guess.",
+    why: "it is the practical stopping criterion for conjugate gradient and related methods.",
+    inWork: "the pure-js cg solver and the scipy sparse solves both monitor residual norms; the journal records residual-based convergence of the oc density updates as well.",
+    related: ["conjugate-gradient", "iterative-solver", "tolerance", "norm"]
+  },
+  {
+    id: "tolerance",
+    term: "tolerance",
+    categories: ["num-methods", "eng-method"],
+    status: "used",
+    level: "foundational",
+    short: "the maximum acceptable error or residual at which an iterative process is considered converged.",
+    definition: "a tolerance is a user-chosen threshold on residual norms, relative density change, displacement change, or geometric deviation. tighter tolerances cost more iterations.",
+    intuition: "how picky you are about ‘close enough’ before you stop iterating.",
+    why: "without an explicit tolerance you never know when to stop, and different runs become incomparable.",
+    inWork: "oc loops stop at relative density change below 1e-4; cg solves use residual tolerances; mesh-convergence studies use a change threshold on the quantity of interest.",
+    related: ["residual", "convergence", "mesh-convergence"]
+  },
+  {
+    id: "design-variable",
+    term: "design variable",
+    categories: ["topo-opt", "eng-method"],
+    status: "used",
+    level: "foundational",
+    short: "a parameter the optimizer is allowed to change — in density-based topology optimization, typically the element density ρ.",
+    definition: "design variables define the search space. bounds and constraints restrict them; the objective and sensitivities tell the optimizer how to move them.",
+    intuition: "the knobs the algorithm is allowed to turn.",
+    why: "choosing what is a design variable (and what is fixed) determines what kinds of designs can appear.",
+    inWork: "in the generative engine every element density in the design domain is a design variable; non-design regions are excluded from that set.",
+    related: ["design-domain", "design-space", "topology-optimization", "volume-fraction"]
+  },
+  {
+    id: "joint",
+    term: "joint",
+    categories: ["robot-kin"],
+    status: "used",
+    level: "foundational",
+    short: "a connection between two links that allows relative motion — revolute (rotation) or prismatic (translation) in the common cases.",
+    definition: "joints parameterize the configuration of a kinematic chain. each independent joint coordinate is a degree of freedom of the mechanism.",
+    intuition: "the hinge or slider between two rigid pieces of the robot.",
+    why: "forward and inverse kinematics, dynamics, and control are all written in terms of joint coordinates.",
+    inWork: "the 2r arm has two revolute joints; the pid loops and analytical ik both operate on those joint angles.",
+    related: ["link", "kinematic-chain", "degrees-of-freedom", "revolute-joint"]
+  },
+  {
+    id: "link",
+    term: "link",
+    categories: ["robot-kin"],
+    status: "used",
+    level: "foundational",
+    short: "a rigid body in a kinematic chain, connected to neighboring bodies by joints.",
+    definition: "links carry geometric parameters (length, twist, mass, inertia). successive links and joints form the robot’s kinematic chain.",
+    intuition: "the solid segment between two hinges — the forearm or upper arm of the 2r.",
+    why: "link lengths and mass properties enter every kinematics and dynamics calculation.",
+    inWork: "the 2r forearm and upper-arm links were printed, analyzed for stress, and used with measured masses for gravity compensation.",
+    related: ["joint", "kinematic-chain", "forward-kinematics"]
+  },
+  {
+    id: "mass",
+    term: "mass",
+    categories: ["dynamics"],
+    status: "used",
+    level: "foundational",
+    short: "the measure of an object’s inertia under translation; the m in F = ma and in kinetic energy ½mv².",
+    definition: "mass is a scalar inertial parameter. in multi-body models each body has a mass and an inertia tensor about its center of mass.",
+    intuition: "how hard it is to accelerate the body in a straight line.",
+    why: "it sets natural frequencies, momentum, and the scale of dynamic forces.",
+    inWork: "measured link masses on the 2r arm feed the gravity-compensation term and the dynamic model used for gain tuning.",
+    related: ["inertia", "kinetic-energy", "moment-of-inertia"]
+  },
+  {
+    id: "velocity-mapping",
+    term: "velocity mapping",
+    categories: ["robot-kin"],
+    status: "used",
+    level: "intermediate",
+    short: "the linear relation between joint velocities and end-effector velocities given by the jacobian: ẋ = J(q) q̇.",
+    definition: "velocity mapping is differential kinematics. it is the first-order link between configuration-space motion and task-space motion.",
+    intuition: "nudge the joints at certain rates and the tip moves at a rate the jacobian predicts.",
+    why: "resolved-rate control, singularity analysis, and manipulability all start from this map.",
+    inWork: "the 2r jacobian is exactly this velocity mapping; damped least squares inverts it near singularities.",
+    related: ["jacobian", "differential-kinematics", "inverse-kinematics"]
+  },
+  {
+    id: "observability",
+    term: "observability",
+    categories: ["robot-ctrl", "math"],
+    status: "studied",
+    level: "advanced",
+    short: "the property that the full internal state of a system can be reconstructed from its outputs over time.",
+    definition: "for a linear system ẋ = Ax + Bu, y = Cx, the pair (A,C) is observable if the observability matrix has full rank. unobservable modes cannot be inferred from sensors.",
+    intuition: "if a mode is unobservable, no amount of clever filtering will tell you what it is doing from the measurements you have.",
+    why: "state estimators and full-state feedback require observability (or at least detectability) of the modes you care about.",
+    inWork: "the inverted-pendulum work assumes angle (and preferably rate) sensing sufficient to observe the linearized state; sensor choice is part of making the system observable.",
+    related: ["controllability", "state-space-model", "lqr"]
+  },
+  {
+    id: "sensor-noise",
+    term: "sensor noise",
+    categories: ["experimental", "robot-ctrl"],
+    status: "studied",
+    level: "intermediate",
+    short: "random fluctuations in a sensor reading that do not reflect true changes in the measured quantity.",
+    definition: "sensor noise is typically modeled as a stochastic process added to the true signal. it limits how aggressively derivative action can be used and how tightly simulation can match hardware.",
+    intuition: "the jitter on the scope even when nothing is moving.",
+    why: "noisy measurements force filtering and limit control bandwidth; they also set a floor on experimental validation error.",
+    inWork: "joint-angle and camera-based tip measurements on the 2r carry noise that shows up in step-response plots and in residual tracking error after gravity compensation.",
+    related: ["measurement-error", "measurement-uncertainty", "calibration"]
+  },
+  {
+    id: "data-logging",
+    term: "data logging",
+    categories: ["experimental", "soft-eng"],
+    status: "used",
+    level: "foundational",
+    short: "the continuous recording of time-stamped measurements for later analysis.",
+    definition: "data logging captures sensor streams, control commands, and derived quantities at a chosen sampling rate so experiments can be replayed and compared.",
+    intuition: "writing everything down as it happens so you can study it after the run.",
+    why: "without logs, step responses, energy histories, and failure events exist only as fleeting observations.",
+    inWork: "joint-angle logs and tip tracks from the 2r hardware, plus energy time series from the dynamics sims, are the main experimental records behind the journal entries.",
+    related: ["time-series", "sampling-rate", "experimental-validation"]
+  },
+  {
+    id: "reproducibility",
+    term: "reproducibility",
+    categories: ["experimental", "eng-method"],
+    status: "studied",
+    level: "foundational",
+    short: "the ability of an independent team to obtain consistent results using the same methods and data.",
+    definition: "reproducibility is stronger than repeatability: it allows different people, labs, or codebases to recover the same conclusions from documented procedures and inputs.",
+    intuition: "if someone else follows your notes, do they get the same answer?",
+    why: "engineering claims that cannot be reproduced are not yet reliable knowledge.",
+    inWork: "unit tests, fixed random seeds in demos, and journal entries that record mesh sizes, filter radii, and gains are all steps toward reproducible results on the site.",
+    related: ["repeatability", "verification", "experimental-validation"]
+  },
+  {
+    id: "limitations",
+    term: "limitations",
+    categories: ["eng-method"],
+    status: "used",
+    level: "foundational",
+    short: "the explicit boundaries of validity of a model, method, or experiment — what it does not claim to cover.",
+    definition: "limitations include modeling assumptions, mesh resolution, material idealizations, sensor accuracy, and scope of testing. stating them is part of honest engineering communication.",
+    intuition: "the fine print that says where the result stops being trustworthy.",
+    why: "hidden limitations are how overconfident designs reach hardware and fail.",
+    inWork: "journal entries regularly note memory limits, residual gray in topology results, and fdm anisotropy as limitations on the current claims.",
+    related: ["assumptions", "validation", "problem-definition"]
+  },
+  {
+    id: "parametric-cad",
+    term: "parametric cad",
+    categories: ["cad-mfg"],
+    status: "used",
+    level: "intermediate",
+    short: "cad modeling driven by named dimensions and constraints so geometry updates when parameters change.",
+    definition: "parametric cad stores a feature history and a set of driving dimensions. editing a length or angle rebuilds dependent geometry instead of requiring manual redrawing.",
+    intuition: "change the number, and the whole part reshapes itself to match.",
+    why: "it is the standard way to keep design intent editable through iteration and optimization loops.",
+    inWork: "the 2r links and fixtures are authored parametrically so fillet radii, lengths, and hole positions can be revised without rebuilding the model from scratch.",
+    related: ["cad", "fillet", "design-for-manufacturability"]
+  },
+  {
+    id: "plc",
+    term: "plc",
+    categories: ["cps"],
+    status: "learning",
+    level: "intermediate",
+    short: "programmable logic controller — an industrial computer built for real-time control of machines and processes.",
+    definition: "plcs run cyclic scan logic (inputs → program → outputs) with strong emphasis on reliability, deterministic timing, and harsh-environment hardware.",
+    intuition: "the rugged little computer that runs a factory cell or a packaging line.",
+    why: "they are a core building block of industrial control systems and a major surface in cyber-physical security.",
+    inWork: "listed under the site’s cyber-physical-security interest; no production plc project has been completed yet.",
+    related: ["industrial-control-system", "scada", "embedded-system", "real-time"]
+  },
+  {
+    id: "scada",
+    term: "scada",
+    categories: ["cps"],
+    status: "learning",
+    level: "intermediate",
+    short: "supervisory control and data acquisition — software and networks that monitor and coordinate industrial processes over a wide area.",
+    definition: "scada systems collect data from plcs and remote terminals, present operator interfaces, and issue supervisory setpoints. they sit above local control loops.",
+    intuition: "the control room view of a whole plant or pipeline, not just one machine.",
+    why: "scada networks are high-value targets; understanding them is part of cyber-physical security.",
+    inWork: "part of the cyber-physical-security interest area on the site; still at the learning stage.",
+    related: ["industrial-control-system", "plc", "cyber-physical-system"]
+  },
+  {
+    id: "attack-surface",
+    term: "attack surface",
+    categories: ["cps", "soft-eng"],
+    status: "learning",
+    level: "intermediate",
+    short: "the set of points where an attacker can try to enter or extract data from a system.",
+    definition: "attack surface includes network services, physical ports, firmware update paths, user interfaces, and supply-chain dependencies. reducing it is a primary security goal.",
+    intuition: "every door, window, and mail slot the bad guys might try.",
+    why: "cyber-physical systems add physical actuators to the usual software attack surface, so the stakes include real-world harm.",
+    inWork: "the white-hat framing on the site is about measuring and reducing attack surface on cyber-physical systems rather than expanding it.",
+    related: ["cyber-physical-system", "white-hat-security", "industrial-control-system"]
+  }
+
+
+  ,
+  {
+    id: "revolute-joint",
+    term: "revolute joint",
+    categories: ["robot-kin"],
+    status: "used",
+    level: "foundational",
+    short: "a joint that allows pure rotation about a single axis between two links.",
+    definition: "a revolute joint (hinge) has one rotational degree of freedom. its configuration is described by a joint angle. most serial robot arms are built primarily from revolute joints.",
+    intuition: "a door hinge — it only rotates, it does not slide.",
+    why: "it is the most common joint type in manipulators; the 2r arm is two revolute joints in series.",
+    inWork: "both joints of the physical 2r paddle are revolute; the analytical ik and jacobian are written for that architecture.",
+    related: ["joint", "link", "degrees-of-freedom", "forward-kinematics"]
+  }
+
 ];
 
 /* =========================================================
@@ -3249,20 +3515,60 @@ class GlossaryController {
     });
   }
 
-  showList() {
-    this.currentTermId = null;
-    if (this.listView) this.listView.classList.remove("hidden");
-    if (this.detailView) this.detailView.classList.add("hidden");
+  _transitionMs = 280;
+
+  _fadeSwap(fromEl, toEl, afterHide) {
+    if (!fromEl || !toEl) {
+      if (afterHide) afterHide();
+      if (toEl) {
+        toEl.classList.remove("hidden", "is-fading-out");
+        toEl.classList.add("is-fading-in");
+      }
+      return;
+    }
+
+    // already on the target view (e.g. related → related)
+    if (fromEl === toEl) {
+      fromEl.classList.add("is-fading-out");
+      setTimeout(() => {
+        if (afterHide) afterHide();
+        fromEl.classList.remove("is-fading-out");
+        fromEl.classList.add("is-fading-in");
+        // force reflow so the fade-in plays
+        void fromEl.offsetWidth;
+        fromEl.classList.remove("is-fading-in");
+      }, this._transitionMs * 0.55);
+      return;
+    }
+
+    fromEl.classList.add("is-fading-out");
+    fromEl.classList.remove("is-fading-in");
+
+    setTimeout(() => {
+      fromEl.classList.add("hidden");
+      fromEl.classList.remove("is-fading-out");
+
+      if (afterHide) afterHide();
+
+      toEl.classList.remove("hidden");
+      toEl.classList.add("is-fading-in");
+      // start from transparent
+      toEl.style.opacity = "0";
+      void toEl.offsetWidth;
+      toEl.style.opacity = "";
+      toEl.classList.remove("is-fading-in");
+    }, this._transitionMs);
   }
 
-  showDetail(id) {
-    const t = this.data.find(x => x.id === id);
-    if (!t || !this.detailContent) return;
-    this.currentTermId = id;
+  showList() {
+    this.currentTermId = null;
+    this._fadeSwap(this.detailView, this.listView, null);
+    if (this.page) {
+      setTimeout(() => this.page.scrollTo({ top: 0, behavior: "smooth" }), 40);
+    }
+  }
 
-    if (this.listView) this.listView.classList.add("hidden");
-    if (this.detailView) this.detailView.classList.remove("hidden");
-
+  _buildDetailHtml(t) {
     const catHtml = t.categories.map(cid => {
       const cat = this.categories.find(c => c.id === cid);
       return cat ? `<span class="detail-cat" style="--cat-color:${cat.color}">${cat.name}</span>` : "";
@@ -3281,7 +3587,7 @@ class GlossaryController {
       return `<button class="related-term" data-id="${rt.id}" title="${rt.short}">${rt.term}</button>`;
     }).join("");
 
-    this.detailContent.innerHTML = `
+    return `
       <div class="detail-header">
         <h2 class="detail-title">${t.term}</h2>
         <div class="detail-meta">
@@ -3329,14 +3635,35 @@ class GlossaryController {
         <div class="related-row">${relatedHtml || "<span class='muted'>none linked yet</span>"}</div>
       </section>
     `;
+  }
 
-    // bind related clicks
+  _bindDetailLinks() {
+    if (!this.detailContent) return;
     this.detailContent.querySelectorAll(".related-term").forEach(btn => {
       btn.addEventListener("click", () => this.showDetail(btn.dataset.id));
     });
+  }
 
-    // scroll detail into view
-    if (this.page) this.page.scrollTo(0, 0);
+  showDetail(id) {
+    const t = this.data.find(x => x.id === id);
+    if (!t || !this.detailContent) return;
+
+    const comingFromDetail = this.currentTermId && this.detailView && !this.detailView.classList.contains("hidden");
+    this.currentTermId = id;
+
+    const fill = () => {
+      this.detailContent.innerHTML = this._buildDetailHtml(t);
+      this._bindDetailLinks();
+      if (this.page) this.page.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    if (comingFromDetail) {
+      // related concept → related concept: soft crossfade on the same view
+      this._fadeSwap(this.detailView, this.detailView, fill);
+    } else {
+      // list → detail
+      this._fadeSwap(this.listView, this.detailView, fill);
+    }
   }
 }
 
