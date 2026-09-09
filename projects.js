@@ -1,18 +1,13 @@
 fetch('projects.json')
-  .then(res => {
-    if (!res.ok) throw new Error(`Failed to load projects.json (${res.status})`);
-    return res.json();
-  })
+  .then(res => res.json())
   .then(projects => {
-    console.log('Projects loaded:', projects.length); // helpful debug
-
     const featuredContainer = document.getElementById("featured-projects-grid");
     const allProjectsContainer = document.getElementById("all-projects-grid");
 
     const featuredTitles = [
-      "fea playground 2D <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
-      "fea generative cto engine <i class=\"fab fa-python\"></i>",
-      "2R planar robot paddle <i class=\"fab fa-python\"></i>"
+        "fea playground 2D <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
+        "fea generative cto engine <i class=\"fab fa-python\"></i>",
+        "2R planar robot paddle <i class=\"fab fa-python\"></i>"
     ];
 
     const createCard = (p) => {
@@ -32,14 +27,13 @@ fetch('projects.json')
         ? `<div class="in-progress-badge"><i class="fa-solid fa-screwdriver-wrench"></i> in progress</div>` 
         : '';
         
-      const siteLink = p.link 
-        ? `<a href="${p.link}" class="highlight-link" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> visit site</a>` 
-        : "";
+      const siteLink = p.link ? `<a href="${p.link}" class="highlight-link" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> visit site</a>` : "";
       
       const overviewHtml = `<button class="mini-btn overview-btn"><i class="fa-solid fa-circle-info"></i> overview</button>`;
 
       card.innerHTML = `
         ${badgeHTML}
+        
         <div class="project-content">
           <h3>${p.title}</h3>
           ${p.tag ? `<div class="project-tag">${p.tag}</div>` : ""}
@@ -49,6 +43,8 @@ fetch('projects.json')
             ${siteLink}
           </div>
         </div>
+
+        <!-- Giant Detailed Glass Bubble Tooltip with Flex Centering and scroll handling -->
         <div class="glass-bubble">
           <div class="glass-bubble-inner">
               <h4><i class="fa-solid fa-microchip"></i> Deeper Dive</h4>
@@ -64,18 +60,18 @@ fetch('projects.json')
 
       const overviewBtn = card.querySelector('.overview-btn');
       if (overviewBtn) {
-        overviewBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          if (window.openOverviewModal) {
-            window.openOverviewModal(
-              p.title,
-              p.description,
-              p.why || "Why you built this project...",
-              p.learned || "What you learned building this...",
-              p.challenges || "The specific challenges you faced..."
-            );
-          }
-        });
+          overviewBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              if (window.openOverviewModal) {
+                  window.openOverviewModal(
+                      p.title,
+                      p.description,
+                      p.why || "Why you built this project...",
+                      p.learned || "What you learned building this...",
+                      p.challenges || "The specific challenges you faced..."
+                  );
+              }
+          });
       }
 
       return card;
@@ -91,5 +87,5 @@ fetch('projects.json')
     });
   })
   .catch(err => {
-    console.error("Error loading projects.json:", err);
+    console.error("Error loading projects.json", err);
   });
