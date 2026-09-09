@@ -2067,8 +2067,7 @@ const GLOSSARY_DATA = [
     short: "a raw binary data buffer in javascript that can be viewed through typed arrays and transferred between threads without copying.",
     definition: "an arraybuffer is a fixed-length contiguous block of memory. typed arrays (float32array, etc.) provide numeric views onto it; postmessage can transfer ownership of the buffer to a worker.",
     intuition: "it is just a chunk of bytes. typed arrays are the lenses that let you read those bytes as floats or ints.",
-    why: "high-performance numerical code in the browser needs contiguous, transferable memory; arraybuffer is the foundation.",
-    inWork: "the fea playground and the lbm solver both allocate large arraybuffers for the primary fields and transfer them to workers when necessary.",
+why: "numerical code that needs to run quickly in the browser needs contiguous, transferable memory; arraybuffer is the foundation.",    inWork: "the fea playground and the lbm solver both allocate large arraybuffers for the primary fields and transfer them to workers when necessary.",
     related: ["typed-array", "transferable-object", "web-worker"]
   },
   {
@@ -3026,8 +3025,8 @@ const GLOSSARY_DATA = [
     categories: ["web-viz"],
     status: "used",
     level: "intermediate",
-    short: "the browser api that exposes opengl-es-style gpu rendering to javascript, enabling hardware-accelerated 2-d and 3-d graphics.",
-    definition: "webgl provides a context for compiling shaders, uploading buffers, and issuing draw calls. it is the foundation of almost all high-performance scientific visualization in the browser.",
+short: "the browser api that exposes opengl-es-style gpu rendering to javascript, so 2-d and 3-d graphics can run on the gpu instead of the cpu.",
+definition: "webgl provides a context for compiling shaders, uploading buffers, and issuing draw calls. it is the foundation of almost all interactive scientific visualization in the browser.",
     intuition: "the door that lets javascript talk directly to the graphics card.",
     why: "cpu-only rendering cannot keep up with interactive mesh or density-field visualization; webgl moves the work to the gpu.",
     inWork: "the density-field visualizer and any three.js-based tools on the site rest on webgl.",
