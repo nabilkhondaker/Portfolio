@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -229,22 +230,19 @@
               <i class="fa-solid fa-bezier-curve"></i>
             </div>
             <h3>generative design & topology optimization</h3>
-            <div class="expertise-tooltip"> fusing advanced CAD with algorithmic thinking to drive material efficiency; i use programmatic logic to rapidly iterate through design spaces for peak structural performance </div>
-          </div>
+<div class="expertise-tooltip"> fusing cad and code so the computer can try a lot of layouts and keep the ones that actually carry load with less material </div>          </div>
           <div class="expertise-card">
             <div class="expertise-icon">
               <i class="fa-solid fa-robot"></i>
             </div>
             <h3>robotics & kinematic modeling</h3>
-            <div class="expertise-tooltip"> bridging the software-hardware divide. developing robust kinematic models and real-time control systems using c++ and lua for precise, responsive manipulation </div>
-          </div>
+<div class="expertise-tooltip"> working across software and hardware. building kinematic models and control loops in c++ and lua so the arm moves cleanly and responds quickly </div>          </div>
           <div class="expertise-card">
             <div class="expertise-icon">
               <i class="fa-solid fa-laptop-code"></i>
             </div>
             <h3>software development for engineering</h3>
-            <div class="expertise-tooltip"> i build custom tools and data pipelines to eliminate bottlenecks; fluent in python, c++, and full web stacks (html/css/js) to streamline testing and automate daily analysis </div>
-          </div>
+<div class="expertise-tooltip"> i write small tools and pipelines when the usual ones get in the way; comfortable in python, c++, and web stacks so testing and analysis don’t take forever </div>          </div>
           <div class="expertise-card">
             <div class="expertise-icon">
               <i class="fa-solid fa-shield-halved"></i>
@@ -257,8 +255,7 @@
               <i class="fa-solid fa-screwdriver-wrench"></i>
             </div>
             <h3>prototyping & hands-on engineering</h3>
-            <div class="expertise-tooltip"> by translating complex code and digital CAD models into physical reality, i combine rapid software iteration with hands-on fabrication to rigorously test and validate engineering concepts </div>
-          </div>
+<div class="expertise-tooltip"> i take the code and cad models, print or build them, then check whether the numbers actually match the real part </div>          </div>
         </div>
       </section>
 
@@ -417,17 +414,22 @@
     <div class="left-side">
       <div class="achievements-gallery" id="achievements-gallery">
         <div class="gallery-track" id="gallery-track">
-          <div class="gallery-slide">
-            <img src="img/education/Untitled.png" alt="Photo 1" class="gallery-img">
+          <div class="gallery-slide" data-caption="fobana 40th annual convention — scholarship in los angeles, 2026">
+            <img src="img/education/Untitled.png" class="gallery-img">
           </div>
-          <div class="gallery-slide">
-            <img src="img/education/pic1.png" alt="Photo 2" class="gallery-img">
+          <div class="gallery-slide" data-caption="scholarship winner headshot — presented by somoy tv, riverside, 2026">
+            <img src="img/education/pic1.png" class="gallery-img">
           </div>
-          <div class="gallery-slide">
-            <img src="img/education/pic3.png" alt="Photo 3" class="gallery-img">
+                    <div class="gallery-slide" data-caption="valedictorian address — graduation ceremony, riverside, 2026">
+            <img src="img/education/pic5.jpeg" alt="Lifelong learning scholarship" class="gallery-img">
+          </div>
+          <div class="gallery-slide" data-caption="on stage fobana at 40th annual — scholarship in los angeles, 2026">
+            <img src="img/education/pic3.png" class="gallery-img">
           </div>
         </div>
       </div>
+
+      <p class="gallery-caption" id="gallery-caption">valedictorian address — alta vista innovation high school, class of 2026</p>
 
       <!-- Controls under the left card -->
       <div class="gallery-controls">
@@ -440,6 +442,7 @@
         </button>
       </div>
     </div>
+
 
     <!-- RIGHT SIDE -->
     <div class="certificate-slot">
@@ -648,7 +651,7 @@
         <div class="card" style="margin-bottom: 2.5rem;">
           <div class="card-content">
             <p class="about-text">
-              this is the repeatable process i follow on almost every project — from pure simulation tools to hardware builds.
+              this is the repeatable process i follow on almost every project — <br>from pure simulation tools to hardware builds, these are my steps & tools of the trade.<br>
               it keeps the work grounded, forces me to question assumptions early, and makes the final result easier to explain and iterate on.
             </p>
           </div>
@@ -813,7 +816,7 @@
             </div>
           </div>
 
-                    <!-- Step 10 -->
+          <!-- Step 10 -->
           <div class="workflow-step">
             <div class="workflow-step-marker">
               <span class="workflow-step-number">10</span>
@@ -923,6 +926,7 @@
     </div>
 
     <!-- Journal / Lab Notebook Page -->
+
     <div id="page-journal" class="page-overlay-right">
       <div class="overlay-header">
         <button class="overlay-nav-btn close-right-page">
@@ -1351,6 +1355,37 @@
             <h4>obstacles</h4>
             <p id="overview-challenges"></p>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== NABILAI FAQ CHATBOT (main page only) ========== -->
+    <div id="nabilai-chatbot" class="nabilai-chatbot">
+      <button id="nabilai-toggle" class="nabilai-toggle" title="chat with nabilai" aria-label="open chat">
+        <img src="img/icon.png" alt="nabil" class="nabilai-face" id="nabilai-face">
+        <span class="nabilai-pulse"></span>
+      </button>
+
+      <div id="nabilai-panel" class="nabilai-panel hidden">
+        <div class="nabilai-header">
+          <div class="nabilai-header-left">
+            <img src="img/icon.png" alt="" class="nabilai-header-face">
+            <div class="nabilai-header-text">
+              <span class="nabilai-name">nabilai</span>
+              <span class="nabilai-status">online · faq mode</span>
+            </div>
+          </div>
+          <button id="nabilai-close" class="nabilai-close" title="close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div id="nabilai-messages" class="nabilai-messages">
+          <!-- messages injected by js -->
+        </div>
+
+        <div id="nabilai-options" class="nabilai-options">
+          <!-- option buttons injected by js -->
         </div>
       </div>
     </div>
