@@ -4649,3 +4649,136 @@ border-radius: 12px;          /* soft rounded edges */
   padding: 2rem 1rem;
   font-size: 0.92rem;
 }
+
+/* =========================================================
+   WORKFLOW TIMELINE FIX + CORE TOOLKIT
+   ========================================================= */
+
+/* stop the vertical line exactly at the center of the last (10th) marker */
+.workflow-timeline::before {
+  top: 29px;
+  bottom: 29px;
+}
+
+/* intro text under the “core toolkit” heading */
+.tools-intro {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: -0.75rem auto 1.85rem;
+  text-align: center;
+}
+
+/* grid of tool categories */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.35rem;
+  max-width: 920px;
+  margin: 0 auto 2.5rem;
+}
+
+.tool-category-card {
+  background: rgba(20, 20, 22, 0.8);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.35rem 1.4rem 1.3rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-category-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.tool-category-card:hover {
+  border-color: color-mix(in srgb, var(--accent-blue) 50%, transparent);
+  box-shadow: var(--shadow), 0 0 20px color-mix(in srgb, var(--accent) 16%, transparent);
+  transform: translateY(-4px);
+}
+
+.tool-category-card:hover::before {
+  opacity: 0.04;
+}
+
+.tool-cat-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.tool-cat-header i {
+  font-size: 1.05rem;
+  color: var(--accent-blue);
+  width: 1.35rem;
+  text-align: center;
+}
+
+.tool-cat-header h5 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--text-primary);
+  margin: 0;
+  text-transform: lowercase;
+}
+
+.tool-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  position: relative;
+  z-index: 1;
+}
+
+.tool-tag {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.32rem 0.7rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  line-height: 1.3;
+}
+
+.tool-category-card:hover .tool-tag {
+  border-color: color-mix(in srgb, var(--accent-blue) 35%, transparent);
+  color: var(--text-primary);
+}
+
+.tool-tag:hover {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  border-color: color-mix(in srgb, var(--accent-blue) 50%, transparent);
+  color: var(--accent-blue);
+  transform: translateY(-1px);
+}
+
+/* mobile tweaks for tools */
+@media (max-width: 640px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .tool-category-card {
+    padding: 1.15rem 1.15rem 1.1rem;
+  }
+
+  .tools-intro {
+    font-size: 0.92rem;
+    margin-bottom: 1.5rem;
+  }
+}
