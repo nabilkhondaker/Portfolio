@@ -1,1365 +1,4784 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="nabil khondaker | a teenage developer and programmer from bangladesh. passionate about coding, tech, and engineering.">
-    <meta name="keywords" content="Developer, Programmer, Gamer, Tech Enthusiast, nabil khondaker, Portfolio, Bangladesh, IGCSE, A-Levels, nabilafk, nabil's gameboy, games, nabil's games, nabilsgames, games website, games, run 3, slope, retro bowl, bookmarklets, school hack, ixl hack, edpuzzle hack, bookmarks, cookie clicker">
-    <meta name="author" content="nabil khondaker">
-    <title>nabil khondaker</title>
-    <link rel="icon" type="image/png" href="favicon/nabilkhondaker.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="favicon/nabilkhondaker.png" />
-    <link rel="shortcut icon" href="favicon/nabilkhondaker.png" />
-    <link rel="apple-touch-icon" href="favicon/nabilkhondaker.png" />
-    <meta name="apple-mobile-web-app-title" content="nabil" />
-    <link rel="manifest" href="https://raw.githubusercontent.com/1200nabil/portfolio/refs/heads/main/favicon/site.webmanifest" />
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="loading" class="loading-screen">
-      <div class="spinner"></div>
-    </div>
-
-    <!-- Updated Nav Bar -->
-    <nav class="glass-top-bar nav-load-in">
-      <!-- VS Code style sidebar trigger (left of clock) -->
-      <button class="sidebar-trigger" id="sidebar-trigger" title="Open panel">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
-
-      <div class="nav-clock" id="nav-clock">
-        <i class="fa-regular fa-clock"></i>
-        <span id="clock-time">--:--:--</span>
-      </div>
-
-      <div class="nav-links">
-        <a href="#about">about me</a>
-        <a href="#featured">featured work</a>
-        <a href="#expertise">interests</a>
-        <a href="#contact">contact</a>
-      </div>
-    </nav>
-
-    <!-- VS Code style Sidebar -->
-    <aside id="vs-sidebar" class="vs-sidebar">
-      <div class="vs-sidebar-header">
-        <span class="vs-sidebar-title">explorer</span>
-        <button class="vs-sidebar-close" id="vs-sidebar-close" title="Close">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-      <div class="vs-sidebar-section">
-        <div class="vs-sidebar-label">PAGES</div>
-        <button class="vs-sidebar-item" data-page="achievements">
-          <i class="fa-solid fa-graduation-cap"></i>
-          <span>education</span>
-        </button>
-        <button class="vs-sidebar-item" data-page="mentoring">
-          <i class="fa-solid fa-chalkboard-user"></i>
-          <span>mentoring</span>
-        </button>
-        <button class="vs-sidebar-item" data-page="workflow">
-          <i class="fa-solid fa-diagram-project"></i>
-          <span>workflow</span>
-        </button>
-        <button class="vs-sidebar-item" data-page="journal">
-          <i class="fa-solid fa-book"></i>
-          <span>journal</span>
-        </button>
-        <button class="vs-sidebar-item" data-page="glossary">
-          <i class="fa-solid fa-book-open"></i>
-          <span>glossary</span>
-        </button>
-        <button class="vs-sidebar-item" data-page="trivia">
-          <i class="fa-solid fa-brain"></i>
-          <span>trivia</span>
-        </button>
-      </div>
-    </aside>
-    <div id="vs-sidebar-backdrop" class="vs-sidebar-backdrop"></div>
-
-    <div class="theme-picker-wrapper">
-      <button class="theme-toggle" id="theme-btn" title="Open theme panel">
-        <i class="fa-solid fa-palette"></i>
-      </button>
-      <div class="theme-panel hidden" id="theme-panel">
-        <div class="theme-panel-header">
-          <h3>theme options</h3>
-          <button class="theme-close-btn" id="theme-panel-close">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </div>
-        <div class="theme-section">
-          <h4>color presets</h4>
-          <div class="theme-presets-grid">
-            <button class="preset-btn active" data-theme="gold" style="background: linear-gradient(135deg, #913700 0%, #ffe600 100%);" title="Engineered Gold"></button>
-            <button class="preset-btn" data-theme="cyber" style="background: linear-gradient(135deg, #ff0055 0%, #00ffcc 100%);" title="Cyberpunk Pink"></button>
-            <button class="preset-btn" data-theme="toxic" style="background: linear-gradient(135deg, #0d5f00 0%, #00ff66 100%);" title="Toxic Green"></button>
-            <button class="preset-btn" data-theme="cosmic" style="background: linear-gradient(135deg, #4d0099 0%, #00ffff 100%);" title="Cosmic Purple"></button>
-            <button class="preset-btn" data-theme="crimson" style="background: linear-gradient(135deg, #910000 0%, #ff4d4d 100%);" title="Crimson Red"></button>
-          </div>
-        </div>
-        <div class="theme-section">
-          <h4>custom accent</h4>
-          <label for="color-picker" class="custom-color-picker-wrapper">
-            <span class="color-preview-circle"></span>
-            <span class="color-picker-label">
-              <i>color picker</i>
-            </span>
-            <input type="color" id="color-picker" value="#913700">
-          </label>
-        </div>
-      </div>
-    </div>
-
-    <!-- Wiki Random Button -->
-    <button class="wiki-toggle" id="wiki-btn" title="Random Wikimedia Image">
-      <i class="fa-brands fa-wikipedia-w"></i>
-    </button>
-
-    <div class="bg-canvas"></div>
-
-    <div class="container main-content">
-      <header class="section fade-in" style="margin-top: 2rem; margin-bottom: 2rem;">
-        <div class="hero-card">
-          <div class="hero">
-            <div class="hero-main">
-              <div class="avatar-container">
-                <img src="favicon/nabilkhondaker_fullsize.png" alt="Nabil Khondaker's Avatar" class="avatar" loading="eager">
-              </div>
-              <div class="hero-info">
-                <h1 class="hero-title text-gradient">nabil khondaker</h1>
-                <p class="hero-subtitle">developer, passionate tech enthusiast, and an aspiring engineer</p>
-                <div class="social-grid">
-                  <button class="social-btn" data-link="https://github.com/nabilkhondaker" title="GitHub">
-                    <i class="fa-brands fa-github"></i>
-                  </button>
-                  <button class="social-btn" data-link="https://codeberg.org/nabilkd" title="Codeberg">
-                    <i class="fa-codeberg-custom"></i>
-                  </button>
-                  <button class="social-btn" data-link="mailto:nabilkd@nabilkd.com" title="Email">
-                    <i class="fa-solid fa-envelope"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <section id="status" class="section fade-in">
-        <div class="card status-card" style="cursor: default;">
-          <div class="card-content" style="display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; width: 100%;">
-            <div class="status-left" style="display: flex; align-items: center; gap: 1.5rem;">
-              <div class="status-avatar-wrapper">
-                <img src="favicon/nabilkhondaker_fullsize.png" alt="Nabil" class="status-avatar">
-              </div>
-              <div class="status-info">
-                <h3>nabil khondaker</h3>
-                <p>turning machinery into simulations..</p>
-              </div>
-            </div>
-            <div class="discord-status-aesthetic" id="discord-status-indicator"></div>
-          </div>
-        </div>
-      </section>
-
-      <hr class="aesthetic-divider fade-in">
-
-      <div class="mechanical-gear-assembly" id="gear-system">
-        <div class="gear gear-sun">
-          <i class="fa-solid fa-gear"></i>
-        </div>
-        <div class="gear gear-planet planet-1">
-          <i class="fa-solid fa-gear"></i>
-        </div>
-        <div class="gear gear-planet planet-2">
-          <i class="fa-solid fa-gear"></i>
-        </div>
-        <div class="gear gear-planet planet-3">
-          <i class="fa-solid fa-gear"></i>
-        </div>
-      </div>
-
-      <section id="about" class="section fade-in">
-        <h2 class="section-title">about me</h2>
-        <div class="card">
-          <div class="card-content">
-            <p class="about-text"> hey! i am <span class="text-gradient font-bold">nabil khondaker</span>, a bangladeshi-american 16-year-old developer, mechE enthusiast, and incoming <br>mechanical engineering student based in riverside, ca. <br>
-              <br>fresh out of high school as part of the class of 2026, i spend most of my time bridging the gap between digital software and physical systems. my work spans everything from web development and software engineering to hands-on hardware tinkering. i am especially proud of building complex systems like my finite element analysis (fea) generative cto engine and custom 2r planar robot projects, which let me combine core math and physics with real-world mechanical applications. <br>
-              <br>outside of the terminal and the workbench, my life is driven by a mix of physical outlets, continuous learning, and deep personal grounding. you'll frequently find me out riding my skateboard, sketching, playing basketball, or exploring diverse music. just as important to who i am is my dedication to reading, studying the quran, and drawing relentless discipline, purpose, and inspiration from figures like malcolm x. <br>
-              <br>whether i'm optimizing a hardware setup, engineering a structural tool, or refining a creative project, i'm always building. <br>
-              <br>welcome to my portfolio.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Featured Section combining Projects & Sims -->
-      <section id="featured" class="section fade-in">
-        <h2 class="section-title">featured work</h2>
-        <div id="featured-projects-grid" class="projects-grid"></div>
-        <br>
-        <br>
-        <div id="featured-sims-grid" class="simulations-grid"></div>
-        <!-- View More Button linking to Internal Overlay Route -->
-        <div class="show-more-container" style="margin-top: 4rem;">
-          <button id="open-full-portfolio-btn" class="submit-btn" style="padding: 1.2rem 2.5rem; font-size: 1.1rem; border-radius: 30px;">
-            <span>view all work</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
-        </div>
-      </section>
-
-      <section id="expertise" class="section fade-in">
-        <h2 class="section-title">areas of interest</h2>
-        <div class="expertise-grid">
-          <div class="expertise-card">
-            <div class="expertise-icon">
-              <i class="fa-solid fa-square-root-variable"></i>
-            </div>
-            <h3>computational mechanics & simulation</h3>
-            <div class="expertise-tooltip"> i leverage python and c++ to automate complex FEA and CFD workflows, building custom scripts to validate structural integrity faster than relying on out-of-the-box software </div>
-          </div>
-          <div class="expertise-card">
-            <div class="expertise-icon">
-              <i class="fa-solid fa-bezier-curve"></i>
-            </div>
-            <h3>generative design & topology optimization</h3>
-            <div class="expertise-tooltip"> fusing advanced CAD with algorithmic thinking to drive material efficiency; i use programmatic logic to rapidly iterate through design spaces for peak structural performance </div>
-          </div>
-          <div class="expertise-card">
-            <div class="expertise-icon">
-              <i class="fa-solid fa-robot"></i>
-            </div>
-            <h3>robotics & kinematic modeling</h3>
-            <div class="expertise-tooltip"> bridging the software-hardware divide. developing robust kinematic models and real-time control systems using c++ and lua for precise, responsive manipulation </div>
-          </div>
-          <div class="expertise-card">
-            <div class="expertise-icon">
-              <i class="fa-solid fa-laptop-code"></i>
-            </div>
-            <h3>software development for engineering</h3>
-            <div class="expertise-tooltip"> i build custom tools and data pipelines to eliminate bottlenecks; fluent in python, c++, and full web stacks (html/css/js) to streamline testing and automate daily analysis </div>
-          </div>
-          <div class="expertise-card">
-            <div class="expertise-icon">
-              <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <h3>cyber-physical security</h3>
-            <div class="expertise-tooltip"> i have a growing interest in applying white-hat hacking methodologies to secure industrial control systems, i would ensure that smart hardware and mechanical systems remain secure against digital vulnerabilities </div>
-          </div>
-          <div class="expertise-card">
-            <div class="expertise-icon">
-              <i class="fa-solid fa-screwdriver-wrench"></i>
-            </div>
-            <h3>prototyping & hands-on engineering</h3>
-            <div class="expertise-tooltip"> by translating complex code and digital CAD models into physical reality, i combine rapid software iteration with hands-on fabrication to rigorously test and validate engineering concepts </div>
-          </div>
-        </div>
-      </section>
-
-      <hr class="aesthetic-divider fade-in">
-
-      <!-- Mentoring section REMOVED from main page – now lives in sidebar overlay -->
-
-      <section id="contact" class="section fade-in">
-        <h2 class="section-title">contact me</h2>
-        <div class="card">
-          <div class="card-content">
-            <div class="contact-split">
-              <div class="contact-info-side">
-                <h3 style="margin-bottom: 1rem; color: var(--text-primary); font-size: 1.3rem;">find me online!</h3>
-                <div class="about-text contact-info">
-                  <p>
-                    <strong>
-                      <i class="fa-solid fa-envelope"></i>
-                    </strong>
-                    <span id="email-text">
-                      <a href="mailto:nabilkd@nabilkd.com" class="text-gradient font-bold" style="font-weight: 700;">nabilkd@nabilkd.com</a>
-                    </span>
-                    <button id="copy-email-btn" title="Copy to clipboard" class="copy-btn">
-                      <i class="fa-regular fa-copy"></i>
-                    </button>
-                  </p>
-                  <p>
-                    <strong>
-                      <i class="fa-brands fa-github"></i>
-                    </strong>
-                    <a href="https://github.com/nabilkhondaker" class="highlight-link" target="_blank" rel="noopener noreferrer">@nabilkhondaker</a>
-                  </p>
-                  <p>
-                    <strong>
-                      <i class="fa-codeberg-custom"></i>
-                    </strong>
-                    <a href="https://codeberg.org/nabilkd" class="highlight-link" target="_blank" rel="noopener noreferrer">@nabilkd</a>
-                  </p>
-                  <p>
-                    <strong>
-                      <i class="fa-brands fa-discord"></i>
-                    </strong>
-                    <a href="https://discord.com/users/1056634135961153576" class="highlight-link" target="_blank" rel="noopener noreferrer">@nabilkd</a>
-                  </p>
-                </div>
-              </div>
-              <div class="contact-form-side">
-                <form action="https://api.web3forms.com/submit" method="POST" class="hacker-form">
-                  <input type="hidden" name="access_key" value="739f3965-68c0-4216-8e25-f94bfc393286">
-                  <div class="input-wrapper">
-                    <input type="text" name="name" required placeholder="your name" class="form-input">
-                  </div>
-                  <div class="input-wrapper">
-                    <input type="email" name="email" required placeholder="your email" class="form-input" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address ending with a proper extension (e.g., user@gmail.com or name@domain.co)">
-                  </div>
-                  <div class="input-wrapper">
-                    <textarea name="message" rows="4" required placeholder="your message" class="form-input"></textarea>
-                  </div>
-                  <input type="hidden" name="redirect" value="https://nabilkd.com">
-                  <button type="submit" class="submit-btn">
-                    <span>send</span>
-                    <i class="fa-solid fa-paper-plane"></i>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Dummy Footer for spatial flow -->
-      <footer class="footer">
-        <p>&copy; <span id="current-year"></span> nabil khondaker. all rights reserved. </p>
-      </footer>
-    </div>
-
-    <!-- The Internal Overlay Page that slides in (projects – from LEFT, unchanged) -->
-    <div id="full-portfolio-page" class="full-page-overlay">
-      <div class="overlay-header">
-        <button id="close-portfolio-btn" class="overlay-nav-btn">
-          <i class="fa-solid fa-arrow-left"></i> back </button>
-      </div>
-      <div class="overlay-content">
-        <h3 class="overlay-section-title">core projects</h3>
-        <div id="all-projects-grid" class="projects-grid"></div>
-        <br>
-        <hr>
-        <br>
-        <h3 class="overlay-section-title" id="dynamics-sims-section">dynamics simulations</h3>
-        <div id="all-sims-grid" class="simulations-grid"></div>
-      </div>
-      <!-- Scroll to Simulations button -->
-      <button id="scroll-to-sims-btn" class="scroll-to-bottom-btn" title="Jump to Dynamics Simulations">
-        <i class="fa-solid fa-arrow-down"></i>
-      </button>
-    </div>
-
-    <!-- ========== NEW RIGHT-SLIDE OVERLAY PAGES ========== -->
-
-    <!-- Accomplishments (will finish soon) -->
-    <div id="page-accomplishments" class="page-overlay-right">
-      <div class="overlay-header">
-        <button class="overlay-nav-btn close-right-page">
-          <i class="fa-solid fa-arrow-right"></i> back
-        </button>
-      </div>
-      <div class="overlay-content">
-        <h3 class="overlay-section-title">accomplishments</h3>
-        <div class="card">
-          <div class="card-content">
-            <p class="about-text" style="opacity: 0.55;">
-              <!-- PLACEHOLDER – will finish soon -->
-              content coming soon.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Future Goals (blank placeholder) -->
-    <div id="page-future-goals" class="page-overlay-right">
-      <div class="overlay-header">
-        <button class="overlay-nav-btn close-right-page">
-          <i class="fa-solid fa-arrow-right"></i> back
-        </button>
-      </div>
-      <div class="overlay-content">
-        <h3 class="overlay-section-title">future goals</h3>
-        <div class="card">
-          <div class="card-content">
-            <p class="about-text" style="opacity: 0.55;">
-              <!-- PLACEHOLDER – leave blank / fill later -->
-              content coming soon.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  <!-- Achievements / Education -->
-<div id="page-achievements" class="page-overlay-right">
-  <div class="overlay-header">
-    <button class="overlay-nav-btn close-right-page">
-      <i class="fa-solid fa-arrow-right"></i> back
-    </button>
-  </div>
-
-  <div class="overlay-content">
-    <h3 class="overlay-section-title">education</h3>
-
-<!-- Photo Gallery + Certificate -->
-<div class="achievements-gallery-wrap">
-  <div class="gallery-and-cert">
-
-    <!-- LEFT SIDE -->
-    <div class="left-side">
-      <div class="achievements-gallery" id="achievements-gallery">
-        <div class="gallery-track" id="gallery-track">
-          <div class="gallery-slide">
-            <img src="img/education/Untitled.png" alt="Photo 1" class="gallery-img">
-          </div>
-          <div class="gallery-slide">
-            <img src="img/education/pic1.png" alt="Photo 2" class="gallery-img">
-          </div>
-          <div class="gallery-slide">
-            <img src="img/education/pic3.png" alt="Photo 3" class="gallery-img">
-          </div>
-          <div class="gallery-slide">
-            <img src="img/education/pic5.jpeg" alt="Photo 3" class="gallery-img">
-          </div>
-        </div>
-      </div>
-
-      <!-- Controls under the left card -->
-      <div class="gallery-controls">
-        <button class="gallery-btn" id="gallery-prev" title="Previous">
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <div class="gallery-dots" id="gallery-dots"></div>
-        <button class="gallery-btn" id="gallery-next" title="Next">
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- RIGHT SIDE -->
-    <div class="certificate-slot">
-      <img src="img/certif.jpg" alt="Certificate" class="certificate-img">
-    </div>
-
-  </div>
-</div>
-
-    <!-- Scholarships Section -->
-    <h4 class="sub-section-title">scholarships</h4>
-    <div class="card table-card">
-      <div class="card-content">
-        <div class="aesthetic-table-wrap">
-          <table class="aesthetic-table">
-            <thead>
-              <tr>
-                <th>scholarship</th>
-                <th>year</th>
-                <th>notes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>fobana 40th annual scholarship</td>
-                <td>2026</td>
-                <td>received in-person in september 2026 at the universal hilton hotel in los angeles, ca via a highly competitive essay competition.</td>
-              </tr>
-              <tr>
-                <td>lifelong learning scholarship</td>
-                <td>2026</td>
-                <td>received in-person in may 2026 at the graduation ceremony at the grove church in riverside, ca via valedictorian status.</td>
-              </tr>
-              <tr>
-                <td>linda simi memorial scholarship</td>
-                <td>2026</td>
-                <td>received in-person in january 2026 on campus of my highschool in riverside, ca via top class rank award.</td>
-              </tr>
-              <tr>
-                <td>aabea scholarship</td>
-                <td>2025</td>
-                <td>received in-person in september 2025 in silicon valley, ca from the american association of bangladeshi engineers and architects after completion of python summer course.</td>
-              </tr>
-              <tr>
-                <td>california fafsa scholarship</td>
-                <td>2025</td>
-                <td>received online in august 2025 issued from the government of the state of california.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <!-- APs Taken -->
-    <h4 class="sub-section-title" style="margin-top: 3rem;">ap courses taken — <b>passed with 4.0 gpa</b></h4>
-    <div class="ap-grid">
-      <div class="ap-card">
-        <div class="ap-icon"><i class="fa-solid fa-atom"></i></div>
-        <h5>AP physics</h5>
-      </div>
-      <div class="ap-card">
-        <div class="ap-icon"><i class="fa-solid fa-square-root-variable"></i></div>
-        <h5>AP calculus</h5>
-      </div>
-      <div class="ap-card">
-        <div class="ap-icon"><i class="fa-solid fa-flask"></i></div>
-        <h5>AP chemistry</h5>
-      </div>
-      <div class="ap-card">
-        <div class="ap-icon"><i class="fa-solid fa-laptop-code"></i></div>
-        <h5>AP computer science</h5>
-      </div>
-      <div class="ap-card">
-        <div class="ap-icon"><i class="fa-solid fa-microchip"></i></div>
-        <h5>AP applied computer science</h5>
-      </div>
-    </div>
-
-    <!-- Education Section -->
-    <h4 class="sub-section-title" style="margin-top: 3rem;">education</h4>
-    <div class="card">
-      <div class="card-content">
-        <div class="edu-entry">
-          <div class="edu-header">
-            <h5>riverside city college enrollment</h5>
-            <span class="edu-year">fall 2026</span>
-          </div>
-          <p class="edu-detail">studying intended major of introduction to engineering, taking various classes with the<br>intent of transferring to a high-level 4-year university next.</p>
-        </div>
-        <div class="edu-entry" style="margin-top: 1.5rem;">
-          <div class="edu-header">
-            <h5>alta vista innovation high school</h5>
-            <span class="edu-year">class of 2026</span>
-          </div>
-          <p class="edu-detail">valedictorian senior speaker alumni of the learn4life academic system. campus located in<br>eastside riverside, CA, graduated with a range of AP classes taken.</p>
-        </div>
-        <div class="edu-entry" style="margin-top: 1.5rem;">
-          <div class="edu-header">
-            <h5>chaffey college dual-enrollment</h5>
-            <span class="edu-year">late fall 2024 - spring 2026</span>
-          </div>
-          <p class="edu-detail">obtained the <b>associates degree in engineering</b> through a 1 ½ year dual-enrollment<br>program at chaffey college located in rancho cucamonga while also maintaining 11th grade coursework.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-    <!-- Mentoring Page -->
-    <div id="page-mentoring" class="page-overlay-right">
-      <div class="overlay-header">
-        <button class="overlay-nav-btn close-right-page">
-          <i class="fa-solid fa-arrow-right"></i> back
-        </button>
-      </div>
-      <div class="overlay-content">
-        <h3 class="overlay-section-title">academic mentorship</h3>
-
-        <div class="card">
-          <div class="card-content">
-            <p class="about-text">
-              hey! i run a completely free solo mentorship & tutoring program for people who want to get serious about engineering.
-              i managed to uphold a 4.0 gpa while taking majority ap classes, including ap physics, ap calculus, ap chemistry, and ap computer science, all with a passing A+. 
-              i truly feel as though i understand the material well enough to help others who need the help!
-            </p>
-          </div>
-        </div>
-
-        <div class="mentoring-grid">
-          <div class="card mentoring-card">
-            <div class="card-content">
-              <div class="mentoring-icon"><i class="fa-solid fa-book-open"></i></div>
-              <h4>subjects</h4>
-              <ul class="mentoring-list">
-                <li>computational mechanics & simulation</li>
-                <li>generative design & topology optimization</li>
-                <li>robotics & kinematic modeling</li>
-                <li>software development for engineering applications</li>
-                <li>cyber-physical security</li>
-                <li>hands-on prototyping</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="card mentoring-card">
-            <div class="card-content">
-              <div class="mentoring-icon"><i class="fa-solid fa-users"></i></div>
-              <h4>target audience</h4>
-              <ul class="mentoring-list">
-                <li>high-school & early college students</li>
-                <li>self-learners building fundamentals</li>
-                <li>early-career engineers wanting practical depth</li>
-                <li>anyone stuck on a project or concept</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="card mentoring-card">
-            <div class="card-content">
-              <div class="mentoring-icon"><i class="fa-solid fa-lightbulb"></i></div>
-              <h4>example topics</h4>
-              <ul class="mentoring-list">
-                <li>stiffness matrix assembly & FEA basics</li>
-                <li>inverse kinematics for planar arms</li>
-                <li>PID tuning & control intuition</li>
-                <li>lattice boltzmann / simple CFD</li>
-                <li>topology optimization pipelines</li>
-                <li>project structure & engineering habits</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top: 2rem;">
-          <div class="card-content">
-            <p class="about-text">
-              sessions are flexible and focused on what you actually need — no fluff, no sales pitch, just clear technical help. 
-              if any of this sounds useful, feel free to reach out anytime via the contact form or email to schedule a session. happy to help.
-            </p>
-          </div>
-        </div>
-
-        <!-- Contact redirect CTA -->
-        <div class="mentoring-contact-cta">
-          <p>ready to start a session?</p>
-          <button class="submit-btn" id="mentoring-contact-btn">
-            <span>get in touch</span>
-            <i class="fa-solid fa-paper-plane"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Workflow Page -->
-    <div id="page-workflow" class="page-overlay-right">
-      <div class="overlay-header">
-        <button class="overlay-nav-btn close-right-page">
-          <i class="fa-solid fa-arrow-right"></i> back
-        </button>
-      </div>
-      <div class="overlay-content">
-        <h3 class="overlay-section-title">engineering workflow</h3>
-
-        <div class="card" style="margin-bottom: 2.5rem;">
-          <div class="card-content">
-            <p class="about-text">
-              this is the repeatable process i follow on almost every project — from pure simulation tools to hardware builds.
-              it keeps the work grounded, forces me to question assumptions early, and makes the final result easier to explain and iterate on.
-            </p>
-          </div>
-        </div>
-
-        <div class="workflow-timeline">
-
-          <!-- Step 1 -->
-          <div class="workflow-step">
-            <div class="workflow-step-marker">
-              <span class="workflow-step-number">01</span>
-            </div>
-            <div class="workflow-step-content">
-              <h4>problem definition &amp; scoping</h4>
-              <p class="workflow-intro">i start by writing down exactly what i want the system to do and what constraints matter.</p>
-              <ul class="workflow-list">
-                <li>clear goal statement (what success looks like)</li>
-                <li>performance targets (speed, accuracy, mass, stiffness, power, etc.)</li>
-                <li>hard constraints (budget, tools i have access to, time, available materials)</li>
-                <li>assumptions i’m making so i can challenge them later</li>
-              </ul>
-              <p class="workflow-note">i keep this short and concrete. if i can’t explain the goal in a few sentences, the project is still too fuzzy, and i really don't have something to build on.</p>
-            </div>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="workflow-step">
-            <div class="workflow-step-marker">
-              <span class="workflow-step-number">02</span>
-            </div>
-            <div class="workflow-step-content">
-              <h4>research &amp; reference gathering</h4>
-              <p class="workflow-intro">i look at existing solutions, papers, open-source code, datasheets, and prior art.</p>
-              <ul class="workflow-list">
-                <li>kinematics equations, material properties, control theory, or mesh methods depending on the project</li>
-                <li>note what works, what fails, and what people usually overcomplicate</li>
-                <li>collect equations, boundary conditions, and typical ranges so i’m not reinventing basic physics</li>
-              </ul>
-              <p class="workflow-note">i also sketch a few rough concepts on paper or in a notes app before opening any CAD or code editor.</p>
-            </div>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="workflow-step">
-            <div class="workflow-step-marker">
-              <span class="workflow-step-number">03</span>
-            </div>
-            <div class="workflow-step-content">
-              <h4>conceptual design &amp; architecture</h4>
-              <p class="workflow-intro">i decide the overall approach:</p>
-              <ul class="workflow-list">
-                <li>pure simulation (FEA / CFD / kinematics)</li>
-                <li>hardware + software (robotics, mechatronics)</li>
-                <li>hybrid (simulate first, then build)</li>
-              </ul>
-              <p class="workflow-note">i break the system into modules: mechanical structure, sensors/actuators, control loop, data pipeline, visualization. early decisions here (degrees of freedom, solver type, control strategy) save a lot of pain later.</p>
-            </div>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="workflow-step">
-            <div class="workflow-step-marker">
-              <span class="workflow-step-number">04</span>
-            </div>
-            <div class="workflow-step-content">
-              <h4>digital modeling (CAD + math model)</h4>
-              <ul class="workflow-list">
-                <li>create the geometry in CAD (Fusion, Onshape, or whatever is fastest for the job)</li>
-                <li>define the mathematical model at the same time: equations of motion, stiffness matrix, fluid equations, inverse kinematics, etc.</li>
-                <li>keep units consistent from day one</li>
-                <li>export clean meshes or parameter sets that the solver can use</li>
-              </ul>
-              <p class="workflow-note">this stage is where i decide what will be simulated versus what will be built physically.</p>
-            </div>
-          </div>
-
-          <!-- Step 5 -->
-          <div class="workflow-step">
-            <div class="workflow-step-marker">
-              <span class="workflow-step-number">05</span>
-            </div>
-            <div class="workflow-step-content">
-              <h4>simulation &amp; analysis</h4>
-              <p class="workflow-intro">this is usually the heaviest technical part.</p>
-              <ul class="workflow-list">
-                <li>FEA for structural integrity, stress, deflection, topology optimization</li>
-                <li>CFD for flow, pressure, heat</li>
-                <li>multibody dynamics or custom kinematics solvers for mechanisms</li>
-                <li>control simulations (PID, state-space, etc.)</li>
-              </ul>
-              <p class="workflow-note">i run parametric studies, check mesh convergence, and watch for numerical issues. i always ask: does the result make physical sense? if not, i dig into boundary conditions, material models, or solver settings before trusting the numbers.</p>
-            </div>
-          </div>
-
-          <!-- Step 6 -->
-          <div class="workflow-step">
-            <div class="workflow-step-marker">
-              <span class="workflow-step-number">06</span>
-            </div>
-            <div class="workflow-step-content">
-              <h4>software development &amp; tooling</h4>
-              <p class="workflow-intro">i write the supporting code in parallel or right after the first solid simulation.</p>
-              <ul class="workflow-list">
-                <li>python or C++ for solvers, data processing, optimization loops</li>
-                <li>javascript / web stack when i want interactive demos or real-time visualization</li>
-                <li>custom scripts to automate meshing, batch runs, or result export</li>
-              </ul>
-              <p class="workflow-note">the goal is a clean, repeatable pipeline so i can change a parameter and get new results without manual work every time.</p>
-            </div>
-          </div>
-
-          <!-- Step 7 -->
-          <div class="workflow-step">
-            <div class="workflow-step-marker">
-              <span class="workflow-step-number">07</span>
-            </div>
-            <div class="workflow-step-content">
-              <h4>prototyping &amp; fabrication <span class="workflow-tag">when hardware is involved</span></h4>
-              <p class="workflow-intro">once the simulation looks solid:</p>
-              <ul class="workflow-list">
-                <li>refine the CAD for manufacturability (tolerances, fasteners, print orientation)</li>
-                <li>3D print, laser cut, or machine the parts</li>
-                <li>assemble, wire sensors and actuators, and get the electronics talking</li>
-                <li>implement the control code on the actual hardware (often starting with a simplified version of the simulated controller)</li>
-              </ul>
-              <p class="journal-note">i expect the first physical build to expose things the simulation missed (friction, backlash, sensor noise, compliance).</p>
-            </div>
-          </div>
-
-          <!-- Step 8 -->
-          <div class="workflow-step">
-            <div class="workflow-step-marker">
-              <span class="workflow-step-number">08</span>
-            </div>
-            <div class="workflow-step-content">
-              <h4>testing, validation &amp; iteration</h4>
-              <p class="workflow-intro">this is the longest loop.</p>
-              <ul class="workflow-list">
-                <li>compare physical measurements to simulation predictions</li>
-                <li>log data, plot errors, tune gains or redesign weak points</li>
-                <li>stress-test edge cases</li>
-                <li>document every major change and why it was made</li>
-              </ul>
-              <p class="workflow-note">i cycle between sim → code → hardware → measurement until the system meets the original targets or i understand exactly why it can’t.</p>
-            </div>
-          </div>
-
-          <!-- Step 9 -->
-          <div class="workflow-step">
-            <div class="workflow-step-marker">
-              <span class="workflow-step-number">09</span>
-            </div>
-            <div class="workflow-step-content">
-              <h4>refinement, documentation &amp; packaging</h4>
-              <ul class="workflow-list">
-                <li>clean up the code, add comments and a basic README</li>
-                <li>finalize CAD models and drawings</li>
-                <li>create clear result plots, animations, or interactive demos</li>
-                <li>write a short project summary: goal, approach, key results, limitations, next steps</li>
-              </ul>
-              <p class="workflow-note">if it’s going on the website, i also make sure the demo is stable and the story is easy to follow.</p>
-            </div>
-          </div>
-
-                    <!-- Step 10 -->
-          <div class="workflow-step">
-            <div class="workflow-step-marker">
-              <span class="workflow-step-number">10</span>
-            </div>
-            <div class="workflow-step-content">
-              <h4>reflection &amp; next cycle</h4>
-              <p class="workflow-intro">i look back at what slowed me down, what assumptions were wrong, and what i would do differently.</p>
-              <p class="workflow-note">then i either extend the project or start the next one with those lessons already applied.</p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- ========== CORE TOOLKIT ========== -->
-        <div class="tools-grid">
-
-          <div class="tool-category-card">
-            <div class="tool-cat-header">
-              <i class="fa-solid fa-code"></i>
-              <h5>languages &amp; runtimes</h5>
-            </div>
-            <div class="tool-tags">
-              <span class="tool-tag">Python</span>
-              <span class="tool-tag">C++</span>
-              <span class="tool-tag">JavaScript</span>
-              <span class="tool-tag">HTML / CSS</span>
-              <span class="tool-tag">Lua</span>
-              <span class="tool-tag">GLSL</span>
-            </div>
-          </div>
-
-          <div class="tool-category-card">
-            <div class="tool-cat-header">
-              <i class="fa-solid fa-square-root-variable"></i>
-              <h5>numerics &amp; simulation</h5>
-            </div>
-            <div class="tool-tags">
-              <span class="tool-tag">NumPy / SciPy</span>
-              <span class="tool-tag">custom FEA (JS + Py)</span>
-              <span class="tool-tag">SciPy sparse</span>
-              <span class="tool-tag">Matplotlib</span>
-              <span class="tool-tag">conjugate gradient</span>
-              <span class="tool-tag">SIMP / OC</span>
-            </div>
-          </div>
-
-          <div class="tool-category-card">
-            <div class="tool-cat-header">
-              <i class="fa-solid fa-cube"></i>
-              <h5>cad &amp; manufacturing</h5>
-            </div>
-            <div class="tool-tags">
-              <span class="tool-tag">Fusion 360</span>
-              <span class="tool-tag">Onshape</span>
-              <span class="tool-tag">Cura</span>
-              <span class="tool-tag">PrusaSlicer</span>
-              <span class="tool-tag">FDM (PLA / PETG)</span>
-              <span class="tool-tag">calipers / dial indicator</span>
-            </div>
-          </div>
-
-          <div class="tool-category-card">
-            <div class="tool-cat-header">
-              <i class="fa-solid fa-globe"></i>
-              <h5>web &amp; visualization</h5>
-            </div>
-            <div class="tool-tags">
-              <span class="tool-tag">Three.js</span>
-              <span class="tool-tag">WebGL</span>
-              <span class="tool-tag">Web Workers</span>
-              <span class="tool-tag">Canvas / SVG</span>
-              <span class="tool-tag">pure JS assemblers</span>
-            </div>
-          </div>
-
-          <div class="tool-category-card">
-            <div class="tool-cat-header">
-              <i class="fa-solid fa-terminal"></i>
-              <h5>development environment</h5>
-            </div>
-            <div class="tool-tags">
-              <span class="tool-tag">VS Code</span>
-              <span class="tool-tag">Git</span>
-              <span class="tool-tag">GitHub</span>
-              <span class="tool-tag">Codeberg</span>
-              <span class="tool-tag">Chrome DevTools</span>
-              <span class="tool-tag">Jupyter</span>
-            </div>
-          </div>
-
-          <div class="tool-category-card">
-            <div class="tool-cat-header">
-              <i class="fa-solid fa-microchip"></i>
-              <h5>hardware &amp; control</h5>
-            </div>
-            <div class="tool-tags">
-              <span class="tool-tag">Arduino / ESP</span>
-              <span class="tool-tag">PID loops</span>
-              <span class="tool-tag">encoders</span>
-              <span class="tool-tag">servo / DC motors</span>
-              <span class="tool-tag">serial logging</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- Journal / Lab Notebook Page -->
-    <div id="page-journal" class="page-overlay-right">
-      <div class="overlay-header">
-        <button class="overlay-nav-btn close-right-page">
-          <i class="fa-solid fa-arrow-right"></i> back
-        </button>
-      </div>
-      <div class="overlay-content">
-        <div class="journal-header-row">
-  <h3 class="overlay-section-title" style="margin-bottom: 0;">lab journal</h3>
-  <div class="journal-filters" id="journal-filters">
-    <button class="journal-filter active" data-filter="all">all</button>
-    <button class="journal-filter" data-filter="experiment">
-      <span class="filter-swatch swatch-experiment"></span> experiment
-    </button>
-    <button class="journal-filter" data-filter="debug">
-      <span class="filter-swatch swatch-debug"></span> debug
-    </button>
-    <button class="journal-filter" data-filter="question">
-      <span class="filter-swatch swatch-question"></span> question
-    </button>
-    <button class="journal-filter" data-filter="broke">
-      <span class="filter-swatch swatch-broke"></span> broke
-    </button>
-  </div>
-</div>
-
-        <div class="card" style="margin-bottom: 2.25rem; margin-top: 1.5rem;">
-          <div class="card-content">
-            <p class="about-text">
-              working notes from experiments, failed runs, debugging sessions, and open questions.
-              nothing polished — <br>just the raw record of what was tried, what broke, and what still needs answering.
-            </p>
-          </div>
-        </div>
-
-        <div class="journal-feed" id="journal-feed">
-
-          <article class="journal-entry" data-tags="experiment">
-            <div class="journal-meta">
-              <time datetime="2026-08-14">2026-08-14</time>
-              <span class="journal-tag tag-experiment">experiment</span>
-            </div>
-            <h4>topology optimization — volume fraction sweep on cantilever</h4>
-            <p>ran a series of SIMP compliance minimizations on a 2D cantilever (80×40 mesh) with volume fractions from 0.2 to 0.55. filter radius fixed at 1.5 elements. objective improved roughly linearly until ~0.4, then diminishing returns. gray-scale intermediate densities still present at r_min = 1.5; next run will push projection β higher to force 0/1.</p>
-            <p>sensitivity field was computed with the adjoint method; each volume step took 42–48 oc iterations to reach a relative change below 1e-4. the 0.35 volume design produced the cleanest load path (two primary struts meeting at ~38° from the wall), while 0.55 started filling secondary members that contributed less than 4 % to the final stiffness gain.</p>
-            <p class="journal-note">related: fea generative cto engine</p>
-          </article>
-
-          <article class="journal-entry" data-tags="broke">
-            <div class="journal-meta">
-              <time datetime="2026-08-09">2026-08-09</time>
-              <span class="journal-tag tag-broke">broke</span>
-            </div>
-            <h4>mesh convergence study aborted — memory spike</h4>
-            <p>tried refining the 2R planar robot link meshes to ~0.4 mm element size for stress concentration checks near the shoulder joint. python process climbed past 6.2 GB and the kernel killed it. need to switch to out-of-core assembly or coarsen the far-field and only refine the fillet regions.</p>
-            <p>the global stiffness matrix for the refined shoulder alone was already ~1.8e6 dofs with a nnz of about 2.4e7 in csr. assembly in pure numpy allocated three dense temporary buffers before the sparse conversion; that was the real leak. rewriting the local-to-global scatter to write directly into a pre-allocated coo triplet cut peak rss by roughly half on a smaller test mesh.</p>
-            <p class="journal-note">related: 2R planar robot paddle</p>
-          </article>
-
-          <article class="journal-entry" data-tags="debug">
-            <div class="journal-meta">
-              <time datetime="2026-07-28">2026-07-28</time>
-              <span class="journal-tag tag-debug">debug</span>
-            </div>
-            <h4>inverse kinematics singularity near workspace boundary</h4>
-            <p>the analytical 2R ik solution flips the elbow configuration when the target approaches the outer reach circle. numerical solver was oscillating between the two configurations because the jacobian determinant passed through zero. added a soft barrier on the configuration variable and a small hysteresis term; still need a proper damped least-squares fallback.</p>
-            <p>det(J) dropped below 1e-4 inside a 3 mm band of the reachable limit. the hysteresis keeps the last valid elbow choice until the target moves back more than 5 mm inside the workspace. damped least-squares with λ = 0.02 still produces a continuous joint trajectory across that band; the residual cartesian error stays under 0.4 mm in the current test set.</p>
-          </article>
-
-          <article class="journal-entry" data-tags="question">
-            <div class="journal-meta">
-              <time datetime="2026-07-21">2026-07-21</time>
-              <span class="journal-tag tag-question">question</span>
-            </div>
-            <h4>does the current density filter preserve volume exactly after projection?</h4>
-            <p>after applying the heaviside projection the actual material volume drifts by 1–3 % relative to the prescribed fraction. literature suggests a volume-preserving projection or a simple post-correction step. not sure yet which approach will stay stable when the design domain has non-design solid regions.</p>
-            <p>the drift is largest on coarse meshes (h ≈ 1.5 r_min) and shrinks as the mesh is refined, which points to the discrete filter kernel rather than the continuous projection formula. a binary search on the projection threshold that re-enforces the volume constraint after each continuation step on β looks promising; still need to check whether that search interacts badly with the oc update rule.</p>
-          </article>
-
-          <article class="journal-entry" data-tags="experiment">
-            <div class="journal-meta">
-              <time datetime="2026-07-12">2026-07-12</time>
-              <span class="journal-tag tag-experiment">experiment</span>
-            </div>
-            <h4>pid gains on the physical 2R arm vs simulation</h4>
-            <p>transferred the simulated pid gains to the real hardware. position tracking was acceptable at low speed, but the shoulder joint overshot under a 150 g tip load. increased derivative term on joint 1 by ~30 % and added a simple coulomb friction feed-forward. still seeing a small steady-state error that looks like gravity compensation residual.</p>
-            <p>step response on joint 1 (0 → 45°) settled in 0.38 s with 9 % overshoot after the retune. the residual offset is approximately 0.7° and scales with the cosine of the shoulder angle, which matches the expected gravity torque profile. a static gravity term using the measured link masses removed most of it; the leftover is probably cable stretch and gearbox compliance.</p>
-            <p class="journal-note">related: 2R planar robot paddle</p>
-          </article>
-
-          <article class="journal-entry" data-tags="broke">
-            <div class="journal-meta">
-              <time datetime="2026-06-30">2026-06-30</time>
-              <span class="journal-tag tag-broke">broke</span>
-            </div>
-            <h4>fea playground — browser tab crashed on 12k element mesh</h4>
-            <p>the pure js assembler + conjugate-gradient solver in the browser ran out of heap when the mesh exceeded roughly 12 000 linear triangles. switched the heavy path to a web-worker and streamed the stiffness matrix in blocks. still slower than the python version, but at least it no longer freezes the ui.</p>
-            <p>chrome’s v8 heap limit was the hard stop; the cg residual vector alone was fine, but the element-wise assembly loop created thousands of temporary typed arrays that never got collected fast enough. moving the entire assembly + solve into one worker and transferring the result buffer with postMessage({…}, [buffer]) kept the main thread responsive even at 18k elements.</p>
-            <p class="journal-note">related: fea playground 2D</p>
-          </article>
-
-          <article class="journal-entry" data-tags="debug">
-            <div class="journal-meta">
-              <time datetime="2026-06-18">2026-06-18</time>
-              <span class="journal-tag tag-debug">debug</span>
-            </div>
-            <h4>spring-coupled disk simulation — energy drift</h4>
-            <p>in the two-disk bouncing plate run the total mechanical energy was climbing ~0.4 % per 10 seconds of simulated time. traced it to the contact impulse resolution using a fixed restitution coefficient without a proper energy-consistent formulation. replaced with a velocity-level constraint that enforces the restitution map and the drift dropped below 0.05 %.</p>
-            <p>the original code applied the impulse after a position-level penetration correction, which injected a small amount of kinetic energy each impact. switching to a velocity-level non-penetration constraint with the same e = 1 map removed the artificial source. energy now oscillates within ±0.03 % over a 30 s window at dt = 1/240.</p>
-            <p class="journal-note">related: dynamics simulations (ds1)</p>
-          </article>
-
-          <article class="journal-entry" data-tags="experiment">
-            <div class="journal-meta">
-              <time datetime="2026-06-05">2026-06-05</time>
-              <span class="journal-tag tag-experiment">experiment</span>
-            </div>
-            <h4>topology opt with manufacturing constraint — minimum member size</h4>
-            <p>added a simple length-scale control via the density filter radius and a morphological closing operation. the resulting designs look more printable, but compliance increased ~8 % compared with the unconstrained run at the same volume fraction. acceptable trade-off for the current hardware constraints.</p>
-            <p>closing radius was set to 1.2× the intended minimum member width. on the cantilever benchmark the thin secondary struts disappeared and the primary members thickened by roughly one filter radius. the compliance penalty is consistent with the loss of those secondary paths; for the physical prints the thicker members are worth the stiffness cost.</p>
-          </article>
-
-          <article class="journal-entry" data-tags="question">
-            <div class="journal-meta">
-              <time datetime="2026-05-22">2026-05-22</time>
-              <span class="journal-tag tag-question">question</span>
-            </div>
-            <h4>best way to export a topology-optimized density field into a clean cad solid?</h4>
-            <p>marching cubes on the 0.5 isosurface produces a noisy mesh that needs heavy remeshing. looking at openvdb level-set methods and at simply thresholding then running a constrained laplacian smooth. still open — current pipeline is functional but ugly.</p>
-            <p>the noise is worst where the density gradient is shallow (gray regions that the projection never fully eliminated). a short diffusion of the density field before the isosurface extract reduces the high-frequency roughness, but it also erodes thin members. a constrained smooth that freezes vertices already near 0 or 1 might be the better route.</p>
-          </article>
-
-          <article class="journal-entry" data-tags="broke">
-            <div class="journal-meta">
-              <time datetime="2026-05-09">2026-05-09</time>
-              <span class="journal-tag tag-broke">broke</span>
-            </div>
-            <h4>3d-printed link failed under expected load</h4>
-            <p>first pla print of the 2R forearm link cracked at the root fillet after ~40 cycles of a 0.8× design load. fea had predicted a safety factor of 2.1. post-mortem showed layer adhesion was the weak plane; reprinting with 100 % infill and rotated orientation fixed it, but the analytical model still needs a knockdown factor for fdm anisotropy.</p>
-            <p>the crack initiated at the layer interface roughly 0.6 mm above the fillet radius. tensile coupon tests on the same filament and print settings gave an interlayer strength of only ~18 MPa versus ~48 MPa in the filament direction. applying a 0.4 knockdown to the allowable stress brings the predicted and observed failure loads into agreement.</p>
-            <p class="journal-note">related: 2R planar robot paddle</p>
-          </article>
-
-          <article class="journal-entry" data-tags="debug">
-            <div class="journal-meta">
-              <time datetime="2026-04-27">2026-04-27</time>
-              <span class="journal-tag tag-debug">debug</span>
-            </div>
-            <h4>stiffness matrix assembly — indexing off-by-one in sparse format</h4>
-            <p>the custom c++ coo → csr converter was writing the last column index one past the end on meshes whose node count was not a multiple of the block size. valgrind caught it only under a specific mesh. fixed and added a unit test that checks Σ K_ij against the dense reference for a 3-element patch.</p>
-            <p>the bug lived in the exclusive-scan that builds the row pointer array: when n % block != 0 the final partial block wrote past indptr[n]. the unit test now builds a 3-element patch, converts, and asserts that the frobenius norm of (K_sparse − K_dense) is below 1e-12. caught two similar edge cases after the first fix.</p>
-          </article>
-
-          <article class="journal-entry" data-tags="experiment">
-            <div class="journal-meta">
-              <time datetime="2026-04-11">2026-04-11</time>
-              <span class="journal-tag tag-experiment">experiment</span>
-            </div>
-            <h4>control simulation — state-space vs classical pid on the inverted triple pendulum</h4>
-            <p>linearized the three-spring-coupled inverted pendulums about the upright equilibrium and compared an lqr controller against three independent pids. lqr kept the system upright from larger initial angles; the decoupled pids started fighting each other once the coupling springs became active. expected, but useful confirmation before moving to hardware.</p>
-            <p>the open-loop eigenvalues of the linearized system sit at approximately +2.1, +0.8, −1.4 (1/s). lqr with Q = diag(10,10,10,1,1,1) and R = I moved all poles into the left half-plane with a minimum real part of −1.7. the independent pids could stabilize the first mode but left a lightly damped oscillation on the relative angles between the outer pendulums.</p>
-            <p class="journal-note">related: dynamics simulations (ds12)</p>
-          </article>
-
-          <article class="journal-entry" data-tags="question">
-            <div class="journal-meta">
-              <time datetime="2026-03-29">2026-03-29</time>
-              <span class="journal-tag tag-question">question</span>
-            </div>
-            <h4>how much mesh distortion is acceptable before the topology result becomes unreliable?</h4>
-            <p>some of the intermediate density fields produce highly skewed elements near the solid-void boundary. the compliance still converges, but the stress recovery looks suspicious. need a clearer criterion (jacobian quality? condition number of local K?) before trusting the stress plots on optimized geometries.</p>
-            <p>elements with min(jacobian) / max(jacobian) below ~0.15 start showing stress peaks that move when the mesh is refined, which is a classic sign of discretization error rather than a real stress concentration. a simple quality filter that flags those elements and excludes them from the stress plot is a temporary fix; a better long-term approach is to remesh the 0.5 isosurface before the final stress pass.</p>
-          </article>
-
-          <article class="journal-entry" data-tags="broke">
-            <div class="journal-meta">
-              <time datetime="2026-03-14">2026-03-14</time>
-              <span class="journal-tag tag-broke">broke</span>
-            </div>
-            <h4>webgl shader for live density visualization — precision loss</h4>
-            <p>the fragment shader that color-maps the density field was using mediump floats. on mobile the isosurface looked stepped and the optimizer appeared to stall. forced highp and the visual stabilized; the underlying floating-point densities were fine the whole time.</p>
-            <p>mediump on the tested mali gpu effectively gave about 10 bits of mantissa. density values that differed by less than ~0.002 collapsed to the same color band, which made the continuation on β look frozen even though the cpu-side densities were still changing. highp restored smooth gradients; the performance hit was negligible for a full-screen quad.</p>
-            <p class="journal-note">related: fea playground 2D</p>
-          </article>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- ========== TECHNICAL GLOSSARY PAGE ========== -->
-    <div id="page-glossary" class="page-overlay-right">
-      <div class="overlay-header">
-        <button class="overlay-nav-btn close-right-page">
-          <i class="fa-solid fa-arrow-right"></i> back
-        </button>
-      </div>
-
-      <div class="overlay-content glossary-overlay-content">
-
-        <!-- LIST VIEW -->
-        <div id="glossary-list-view">
-          <div class="glossary-top-bar">
-            <h3 class="overlay-section-title" style="margin-bottom:0;">technical glossary</h3>
-            <div class="glossary-search-wrap">
-              <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="text" id="glossary-search" placeholder="search concepts…" autocomplete="off" spellcheck="false">
-            </div>
-          </div>
-
-          <!-- status + level filters -->
-          <div class="glossary-filter-row">
-            <div class="glossary-filter-group" id="glossary-status-filters">
-              <button class="glossary-filter-btn active" data-status="all">all</button>
-              <button class="glossary-filter-btn" data-status="used"><span class="status-dot used"></span> used</button>
-              <button class="glossary-filter-btn" data-status="studied"><span class="status-dot studied"></span> studied</button>
-              <button class="glossary-filter-btn" data-status="learning"><span class="status-dot learning"></span> learning</button>
-            </div>
-            <div class="glossary-filter-group" id="glossary-level-filters">
-              <button class="glossary-filter-btn active" data-level="all">all levels</button>
-              <button class="glossary-filter-btn" data-level="foundational">foundational</button>
-              <button class="glossary-filter-btn" data-level="intermediate">intermediate</button>
-              <button class="glossary-filter-btn" data-level="advanced">advanced</button>
-            </div>
-          </div>
-
-          <!-- alphabet -->
-          <div class="glossary-alphabet" id="glossary-alphabet"></div>
-
-          <!-- category pills -->
-          <div class="glossary-category-pills" id="glossary-category-pills"></div>
-
-          <div class="glossary-result-meta">
-            <span id="glossary-result-count">0 terms</span>
-          </div>
-
-          <div class="glossary-term-list" id="glossary-term-list"></div>
-        </div>
-
-        <!-- DETAIL VIEW -->
-        <div id="glossary-detail-view" class="hidden">
-          <button id="glossary-back-to-list" class="glossary-back-list-btn">
-            <i class="fa-solid fa-arrow-left"></i> back to list
-          </button>
-          <div id="glossary-detail-content"></div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ========== TRIVIA PAGE ========== -->
-    <div id="page-trivia" class="page-overlay-right">
-      <div class="overlay-header">
-        <button class="overlay-nav-btn close-right-page">
-          <i class="fa-solid fa-arrow-right"></i> back
-        </button>
-      </div>
-
-      <div class="overlay-content trivia-overlay-content">
-
-        <!-- SETUP SCREEN -->
-        <div id="trivia-setup" class="trivia-screen">
-          <h3 class="overlay-section-title">engineering trivia</h3>
-          <p class="trivia-intro">a quick quiz on mechanical engineering, numerics, robotics, and the code that ties it together. pick a level and how many questions you want.</p>
-
-          <div class="trivia-setup-card">
-            <div class="trivia-setup-section">
-              <h4>difficulty</h4>
-              <div class="trivia-level-row" id="trivia-level-row">
-                <button class="trivia-level-btn active" data-level="foundational">
-                  <span class="level-icon">◇</span>
-                  <span class="level-name">foundational</span>
-                  <span class="level-desc">core concepts</span>
-                </button>
-                <button class="trivia-level-btn" data-level="intermediate">
-                  <span class="level-icon">◆</span>
-                  <span class="level-name">intermediate</span>
-                  <span class="level-desc">applied theory</span>
-                </button>
-                <button class="trivia-level-btn" data-level="advanced">
-                  <span class="level-icon">◈</span>
-                  <span class="level-name">advanced</span>
-                  <span class="level-desc">deep cuts</span>
-                </button>
-              </div>
-            </div>
-
-            <div class="trivia-setup-section">
-              <h4>number of questions</h4>
-              <div class="trivia-count-wrap">
-                <input type="range" id="trivia-count-slider" min="5" max="20" value="10" step="1">
-                <div class="trivia-count-display">
-                  <span id="trivia-count-value">10</span>
-                  <span class="trivia-count-label">questions</span>
-                </div>
-              </div>
-              <div class="trivia-count-ticks">
-                <span>5</span><span>10</span><span>15</span><span>20</span>
-              </div>
-            </div>
-
-            <button id="trivia-start-btn" class="trivia-start-btn">
-              <span>start quiz</span>
-              <i class="fa-solid fa-play"></i>
-            </button>
-          </div>
-
-          <!-- past scores (only visible when history exists) -->
-          <div class="trivia-past-wrap" id="trivia-past-wrap" style="display:none;">
-            <div class="trivia-past-header">
-              <h4>past scores</h4>
-              <button type="button" class="trivia-past-details-btn" id="trivia-past-open-btn">details</button>
-            </div>
-            <div class="trivia-past-list" id="trivia-past-list"></div>
-          </div>
-        </div>
-
-        <!-- QUIZ SCREEN -->
-        <div id="trivia-quiz" class="trivia-screen hidden">
-          <div class="trivia-progress-bar">
-            <div class="trivia-progress-fill" id="trivia-progress-fill"></div>
-          </div>
-          <div class="trivia-meta-row">
-            <span id="trivia-q-counter">question 1 / 10</span>
-            <span id="trivia-score-live">score: 0</span>
-          </div>
-
-          <div class="trivia-question-card">
-            <p class="trivia-question-text" id="trivia-question-text"></p>
-            <div class="trivia-options" id="trivia-options"></div>
-          </div>
-
-          <div class="trivia-feedback hidden" id="trivia-feedback">
-            <p id="trivia-feedback-text"></p>
-            <button id="trivia-next-btn" class="trivia-next-btn">next <i class="fa-solid fa-arrow-right"></i></button>
-          </div>
-        </div>
-
-        <!-- RESULTS SCREEN -->
-        <div id="trivia-results" class="trivia-screen hidden">
-          <div class="trivia-results-card">
-            <div class="trivia-results-icon" id="trivia-results-icon">✓</div>
-            <h3 class="trivia-results-title" id="trivia-results-title">quiz complete</h3>
-            <p class="trivia-results-score" id="trivia-results-score">0 / 10</p>
-            <p class="trivia-results-pct" id="trivia-results-pct">0%</p>
-            <p class="trivia-results-msg" id="trivia-results-msg"></p>
-            <div class="trivia-results-actions">
-              <button id="trivia-retry-btn" class="trivia-action-btn">
-                <i class="fa-solid fa-rotate-right"></i> try again
-              </button>
-              <button id="trivia-home-btn" class="trivia-action-btn secondary">
-                <i class="fa-solid fa-sliders"></i> change settings
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- past scores popup -->
-        <div class="trivia-scores-popup-overlay" id="trivia-scores-popup">
-          <div class="trivia-scores-popup" role="dialog" aria-modal="true">
-            <div class="trivia-scores-popup-header">
-              <h3>past scores</h3>
-              <button type="button" class="trivia-scores-popup-close" id="trivia-scores-popup-close" title="close">
-                <i class="fa-solid fa-xmark"></i>
-              </button>
-            </div>
-            <div class="trivia-scores-popup-body" id="trivia-scores-popup-body"></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Wiki Modal -->
-    <div id="wiki-modal" class="wiki-modal-overlay hidden">
-      <div class="wiki-modal-content">
-        <button class="wiki-close-btn" id="wiki-close-btn">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="wiki-image-container">
-          <img id="wiki-image" src="" alt="Random Wikipedia Media">
-        </div>
-        <button class="wiki-refresh-btn" id="wiki-refresh-btn">
-          <i class="fa-solid fa-rotate-right"></i> refresh </button>
-      </div>
-    </div>
-
-    <!-- Sim Modal - FORCED GIF BEHAVIOR -->
-    <div id="sim-modal" class="wiki-modal-overlay hidden">
-      <div class="wiki-modal-content sim-modal-content">
-        <button class="wiki-close-btn" id="sim-close-btn">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="sim-video-container">
-          <video id="sim-modal-video" muted loop playsinline style="pointer-events: none;"></video>
-        </div>
-        <div class="sim-caption">
-          <h3 id="sim-modal-title"></h3>
-          <p id="sim-modal-desc"></p>
-        </div>
-      </div>
-    </div>
-
-    <!-- New Overview Modal -->
-    <div id="overview-modal" class="wiki-modal-overlay hidden">
-      <div class="wiki-modal-content overview-modal-content">
-        <button class="wiki-close-btn" id="overview-close-btn">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="overview-header">
-          <h3 id="overview-title"></h3>
-        </div>
-        <div class="overview-body">
-          <div>
-            <h4>initial summary</h4>
-            <p id="overview-summary"></p>
-          </div>
-          <div>
-            <h4>motivation</h4>
-            <p id="overview-why"></p>
-          </div>
-          <div>
-            <h4>takeaways</h4>
-            <p id="overview-learned"></p>
-          </div>
-          <div>
-            <h4>obstacles</h4>
-            <p id="overview-challenges"></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="projects.js"></script>
-    <script src="glossary.js"></script>
-    <script src="script.js"></script>
-  </body>
-</html>
+
+/* =========================
+   Root Variables & Base Styles
+   ========================= */
+:root {
+    --bg-primary: #0a0a0b;
+    --bg-secondary: #1a1a1b;
+    --bg-tertiary: #2a2a2b;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --text-muted: #666666;
+    --accent: #913700;
+    --accent-blue: #ffe600;
+    --border: rgba(255, 255, 255, 0.08);
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --glow: 0 0 20px var(--accent);
+    --radius: 16px;
+    --radius-sm: 8px;
+    --transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                  opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                  border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                  background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    scroll-padding-top: 100px; 
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background 0.5s ease, color 0.3s ease;
+    padding-top: 70px; 
+}
+
+/* =========================
+   Apple Liquid Glass Top Panel
+   ========================= */
+.glass-top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(10, 10, 11, 0.45);
+    backdrop-filter: blur(35px) saturate(200%);
+    -webkit-backdrop-filter: blur(35px) saturate(200%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    z-index: 9995; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-blue));
+    border-radius: 2px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px var(--accent-blue);
+}
+
+.nav-links a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.nav-load-in {
+    animation: dropIn 0.8s ease cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes dropIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   High-Performance GPU Canvas Animation
+   ========================= */
+.bg-canvas {
+    position: fixed;
+    inset: 0;
+    background: #0d0d0f;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-canvas::before,
+.bg-canvas::after {
+    content: '';
+    position: absolute;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.22;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.bg-canvas::before {
+    background: var(--accent);
+    top: -10%;
+    left: -10%;
+    animation: floatOrb1 20s infinite alternate ease-in-out;
+}
+
+.bg-canvas::after {
+    background: var(--accent-blue);
+    bottom: -10%;
+    right: -10%;
+    animation: floatOrb2 20s infinite alternate ease-in-out;
+}
+
+@keyframes floatOrb1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(15%, 10%) scale(1.1); }
+}
+
+@keyframes floatOrb2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-15%, -10%) scale(1.1); }
+}
+
+/* =========================
+   Layout Containers
+   ========================= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    border-radius: var(--radius);
+}
+
+.hero-card {
+    position: relative;
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: visible;
+    transition: var(--transition);
+    will-change: transform, box-shadow;
+}
+
+.hero-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-blue);
+    box-shadow: var(--shadow), 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 25px var(--accent);
+}
+
+.hero-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+    opacity: 0.05;
+    filter: blur(40px);
+    border-radius: var(--radius);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-main {
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
+    width: 100%;
+}
+
+.avatar-container {
+    position: relative;
+    display: inline-block;
+}
+
+.avatar {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    margin: 0;
+    display: block;
+    box-shadow: var(--glow);
+    transition: var(--transition);
+    object-fit: cover;
+    background: var(--bg-secondary);
+}
+
+.hero-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+    min-width: 0;
+}
+
+.hero-info h1 {
+    font-size: clamp(2.2rem, 6vw, 3.2rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.15rem;
+    line-height: 1.1;
+    word-break: break-word;
+}
+
+.hero-info .hero-subtitle {
+    font-size: 1.08rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+.social-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin: 0;
+    justify-content: flex-start;
+}
+
+.social-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                background 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent-blue);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 12px var(--accent);
+}
+
+.social-btn i {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    transition: color 0.25s ease, transform 0.25s ease;
+    z-index: 1;
+}
+
+.social-btn:hover i {
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.fa-codeberg-custom {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    -webkit-mask: url('https://cdn.jsdelivr.net/npm/simple-icons/icons/codeberg.svg') no-repeat center / contain;
+    mask: url('https://cdn.jsdelivr.net/npm/simple-icons/icons/codeberg.svg') no-repeat center / contain;
+    vertical-align: -0.125em; 
+}
+
+/* =========================
+   Modern Theme Picker Styles
+   ========================= */
+.theme-picker-wrapper {
+    position: relative;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 11px; 
+    right: 25px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: rotate(25deg) scale(1.05);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.theme-panel {
+    position: fixed;
+    top: 80px; 
+    right: 25px;
+    width: 260px;
+    padding: 1.5rem;
+    background: rgba(13, 13, 14, 0.85);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    color: white;
+    z-index: 9998;
+    box-shadow: var(--shadow);
+    transform-origin: top right;
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), visibility 0.3s;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.theme-panel.hidden {
+    opacity: 0 !important;
+    transform: scale(0.8) translateY(-20px) !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+.theme-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.theme-panel-header h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.theme-close-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    line-height: 1;
+}
+
+.theme-close-btn:hover {
+    color: var(--text-primary);
+}
+
+.theme-section {
+    margin-bottom: 1.25rem;
+}
+
+.theme-section h4 {
+    font-size: 0.8rem;
+    text-transform: lowercase;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.theme-presets-grid {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 2px;
+}
+
+.preset-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+    background-origin: border-box;
+    background-clip: padding-box;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15), 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.preset-btn:hover {
+    transform: scale(1.12);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4), 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.preset-btn.active {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 2px #ffffff, 0 0 15px rgba(255, 255, 255, 0.35);
+}
+
+.custom-color-picker-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.65rem 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+}
+
+.custom-color-picker-wrapper:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.color-preview-circle {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.2s ease;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.color-picker-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    user-select: none;
+}
+
+#color-picker {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+/* =========================
+   Discord & Standard Cards
+   ========================= */
+.discord-loading {
+    display: none;
+    margin-left: 1rem;
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--border);
+    border-top: 3px solid var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    align-self: center;
+}
+.status-card.loading .discord-loading {
+    display: inline-block;
+}
+.status-card.loading .status-info,
+.status-card.loading .discord-icon,
+.status-card.loading .status-avatar {
+    opacity: 0.4;
+    filter: blur(1px);
+    pointer-events: none;
+}
+
+.card {
+    background: rgba(20, 20, 22, 0.85);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+    opacity: 0;
+    transition: var(--transition);
+}
+.card:hover::before {
+    opacity: 0.03;
+}
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-blue);
+    box-shadow: var(--shadow), var(--glow);
+}
+.card-content {
+    position: relative;
+    z-index: 1;
+}
+
+.status-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+.status-avatar-wrapper {
+    position: relative;
+    display: inline-block;
+}
+.status-avatar {
+    display: block;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.discord-status-dot {
+    position: absolute;
+    bottom: 0px;
+    right: -4px;   
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 3px solid var(--bg-primary);
+    z-index: 2;
+    box-shadow: 0 0 6px rgba(0,0,0,0.3);
+    transition: background 0.3s;
+}
+.status-info h3 {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+.status-info p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+.discord-icon {
+    margin-left: auto;
+    color: #5865f2;
+    font-size: 1.5rem;
+}
+
+/* =========================
+   Section Titles & Skills
+   ========================= */
+.section {
+    margin-bottom: 4rem;
+}
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+.skill-category h3 {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+.skill-tag {
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-primary);
+}
+.skill-tag:hover {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent-blue);
+    transform: translateY(-2px);
+}
+hr {
+    width: 73%;
+    margin: 0 auto;
+    border: 0;
+    border-top: 1px solid var(--border);
+}
+.skill-tag i {
+    color: var(--accent-blue);
+}
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.project-card, .sim-card {
+    background: rgba(20, 20, 22, 0.85);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transition);
+    position: relative;
+}
+
+.project-card:hover .project-content,
+.sim-card:hover .sim-video-wrapper,
+.sim-card:hover .sim-info {
+    transform: scale(0.95);
+    opacity: 0.15;
+}
+
+.project-content {
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.project-content h3 {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+.project-tag {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+.project-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.project-links {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.project-links.overlay-links {
+    justify-content: center;
+    width: 100%;
+}
+
+.project-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.default-links {
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+/* =========================
+   GIANT GLASS BUBBLE TOOLTIP
+   ========================= */
+.glass-bubble {
+    position: absolute;
+    inset: 15px; 
+    background: rgba(10, 10, 11, 0.88);
+    backdrop-filter: blur(25px) saturate(200%);
+    -webkit-backdrop-filter: blur(25px) saturate(200%);
+    border: 1px solid var(--accent-blue);
+    border-radius: var(--radius-sm);
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.92);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5), inset 0 0 30px rgba(255, 255, 255, 0.03);
+    overflow-y: auto; 
+}
+
+.glass-bubble-inner {
+    margin: auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.project-card:hover .glass-bubble,
+.sim-card:hover .glass-bubble {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    box-shadow: 0 10px 50px rgba(0,0,0,0.7), inset 0 0 25px var(--accent);
+}
+
+.glass-bubble h4 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    text-transform: lowercase;
+    text-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+.glass-bubble p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.glass-bubble::-webkit-scrollbar {
+    width: 6px;
+}
+.glass-bubble::-webkit-scrollbar-track {
+    background: transparent;
+}
+.glass-bubble::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+}
+.glass-bubble::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-blue);
+}
+
+/* =========================
+   Expertise Grid
+   ========================= */
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.expertise-card {
+    background: rgba(20, 20, 22, 0.85);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    cursor: default;
+    transition: var(--transition);
+}
+
+.expertise-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-blue);
+    box-shadow: var(--shadow), 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 15px var(--accent);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.expertise-icon {
+    font-size: 2.8rem;
+    margin-bottom: 1.2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: var(--transition);
+}
+
+.expertise-card:hover .expertise-icon {
+    transform: scale(1.15) translateY(-5px);
+}
+
+.expertise-card h3 {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.expertise-tooltip {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    background: rgba(13, 13, 14, 0.95);
+    border: 1px solid var(--border);
+    border-bottom: 3px solid var(--accent);
+    padding: 1.2rem;
+    border-radius: var(--radius-sm);
+    width: 260px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    text-align: center;
+    box-shadow: var(--shadow), 0 10px 30px rgba(0,0,0,0.6);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 100;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.expertise-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: var(--accent) transparent transparent transparent;
+}
+
+.expertise-card:hover .expertise-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* =========================
+   Utility & Misc
+   ========================= */
+.text-gradient {
+    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.highlight-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+.highlight-link:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
+}
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.copy-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.95rem;
+    padding: 0.2rem 0.4rem;
+    transition: var(--transition);
+    border-radius: 4px;
+}
+.copy-btn:hover {
+    color: var(--accent-blue);
+    background: rgba(255, 255, 255, 0.05);
+}
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+.about-text p {
+    margin-bottom: 0.3rem;
+}
+.footer {
+    text-align: center;
+    padding: 3rem 0;
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+}
+.footer p {
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+/* =========================
+   Responsive Design Layouts
+   ========================= */
+@media (max-width: 900px) {
+    .hero-main {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding-left: 0;
+    }
+    .avatar {
+        width: 90px;
+        height: 90px;
+    }
+    .hero-info {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+    .social-grid {
+        justify-content: center;
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    .skills-grid, .projects-grid, .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+    .status-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .discord-icon {
+        margin: 0;
+    }
+    .nav-links {
+        gap: 1.25rem;
+    }
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        top: 15px; 
+        right: 15px;
+        font-size: 1rem;
+    }
+}
+@media (max-width: 500px) {
+    .avatar {
+        width: 70px;
+        height: 70px;
+    }
+    .hero-info h1 {
+        font-size: 2rem;
+    }
+    .social-btn {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* =========================
+   Fade-in Animation
+   ========================= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   Custom Scrollbar
+   ========================= */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-blue);
+}
+
+/* =========================
+   Loading Screen
+   ========================= */
+.loading {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+.loading.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border);
+    border-top: 3px solid var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* =========================
+   Project Cards Hover Glow & Lift
+   ========================= */
+.project-card:hover, .sim-card:hover {
+    transform: translateY(-8px) !important;
+    border-color: var(--accent-blue) !important; 
+    background: rgba(255, 255, 255, 0.05) !important;
+    box-shadow: var(--shadow), 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent) !important; 
+    opacity: 1 !important; 
+}
+
+/* =========================
+   Content Protection
+   ========================= */
+body, html, * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+input, textarea {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+img {
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+
+a, button, .project-card, .sim-card, .theme-panel, .custom-color-picker-wrapper, #color-picker {
+    pointer-events: auto !important;
+}
+
+/* =========================
+   Kinetic Planetary Gear System
+   ========================= */
+.mechanical-gear-assembly {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 1.5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+.gear {
+    position: absolute;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    will-change: transform;
+}
+
+.gear-sun {
+    font-size: 3.5rem;
+    color: var(--accent) !important;
+    animation: spinClockwise 12s linear infinite;
+    z-index: 2;
+}
+
+.gear-planet {
+    font-size: 2.2rem;
+    color: var(--accent-blue) !important;
+    animation: spinCounterClockwise 6s linear infinite;
+    transform-origin: center center;
+}
+
+.planet-1 { --offset-x: 42px;  --offset-y: 0px;   transform: translate(var(--offset-x), var(--offset-y)); }
+.planet-2 { --offset-x: -21px; --offset-y: 36px;  transform: translate(var(--offset-x), var(--offset-y)); }
+.planet-3 { --offset-x: -21px; --offset-y: -36px; transform: translate(var(--offset-x), var(--offset-y)); }
+
+@keyframes spinClockwise {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spinCounterClockwise {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+.mechanical-gear-assembly:hover {
+    transform: rotate(180deg);
+}
+
+.loading-screen {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.aesthetic-divider {
+    border: 0;
+    height: 1px;
+    width: 85%;
+    margin: 4rem auto;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), var(--accent), rgba(255, 255, 255, 0.05), transparent);
+    position: relative;
+    overflow: visible;
+    opacity: 0.8;
+}
+
+.aesthetic-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 3px;
+    background: var(--accent-blue);
+    box-shadow: 0 0 15px var(--accent-blue), 0 0 30px var(--accent);
+    border-radius: 10px;
+}
+
+/* =========================
+   Buttons & Submit
+   ========================= */
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+    color: var(--bg-primary);
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.2s ease, filter 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent);
+    filter: brightness(1.1);
+}
+
+.submit-btn:active {
+    transform: translateY(1px) scale(0.96);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 0 10px var(--accent);
+    filter: brightness(0.9);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Modern Overview Button */
+.mini-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-primary);
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-family: inherit;
+    backdrop-filter: blur(10px);
+}
+
+.mini-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.mini-btn:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.discord-status-aesthetic {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+.discord-status-aesthetic.status-online {
+    width: 18px;
+    height: 18px;
+    background-color: #39a659;
+    border-radius: 50%;
+    box-shadow: 0 0 14px rgba(57, 166, 89, 0.35);
+}
+
+.discord-status-aesthetic.status-idle {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: transparent;
+    box-shadow: -5px 5px 0 0 #e8a639;
+    transform: rotate(-15deg) translate(3px, -3px);
+}
+
+.discord-status-aesthetic.status-dnd {
+    width: 18px;
+    height: 18px;
+    background-color: #f23f43;
+    border-radius: 50%;
+    box-shadow: 0 0 14px rgba(242, 63, 67, 0.35);
+}
+.discord-status-aesthetic.status-dnd::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 2.5px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.discord-status-aesthetic.status-offline {
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid #80848e;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+
+.in-progress-badge {
+    position: absolute;
+    top: 1.25rem;   
+    right: 1.25rem;
+    background: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(10px) saturate(180%); 
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary); 
+    font-size: 0.65rem; 
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.in-progress-badge i {
+    font-size: 0.7rem;
+    color: var(--accent-blue);
+}
+
+/* =========================
+   WIKI WIDGET ADDITIONS & MODALS
+   ========================= */
+.wiki-toggle {
+    position: fixed;
+    top: 11px; 
+    right: 85px; 
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.wiki-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: rotate(-10deg) scale(1.05);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.wiki-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 1000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.wiki-modal-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.wiki-modal-content {
+    background: rgba(20, 20, 22, 0.4); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius);
+    width: max-content; 
+    max-width: 95vw; 
+    align-items: center;
+    padding: 1.5rem;
+    position: relative;
+    transform: translateY(0) scale(1);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.wiki-modal-overlay.hidden .wiki-modal-content {
+    transform: translateY(30px) scale(0.95);
+}
+
+.overview-modal-content {
+    max-width: 650px;
+    max-height: 85vh;
+    overflow-y: auto;
+    text-align: left;
+    align-items: flex-start;
+}
+
+.overview-modal-content .overview-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+}
+
+.overview-modal-content h3 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    line-height: 1.3;
+}
+
+.overview-modal-content h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+    font-size: 1.1rem;
+}
+
+.overview-modal-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.wiki-close-btn {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.wiki-close-btn:hover {
+    color: var(--text-primary);
+    background: var(--accent);
+    border-color: var(--accent-blue);
+    transform: scale(1.1);
+}
+
+.wiki-image-container {
+    width: auto;
+    height: auto; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+}
+
+.wiki-image-container img {
+    max-width: 100%;
+    max-height: 70vh; 
+    width: auto;
+    height: auto;
+    object-fit: contain; 
+    border-radius: var(--radius-sm);
+    display: block;
+}
+
+.wiki-refresh-btn {
+    align-self: center;
+    background: rgba(20, 20, 22, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--accent); 
+    color: var(--accent); 
+    box-shadow: 0 0 15px color-mix(in srgb, var(--accent) 30%, transparent); 
+    padding: 0.75rem 1.75rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    outline: none;
+    white-space: nowrap; 
+}
+
+.wiki-refresh-btn:hover {
+    transform: translateY(-3px);
+    background: color-mix(in srgb, var(--accent) 15%, transparent);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 25px color-mix(in srgb, var(--accent) 45%, transparent);
+    border-color: var(--accent);
+}
+
+.wiki-refresh-btn:active {
+    transform: scale(0.92) translateY(2px);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 60%, transparent), inset 0 0 15px color-mix(in srgb, var(--accent) 25%, transparent);
+    background: color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+/* =========================
+   Dynamics Simulations
+   ========================= */
+.simulations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.sim-video-wrapper {
+    width: 100%;
+    aspect-ratio: 3/2;
+    background: #000;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.sim-video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.sim-info {
+    padding: 1.2rem;
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.8rem;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.sim-info h4 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.sim-modal-content {
+    max-width: 900px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.sim-video-container {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: #000;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.sim-video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.sim-caption {
+    text-align: left;
+}
+
+.sim-caption h3 {
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+}
+
+.sim-caption p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* =========================
+   Full Portfolio Overlay Page
+   ========================= */
+.full-page-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-primary);
+    z-index: 100000;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0; 
+}
+
+.full-page-overlay.active {
+    transform: translateX(0);
+}
+
+.overlay-header {
+    position: sticky;
+    top: 0;
+    background: rgba(10, 10, 11, 0.85);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 100;
+    margin-bottom: 2rem;
+}
+
+.overlay-nav-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.overlay-nav-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 15px var(--accent);
+}
+
+.overlay-nav-btn.ghost {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.overlay-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem 2rem;
+}
+
+.overlay-section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    text-align: left;
+    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+/* =========================
+   Contact Form Integration
+   ========================= */
+.contact-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.contact-form-side .hacker-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.form-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.2rem;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    outline: none;
+    resize: vertical;
+}
+
+.form-input::placeholder {
+    color: var(--text-muted);
+}
+
+.form-input:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+@media (max-width: 768px) {
+    .contact-split {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+/* =========================
+   Mobile Optimization for Hover Modals & Bubbles
+   ========================= */
+@media (max-width: 768px) {
+    .project-card, .sim-card {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .glass-bubble {
+        position: relative;
+        inset: auto;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        margin: 1rem;
+        padding: 1.2rem;
+        background: rgba(10, 10, 11, 0.6);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+        border-radius: var(--radius-sm);
+    }
+    
+    .project-card:hover .project-content,
+    .sim-card:hover .sim-video-wrapper,
+    .sim-card:hover .sim-info {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+    
+    .project-links.default-links {
+        display: none !important; 
+    }
+}
+
+/* =========================
+   Dynamics Simulations Overview Buttons 
+   ========================= */
+
+/* Style the button inside the glass bubble hover state */
+.glass-bubble-inner .overview-btn {
+    margin-top: 15px; 
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-bubble-inner .overview-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--accent-blue);
+}
+
+/* Modal overview button positioning (Inside the full media player) */
+.sim-modal-overview-btn {
+    position: absolute !important;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 100;
+    background: rgba(10, 10, 11, 0.7) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+    margin: 0 !important;
+}
+
+.sim-modal-overview-btn:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: var(--accent-blue) !important;
+}
+
+/* =========================
+   Scroll-to-Simulations Button (chat-style)
+   ========================= */
+.scroll-to-bottom-btn {
+    position: fixed;
+    bottom: 2.2rem;
+    right: 2.2rem;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(20, 20, 22, 0.75);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--accent-blue);
+    font-size: 1.25rem;
+    cursor: pointer;
+    z-index: 100010;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.85);
+    transition: 
+        opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 0.35s,
+        transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        color 0.25s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Only show when the full portfolio overlay is open */
+.full-page-overlay.active .scroll-to-bottom-btn {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.scroll-to-bottom-btn:hover {
+    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+    color: #0a0a0b;
+    border-color: transparent;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        0 0 25px color-mix(in srgb, var(--accent) 40%, transparent);
+    transform: translateY(-4px) scale(1.08);
+}
+
+.scroll-to-bottom-btn:active {
+    transform: translateY(0) scale(0.95);
+}
+
+.scroll-to-bottom-btn i {
+    transition: transform 0.3s ease;
+}
+
+.scroll-to-bottom-btn:hover i {
+    transform: translateY(2px);
+}
+
+/* Mobile tweak */
+@media (max-width: 768px) {
+    .scroll-to-bottom-btn {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 48px;
+        height: 48px;
+        font-size: 1.15rem;
+    }
+}
+
+/* Hidden state for the scroll button */
+.scroll-to-bottom-btn.hidden-btn {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(20px) scale(0.85) !important;
+    pointer-events: none !important;
+}
+
+/* =========================
+   Live Local Clock (Desktop only)
+   ========================= */
+.nav-clock {
+    position: absolute;
+    left: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 14px;
+    padding: 0.42rem 0.95rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    color: var(--text-primary);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 10;
+    user-select: none;
+}
+
+.nav-clock i {
+    font-size: 0.95rem;
+    color: var(--accent-blue);
+    opacity: 0.9;
+}
+
+.nav-clock:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 4px 22px rgba(0, 0, 0, 0.35), 0 0 12px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+/* Hide on mobile / tablet */
+@media (max-width: 900px) {
+    .nav-clock {
+        display: none !important;
+    }
+}
+
+/* =========================================================
+   NEW: VS Code-style Sidebar + Right-slide Pages
+   (append this block to the end of style.css)
+   ========================================================= */
+
+/* Sidebar trigger – left of the clock */
+.sidebar-trigger {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    color: var(--text-secondary);
+    cursor: pointer;
+    z-index: 11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(12px);
+}
+
+.sidebar-trigger:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.sidebar-trigger i {
+    transition: transform 0.3s ease;
+}
+
+.vs-sidebar.open ~ .glass-top-bar .sidebar-trigger i,
+body:has(.vs-sidebar.open) .sidebar-trigger i {
+    transform: rotate(180deg);
+}
+
+/* Shift clock a bit to the right so trigger has space */
+.nav-clock {
+    left: 58px !important;
+}
+
+/* VS Code style sidebar */
+.vs-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background: rgba(13, 13, 14, 0.92);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 100050;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 8px 0 40px rgba(0, 0, 0, 0.45);
+}
+
+.vs-sidebar.open {
+    transform: translateX(0);
+}
+
+.vs-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.vs-sidebar-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.vs-sidebar-close {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    line-height: 1;
+}
+
+.vs-sidebar-close:hover {
+    color: var(--text-primary);
+}
+
+.vs-sidebar-section {
+    padding: 1rem 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.vs-sidebar-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0.4rem 0.85rem 0.6rem;
+}
+
+.vs-sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.vs-sidebar-item i {
+    width: 18px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--accent-blue);
+    opacity: 0.85;
+}
+
+.vs-sidebar-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-primary);
+}
+
+.vs-sidebar-item:hover i {
+    opacity: 1;
+}
+
+.vs-sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+    z-index: 100040;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.vs-sidebar-backdrop.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Right-slide page overlays (same spirit as full-portfolio-page) */
+.page-overlay-right {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-primary);
+    z-index: 100000;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0;
+}
+
+.page-overlay-right.active {
+    transform: translateX(0);
+}
+
+/* Shared sub-titles inside right pages */
+.sub-section-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 2.5rem 0 1.25rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Aesthetic scholarships table */
+.table-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.aesthetic-table-wrap {
+    overflow-x: auto;
+}
+
+.aesthetic-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.aesthetic-table thead {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.aesthetic-table th {
+    text-align: left;
+    padding: 1rem 1.4rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+}
+
+.aesthetic-table td {
+    padding: 1rem 1.4rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.aesthetic-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.aesthetic-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* Education entries */
+.edu-entry .edu-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.edu-entry h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.edu-year {
+    font-size: 0.85rem;
+    color: var(--accent-blue);
+    font-weight: 500;
+}
+
+.edu-detail {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+/* Achievements gallery */
+.achievements-gallery-wrap {
+    margin-bottom: 2.5rem;
+}
+
+.achievements-gallery {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: rgba(20, 20, 22, 0.6);
+}
+
+.gallery-track {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-slide {
+    min-width: 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.gallery-placeholder i {
+    font-size: 2.5rem;
+    opacity: 0.5;
+}
+
+.gallery-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 1rem;
+}
+
+.gallery-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+.gallery-btn:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 15px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.gallery-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.gallery-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    padding: 0;
+}
+
+.gallery-dot.active {
+    background: var(--accent-blue);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--accent-blue) 50%, transparent);
+    transform: scale(1.2);
+}
+
+/* Mentoring page layout */
+.mentoring-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.mentoring-card {
+    height: 100%;
+}
+
+.mentoring-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: var(--accent-blue);
+    font-size: 1.15rem;
+}
+
+.mentoring-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.mentoring-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.mentoring-list li {
+    position: relative;
+    padding-left: 1.15rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.45;
+}
+
+.mentoring-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .sidebar-trigger {
+        left: 10px;
+        width: 34px;
+        height: 34px;
+    }
+
+    .nav-clock {
+        left: 52px !important;
+    }
+
+    .vs-sidebar {
+        width: 240px;
+    }
+
+    .mentoring-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    /* keep trigger visible even when clock is hidden */
+    .sidebar-trigger {
+        display: flex !important;
+    }
+}
+
+/* =========================================================
+   EDUCATION GALLERY – proper image fit (no awkward crop)
+   + Mentoring contact CTA
+   + Extra mobile polish
+   ========================================================= */
+
+/* Gallery images: fill the slide cleanly */
+.gallery-slide {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-slide img,
+.gallery-slide .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;          /* change to "contain" if you prefer letterboxing */
+    object-position: center;
+    display: block;
+border-radius: 12px;          /* soft rounded edges */
+}
+
+/* Certificate – fill the box (cropped if needed) */
+.certificate-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Keep placeholders looking good until real photos are added */
+.gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* Mentoring page – contact redirect CTA */
+.mentoring-contact-cta {
+    margin-top: 2.75rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.mentoring-contact-cta p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: 1.25rem;
+}
+
+.mentoring-contact-cta .submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.95rem 2rem;
+    font-size: 1rem;
+    border-radius: 30px;
+}
+
+/* ---------- Extra mobile optimization (safe additions) ---------- */
+@media (max-width: 768px) {
+    /* Gallery */
+    .achievements-gallery {
+        max-width: 100%;
+        border-radius: 12px;
+    }
+
+    .gallery-slide {
+        aspect-ratio: 4 / 3;   /* slightly taller on phones so faces/subjects fit better */
+    }
+
+    .gallery-controls {
+        gap: 1rem;
+        margin-top: 0.85rem;
+    }
+
+    .gallery-btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* Mentoring CTA */
+    .mentoring-contact-cta {
+        margin-top: 2rem;
+        padding: 1.5rem 1.1rem;
+    }
+
+    .mentoring-contact-cta p {
+        font-size: 0.98rem;
+    }
+
+    /* Sidebar + right pages */
+    .vs-sidebar {
+        width: min(280px, 85vw);
+    }
+
+    .page-overlay-right .overlay-content {
+        padding: 0 1.15rem 3.5rem;
+    }
+
+    .overlay-section-title {
+        font-size: 1.7rem;
+        margin-top: 1.25rem;
+    }
+
+    .sub-section-title {
+        font-size: 1.2rem;
+        margin: 2rem 0 1rem;
+    }
+
+    /* Education table */
+    .aesthetic-table th,
+    .aesthetic-table td {
+        padding: 0.85rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Mentoring cards */
+    .mentoring-grid {
+        gap: 1.15rem;
+    }
+
+    .mentoring-card h4 {
+        font-size: 1.05rem;
+    }
+
+    .mentoring-list li {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-slide {
+        aspect-ratio: 1 / 1;   /* square on very small phones – cleanest fit */
+    }
+
+    .mentoring-contact-cta .submit-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* =========================================================
+   Education Gallery + Certificate side-by-side (CLEAN)
+   ========================================================= */
+.gallery-and-cert {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.achievements-gallery {
+  max-width: none;
+  width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(20, 20, 22, 0.4);
+}
+
+.gallery-track {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-slide {
+  min-width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Gallery photos – original fit + rounded corners, NO black borders */
+.gallery-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Certificate – fills the box */
+.certificate-slot {
+  width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(20, 20, 22, 0.6);
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+.certificate-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.certificate-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* AP Courses grid */
+.ap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.ap-card {
+  background: rgba(20, 20, 22, 0.85);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ap-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-blue);
+  box-shadow: var(--shadow), 0 0 18px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.ap-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  color: var(--accent-blue);
+}
+
+.ap-card h5 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .gallery-and-cert {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .certificate-slot {
+    aspect-ratio: 4 / 3;
+  }
+
+  .ap-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ap-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========== CLEAN LAYOUT ========== */
+
+.gallery-and-cert {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1.5rem !important;
+  align-items: start !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+}
+
+.left-side {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.9rem !important;
+}
+
+.achievements-gallery {
+  width: 100% !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--border) !important;
+  background: transparent !important;
+}
+
+.gallery-track {
+  display: flex !important;
+}
+
+.gallery-slide {
+  min-width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+}
+
+.gallery-img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 420px !important;
+  object-fit: contain !important;
+  border-radius: 14px !important;
+  display: block !important;
+}
+
+.certificate-slot {
+  width: 100% !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--border) !important;
+  background: transparent !important;
+}
+
+.certificate-img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 420px !important;
+  object-fit: fill !important;
+  border-radius: 14px !important;
+  display: block !important;
+}
+
+.gallery-controls {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1.25rem !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .gallery-and-cert {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* =========================================================
+   WORKFLOW TIMELINE – step-by-step procedure
+   ========================================================= */
+.workflow-timeline {
+  position: relative;
+  max-width: 820px;
+  margin: 0 auto 3rem;
+  padding-left: 0;
+}
+
+/* vertical line */
+.workflow-timeline::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--accent) 0%,
+    color-mix(in srgb, var(--accent) 40%, var(--accent-blue)) 50%,
+    var(--accent-blue) 100%
+  );
+  border-radius: 2px;
+  opacity: 0.55;
+}
+
+.workflow-step {
+  position: relative;
+  display: flex;
+  gap: 1.75rem;
+  margin-bottom: 2.25rem;
+  align-items: flex-start;
+}
+
+.workflow-step:last-child {
+  margin-bottom: 0;
+}
+
+/* number marker */
+.workflow-step-marker {
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background: rgba(20, 20, 22, 0.95);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  transition: var(--transition);
+}
+
+.workflow-step:hover .workflow-step-marker {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 35%, transparent),
+              0 4px 18px rgba(0, 0, 0, 0.4);
+  transform: scale(1.06);
+}
+
+.workflow-step-number {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* content card */
+.workflow-step-content {
+  flex: 1;
+  background: rgba(20, 20, 22, 0.75);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.6rem 1.4rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.workflow-step-content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.workflow-step:hover .workflow-step-content {
+  border-color: color-mix(in srgb, var(--accent-blue) 55%, transparent);
+  box-shadow: var(--shadow), 0 0 22px color-mix(in srgb, var(--accent) 18%, transparent);
+  transform: translateY(-3px);
+}
+
+.workflow-step:hover .workflow-step-content::before {
+  opacity: 0.04;
+}
+
+.workflow-step-content h4 {
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.65rem;
+  line-height: 1.35;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.workflow-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  padding: 0.22rem 0.55rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--accent-blue);
+  text-transform: lowercase;
+}
+
+.workflow-intro {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  margin-bottom: 0.85rem;
+}
+
+.workflow-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.workflow-list li {
+  position: relative;
+  padding-left: 1.15rem;
+  color: var(--text-secondary);
+  font-size: 0.93rem;
+  line-height: 1.5;
+}
+
+.workflow-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.workflow-note {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  font-style: italic;
+  margin: 0;
+  padding-top: 0.35rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .workflow-timeline::before {
+    left: 22px;
+  }
+
+  .workflow-step {
+    gap: 1.15rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .workflow-step-marker {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+  }
+
+  .workflow-step-number {
+    font-size: 0.92rem;
+  }
+
+  .workflow-step-content {
+    padding: 1.2rem 1.15rem 1.15rem;
+  }
+
+  .workflow-step-content h4 {
+    font-size: 1.05rem;
+  }
+
+  .workflow-intro,
+  .workflow-list li {
+    font-size: 0.9rem;
+  }
+
+  .workflow-note {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .workflow-timeline::before {
+    left: 18px;
+  }
+
+  .workflow-step-marker {
+    width: 40px;
+    height: 40px;
+  }
+
+  .workflow-step-number {
+    font-size: 0.85rem;
+  }
+}
+
+/* =========================================================
+   LAB JOURNAL – dated engineering notebook
+   ========================================================= */
+.journal-feed {
+  max-width: 820px;
+  margin: 0 auto 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.journal-entry {
+  background: rgba(20, 20, 22, 0.75);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.55rem 1.35rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.journal-entry::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-blue));
+  opacity: 0.55;
+  border-radius: 3px 0 0 3px;
+}
+
+.journal-entry:hover {
+  border-color: color-mix(in srgb, var(--accent-blue) 50%, transparent);
+  box-shadow: var(--shadow), 0 0 18px color-mix(in srgb, var(--accent) 15%, transparent);
+  transform: translateY(-2px);
+}
+
+.journal-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.journal-meta time {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  color: var(--accent-blue);
+  font-variant-numeric: tabular-nums;
+}
+
+.journal-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0.18rem 0.5rem;
+  border-radius: 5px;
+  border: 1px solid transparent;
+}
+
+.tag-experiment {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  color: var(--accent-blue);
+}
+
+.tag-debug {
+  background: rgba(255, 180, 50, 0.12);
+  border-color: rgba(255, 180, 50, 0.35);
+  color: #ffb432;
+}
+
+.tag-question {
+  background: rgba(100, 160, 255, 0.12);
+  border-color: rgba(100, 160, 255, 0.35);
+  color: #7ab0ff;
+}
+
+.tag-broke {
+  background: rgba(255, 70, 70, 0.12);
+  border-color: rgba(255, 70, 70, 0.35);
+  color: #ff6b6b;
+}
+
+.journal-entry h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.55rem;
+  line-height: 1.4;
+}
+
+.journal-entry p {
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.6;
+  margin-bottom: 0.45rem;
+}
+
+.journal-entry p:last-child {
+  margin-bottom: 0;
+}
+
+.journal-entry .journal-note {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 0.55rem;
+  padding-top: 0.45rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .journal-feed {
+    gap: 1.1rem;
+  }
+
+  .journal-entry {
+    padding: 1.15rem 1.15rem 1.1rem;
+  }
+
+  .journal-entry h4 {
+    font-size: 0.98rem;
+  }
+
+  .journal-entry p {
+    font-size: 0.9rem;
+  }
+
+  .journal-meta time {
+    font-size: 0.78rem;
+  }
+}
+
+/* =========================================================
+   LAB JOURNAL – dated engineering notebook + filters
+   ========================================================= */
+.journal-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.25rem;
+}
+
+.journal-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin-top: 0.35rem;
+}
+
+.journal-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.38rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+}
+
+.journal-filter:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--text-primary);
+}
+
+.journal-filter.active {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  border-color: color-mix(in srgb, var(--accent-blue) 55%, transparent);
+  color: var(--text-primary);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.filter-swatch {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.swatch-experiment {
+  background: var(--accent-blue);
+  box-shadow: 0 0 6px color-mix(in srgb, var(--accent-blue) 50%, transparent);
+}
+
+.swatch-debug {
+  background: #ffb432;
+  box-shadow: 0 0 6px rgba(255, 180, 50, 0.45);
+}
+
+.swatch-question {
+  background: #7ab0ff;
+  box-shadow: 0 0 6px rgba(122, 176, 255, 0.45);
+}
+
+.swatch-broke {
+  background: #ff6b6b;
+  box-shadow: 0 0 6px rgba(255, 107, 107, 0.45);
+}
+
+.journal-feed {
+  max-width: 920px;
+  margin: 0 auto 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.journal-entry {
+  background: rgba(20, 20, 22, 0.8);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.9rem 1.6rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.journal-entry::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-blue));
+  opacity: 0.6;
+  border-radius: 3px 0 0 3px;
+}
+
+.journal-entry:hover {
+  border-color: color-mix(in srgb, var(--accent-blue) 50%, transparent);
+  box-shadow: var(--shadow), 0 0 20px color-mix(in srgb, var(--accent) 16%, transparent);
+  transform: translateY(-3px);
+}
+
+.journal-entry.journal-hidden {
+  display: none;
+}
+
+.journal-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.journal-meta time {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  color: var(--accent-blue);
+  font-variant-numeric: tabular-nums;
+}
+
+.journal-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 5px;
+  border: 1px solid transparent;
+}
+
+.tag-experiment {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  color: var(--accent-blue);
+}
+
+.tag-debug {
+  background: rgba(255, 180, 50, 0.12);
+  border-color: rgba(255, 180, 50, 0.35);
+  color: #ffb432;
+}
+
+.tag-question {
+  background: rgba(100, 160, 255, 0.12);
+  border-color: rgba(100, 160, 255, 0.35);
+  color: #7ab0ff;
+}
+
+.tag-broke {
+  background: rgba(255, 70, 70, 0.12);
+  border-color: rgba(255, 70, 70, 0.35);
+  color: #ff6b6b;
+}
+
+.journal-entry h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.65rem;
+  line-height: 1.4;
+}
+
+.journal-entry p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 0.5rem;
+}
+
+.journal-entry p:last-child {
+  margin-bottom: 0;
+}
+
+.journal-entry .journal-note {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 0.65rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .journal-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .journal-filters {
+    width: 100%;
+    gap: 0.4rem;
+  }
+
+  .journal-filter {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.65rem;
+  }
+
+  .journal-feed {
+    gap: 1.15rem;
+    max-width: 100%;
+  }
+
+  .journal-entry {
+    padding: 1.25rem 1.2rem 1.15rem;
+  }
+
+  .journal-entry h4 {
+    font-size: 1.02rem;
+  }
+
+  .journal-entry p {
+    font-size: 0.92rem;
+  }
+
+  .journal-meta time {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .journal-filters {
+    gap: 0.35rem;
+  }
+
+  .journal-filter {
+    font-size: 0.72rem;
+    padding: 0.32rem 0.55rem;
+  }
+
+  .filter-swatch {
+    width: 8px;
+    height: 8px;
+  }
+}
+/* =========================================================
+   TECHNICAL GLOSSARY
+   ========================================================= */
+
+.glossary-overlay-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+  position: relative;
+  min-height: 40vh;
+}
+
+.glossary-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.glossary-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+  max-width: 340px;
+}
+
+.glossary-search-wrap i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.glossary-search-wrap input {
+  width: 100%;
+  padding: 0.7rem 1rem 0.7rem 2.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glossary-search-wrap input:focus {
+  border-color: color-mix(in srgb, var(--accent-blue) 60%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.glossary-search-wrap input::placeholder {
+  color: var(--text-muted);
+}
+
+/* filters */
+.glossary-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.glossary-filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.glossary-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.38rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.glossary-filter-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.glossary-filter-btn.active {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  border-color: color-mix(in srgb, var(--accent-blue) 55%, transparent);
+  color: var(--text-primary);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.status-dot.used { background: #23a55a; box-shadow: 0 0 6px rgba(35, 165, 90, 0.5); }
+.status-dot.studied { background: #f0b232; box-shadow: 0 0 6px rgba(240, 178, 50, 0.45); }
+.status-dot.learning { background: #7ab0ff; box-shadow: 0 0 6px rgba(122, 176, 255, 0.45); }
+
+/* alphabet */
+.glossary-alphabet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glossary-letter {
+  min-width: 28px;
+  height: 28px;
+  padding: 0 0.35rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.glossary-letter:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.glossary-letter.active {
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  border-color: color-mix(in srgb, var(--accent-blue) 40%, transparent);
+}
+
+/* category pills */
+.glossary-category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.glossary-cat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(20, 20, 22, 0.85);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: lowercase;
+}
+
+.glossary-cat-pill:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.glossary-cat-pill.active {
+  border-color: color-mix(in srgb, var(--accent-blue) 50%, transparent);
+  color: var(--text-primary);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.cat-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.glossary-result-meta {
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* term cards */
+.glossary-term-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.glossary-term-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: rgba(20, 20, 22, 0.8);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+  color: inherit;
+}
+
+.glossary-term-card:hover {
+  border-color: color-mix(in srgb, var(--accent-blue) 50%, transparent);
+  box-shadow: var(--shadow), 0 0 18px color-mix(in srgb, var(--accent) 14%, transparent);
+  transform: translateY(-2px);
+}
+
+.term-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.term-name {
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.term-badges {
+  display: flex;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.status-badge,
+.level-badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  padding: 0.18rem 0.5rem;
+  border-radius: 5px;
+  border: 1px solid transparent;
+}
+
+.status-badge.status-used {
+  background: rgba(35, 165, 90, 0.15);
+  border-color: rgba(35, 165, 90, 0.35);
+  color: #3dd68c;
+}
+.status-badge.status-studied {
+  background: rgba(240, 178, 50, 0.12);
+  border-color: rgba(240, 178, 50, 0.35);
+  color: #f0b232;
+}
+.status-badge.status-learning {
+  background: rgba(122, 176, 255, 0.12);
+  border-color: rgba(122, 176, 255, 0.35);
+  color: #7ab0ff;
+}
+
+.level-badge.level-foundational {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--text-secondary);
+}
+.level-badge.level-intermediate {
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  color: var(--accent-blue);
+}
+.level-badge.level-advanced {
+  background: rgba(162, 155, 254, 0.12);
+  border-color: rgba(162, 155, 254, 0.35);
+  color: #a29bfe;
+}
+
+.term-short {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-bottom: 0.65rem;
+}
+
+.term-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.mini-cat {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--cat-color) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cat-color) 30%, transparent);
+  color: var(--text-secondary);
+}
+
+.glossary-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* detail / list view – smooth fade instead of hard cut */
+#glossary-list-view,
+#glossary-detail-view {
+  transition: opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: translateY(0);
+  will-change: opacity, transform;
+}
+
+#glossary-list-view.hidden,
+#glossary-detail-view.hidden {
+  opacity: 0 !important;
+  transform: translateY(10px);
+  pointer-events: none !important;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+#glossary-list-view.is-fading-out,
+#glossary-detail-view.is-fading-out {
+  opacity: 0 !important;
+  transform: translateY(-8px);
+  pointer-events: none !important;
+}
+
+#glossary-list-view.is-fading-in,
+#glossary-detail-view.is-fading-in {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.glossary-back-list-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.glossary-back-list-btn:hover {
+  color: var(--text-primary);
+  border-color: color-mix(in srgb, var(--accent-blue) 40%, transparent);
+}
+
+.detail-header {
+  margin-bottom: 1.25rem;
+}
+
+.detail-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.detail-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.detail-cat {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--cat-color) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cat-color) 35%, transparent);
+  color: var(--text-secondary);
+}
+
+.detail-divider {
+  width: 100%;
+  margin: 1.25rem 0 1.75rem;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+.detail-section {
+  margin-bottom: 1.75rem;
+}
+
+.detail-section h3 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  margin-bottom: 0.55rem;
+}
+
+.detail-section p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.eq-block {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.75rem;
+  overflow-x: auto;
+}
+
+.eq-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+  text-transform: lowercase;
+}
+
+.eq-tex {
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.eq-note {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.related-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.related-term {
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--accent-blue);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.related-term:hover {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  border-color: color-mix(in srgb, var(--accent-blue) 50%, transparent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 20%, transparent);
+  transform: translateY(-1px);
+}
+
+.related-missing {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+/* highlight class for terms elsewhere on the site */
+.glossary-term-highlight {
+  color: var(--accent-blue);
+  border-bottom: 1px dotted color-mix(in srgb, var(--accent-blue) 50%, transparent);
+  cursor: help;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .glossary-top-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .glossary-search-wrap {
+    max-width: none;
+  }
+
+  .detail-title {
+    font-size: 1.45rem;
+  }
+
+  .term-card-top {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+/* =========================================================
+   ENGINEERING TRIVIA
+   ========================================================= */
+
+.trivia-overlay-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+
+.trivia-screen {
+  animation: triviaFadeIn 0.35s ease;
+}
+
+.trivia-screen.hidden {
+  display: none !important;
+}
+
+@keyframes triviaFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.trivia-intro {
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 540px;
+}
+
+.trivia-setup-card {
+  background: rgba(20, 20, 22, 0.85);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 1.85rem 1.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.trivia-setup-section h4 {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  margin-bottom: 0.85rem;
+}
+
+.trivia-level-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.trivia-level-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  text-align: left;
+}
+
+.trivia-level-btn:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.trivia-level-btn.active {
+  border-color: color-mix(in srgb, var(--accent-blue) 55%, transparent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--text-primary);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.level-icon {
+  font-size: 1.1rem;
+  color: var(--accent-blue);
+  margin-bottom: 0.15rem;
+}
+
+.level-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+.level-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.trivia-count-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+#trivia-count-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  cursor: pointer;
+}
+
+#trivia-count-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 40%, transparent);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+#trivia-count-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+#trivia-count-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+
+.trivia-count-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 64px;
+}
+
+#trivia-count-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+.trivia-count-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: lowercase;
+}
+
+.trivia-count-ticks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.4rem;
+  padding: 0 2px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.trivia-start-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.trivia-start-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.trivia-start-btn:active {
+  transform: translateY(-1px);
+}
+
+/* quiz progress */
+.trivia-progress-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.trivia-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-blue));
+  border-radius: 999px;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.trivia-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+#trivia-score-live {
+  color: var(--accent-blue);
+  font-weight: 500;
+}
+
+.trivia-question-card {
+  background: rgba(20, 20, 22, 0.85);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.trivia-question-text {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+}
+
+.trivia-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.trivia-option-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.95rem 1.15rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.trivia-option-btn:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--accent-blue) 45%, transparent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--text-primary);
+  transform: translateX(4px);
+}
+
+.trivia-option-btn:disabled {
+  cursor: default;
+}
+
+.trivia-option-btn.correct {
+  border-color: rgba(35, 165, 90, 0.55);
+  background: rgba(35, 165, 90, 0.15);
+  color: #3dd68c;
+}
+
+.trivia-option-btn.wrong {
+  border-color: rgba(242, 63, 67, 0.5);
+  background: rgba(242, 63, 67, 0.12);
+  color: #ff8a8a;
+}
+
+.trivia-feedback {
+  background: rgba(20, 20, 22, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.15rem 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: triviaFadeIn 0.3s ease;
+}
+
+.trivia-feedback.hidden {
+  display: none !important;
+}
+
+.feedback-correct {
+  color: #3dd68c;
+  font-weight: 500;
+}
+
+.feedback-wrong {
+  color: #ff8a8a;
+  font-weight: 500;
+}
+
+.trivia-next-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.15rem;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--accent-blue) 45%, transparent);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.trivia-next-btn:hover {
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 25%, transparent);
+  transform: translateY(-1px);
+}
+
+/* results */
+.trivia-results-card {
+  background: rgba(20, 20, 22, 0.85);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  max-width: 420px;
+  margin: 1.5rem auto 0;
+}
+
+.trivia-results-icon {
+  font-size: 2.4rem;
+  color: var(--accent-blue);
+  margin-bottom: 0.75rem;
+  text-shadow: 0 0 20px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.trivia-results-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  text-transform: lowercase;
+}
+
+.trivia-results-score {
+  font-size: 2.4rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.trivia-results-pct {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.trivia-results-msg {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  margin-bottom: 1.75rem;
+}
+
+.trivia-results-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.trivia-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--accent-blue) 45%, transparent);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.trivia-action-btn:hover {
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.trivia-action-btn.secondary {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--border);
+  color: var(--text-secondary);
+}
+
+.trivia-action-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+}
+
+@media (max-width: 640px) {
+  .trivia-level-row {
+    grid-template-columns: 1fr;
+  }
+
+  .trivia-question-text {
+    font-size: 1.05rem;
+  }
+
+  .trivia-results-card {
+    padding: 2rem 1.35rem;
+  }
+
+  .trivia-count-wrap {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .trivia-count-display {
+    flex-direction: row;
+    gap: 0.4rem;
+    justify-content: center;
+  }
+}
+
+/* past scores on setup */
+.trivia-past-wrap {
+  margin-top: 1.75rem;
+}
+
+.trivia-past-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.trivia-past-header h4 {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  margin: 0;
+}
+
+.trivia-past-empty {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 0.85rem 0;
+}
+
+.trivia-past-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.trivia-past-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.trivia-past-row:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.trivia-past-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.trivia-past-score {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.trivia-past-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.trivia-past-details-btn {
+  flex-shrink: 0;
+  padding: 0.35rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.trivia-past-details-btn:hover {
+  color: var(--text-primary);
+  border-color: color-mix(in srgb, var(--accent-blue) 40%, transparent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+/* scores popup */
+.trivia-scores-popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+
+.trivia-scores-popup-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.trivia-scores-popup {
+  width: 100%;
+  max-width: 420px;
+  max-height: min(80vh, 560px);
+  background: rgba(18, 18, 20, 0.96);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(16px) scale(0.96);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+}
+
+.trivia-scores-popup-overlay.open .trivia-scores-popup {
+  transform: translateY(0) scale(1);
+}
+
+.trivia-scores-popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.15rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.trivia-scores-popup-header h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  text-transform: lowercase;
+}
+
+.trivia-scores-popup-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.18s ease;
+}
+
+.trivia-scores-popup-close:hover {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.trivia-scores-popup-body {
+  padding: 1rem 1.15rem 1.25rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.trivia-score-entry {
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.trivia-score-entry-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.trivia-score-entry-score {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.trivia-score-entry-pct {
+  font-size: 0.85rem;
+  color: var(--accent-blue);
+  font-weight: 500;
+}
+
+.trivia-score-entry-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.trivia-scores-view-all {
+  margin-top: 0.35rem;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-align: center;
+}
+
+.trivia-scores-view-all:hover {
+  color: var(--text-primary);
+  border-color: color-mix(in srgb, var(--accent-blue) 40%, transparent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.trivia-scores-popup-empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 2rem 1rem;
+  font-size: 0.92rem;
+}
+
+/* =========================================================
+   WORKFLOW TIMELINE FIX + CORE TOOLKIT
+   ========================================================= */
+
+/* stop the vertical line exactly at the center of the last (10th) marker */
+.workflow-timeline::before {
+  top: 29px;
+  bottom: 29px;
+}
+
+/* intro text under the “core toolkit” heading */
+.tools-intro {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: -0.75rem auto 1.85rem;
+  text-align: center;
+}
+
+/* grid of tool categories */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.35rem;
+  max-width: 920px;
+  margin: 0 auto 2.5rem;
+}
+
+.tool-category-card {
+  background: rgba(20, 20, 22, 0.8);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.35rem 1.4rem 1.3rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-category-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.tool-category-card:hover {
+  border-color: color-mix(in srgb, var(--accent-blue) 50%, transparent);
+  box-shadow: var(--shadow), 0 0 20px color-mix(in srgb, var(--accent) 16%, transparent);
+  transform: translateY(-4px);
+}
+
+.tool-category-card:hover::before {
+  opacity: 0.04;
+}
+
+.tool-cat-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.tool-cat-header i {
+  font-size: 1.05rem;
+  color: var(--accent-blue);
+  width: 1.35rem;
+  text-align: center;
+}
+
+.tool-cat-header h5 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--text-primary);
+  margin: 0;
+  text-transform: lowercase;
+}
+
+.tool-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  position: relative;
+  z-index: 1;
+}
+
+.tool-tag {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.32rem 0.7rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  line-height: 1.3;
+}
+
+.tool-category-card:hover .tool-tag {
+  border-color: color-mix(in srgb, var(--accent-blue) 35%, transparent);
+  color: var(--text-primary);
+}
+
+.tool-tag:hover {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  border-color: color-mix(in srgb, var(--accent-blue) 50%, transparent);
+  color: var(--accent-blue);
+  transform: translateY(-1px);
+}
+
+/* mobile tweaks for tools */
+@media (max-width: 640px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .tool-category-card {
+    padding: 1.15rem 1.15rem 1.1rem;
+  }
+
+  .tools-intro {
+    font-size: 0.92rem;
+    margin-bottom: 1.5rem;
+  }
+}
