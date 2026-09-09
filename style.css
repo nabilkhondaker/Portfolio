@@ -4782,3 +4782,607 @@ border-radius: 12px;          /* soft rounded edges */
     margin-bottom: 1.5rem;
   }
 }
+
+/* =========================================================
+   WORKFLOW TIMELINE FIX + CORE TOOLKIT + GALLERY CAPTIONS
+   ========================================================= */
+
+/* stop the vertical line exactly at the center of the last (10th) marker */
+.workflow-timeline::before {
+  top: 29px;
+  bottom: 29px;
+}
+
+/* intro text under the “core toolkit” heading */
+.tools-intro {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: -0.75rem auto 1.85rem;
+  text-align: center;
+}
+
+/* grid of tool categories */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.35rem;
+  max-width: 920px;
+  margin: 0 auto 2.5rem;
+}
+
+.tool-category-card {
+  background: rgba(20, 20, 22, 0.8);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.35rem 1.4rem 1.3rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-category-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.tool-category-card:hover {
+  border-color: color-mix(in srgb, var(--accent-blue) 50%, transparent);
+  box-shadow: var(--shadow), 0 0 20px color-mix(in srgb, var(--accent) 16%, transparent);
+  transform: translateY(-4px);
+}
+
+.tool-category-card:hover::before {
+  opacity: 0.04;
+}
+
+.tool-cat-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.tool-cat-header i {
+  font-size: 1.05rem;
+  color: var(--accent-blue);
+  width: 1.35rem;
+  text-align: center;
+}
+
+.tool-cat-header h5 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--text-primary);
+  margin: 0;
+  text-transform: lowercase;
+}
+
+.tool-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  position: relative;
+  z-index: 1;
+}
+
+.tool-tag {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.32rem 0.7rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  line-height: 1.3;
+}
+
+.tool-category-card:hover .tool-tag {
+  border-color: color-mix(in srgb, var(--accent-blue) 35%, transparent);
+  color: var(--text-primary);
+}
+
+.tool-tag:hover {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  border-color: color-mix(in srgb, var(--accent-blue) 50%, transparent);
+  color: var(--accent-blue);
+  transform: translateY(-1px);
+}
+
+/* education gallery captions */
+.gallery-caption {
+  margin: 0.85rem 0 0;
+  padding: 0 0.35rem;
+  text-align: center;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  min-height: 2.6em;
+  transition: opacity 0.16s ease;
+}
+
+.gallery-caption.is-fading {
+  opacity: 0;
+}
+
+@media (max-width: 640px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .tool-category-card {
+    padding: 1.15rem 1.15rem 1.1rem;
+  }
+
+  .tools-intro {
+    font-size: 0.92rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .gallery-caption {
+    font-size: 0.82rem;
+    min-height: 2.8em;
+  }
+}
+
+/* =========================================================
+   NABILAI FAQ CHATBOT
+   ========================================================= */
+
+.nabilai-chatbot {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9990;
+  font-family: 'Inter', system-ui, sans-serif;
+  pointer-events: none;
+}
+
+.nabilai-chatbot > * {
+  pointer-events: auto;
+}
+
+/* hide when any overlay page is open */
+body.overlay-open .nabilai-chatbot {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+/* ---------- toggle button (face) ---------- */
+.nabilai-toggle {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--accent-blue) 55%, transparent);
+  background: rgba(15, 15, 17, 0.9);
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 0 22px color-mix(in srgb, var(--accent) 35%, transparent);
+  transition:
+    transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nabilai-toggle:hover {
+  transform: scale(1.08);
+  border-color: var(--accent-blue);
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 32px color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.nabilai-toggle:active {
+  transform: scale(0.92);
+}
+
+.nabilai-face {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.64, 1), filter 0.35s ease;
+  will-change: transform, filter;
+}
+
+/* satisfying click distortion */
+.nabilai-toggle.is-clicking .nabilai-face {
+  transform: scale(0.82) rotate(-8deg) skewX(-6deg);
+  filter: contrast(1.15) saturate(1.2) brightness(1.05);
+}
+
+.nabilai-pulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--accent-blue) 40%, transparent);
+  animation: nabilaiPulse 2.4s ease-out infinite;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.nabilai-toggle:not(.is-open) .nabilai-pulse {
+  opacity: 1;
+}
+
+@keyframes nabilaiPulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+
+/* when panel open, dim the toggle a bit */
+.nabilai-toggle.is-open {
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* ---------- chat panel ---------- */
+.nabilai-panel {
+  position: absolute;
+  bottom: 78px;
+  right: 0;
+  width: min(360px, calc(100vw - 32px));
+  height: min(520px, calc(100vh - 120px));
+  background: rgba(14, 14, 16, 0.92);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 0 40px color-mix(in srgb, var(--accent) 18%, transparent);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform-origin: bottom right;
+  transition:
+    opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.28s;
+}
+
+.nabilai-panel.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.88) translateY(16px);
+  pointer-events: none;
+}
+
+.nabilai-panel:not(.hidden) {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1) translateY(0);
+}
+
+/* header */
+.nabilai-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 12%, transparent) 0%,
+    transparent 100%
+  );
+  flex-shrink: 0;
+}
+
+.nabilai-header-left {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.nabilai-header-face {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid color-mix(in srgb, var(--accent-blue) 50%, transparent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.nabilai-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.nabilai-name {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.2px;
+  text-transform: lowercase;
+}
+
+.nabilai-status {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.2px;
+}
+
+.nabilai-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.nabilai-close:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* messages area */
+.nabilai-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-behavior: smooth;
+}
+
+.nabilai-messages::-webkit-scrollbar {
+  width: 5px;
+}
+.nabilai-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+.nabilai-messages::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+
+/* message bubbles */
+.nabilai-msg {
+  max-width: 92%;
+  padding: 10px 13px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  animation: nabilaiMsgIn 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes nabilaiMsgIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.nabilai-msg.bot {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: var(--text-secondary);
+  border-bottom-left-radius: 5px;
+}
+
+.nabilai-msg.user {
+  align-self: flex-end;
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-blue) 35%, transparent);
+  color: var(--text-primary);
+  border-bottom-right-radius: 5px;
+}
+
+.nabilai-msg.bot strong {
+  color: var(--accent-blue);
+  font-weight: 500;
+}
+
+/* unique typing indicator */
+.nabilai-typing {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  border-bottom-left-radius: 5px;
+  animation: nabilaiMsgIn 0.25s ease both;
+}
+
+.nabilai-typing-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+}
+
+.nabilai-typing-gears {
+  display: flex;
+  gap: 3px;
+}
+
+.nabilai-typing-gears i {
+  font-size: 0.7rem;
+  color: var(--accent-blue);
+  animation: nabilaiGearSpin 1.1s linear infinite;
+}
+
+.nabilai-typing-gears i:nth-child(2) {
+  animation-delay: 0.15s;
+  animation-direction: reverse;
+}
+
+.nabilai-typing-gears i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes nabilaiGearSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* options */
+.nabilai-options {
+  padding: 10px 12px 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  max-height: 210px;
+  overflow-y: auto;
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.nabilai-options::-webkit-scrollbar {
+  width: 4px;
+}
+.nabilai-options::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.nabilai-opt-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: lowercase;
+}
+
+.nabilai-opt-btn:hover {
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border-color: color-mix(in srgb, var(--accent-blue) 45%, transparent);
+  color: var(--text-primary);
+  transform: translateX(3px);
+}
+
+.nabilai-opt-btn:active {
+  transform: translateX(1px) scale(0.99);
+}
+
+.nabilai-opt-btn:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* stage label inside options */
+.nabilai-stage-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--accent-blue);
+  margin-bottom: 2px;
+  padding: 0 2px;
+  opacity: 0.85;
+}
+
+/* empty state / restart */
+.nabilai-restart {
+  margin-top: 4px;
+  text-align: center;
+}
+
+.nabilai-restart-btn {
+  background: transparent;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 0.8rem;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.nabilai-restart-btn:hover {
+  border-color: color-mix(in srgb, var(--accent-blue) 40%, transparent);
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* mobile */
+@media (max-width: 480px) {
+  .nabilai-chatbot {
+    bottom: 16px;
+    right: 14px;
+  }
+
+  .nabilai-toggle {
+    width: 56px;
+    height: 56px;
+  }
+
+  .nabilai-panel {
+    bottom: 70px;
+    width: calc(100vw - 28px);
+    height: min(480px, calc(100vh - 100px));
+    border-radius: 16px;
+  }
+
+  .nabilai-msg {
+    font-size: 0.86rem;
+  }
+
+  .nabilai-opt-btn {
+    font-size: 0.84rem;
+    padding: 9px 11px;
+  }
+}
