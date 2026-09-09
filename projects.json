@@ -2,8 +2,8 @@
   {
     "title": "cfd solver <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
     "tag": "a computational fluid dynamics mini-solver made in js - june 25, 2026",
-    "description": "a high-performance Lattice Boltzmann Method (LBM) fluid dynamics solver built for the web, simulates real-time fluid structure",
-    "techSpecs": "engineered a custom lattice boltzmann method (lbm) solver. i utilized float32array typed arrays to bypass javascript performance bottlenecks, enabling stable 60fps fluid simulation within the html5 canvas.",
+    "description": "a lattice boltzmann method (lbm) fluid dynamics solver built for the web that simulates fluid-structure interaction in real time",
+    "techSpecs": "wrote a custom lattice boltzmann method (lbm) solver. used float32array typed arrays to keep the javascript side fast enough for stable 60fps fluid simulation on an html5 canvas.",
     "repo": "https://github.com/nabilkhondaker/CFDSolve",
     "link": "https://nabilkhondaker.github.io/CFDSolve/",
     "inProgress": true,
@@ -15,7 +15,7 @@
     "title": "fea generative cto engine <i class=\"fab fa-python\"></i>",
     "tag": "custom physics engine that strips away material to find the ultimate structural shape - february 4, 2026",
     "description": "built a 2D generative design engine from scratch to figure out how the math behind aerospace lightweighting actually works",
-    "techSpecs": "architected a generative solver for structural lightweighting. i optimized the global stiffness matrix assembly using scipy sparse matrices to efficiently handle topologies.",
+    "techSpecs": "built a generative solver for structural lightweighting. used scipy sparse matrices for the global stiffness matrix assembly so it could handle larger topologies without choking.",
     "repo": "https://github.com/nabilkhondaker/FEAGenerative",
     "why": "i was fascinated by how aerospace and automotive parts end up with those crazy organic shapes and wanted to understand the actual math instead of just clicking “optimize” in a black-box cad tool. building the whole thing from scratch forced me to internalize the compliance minimization, sensitivity filtering, and optimality criteria algorithms.",
     "learned": "i learned the full simp pipeline—how the power-law penalization forces intermediate densities toward solid or void, how sensitivity filters kill checkerboarding, and how the optimality criteria method with lagrange multipliers actually updates the densities each iteration. sparse matrix handling and modular code architecture (mesh, fem solver, filters, optimizer as separate layers) also became much clearer.",
@@ -23,20 +23,20 @@
   },
   {
     "title": "fea playground 2D <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
-    "tag": "hardware-accelerated 2D finite element analysis solver - december 11, 2025",
-    "description": "an browser-native computational mechanics suite built to model, solve, and visualize 2D elastic truss and frame structures in real time",
-    "techSpecs": "developed a computational mechanics suite for truss and frame analysis. i refactored the event loop and decoupled solvers from the rendering pipeline to eliminate lag.",
+    "tag": "browser-based 2D finite element analysis solver - december 11, 2025",
+    "description": "a browser-native computational mechanics suite built to model, solve, and visualize 2D elastic truss and frame structures in real time",
+    "techSpecs": "built a computational mechanics suite for truss and frame analysis. refactored the event loop and separated the solvers from the rendering pipeline so the ui stayed responsive.",
     "repo": "https://github.com/nabilkhondaker/FEAPlayground2D",
     "link": "https://nabilkhondaker.github.io/FEAPlayground2D/",
     "why": "i got tired of waiting for commercial fea packages or having to install heavy tools just to play with simple structural problems. i wanted a lightweight, interactive playground i could open in any browser and use to rapidly test ideas or verify hand calculations.",
-    "learned": "i learned how to assemble global stiffness matrices from scratch, apply boundary conditions through static condensation, and solve the resulting linear systems efficiently enough for real-time browser use. mapping classical structural mechanics equations directly onto a hardware-accelerated rendering loop taught me a lot about performance trade-offs and numerical accuracy in javascript.",
+    "learned": "i learned how to assemble global stiffness matrices from scratch, apply boundary conditions through static condensation, and solve the resulting linear systems fast enough for real-time browser use. mapping classical structural mechanics equations onto a gpu-backed rendering loop taught me a lot about performance trade-offs and numerical accuracy in javascript.",
     "challenges": "getting the stiffness matrix assembly and solver stable across different mesh densities was harder than expected. floating-point precision and making sure results matched analytical benchmarks (i checked against known cases and commercial software) took a lot of careful debugging. keeping the ui responsive while still solving the system on every parameter change was another constant balancing act."
   },
   {
     "title": "2R planar robot paddle <i class=\"fab fa-python\"></i>",
     "tag": "physical automated robotic arm using inverse kinematics",
     "description": "mechatronics 2R planar arm playing a game similar to air hockey or pong, programmed in native python - september 3, 2025",
-    "techSpecs": "created a mechatronics model using a trigonometric inverse kinematics (ik) solver. this maps 2d coordinates to joint angles in real-time with minimal latency",
+    "techSpecs": "built a mechatronics model with a trigonometric inverse kinematics (ik) solver that maps 2d coordinates to joint angles in real time.",
     "repo": "https://github.com/nabilkhondaker/TabletopPlanarArm",
     "link": "https://nabilkhondaker.github.io/TabletopPlanarArm/",
     "why": "it was the first real hands-on mechatronics project that let me take pure textbook control theory and actually make something move and interact with the physical world. i wanted to prove i could close the loop from camera pixels → kinematics → motor torque on real hardware instead of just simulating everything.",
@@ -47,7 +47,7 @@
     "title": "mechgenpro engine <i class=\"fas fa-cogs\"></i>",
     "tag": "procedural kinematics engine that generates, simulates, and optimizes linkages - july 7, 2026",
     "description": "built a real-time procedural kinematics engine from scratch in lua + löve2d to figure out how planar mechanism synthesis and grashof classification actually work",
-    "techSpecs": "architected a modular four-bar solver with forward kinematics, velocity/acceleration analysis, and a genetic optimizer for path matching. implemented custom vector math, newton-raphson solvers, and interactive trajectory tracing.",
+    "techSpecs": "built a modular four-bar solver with forward kinematics, velocity/acceleration analysis, and a genetic optimizer for path matching. wrote custom vector math, newton-raphson solvers, and interactive trajectory tracing.",
     "repo": "https://github.com/nabilkhondaker/MechGenPro",
     "why": "i wanted a fast, visual playground for mechanism design where i could generate valid linkages on the fly, watch their coupler curves, and optimize them — something more interactive than static textbook diagrams or heavy cad tools. it also let me explore procedural generation applied to mechanical systems.",
     "learned": "i got much more comfortable with the grashof criteria, transmission angles, four-bar position analysis, and numerical methods for solving linkage kinematics. building the generator + validator + optimizer loop taught me a lot about constraint handling and multi-objective design in mechanism synthesis. working in lua/löve2d was also a fun change of pace from the c++/python stack.",
@@ -55,18 +55,18 @@
   },
   {
     "title": "vehicle dynamics sim <i class='devicon-cplusplus-plain'></i>",
-    "tag": "high-performance 14-DOF vehicle dynamics simulator - july 15, 2026",
+    "tag": "14-DOF vehicle dynamics simulator - july 15, 2026",
     "description": "real-time multi-body vehicle simulator with nonlinear tire physics, active controllers, and genetic algorithm suspension optimization",
     "techSpecs": "built a 14-DOF C++ vehicle dynamics engine with real-time RK4 integration, Pacejka Magic Formula tires, OpenMP parallelization, ABS/ESC systems, and GA-based suspension tuning.",
     "repo": "https://github.com/nabilkhondaker/VehicleDynamicSim",
-    "why": "i’ve always been interested in how cars actually behave at the limit — understeer, oversteer, load transfer, tire slip. i wanted to go beyond simple bicycle models and build something that could capture real handling metrics and let me experiment with control systems (abs/esc) and setup optimization in a high-fidelity environment.",
+    "why": "i’ve always been interested in how cars actually behave at the limit — understeer, oversteer, load transfer, tire slip. i wanted to go beyond simple bicycle models and build something that could capture real handling metrics and let me experiment with control systems (abs/esc) and setup optimization in a detailed environment.",
     "learned": "i learned a ton about multi-body vehicle modeling, nonlinear tire force generation with the magic formula, how suspension and aero interact with chassis motion, and the practical side of running stable real-time integration on a complex system. parallelizing the tire and suspension calculations with openmp and wiring up a genetic algorithm for multi-objective setup tuning were especially educational.",
     "challenges": "keeping a 14-dof system numerically stable at 1 ms timesteps while still running fast enough for interactive use was a major challenge. the pacejka model has a lot of parameters and can produce weird force curves if you’re not careful. coordinating the abs and esc logic so they don’t fight each other, and making the genetic algorithm converge on useful suspension setups without getting stuck in local minima, both took significant debugging and tuning."
   },
   {
     "title": "PID control sim <i class='devicon-cplusplus-plain'></i> <i class=\"fab fa-python\"></i>",
     "tag": "electrical engineering related interactive sim - april 14, 2026",
-    "description": "interactive PID controller simulator for robotic and motor control systems with real-time response visualization engineered in c++",
+    "description": "interactive PID controller simulator for robotic and motor control systems with real-time response visualization, written in c++",
     "techSpecs": "implemented a discrete-time pid algorithm for motor response modeling. the engine allows for live tuning of proportional, integral, and derivative parameters to visualize system damping.",
     "repo": "https://github.com/nabilkhondaker/PIDControlSim",
     "why": "after tuning pid gains on the physical 2r arm and seeing how sensitive real systems are, i wanted a clean, fast sandbox where i could experiment with classical control theory without hardware risk. it also felt like a natural bridge between pure theory and the kind of control code you eventually put on embedded systems.",
@@ -76,8 +76,8 @@
   {
     "title": "microgrid sim <i class='devicon-cplusplus-plain'></i>",
     "tag": "power electronics & MPPT microgrid simulator made in c++ - may 19, 2026",
-    "description": "high-fidelity c++ microgrid simulator featuring PV I-V curve modeling, adaptive MPPT control, DC-DC converter dynamics, and energy storage dispatch logic",
-    "techSpecs": "built a high-fidelity pv simulator. it models i-v curves and uses an adaptive maximum power point tracking (mppt) algorithm to simulate converter responses to variable weather telemetry.",
+    "description": "c++ microgrid simulator with PV I-V curve modeling, adaptive MPPT control, DC-DC converter dynamics, and energy storage dispatch logic",
+    "techSpecs": "built a detailed pv simulator. it models i-v curves and uses an adaptive maximum power point tracking (mppt) algorithm to simulate converter responses to variable weather telemetry.",
     "repo": "https://github.com/nabilkhondaker/MicrogridSim",
     "why": "after building the higher-level python renewableenergysim, i wanted something lower-level and faster that could capture the actual power-electronics dynamics instead of just energy balance. i was curious how the control loops (especially mppt and dispatch) behave when you model the converters and battery physics more carefully, and c++ felt like the right tool for that kind of tight, real-time-ish simulation.",
     "learned": "i got a much clearer picture of how single-diode pv models respond to temperature and irradiance, how different mppt algorithms hunt for the maximum power point in practice, and how converter duty-cycle control and battery constraints interact during sudden changes in load or sunlight. designing a clean modular c++ architecture (models, controllers, utils) with proper interfaces also taught me a lot about keeping simulation code maintainable as it grows.",
@@ -85,9 +85,9 @@
   },
   {
     "title": "renewable energy sim <i class=\"fab fa-python\"></i>",
-    "tag": "enterprise python renewable energy microgrid simulator - march 2, 2026",
-    "description": "enterprise-grade python sim and interactive web dashboard for renewable energy microgrids using real-world weather data",
-    "techSpecs": "designed an enterprise energy management simulator. it uses a modular dispatch algorithm to balance demand against storage, enabling sensitivity analysis on grid stability.",
+    "tag": "python renewable energy microgrid simulator - march 2, 2026",
+    "description": "python sim and interactive web dashboard for renewable energy microgrids using real-world weather data",
+    "techSpecs": "built an energy management simulator with a modular dispatch algorithm that balances demand against storage, so you can run sensitivity checks on grid stability.",
     "repo": "https://github.com/nabilkhondaker/RenewableEnergySim",
     "why": "i wanted to explore the systems side of renewable energy—how generation, storage, and load actually interact under realistic weather conditions—rather than just looking at isolated component models. building something modular and dashboard-driven felt like a natural step toward larger energy-systems work.",
     "learned": "i learned the practical details of pv temperature derating, how a simple p&o mppt algorithm actually hunts for the maximum power point, battery soc integration with efficiency losses, and non-linear inverter efficiency curves. structuring a larger python project with clean separation (models, core engine, data fetchers, dashboard) was also valuable experience.",
@@ -96,13 +96,13 @@
   {
     "title": "robosim 3d arm simulator <i class=\"fas fa-robot\"></i>",
     "tag": "real-time inverse kinematics robotic arm simulation built with three.js - march 17, 2025",
-    "description": "built a hardware-accelerated 3d robotic arm simulator from scratch in vanilla js + three.js to figure out how real-time inverse kinematics and multi-joint matrix transforms actually work",
+    "description": "built a 3d robotic arm simulator from scratch in vanilla js + three.js to figure out how real-time inverse kinematics and multi-joint matrix transforms actually work",
     "techSpecs": "implemented a real-time ik solver that maps 3d target coordinates to joint angles, plus path caching, velocity telemetry, and hierarchical gripper transforms.",
     "repo": "https://github.com/nabilkhondaker/RoboSIM",
     "link": "https://nabilkhondaker.github.io/TabletopPlanarArm/",
     "why": "i wanted a pure software 3d counterpart to the physical 2r planar arm — something i could use to visualize and experiment with full inverse kinematics, hierarchical joint transforms, and tool-path behavior without needing hardware. building it in the browser with three.js also let me practice real-time 3d graphics and matrix math in a way that felt immediate and shareable.",
-    "learned": "i got much deeper into 3d inverse kinematics (trig and matrix approaches for multi-joint arms), hierarchical scene graphs so rotations propagate correctly through parent-child joints, and how to keep a high-performance render loop while also running a secondary canvas for live telemetry graphs. path caching/playback and variable-speed execution taught me a lot about sequencing and time-scaling motion data.",
-    "challenges": "getting the ik solver robust enough that the arm didn’t fold into weird configurations or lose solutions near singularities took iteration. keeping the 3d scene, the ik calculations, and the telemetry canvas all running smoothly at interactive frame rates required careful frame-loop design. making the gripper hierarchy and motion trails look clean without tanking performance, and balancing the “industrial automation” aesthetic with actual usability, were also ongoing refinements."
+    "learned": "i got much deeper into 3d inverse kinematics (trig and matrix approaches for multi-joint arms), hierarchical scene graphs so rotations propagate correctly through parent-child joints, and how to keep a smooth render loop while also running a secondary canvas for live telemetry graphs. path caching/playback and variable-speed execution taught me a lot about sequencing and time-scaling motion data.",
+    "challenges": "getting the ik solver solid enough that the arm didn’t fold into weird configurations or lose solutions near singularities took iteration. keeping the 3d scene, the ik calculations, and the telemetry canvas all running smoothly at interactive frame rates required careful frame-loop design. making the gripper hierarchy and motion trails look clean without tanking performance, and balancing the “industrial automation” aesthetic with actual usability, were also ongoing refinements."
   },
   {
     "title": "kinematicsJS <i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i>",
@@ -113,6 +113,6 @@
     "link": "https://nabilkhondaker.github.io/KinematicsJS/",
     "why": "after working on the physical 2r arm i wanted a pure software sandbox where i could rapidly prototype different kinematic chains, test inverse-kinematics solvers, and visualize joint-space vs. task-space behavior without having to rebuild hardware every time.",
     "learned": "i deepened my understanding of transformation matrices, jacobian-based ik methods, and how to keep a real-time physics loop stable with collision resolution. building the visualization layer (charts, live joint angles, end-effector paths) also taught me a lot about clean interactive ui design for technical tools.",
-    "challenges": "inverse kinematics singularities and making sure the solver stayed robust near them were tricky. balancing numerical stability of the physics integration with responsiveness in the browser, and keeping the code small enough to stay “compact” while still being useful, required careful trade-offs."
+    "challenges": "inverse kinematics singularities and making sure the solver stayed solid near them were tricky. balancing numerical stability of the physics integration with responsiveness in the browser, and keeping the code small enough to stay “compact” while still being useful, required careful trade-offs."
   }
 ]
