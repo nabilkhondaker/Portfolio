@@ -1,6 +1,5 @@
 /**
- * engineering toolbox for Nabil's portfolio[cite: 1]
- * features 11 calculators/tools covering dynamics, FEA, kinematics, and solid mechanics.[cite: 1]
+ * features 11 calculators/tools covering dynamics, FEA, kinematics, and solid mechanics.
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -243,14 +242,30 @@ function initMohrCalc() {
         const ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        const padding = 20;
         const width = canvas.width;
         const height = canvas.height;
         
         const minSigma = center - R;
         const maxSigma = center + R;
         const span = Math.max(Math.abs(maxSigma - minSigma), R*2.5) || 100;
-        const scale = (width - padding * 2) / span;
+        
+const padding = 30;
+
+const plotWidth = width - 2 * padding;
+const plotHeight = height - 2 * padding;
+
+const spanX = Math.max(
+    Math.abs(maxSigma - minSigma),
+    R * 2.5
+);
+
+const spanY = R * 2.5;
+
+const scaleX = plotWidth / spanX;
+const scaleY = plotHeight / spanY;
+
+const scale = Math.min(scaleX, scaleY);
+        
 
         const xToPixel = (val) => padding + (val - (center - span/2)) * scale;
         const yToPixel = (val) => height/2 - val * scale;
