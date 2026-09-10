@@ -10,7 +10,7 @@ const toolsData = [
     { id: "beam", title: "beam calculator", icon: "fa-solid fa-ruler-horizontal", desc: "computes max deflection and bending moment for simple beams" },
     { id: "stress", title: "stress/strain & Hooke's", icon: "fa-solid fa-compress", desc: "material behavior, true vs engineering stress, and elastic moduli" },
     { id: "mohr", title: "Mohr's circle", icon: "fa-solid fa-circle-notch", desc: "planar stress transformation, principal stresses, and max shear" },
-    { id: "matrix", title: "matrix operations", icon: "fa-solid fa-table-cells", desc: "determinate, inverse, and multiplication for 2x2 / 3x3 matrices" },
+    { id: "matrix", title: "matrix operations", icon: "fa-solid fa-table-cells", desc: "determinate and inverse for 2x2 matrices" },
     { id: "units", title: "unit conversion", icon: "fa-solid fa-scale-balanced", desc: "engineering specific conversions (lbf/N, psi/MPa, hp/kW)" },
     { id: "kinematics", title: "2R planar kinematics", icon: "fa-solid fa-robot", desc: "inverse kinematics for a 2D robotic arm to reach target coordinates" },
     { id: "pid", title: "PID tuning (ZN)", icon: "fa-solid fa-sliders", desc: "Ziegler-Nichols heuristic tuner based on ultimate gain and period" },
