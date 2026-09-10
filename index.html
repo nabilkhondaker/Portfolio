@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -78,6 +77,10 @@
           <i class="fa-solid fa-brain"></i>
           <span>trivia</span>
         </button>
+        <button class="vs-sidebar-item" data-page="toolbox">
+          <i class="fa-solid fa-toolbox"></i>
+          <span>toolbox</span>
+        </button>
       </div>
     </aside>
     <div id="vs-sidebar-backdrop" class="vs-sidebar-backdrop"></div>
@@ -133,7 +136,7 @@
               </div>
               <div class="hero-info">
                 <h1 class="hero-title text-gradient">nabil khondaker</h1>
-                <p class="hero-subtitle">computational mechanics, robotics, and engineering fanatic</p>
+                <p class="hero-subtitle">developer, passionate tech enthusiast, and an aspiring engineer</p>
                 <div class="social-grid">
                   <button class="social-btn" data-link="https://github.com/nabilkhondaker" title="GitHub">
                     <i class="fa-brands fa-github"></i>
@@ -1304,6 +1307,38 @@
       </div>
     </div>
 
+    <!-- ========== TOOLBOX PAGE ========== -->
+    <div id="page-toolbox" class="page-overlay-right">
+      <div class="overlay-header">
+        <button class="overlay-nav-btn close-right-page" id="close-toolbox-btn">
+          <i class="fa-solid fa-arrow-right"></i> back
+        </button>
+      </div>
+      <div class="overlay-content">
+        <h3 class="overlay-section-title">engineering toolbox</h3>
+        
+        <div class="card" style="margin-bottom: 2.5rem;" id="toolbox-intro">
+          <div class="card-content">
+            <p class="about-text">
+              custom scripts and calculators developed for quick reference during design and prototyping.<br>
+              these tools bridge core numerics with actual mechanical applications, from inverse kinematics to simple FEA parameter checks. 
+            </p>
+          </div>
+        </div>
+
+        <!-- Main Grid View -->
+        <div id="toolbox-main-grid" class="toolbox-grid-ui active-view">
+            <!-- Dynamically populated by toolbox.js -->
+        </div>
+
+        <!-- Subviews Container (where the actual tools slide into view) -->
+        <div id="toolbox-subviews" class="toolbox-subviews">
+            <!-- Dynamically populated by toolbox.js -->
+        </div>
+
+      </div>
+    </div>
+
     <!-- Wiki Modal -->
     <div id="wiki-modal" class="wiki-modal-overlay hidden">
       <div class="wiki-modal-content">
@@ -1376,7 +1411,7 @@
           <div class="nabilai-header-left">
             <img src="img/icon.png" alt="" class="nabilai-header-face">
             <div class="nabilai-header-text">
-              <span class="nabilai-name">nabilai</span>
+              <span class="nabilai-name">nabil but robot</span>
               <span class="nabilai-status">online · faq mode</span>
             </div>
           </div>
@@ -1398,5 +1433,6 @@
     <script src="projects.js"></script>
     <script src="glossary.js"></script>
     <script src="script.js"></script>
+    <script src="toolbox.js"></script>
   </body>
 </html>
