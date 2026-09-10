@@ -5386,3 +5386,185 @@ body.overlay-open .nabilai-chatbot {
     padding: 9px 11px;
   }
 }
+
+/* =========================================
+   TOOLBOX SPECIFIC STYLES 
+========================================= */
+.toolbox-grid-ui {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.toolbox-grid-ui.hidden-view {
+    opacity: 0;
+    transform: translateX(-30px);
+    pointer-events: none;
+    position: absolute;
+    visibility: hidden;
+}
+
+.tool-card-ui {
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.tool-card-ui:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+}
+
+.tool-icon {
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+}
+
+.tool-card-ui h4 {
+    margin-bottom: 0.4rem;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.tool-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.toolbox-subviews {
+    position: relative;
+    width: 100%;
+}
+
+.toolbox-tool-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.toolbox-tool-view.active-tool {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    position: relative;
+    visibility: visible;
+}
+
+.tool-header-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.tool-back-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tool-back-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.tool-view-title {
+    font-size: 1.4rem;
+    color: var(--text-primary);
+}
+
+.calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+}
+
+@media (max-width: 600px) {
+    .calc-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.4rem;
+}
+
+/* Enhanced horizontal text spacing for calculation result containers[cite: 7] */
+.calc-results {
+  letter-spacing: 0.6px;
+  word-spacing: 0.8px;
+}
+
+.calc-results p, 
+.calc-results span, 
+.calc-results h3 {
+  letter-spacing: 0.5px;
+}
+
+/* Remove default number input native spinner arrows[cite: 7] */
+input[type="number"].form-input {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type="number"].form-input::-webkit-inner-spin-button,
+input[type="number"].form-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Polished aesthetic styling for form inputs and selects[cite: 7] */
+.form-input {
+  background-color: rgba(18, 18, 20, 0.85);
+  border: 1px solid var(--border, #333);
+  color: var(--text-primary, #fff);
+  border-radius: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: var(--accent, #913700);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(145, 55, 0, 0.2);
+}
+
+/* Custom dropdown chevron replacing default browser select arrow[cite: 7] */
+select.form-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23a1a1aa' height='18' viewBox='0 0 24 24' width='18' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  background-size: 1.1rem;
+  padding-right: 2.6rem;
+  cursor: pointer;
+}
+
+select.form-input option {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 0.5rem;
+}
